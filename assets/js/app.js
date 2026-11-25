@@ -5,6 +5,7 @@
   const G = () => KM.grades;
   let cleanup = [];
   KM.session = null;
+  KM.onLeave = f => cleanup.push(f);
 
   /* ---------- yordamchilar ---------- */
   const lessonsOf = g => g.lessons.map((l, i) => ({ l, i: i + 1, id: g.n + '-' + (i + 1), g }));
@@ -16,6 +17,7 @@
   const doneCount = () => Object.keys(S().done).filter(id => KM.lesson(id)).length;
   const me = () => KM.session && KM.session.user;
   const isAdmin = () => !!me() && me().role === 'admin';
+  const TXP = () => S().xp + ((me() && me().bonus_xp) || 0), lvl = () => Math.floor(TXP() / 100) + 1;
   const groups = () => (me() && me().groups) || [];
   const hasCourse = c => isAdmin() || groups().some(g => (g.courses || []).includes(c));
   /* O'quvchining Informatika dasturi: sinfining darajasi (agar sinfga Informatika biriktirilgan bo'lsa) */
@@ -52,7 +54,7 @@
     ['JS', "JS sehrgari", "9-sinf kursini tugatish", () => gradeDone(9)],
     ['3', "Ijodkor", "Kod maydonida 3 ta loyiha", () => S().projects.length >= 3],
     ['∞', "Uch kun ketma-ket", "3 kun ketma-ket dars qilish", () => S().streak.n >= 3],
-    ['XP', "500 XP", "500 XP to'plash", () => S().xp >= 500],
+    ['XP', "500 XP", "500 XP to'plash", () => TXP() >= 500],
     ['11', "Bitiruvchi", "Hamma darslarni tugatish", () => doneCount() >= total()]
   ];
   function download(name, text, type) {
@@ -73,11 +75,11 @@
     const top = $('#top'), u = me();
     top.hidden = !u; if (!u) return;
     const nav = u.role === 'admin'
-      ? [['admin', 'Admin panel'], ['informatika', 'Informatika'], ['dasturlash', 'Dasturlash'], ['materiallar', 'Materiallar'], ['maydon', 'Kod maydoni']]
-      : [['bosh', 'Bosh sahifa'], hasCourse('informatika') && ['informatika', 'Informatika'], hasCourse('dasturlash') && ['dasturlash', 'Dasturlash'], ['materiallar', 'Materiallar'], ['maydon', 'Kod maydoni'], ['profil', 'Profil']].filter(Boolean);
+      ? [['admin', 'Admin panel'], ['informatika', 'Informatika'], ['dasturlash', 'Dasturlash'], ['admin-topshiriqlar', 'Topshiriqlar'], ['viktorina', 'Viktorina'], ['materiallar', 'Materiallar']]
+      : [['bosh', 'Bosh sahifa'], hasCourse('informatika') && ['informatika', 'Informatika'], hasCourse('dasturlash') && ['dasturlash', 'Dasturlash'], ['topshiriqlar', 'Topshiriqlar'], ['viktorina', 'Viktorina'], ['materiallar', 'Materiallar']].filter(Boolean);
     $('#nav').innerHTML = nav.map(n => '<a href="#' + n[0] + '" data-r="' + n[0] + '">' + n[1] + '</a>').join('');
     $('#xp').hidden = $('#streak').hidden = u.role === 'admin';
-    $('#xp').textContent = S().xp + ' XP';
+    $('#xp').textContent = TXP() + ' XP';
     $('#streak').textContent = S().streak.n + ' kun';
     $('#who').textContent = u.full_name.split(' ')[0];
     $('#meph').innerHTML = KM.stk.face(u);
@@ -141,25 +143,29 @@
       '<h1>Salom, ' + e(first) + '! Bugun nimani <span class="hl">o\'rganamiz?</span></h1><p class="lead">Darslar, testlar, materiallar va kod yozish — hammasi shu yerda. Boshqa saytga o\'tish shart emas.</p><div class="acts">' +
       (infNext ? '<a class="btn pri big" href="#infdars-' + ig + '-' + infNext.n + '">Informatika: ' + infNext.n + '-dars <span aria-hidden="true">→</span></a>' : '') +
       (nx ? '<a class="btn ' + (infNext ? 'ghost' : 'pri') + ' big" href="#dars-' + nx.id + '">Dasturlash: ' + e(nx.l.t) + '</a>' : '') +
-      (!infNext && !nx ? '<a class="btn pri big" href="#materiallar">Materiallarni ochish</a>' : '') + '</div></div>' +
+      (!infNext && !nx ? '<a class="btn pri big" href="#materiallar">Materiallarni ochish</a>' : '') + '<a class="btn ghost big" href="#viktorina">Viktorinaga kirish (PIN)</a></div></div>' +
       '<div class="hero-v"><div class="polaroid tilt-r">' + KM.stk.face(u) + '<span class="pol-cap">' + e(u.login) + (u.class_name ? ' · ' + e(u.class_name) : '') + '</span></div>' +
       '<div class="term"><div class="term-bar"><i></i><i></i><i></i><span>' + e(u.login) + '@prostudent: ~</span></div><div class="term-b mono"><p class="cmd"><b>$</b> prostudent --men</p><p class="cmt"># ' + e(u.full_name) + '</p>' +
-      '<p><span class="k">sinf       </span>: <span class="v">"' + e(u.class_name || '—') + '"</span></p><p><span class="k">xp         </span>: <span class="v">' + S().xp + '</span> <span class="cmt">(' + st.level() + '-daraja)</span></p>' +
+      '<p><span class="k">sinf       </span>: <span class="v">"' + e(u.class_name || '—') + '"</span></p><p><span class="k">xp         </span>: <span class="v">' + TXP() + '</span> <span class="cmt">(' + lvl() + '-daraja)</span></p>' +
       (IG ? '<p><span class="k">informatika</span>: <span class="v">' + infDone + ' / ' + IG.lessons.length + '</span></p>' : '') + (hasCourse('dasturlash') ? '<p><span class="k">dasturlash </span>: <span class="v">' + doneCount() + ' / ' + total() + '</span></p>' : '') +
       '<p class="cur-l"><b>$</b> <i class="caret"></i></p></div></div>' +
-      '<div class="sticker-tag">' + st.level() + '-daraja<small>' + S().xp + ' XP</small></div></div></div></section>' +
+      '<div class="sticker-tag">' + lvl() + '-daraja<small>' + TXP() + ' XP</small></div></div></div></section>' +
       '<section class="band"><div class="wrap"><h2 class="sub0">Mening guruhlarim</h2><div class="grp-grid">' + (groups().length ? groups().map(g => {
         const links = (g.courses || []).map(c => c === 'informatika' && g.kind === 'sinf' && KM.infGrades.some(x => x.n === g.grade) ? '<a class="btn sm" href="#inf-' + g.grade + '">Informatika</a>' : c === 'dasturlash' ? '<a class="btn sm" href="#dasturlash">Dasturlash</a>' : '').join('');
         return '<div class="grp ' + g.kind + '"><span class="grp-k">' + (g.kind === 'sinf' ? 'Sinf' : 'To\'garak') + '</span><b>' + e(g.name) + '</b><span class="muted">' + (g.kind === 'sinf' ? g.grade + '-sinf dasturi' : g.grade + '-daraja') + '</span><div class="acts">' + links + '<a class="btn sm" href="#materiallar-' + e(g.id) + '">Materiallar</a></div></div>';
       }).join('') : '<div class="empty-s"><p>Siz hali hech qaysi sinf yoki to\'garakka biriktirilmagansiz. O\'qituvchingizga ayting.</p></div>') + '</div>' +
+      '<div class="sec-h" style="margin-top:36px"><h2 class="sub0">Topshiriqlar</h2><a class="btn" href="#topshiriqlar">Hammasi</a></div><div class="tk-list" id="hometasks"><p class="muted">Yuklanmoqda…</p></div>' +
       '<div class="sec-h" style="margin-top:36px"><h2 class="sub0">Yangi materiallar</h2><a class="btn" href="#materiallar">Hammasi</a></div><div class="mat-grid" id="newmats"><p class="muted">Yuklanmoqda…</p></div></div></section>';
+    KM.api.assignments().then(xs => { const el = $('#hometasks'); if (!el) return; const todo = xs.filter(a => !(a.sub && a.sub.submitted_at)).slice(0, 3), graded = xs.filter(a => a.sub && a.sub.score != null).slice(0, 2);
+      const card = a => { const [k, t] = KM.work.status(a, a.sub); return '<a class="tk ' + k + '" href="#topshiriq-' + e(a.id) + '"><span class="tk-s">' + t + '</span><b>' + e(a.title) + '</b><span class="muted">' + (a.due_at ? 'Muddat: ' + KM.work.fmt(a.due_at) : 'Muddatsiz') + '</span></a>'; };
+      el.innerHTML = todo.length || graded.length ? todo.concat(graded).map(card).join('') : '<div class="empty-s"><p>Bajarilmagan topshiriq yo\'q. Barakalla!</p></div>'; }, () => {});
     KM.api.materials().then(ms => { const el = $('#newmats'); if (el) el.innerHTML = ms.length ? ms.slice(0, 4).map(matCard).join('') : '<div class="empty-s"><p>Hozircha material yo\'q.</p></div>'; }, () => { const el = $('#newmats'); if (el) el.innerHTML = '<p class="muted">Materiallarni yuklab bo\'lmadi.</p>'; });
   }
   /* Dasturlash kursi: 1–11 darajalar xaritasi */
   function codingHome() {
     const nx = nextLesson(), dc = doneCount(), tl = total();
     app.innerHTML = '<section class="ahead grid-bg"><div class="wrap ahead-in"><div><p class="pill-tag"><i></i>HTML · CSS · JavaScript</p><h1>Dasturlash</h1><p class="lead">Kod shu yerda yoziladi va avtomatik tekshiriladi. ' + dc + ' / ' + tl + ' dars tugatildi.</p></div><div class="acts">' +
-      (nx ? '<a class="btn pri big" href="#dars-' + nx.id + '">' + (dc ? 'Davom etish' : 'Boshlash') + ': ' + nx.g.n + '-daraja, ' + e(nx.l.t) + ' <span aria-hidden="true">→</span></a>' : '') + '</div></div></section>' +
+      (nx ? '<a class="btn pri big" href="#dars-' + nx.id + '">' + (dc ? 'Davom etish' : 'Boshlash') + ': ' + nx.g.n + '-daraja, ' + e(nx.l.t) + ' <span aria-hidden="true">→</span></a>' : '') + '<a class="btn ghost big" href="#maydon">Kod maydoni</a></div></div></section>' +
       ['boshlang', 'orta', 'yuqori'].map(k => { const gs = G().filter(g => g.stage === k); if (!gs.length) return ''; return '<section class="band stage st-' + k + '"><div class="wrap"><div class="stage-h"><p class="eyebrow-s">' + e(KM.stages[k].d.split(':')[0]) + '</p><h2>' + e(KM.stages[k].t) + '</h2><p>' + e(KM.stages[k].d.split(': ')[1] || '') + '</p></div><div class="route r' + gs.length + '">' + gs.map(gcard).join('') + '</div></div></section>'; }).join('') +
       '<section class="band how"><div class="wrap"><h2>Dars qanday o\'tadi</h2><div class="how-in">' +
       '<div class="hw"><span class="hw-i">' + ICON.book + '</span><h3>Nazariya</h3><p>Qisqa tushuntirish va rangli kod misollari. Har bir misolni bir tugma bilan kod maydonida ochish mumkin.</p></div>' +
@@ -304,6 +310,8 @@
 
   /* ---------- Informatika (fan darslari) ---------- */
   const infDone = id => !!S().inf[id];
+  /* O'qituvchi ochgan oxirgi dars raqami (null — hammasi ochiq) */
+  const infOpen = n => { if (isAdmin()) return null; const c = groups().find(g => g.kind === 'sinf' && g.grade === n && (g.courses || []).includes('informatika')); return c && c.inf_open != null ? c.inf_open : null; };
   function infIndex() {
     if (!isAdmin()) { const g = infGradeOf(); if (g && KM.infGrades.some(x => x.n === g)) { location.replace('#inf-' + g); return; } }
     app.innerHTML = '<section class="ahead grid-bg"><div class="wrap"><p class="pill-tag"><i></i>Fan darslari · taqvim-mavzu rejasi asosida</p><h1>Informatika</h1><p class="lead">Har bir mavzu: nazariya, "Esda tuting", test va uyga vazifa. Darsni sinfda proyektorga "Sinfda ko\'rsatish" tugmasi bilan chiqaring.</p></div></section>' +
@@ -322,7 +330,8 @@
     g.lessons.forEach(l => {
       if (l.part !== lastPart) { if (lastPart !== null) html += '</ol>'; html += '<h2 class="part-h">' + e(l.part || 'Darslar') + '</h2>'; lastPart = l.part; lastSec = null; html += '<ol class="inf-list">'; }
       if (l.sec && l.sec !== lastSec) { html += '<li class="sec-li">' + e(l.sec) + '</li>'; lastSec = l.sec; }
-      const id = n + '-' + l.n, d = infDone(id), q = S().inf[id] && S().inf[id].q, ctrl = /nazorat/i.test(l.t), proj = /loyiha/i.test(l.t);
+      const id = n + '-' + l.n, d = infDone(id), q = S().inf[id] && S().inf[id].q, ctrl = /nazorat/i.test(l.t), proj = /loyiha/i.test(l.t), op = infOpen(n), lk = op != null && l.n > op;
+      if (lk) { html += '<li class="il lock"><div class="il-a"><span class="il-n">' + ICON.lock + '</span><span class="il-b"><b>' + e(l.t) + '</b><small>O\'qituvchi bu darsni hali ochmagan</small></span><span class="il-s"></span></div></li>'; return; }
       html += '<li class="il' + (d ? ' done' : '') + '"><a href="#infdars-' + id + '"><span class="il-n">' + (d ? '✓' : l.n) + '</span><span class="il-b"><b>' + e(l.t) + (ctrl ? ' <em class="tag-c">nazorat</em>' : proj ? ' <em class="tag-p">loyiha</em>' : '') + '</b><small>' + e(l.hw) + '</small></span><span class="il-s">' + (q != null ? 'test ' + q + '/' + l.quiz.length : '') + '</span></a></li>';
     });
     html += '</ol>';
@@ -333,6 +342,7 @@
     const L = KM.infLesson(id); if (!L) return notFound();
     const { g, l } = L, n = g.n;
     if (!isAdmin() && infGradeOf() !== n) { location.replace('#informatika'); return; }
+    if (infOpen(n) != null && l.n > infOpen(n)) { app.innerHTML = '<section class="band"><div class="wrap narrow empty"><h1>Bu dars hali yopiq</h1><p>O\'qituvchingiz darsda shu mavzuga yetganda ochadi.</p><a class="btn pri" href="#inf-' + n + '">Sinf darslari</a></div></section>'; return; }
     const prev = g.lessons[L.idx - 1], next = g.lessons[L.idx + 1];
     app.innerHTML = '<div class="lbar st-orta"><div class="lbar-in"><a class="back" href="#inf-' + n + '">← ' + n + '-sinf</a><h1 class="lt">' + l.n + '. ' + e(l.t) + '</h1><div class="acts" style="margin:0"><button class="btn sm ghost" id="present">Sinfda ko\'rsatish</button></div></div></div>' +
       '<article class="band inf-art"><div class="wrap inf-lay"><div class="theory" id="th"><p class="crumb">' + e([l.part, l.sec].filter(Boolean).join(' · ')) + '</p><h2 class="th-h">' + e(l.t) + '</h2>' + (KM.md(l.md) || '<p class="muted">Bu dars uchun nazariya hali yozilmagan.</p>') + '</div>' +
@@ -459,11 +469,11 @@
 
   /* ---------- Profil ---------- */
   function profil() {
-    const u = me(), lv = st.level(), into = S().xp % 100, dc = doneCount(), tl = total();
+    const u = me(), lv = lvl(), into = TXP() % 100, dc = doneCount(), tl = total();
     app.innerHTML = '<section class="phead grid-bg"><div class="wrap phead-in"><div class="polaroid tilt-l big">' + KM.stk.face(u) + '<span class="pol-cap">' + e(u.login) + (u.class_name ? ' · ' + e(u.class_name) : '') + '</span></div><div><p class="pill-tag"><i></i>' + (u.class_name ? e(u.class_name) + ' sinf' : 'O\'quvchi') + '</p><h1>' + e(u.full_name) + '</h1><p class="lead">' + lv + '-daraja · keyingi darajaga ' + (100 - into) + ' XP qoldi</p><div class="acts"><button class="btn pri" id="stkbtn">Stikerlarni o\'zgartirish</button><button class="btn ghost" id="pwbtn">Parolni o\'zgartirish</button><button class="btn ghost" id="outbtn">Chiqish</button></div></div></div></section>' +
       '<section class="band" id="edsec" hidden><div class="wrap"><div class="panel"><h2>Rasmimni bezash</h2><div id="sted"></div><div class="acts"><button class="btn pri" id="stksave">Saqlash</button><button class="btn" id="stkcancel">Bekor qilish</button><span id="stkmsg" class="muted" role="status"></span></div></div></div></section>' +
       '<section class="band" id="pwsec" hidden><div class="wrap narrow"><form class="panel" id="pwf"><h2>Parolni o\'zgartirish</h2><label class="lab" for="op">Hozirgi parol</label><input class="inp" id="op" type="password" autocomplete="current-password"><label class="lab" for="np">Yangi parol (kamida 6 belgi)</label><input class="inp" id="np" type="password" autocomplete="new-password"><div class="acts"><button class="btn pri">Saqlash</button><span id="pwmsg" role="status"></span></div></form></div></section>' +
-      '<section class="band"><div class="wrap"><div class="stats4"><div class="stat2"><b>' + S().xp + '</b><span>XP</span></div><div class="stat2"><b>' + dc + ' / ' + tl + '</b><span>dars tugatildi</span></div><div class="stat2"><b>' + S().streak.n + '</b><span>kun ketma-ket</span></div><div class="stat2"><b>' + S().projects.length + '</b><span>loyiha</span></div></div>' +
+      '<section class="band"><div class="wrap"><div class="stats4"><div class="stat2"><b>' + TXP() + '</b><span>XP</span></div><div class="stat2"><b>' + dc + ' / ' + tl + '</b><span>dars tugatildi</span></div><div class="stat2"><b>' + S().streak.n + '</b><span>kun ketma-ket</span></div><div class="stat2"><b>' + S().projects.length + '</b><span>loyiha</span></div></div>' +
       '<h2 class="sub">Nishonlar</h2><div class="badges">' + BADGES.map(b => { const got = b[3](); return '<div class="bd' + (got ? ' got' : '') + '"><span class="bd-i">' + e(b[0]) + '</span><b>' + e(b[1]) + '</b><small>' + e(b[2]) + '</small></div>'; }).join('') + '</div>' +
       '<h2 class="sub">Dasturlash darajalari</h2><div class="gp">' + G().map(g => { const p = gradeProg(g); return '<a class="gp-r st-' + g.stage + '" href="#' + (p.d === p.n ? 'sertifikat-' : 'sinf-') + g.n + '"><span class="gp-n">' + g.n + '-daraja</span><span class="bar"><b style="width:' + p.p * 100 + '%"></b></span><span class="gp-v">' + p.d + '/' + p.n + '</span><span class="gp-c">' + (p.d === p.n ? 'Sertifikat' : '') + '</span></a>'; }).join('') + '</div></div></section>';
     $('#outbtn').onclick = logout;
@@ -515,7 +525,7 @@
     if (!KM.session) { loginView(KM._needSetup); return; }
     if (p[0] === 'kirish') { location.hash = isAdmin() ? 'admin' : 'bosh'; return; }
     let nav = p[0] || 'bosh';
-    if (p[0] === 'admin') { if (!isAdmin()) { location.hash = 'bosh'; return; } nav = 'admin'; KM.admin.route(h, app); }
+    if (p[0] === 'admin') { if (!isAdmin()) { location.hash = 'bosh'; return; } nav = /^admin-(topshiriq|jurnal)/.test(h) ? 'admin-topshiriqlar' : 'admin'; KM.admin.route(h, app); }
     else if (p[0] === 'dasturlash') { nav = 'dasturlash'; codingHome(); }
     else if (p[0] === 'sinf') { nav = 'dasturlash'; grade(+p[1]); }
     else if (p[0] === 'dars') { nav = 'dasturlash'; lesson(p[1] + '-' + p[2], p[3] || ''); }
@@ -523,6 +533,8 @@
     else if (p[0] === 'inf') { nav = 'informatika'; infGradePage(+p[1]); }
     else if (p[0] === 'infdars') { nav = 'informatika'; infLessonPage(p[1] + '-' + p[2]); }
     else if (p[0] === 'materiallar') { nav = 'materiallar'; materials(h.slice(12)); }
+    else if (p[0] === 'viktorina' || p[0] === 'oyin') { nav = 'viktorina'; KM.live.route(h, app); }
+    else if (p[0] === 'topshiriqlar' || p[0] === 'topshiriq') { if (isAdmin()) { location.hash = 'admin-topshiriqlar'; return; } nav = 'topshiriqlar'; KM.work.student(h, app); }
     else if (p[0] === 'material') { nav = 'materiallar'; materialView(h.slice(9)); }
     else if (p[0] === 'maydon') { nav = 'maydon'; p[1] ? maydonEd(p[1]) : maydon(); }
     else if (p[0] === 'profil') { if (isAdmin()) { location.hash = 'admin'; return; } profil(); }
