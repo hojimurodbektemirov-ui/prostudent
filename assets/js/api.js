@@ -12,11 +12,12 @@
   async function rpc(fn, args, opt) {
     const h = { 'Content-Type': 'application/json', apikey: cfg.supabaseKey };
     if (/^eyJ/.test(cfg.supabaseKey)) h.Authorization = 'Bearer ' + cfg.supabaseKey;
+    const base = String(cfg.supabaseUrl).trim().replace(/\/+$/, '').replace(/\/rest\/v1$/i, '');
     let r;
-    try { r = await fetch(cfg.supabaseUrl.replace(/\/+$/, '') + '/rest/v1/rpc/' + fn, { method: 'POST', headers: h, body: JSON.stringify(args || {}), keepalive: !!(opt && opt.keepalive) }); }
+    try { r = await fetch(base + '/rest/v1/rpc/' + fn, { method: 'POST', headers: h, body: JSON.stringify(args || {}), keepalive: !!(opt && opt.keepalive) }); }
     catch (e) { throw new ApiError("Serverga ulanib bo'lmadi. Internetni tekshiring.", 'NET'); }
     const t = await r.text(); let j = null; try { j = t ? JSON.parse(t) : null; } catch (e) {}
-    if (!r.ok) { const m = (j && j.message) || ('Server xatosi (' + r.status + ')'); throw new ApiError(m === 'SESSION' ? 'Sessiya tugagan, qayta kiring' : m, m === 'SESSION' ? 'SESSION' : 'ERR'); }
+    if (!r.ok) { const m = (j && (j.message || j.msg || j.error)) || ('Server xatosi (' + r.status + ')'); const er = new ApiError(m === 'SESSION' ? 'Sessiya tugagan, qayta kiring' : m, m === 'SESSION' ? 'SESSION' : 'ERR'); er.status = r.status; throw er; }
     return j;
   }
 

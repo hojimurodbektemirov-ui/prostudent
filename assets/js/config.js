@@ -8,7 +8,7 @@
    Eslatma: bu kalit ochiq bo'lishi mumkin. "service_role" yoki "secret" kalitni hech qachon yozmang!
    ===================================================================== */
 KM.config = {
-  supabaseUrl: 'https://wvwlurxlmqrthwaaaxoc.supabase.co/rest/v1/',
+  supabaseUrl: 'https://wvwlurxlmqrthwaaaxoc.supabase.co',
   supabaseKey: 'sb_publishable_m-dv-Kl_deLUisiV6YCgcg_zps88llG',
   schoolName: 'ZIS ProStudent'
 };

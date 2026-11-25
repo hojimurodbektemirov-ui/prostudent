@@ -540,13 +540,26 @@
   /* ---------- Ishga tushirish ---------- */
   (async function boot() {
     app.innerHTML = '<div class="splash grid-bg"><span class="caret"></span></div>';
-    try {
-      if (KM.api.hasToken()) { const r = await KM.api.me(); start(r.user, r.progress); }
-      else if (KM.api.mode === 'supabase') { const s = await KM.api.setupStatus(); KM._needSetup = !s.has_admin; }
-    } catch (x) {
-      if (x.code === 'SESSION') KM.api.clearToken();
-      else if (x.code === 'NET') { app.innerHTML = '<section class="login grid-bg"><div class="login-in"><div class="login-t"><h1>Server bilan aloqa yo\'q</h1><p class="lead">' + e(x.message) + '</p><div class="acts"><button class="btn pri big" onclick="location.reload()">Qayta urinish</button></div></div></div></section>'; return; }
+    if (KM.api.hasToken()) {
+      try { const r = await KM.api.me(); start(r.user, r.progress); route(); return; }
+      catch (x) { if (x.code === 'SESSION') KM.api.clearToken(); else return diag(x); }
+    }
+    if (KM.api.mode === 'supabase') {
+      try { const s = await KM.api.setupStatus(); KM._needSetup = !s.has_admin; }
+      catch (x) { return diag(x); }
     }
     route();
   })();
+  /* Server bilan muammo bo'lsa: aniq sabab va nima qilish kerakligi */
+  function diag(x) {
+    const m = String(x.message || ''), st = x.status || 0;
+    let why = 'Noma\'lum xato.', fix = 'Sahifani yangilang. Xato takrorlansa, quyidagi matnni o\'qituvchiga yoki dasturchiga yuboring.';
+    if (x.code === 'NET') { why = 'Serverga ulanib bo\'lmadi.'; fix = 'config.js dagi supabaseUrl to\'g\'riligini tekshiring (https://....supabase.co, oxirida / siz). Internet borligini va Supabase loyihasi "Paused" holatda emasligini tekshiring.'; }
+    else if (/Could not find the function|schema cache|PGRST202/i.test(m) || st === 404) { why = 'Bazada kerakli funksiyalar topilmadi.'; fix = 'Supabase → SQL Editor → supabase/schema.sql faylini to\'liq joylashtirib Run bosing. "Success" chiqishi kerak. Keyin 1 daqiqa kutib, sahifani yangilang.'; }
+    else if (/api key|apikey|JWT|Invalid|No API key/i.test(m) || st === 401) { why = 'Supabase kaliti noto\'g\'ri.'; fix = 'config.js dagi supabaseKey ga Project Settings → API Keys → Publishable key ni (sb_publishable_ bilan boshlanadi) to\'liq nusxalang.'; }
+    else if (/permission denied/i.test(m) || st === 403) { why = 'Funksiyaga ruxsat yo\'q.'; fix = 'Yangilangan supabase/schema.sql ni SQL Editor\'da qayta Run qiling: u kerakli ruxsatlarni beradi.'; }
+    app.innerHTML = '<section class="login grid-bg"><div class="login-in"><div class="login-t"><h1>Sayt bazaga ulanmadi</h1><p class="lead"><b>' + e(why) + '</b></p><p class="lead">' + e(fix) + '</p><div class="acts"><button class="btn pri big" onclick="location.reload()">Qayta urinish</button></div></div>' +
+      '<div class="term"><div class="term-bar"><i></i><i></i><i></i><span>diagnostika</span></div><div class="term-b mono"><p class="cmt"># server javobi</p><p><span class="k">holat </span>: <span class="v">' + (st || x.code || '—') + '</span></p><p><span class="k">xabar </span>: <span class="v">' + e(m.slice(0, 300)) + '</span></p><p><span class="k">server</span>: <span class="v">' + e(String(KM.config.supabaseUrl || '—')) + '</span></p><p><span class="k">kalit </span>: <span class="v">' + e(String(KM.config.supabaseKey || '—').slice(0, 18)) + '…</span></p></div></div></div></section>';
+    $('#top').hidden = true;
+  }
 })();

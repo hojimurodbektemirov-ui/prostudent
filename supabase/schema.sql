@@ -476,3 +476,22 @@ end $$;
 
 -- Faqat km_* funksiyalari tashqaridan chaqiriladi; ichki km.* funksiyalar yopiq
 revoke all on all functions in schema km from public;
+
+-- Sayt (anon/publishable kalit) faqat public.km_* funksiyalarini chaqira olsin.
+-- Yangi Supabase loyihalarida bu ruxsat avtomatik berilmasligi mumkin, shuning uchun aniq beramiz.
+do $$
+declare f record; r text;
+begin
+  foreach r in array array['anon', 'authenticated'] loop
+    if exists (select 1 from pg_roles where rolname = r) then
+      execute format('grant usage on schema public to %I', r);
+      for f in select p.oid::regprocedure as sig from pg_proc p join pg_namespace n on n.oid = p.pronamespace
+               where n.nspname = 'public' and p.proname like 'km\_%' loop
+        execute format('grant execute on function %s to %I', f.sig, r);
+      end loop;
+    end if;
+  end loop;
+end $$;
+
+-- API (PostgREST) yangi funksiyalarni darhol ko'rsin
+notify pgrst, 'reload schema';
