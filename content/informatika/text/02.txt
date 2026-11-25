@@ -1,0 +1,369 @@
+# 1
+**Axborot** — bu biz atrofimizdan bilib oladigan yangilik, xabar yoki bilim.
+Ertalab onangiz "Bugun havo sovuq" desa, siz axborot oldingiz. Darsda o'qituvchi yangi mavzuni tushuntirsa, bu ham axborot.
+- Ko'chadagi svetofor ranglari — axborot.
+- Kitobdagi hikoya — axborot.
+- Qo'ng'iroq ovozi — "dars boshlandi" degan axborot.
+> Axborot bizga nima qilish kerakligini bilishga yordam beradi.
+? Axborot nima? | Biz bilib oladigan xabar yoki bilim | Faqat kompyuter | O'yinchoq
+? Qaysi biri axborot? | Svetoforning qizil chirog'i | Bo'sh qog'oz | Jim xona
+
+# 2
+Axborot har xil ko'rinishda bo'ladi. Uning asosiy **turlari**:
+- **Matnli axborot** — harf va so'zlar: kitob, gazeta, daftar.
+- **Grafik axborot** — rasm, surat, xarita.
+- **Tovushli axborot** — ovoz, musiqa, qo'ng'iroq.
+- **Sonli axborot** — raqamlar: soat, narx, telefon raqami.
+Multfilmda bir vaqtning o'zida rasm ham, tovush ham bo'ladi.
+> Axborot matn, rasm, tovush va son ko'rinishida bo'ladi.
+? Qo'shiq qanday axborot? | Tovushli | Matnli | Sonli
+? Xarita qanday axborot? | Grafik | Tovushli | Sonli
+? Soatdagi 08:30 qanday axborot? | Sonli | Tovushli | Grafik
+
+# 3
+**Axborot manbasi** — axborot olinadigan joy yoki narsa.
+- Kitob va gazeta
+- Televizor va radio
+- Kompyuter va telefon
+- Odamlar: ota-ona, o'qituvchi, do'stlar
+- Tabiat: osmondagi bulutlar yomg'ir yog'ishini aytadi
+> Har bir manbadan olingan axborotni tekshirib ko'rish yaxshi odat.
+? Axborot manbasi nima? | Axborot olinadigan joy | Axborotni o'chiradigan narsa | Faqat kitob
+? Qaysi biri axborot manbasi emas? | Bo'sh quti | Radio | Kitob
+
+# 4
+Biz axborotni **sezgi a'zolarimiz** orqali qabul qilamiz:
+- **Ko'z** — ko'ramiz: rang, shakl, harf.
+- **Quloq** — eshitamiz: ovoz, musiqa.
+- **Burun** — hidlaymiz: gul hidi.
+- **Til** — ta'm bilamiz: shirin, nordon.
+- **Teri** — sezamiz: issiq, sovuq, yumshoq.
+Inson axborotning eng ko'p qismini ko'z orqali oladi.
+> Ko'z, quloq, burun, til va teri — axborot qabul qiluvchilar.
+? Musiqani qaysi a'zo bilan qabul qilamiz? | Quloq | Ko'z | Burun
+? Choy issiqligini nima bilan sezamiz? | Teri | Quloq | Ko'z
+
+# 5
+Axborotni boshqalarga turli yo'llar bilan **taqdim etamiz**, ya'ni ko'rsatamiz:
+- Gapirib beramiz (tovush).
+- Yozib beramiz (matn).
+- Rasm chizamiz (grafik).
+- Jadval yoki raqam bilan ko'rsatamiz.
+Kompyuterda rasm chizish uchun **Paint** dasturi bor. Unda qalam, bo'yoq va shakllar bilan rasm chizish mumkin.
+> Bir xil axborotni so'z bilan ham, rasm bilan ham ko'rsatish mumkin.
+? Paint dasturida nima qilinadi? | Rasm chiziladi | Musiqa tinglanadi | Xat yuboriladi
+? Sevimli hayvoningizni boshqalarga qanday ko'rsatish mumkin? | Rasmini chizib | Ko'zni yumib | Jim turib
+
+# 6
+**Axborot tashuvchi** — axborot saqlanadigan narsa.
+- Qog'oz: kitob, daftar, gazeta
+- Flesh-xotira (fleshka)
+- Kompyuter xotirasi
+- Telefon xotirasi
+- Disk
+Qadimda odamlar toshga va loy taxtachalarga yozishgan. Bugun esa kichkina fleshkaga minglab kitob sig'adi.
+> Axborot tashuvchi axborotni uzoq vaqt saqlab qoladi.
+? Qaysi biri axborot tashuvchi? | Fleshka | Olma | Stul
+? Qadimda odamlar nimaga yozishgan? | Toshga va loyga | Fleshkaga | Telefonga
+
+# 7
+Axborot bilan ishlaydigan **qurilmalar** hayotimizni osonlashtiradi:
+- **Telefon** — gaplashish va xabar yuborish.
+- **Kompyuter** — yozish, rasm chizish, o'yin, o'qish.
+- **Televizor** — ko'rsatuv va multfilm ko'rish.
+- **Radio** — yangilik va musiqa tinglash.
+> Barcha axborot qurilmalari tokdan yoki batareyadan ishlaydi. Ularni ehtiyot qiling.
+? Qaysi qurilma bilan faqat eshitamiz? | Radio | Televizor | Kompyuter
+? Kompyuterda nima qilish mumkin? | Yozish va rasm chizish | Ovqat pishirish | Kir yuvish
+
+# 8
+Kompyuter oldida **sog'lom va xavfsiz** ishlash qoidalari:
+- Ekrandan kamida 50 sm (bir qo'l uzunligi) uzoqda o'tiring.
+- Belni tik tuting, oyoqlar polda tursin.
+- Har 15–20 daqiqada ko'zingizga dam bering: derazadan uzoqqa qarang.
+- Ho'l qo'l bilan kompyuterga tegmang.
+- Simlar va rozetkani ushlamang.
+- Kompyuter yonida ovqatlanmang.
+> Sog'lig'ingiz kompyuterdan muhimroq!
+? Ekrandan qancha uzoqda o'tirish kerak? | Bir qo'l uzunligida | Juda yaqin | Ekranni ushlab
+? Ko'z charchasa nima qilamiz? | Uzoqqa qarab dam olamiz | Ekranga yaqinroq boramiz | Ko'zni ishqalaymiz
+
+# 9
+**Takrorlash.** Bu chorakda o'rgandik:
+- Axborot nima va uning turlari: matn, rasm, tovush, son.
+- Axborot manbalari va qabul qiluvchilar (sezgi a'zolari).
+- Axborotni taqdim etish va tashuvchilar.
+- Axborot qurilmalari va xavfsizlik qoidalari.
+Nazorat ishida shu savollarga javob bera olsangiz, hammasi joyida!
+? Rasm qanday axborot? | Grafik | Tovushli | Sonli
+? Qaysi biri axborot tashuvchi? | Daftar | Quloq | Svetofor
+? Qaysi a'zo bilan ko'ramiz? | Ko'z | Burun | Quloq
+? Kompyuter oldida nima qilish mumkin emas? | Ovqatlanish | Tik o'tirish | Dam olish
+
+# 10
+Axborot bilan bajariladigan ishlar **axborot jarayonlari** deyiladi:
+1. **Olish** — axborotni bilib olish (kitob o'qish).
+2. **Saqlash** — eslab qolish yoki yozib qo'yish.
+3. **Qayta ishlash** — o'ylash, hisoblash, o'zgartirish.
+4. **Uzatish** — boshqalarga yetkazish (aytib berish, xat yozish).
+Misol: o'qituvchi uyga vazifa aytdi (olish), siz daftarga yozdingiz (saqlash), uyda yechdingiz (qayta ishlash), ertasi kuni topshirdingiz (uzatish).
+> Olish, saqlash, qayta ishlash, uzatish — to'rt asosiy jarayon.
+? Daftarga yozib qo'yish qaysi jarayon? | Saqlash | Uzatish | Olish
+? Do'stingizga xabar aytish qaysi jarayon? | Uzatish | Saqlash | Qayta ishlash
+
+# 11
+Axborotni **qabul qilish** — uni bilib olish. **Qayta ishlash** — uni o'zgartirish yoki undan yangi axborot olish.
+Masalan: siz 2 ta olma va 3 ta olma borligini bildingiz (qabul qildingiz), qo'shib 5 ta olma degan javobni topdingiz (qayta ishladingiz).
+Word dasturida matnni ham qayta ishlaymiz:
+- Keraksiz so'zni o'chiramiz (**Delete** yoki **Backspace** tugmasi).
+- Muhim so'zni **qalin** qilamiz (**B** tugmasi).
+> Qayta ishlashdan keyin yangi axborot hosil bo'ladi.
+? Misolni yechish qaysi jarayon? | Qayta ishlash | Saqlash | Uzatish
+? Word'da so'zni qalin qilish tugmasi qaysi? | B | I | U
+
+# 12
+**Axborotni uzatish** — uni bir joydan boshqa joyga yoki bir odamdan boshqasiga yetkazish.
+- Gapirib aytish
+- Xat yoki SMS yozish
+- Telefon qilish
+- Elektron pochta yuborish
+Uzatishda uchta qism bor: **jo'natuvchi** (kim yuboradi), **xabar** (nima yuboriladi), **qabul qiluvchi** (kim oladi).
+> Xabarni aniq va tushunarli yozish kerak, shunda qabul qiluvchi to'g'ri tushunadi.
+? Xat yozgan odam kim? | Jo'natuvchi | Qabul qiluvchi | Xabar
+? Qaysi biri axborot uzatish usuli? | Telefon qilish | Uxlash | Rasmga qarash
+
+# 13
+**Kodlash** — axborotni boshqa belgilar bilan yozish.
+Masalan, har bir harfni raqam bilan almashtiramiz: A = 1, B = 2, D = 3...
+- Svetofor ham kod: qizil — "to'xta", yashil — "yur".
+- Yo'l belgilari — rasmlar bilan kodlangan axborot.
+- Kompyuter hamma narsani faqat **0** va **1** raqamlari bilan kodlaydi.
+> Kodni biladigan odam xabarni tushunadi.
+? Kodlash nima? | Axborotni boshqa belgilar bilan yozish | Axborotni o'chirish | Rasm chizish
+? Kompyuter qaysi raqamlar bilan kodlaydi? | 0 va 1 | 5 va 6 | 7 va 8
+
+# 14
+**Dekodlash** — kodlangan xabarni yana oddiy ko'rinishga qaytarish.
+Agar A = 1, B = 2, D = 3 bo'lsa, "2 1 2 1" kodi nimani bildiradi? Javob: **BABA**.
+Dekodlash uchun **kod kaliti** (qaysi belgi nimani bildirishi) kerak. Kalitsiz xabarni o'qish qiyin.
+> Kodlash — yashirish, dekodlash — ochish.
+? Dekodlash nima? | Kodni oddiy xabarga aylantirish | Xabarni yashirish | Xabarni o'chirish
+? Dekodlash uchun nima kerak? | Kod kaliti | Bo'yoq | Qaychi
+
+# 15
+Axborotimizni **himoya qilish** kerak, ya'ni begonalar ko'rmasligi va buzmasligi kerak.
+- **Parol** — kompyuter yoki telefonga kirish uchun maxfiy so'z.
+- Parolni hech kimga aytmang (faqat ota-onangiz bilishi mumkin).
+- Faylga tushunarli **nom** bering, shunda u yo'qolmaydi.
+- Muhim fayldan nusxa saqlang.
+> Parol — sizning maxfiy kalitingiz.
+? Parolni kimga aytish mumkin? | Faqat ota-onaga | Har kimga | Notanish odamga
+? Parol nima uchun kerak? | Axborotni begonalardan himoya qilish uchun | Rasm chizish uchun | Musiqa uchun
+
+# 16
+**Takrorlash.** Bu chorakda o'rgandik:
+- Axborot jarayonlari: olish, saqlash, qayta ishlash, uzatish.
+- Kodlash va dekodlash.
+- Axborotni himoya qilish va parol.
+? SMS yuborish qaysi jarayon? | Uzatish | Saqlash | Olish
+? A=1, B=2 bo'lsa, "1 2" nima? | AB | BA | AA
+? Parolni kim bilishi mumkin? | Faqat o'zim va ota-onam | Butun sinf | Hamma
+? Dekodlash nima? | Kodni ochish | Kodni yashirish | Kodni o'chirish
+
+# 17
+Har bir ishni bajarish uchun **harakatlar ketma-ketligi** bor, ya'ni harakatlar ma'lum tartibda bajariladi.
+Tish yuvish:
+1. Cho'tkani olamiz.
+2. Pasta surtamiz.
+3. Tishni yuvamiz.
+4. Og'izni chayamiz.
+Agar tartibni o'zgartirsak (avval yuvib, keyin pasta surtsak), ish to'g'ri chiqmaydi.
+> Tartib muhim!
+? Tish yuvishda birinchi qadam qaysi? | Cho'tkani olish | Og'izni chayish | Tishni yuvish
+? Ketma-ketlik buzilsa nima bo'ladi? | Ish to'g'ri chiqmaydi | Hech narsa bo'lmaydi | Tezroq bo'ladi
+
+# 18
+**Algoritm** — ishni bajarish uchun aniq va tartibli qadamlar.
+Qo'l yuvish algoritmi:
+1. Jo'mrakni ochish.
+2. Qo'lni ho'llash.
+3. Sovun surtish.
+4. Yuvib chayish.
+5. Jo'mrakni yopib, qo'lni artish.
+Algoritmning har bir qadami **aniq** va **tushunarli** bo'lishi kerak.
+> Algoritm — ishni bajarish rejasi.
+? Algoritm nima? | Tartibli qadamlar | Tasodifiy harakat | O'yin
+? Algoritm qadamlari qanday bo'lishi kerak? | Aniq va tushunarli | Chalkash | Tartibsiz
+
+# 19
+**Algoritm tuzish** uchun:
+1. Maqsadni aniqlaymiz: nima qilmoqchimiz?
+2. Qadamlarni o'ylaymiz.
+3. Ularni to'g'ri tartibda yozamiz.
+4. Tekshiramiz: shu qadamlar bilan ish bajariladimi?
+"Maktabga borish" algoritmi: uyg'onish → yuvinish → kiyinish → nonushta → sumkani olish → maktabga yo'l olish.
+> Tuzgan algoritmingizni boshqa odamga bajartirib ko'ring: u adashmasa, algoritm to'g'ri.
+? Algoritm tuzishda birinchi nima qilinadi? | Maqsad aniqlanadi | Oxirgi qadam yoziladi | Hech narsa
+? Algoritm to'g'riligini qanday bilamiz? | Bajarib ko'rib | Taxmin qilib | Bilib bo'lmaydi
+
+# 20
+**Ijrochi** — algoritmni bajaruvchi.
+- **Inson** — oshpaz retsept bo'yicha ovqat pishiradi.
+- **Robot** — dastur bo'yicha harakat qiladi.
+- **Kompyuter** — dasturchi yozgan buyruqlarni bajaradi.
+- Kir yuvish mashinasi ham ijrochi!
+Ijrochi faqat o'zi tushunadigan buyruqlarni bajaradi. Robotga "uchib ket" desak, u bajara olmaydi.
+> Ijrochi — buyruqni bajaruvchi.
+? Retsept bo'yicha ovqat pishirayotgan oshpaz kim? | Ijrochi | Algoritm | Kod
+? Ijrochi qanday buyruqlarni bajaradi? | O'zi tushunadiganlarini | Hammasini | Hech birini
+
+# 21
+**Takrorlash.** Bu bo'limda o'rgandik:
+- Harakatlar ketma-ketligi va tartibning muhimligi.
+- Algoritm va uni tuzish.
+- Ijrochilar: inson, robot, kompyuter.
+? Algoritm nima? | Tartibli qadamlar | Rasm | Qo'shiq
+? Qaysi biri ijrochi? | Robot | Daftar | Qalam
+? Algoritmda qadamlar tartibi muhimmi? | Ha | Yo'q | Ba'zan
+? Kompyuterga buyruqni kim yozadi? | Dasturchi | Kompyuterning o'zi | Hech kim
+
+# 22
+Algoritmni **rasmlar (shakllar)** bilan ham ko'rsatish mumkin. Bu **blok-sxema** deyiladi.
+- **Oval** — boshlanish va tugash: "Boshlash", "Tamom".
+- **To'g'ri to'rtburchak** — harakat: "Qo'lni yuv".
+- **Strelka** — keyingi qadamga o'tish yo'nalishi.
+Word'da **Insert → Shapes** (Qo'shish → Shakllar) orqali shakl chizamiz.
+> Blok-sxema algoritmni bir qarashda tushunarli qiladi.
+? Blok-sxemada "Boshlash" qaysi shaklda yoziladi? | Oval | Uchburchak | Yulduz
+? Harakat qaysi shaklda yoziladi? | To'g'ri to'rtburchak | Oval | Doira
+
+# 23
+**Chiziqli algoritm** — qadamlari ketma-ket, birin-ketin bajariladigan algoritm. Unda hech qanday tanlov yo'q.
+Blok-sxemada u yuqoridan pastga bitta to'g'ri chiziq bo'ylab ketadi:
+Boshlash → 1-qadam → 2-qadam → 3-qadam → Tamom
+> Chiziqli algoritmda har bir qadam faqat bir marta, tartib bilan bajariladi.
+? Chiziqli algoritmda qadamlar qanday bajariladi? | Ketma-ket | Tasodifiy | Teskari
+? Chiziqli algoritmda tanlov bormi? | Yo'q | Ha | Har doim
+
+# 24
+"Choy ichish" uchun chiziqli algoritm **blok-sxemasini** tuzamiz:
+1. Oval: **Boshlash**
+2. To'rtburchak: Piyolani olish
+3. To'rtburchak: Choy quyish
+4. To'rtburchak: Choyni ichish
+5. To'rtburchak: Piyolani joyiga qo'yish
+6. Oval: **Tamom**
+Shakllarni strelkalar bilan ulaymiz. Word'da strelka ham **Shapes** ichida bor.
+> Har bir shaklda faqat bitta harakat yoziladi.
+? Blok-sxema qaysi shakl bilan tugaydi? | Oval | To'rtburchak | Romb
+? Shakllar nima bilan ulanadi? | Strelka bilan | Rasm bilan | Raqam bilan
+
+# 25
+Ba'zan algoritmda **tanlov** bo'ladi: "Agar ... bo'lsa, ... qil, aks holda ... qil".
+- Agar yomg'ir yog'sa, soyabon olaman, aks holda olmayman.
+- Agar svetofor yashil bo'lsa, yo'lni kesib o'taman, aks holda kutaman.
+Bunday algoritm **tarmoqlanuvchi** deyiladi, chunki yo'l ikkiga ajraladi.
+> "Agar" so'zi bor joyda tarmoqlanish bor.
+? Tarmoqlanuvchi algoritmda nima bor? | Tanlov (agar) | Faqat bitta yo'l | Hech narsa
+? "Agar svetofor qizil bo'lsa..." nima qilamiz? | Kutamiz | Yuguramiz | O'tamiz
+
+# 26
+Tarmoqlanuvchi algoritm blok-sxemasida **romb** shakli ishlatiladi. Romb ichiga savol yoziladi:
+"Yomg'ir yog'yaptimi?"
+- **Ha** strelkasi → "Soyabon olaman"
+- **Yo'q** strelkasi → "Soyabonsiz chiqaman"
+Rombdan doim ikkita yo'l chiqadi: Ha va Yo'q.
+> Romb — savol, undan ikki yo'l chiqadi.
+? Savol qaysi shaklga yoziladi? | Romb | Oval | To'rtburchak
+? Rombdan nechta yo'l chiqadi? | Ikkita | Bitta | Beshta
+? Yomg'ir yog'masa qaysi strelka bo'ylab boramiz? | Yo'q | Ha | Hech qaysi
+
+# 27
+**Takrorlash.** Blok-sxema shakllari:
+- **Oval** — boshlash va tugash.
+- **To'g'ri to'rtburchak** — harakat.
+- **Romb** — savol (shart), Ha va Yo'q yo'llari.
+- **Strelka** — yo'nalish.
+Chiziqli algoritmda yo'l bitta, tarmoqlanuvchida esa ikkiga ajraladi.
+? Romb nimani bildiradi? | Savol (shart) | Boshlash | Harakat
+? Chiziqli algoritmda nechta yo'l bor? | Bitta | Ikkita | Uchta
+? Oval nimani bildiradi? | Boshlash yoki tugash | Savol | Harakat
+
+# 28
+**Kompyuter** — axborot bilan ishlaydigan aqlli mashina. Uning turlari:
+- **Shaxsiy (stol) kompyuter** — stol ustida turadi, monitori va tizim bloki alohida.
+- **Noutbuk** — yig'ma, ko'tarib yuriladi, batareyasi bor.
+- **Planshet** — ekrani sensorli, barmoq bilan boshqariladi.
+- **Smartfon** — cho'ntak kompyuteri.
+> Barcha kompyuterlar axborotni oladi, saqlaydi, qayta ishlaydi va uzatadi.
+? Qaysi kompyuterni ko'tarib yurish oson? | Noutbuk | Stol kompyuteri | Hech qaysi
+? Planshet qanday boshqariladi? | Barmoq bilan | Faqat sichqoncha bilan | Ovoz bilan
+
+# 29
+**Chiqarish qurilmalari** kompyuterdagi axborotni bizga ko'rsatadi yoki eshittiradi:
+- **Monitor** — rasm va matnni ko'rsatadi.
+- **Karnay va quloqchin** — tovushni eshittiradi.
+- **Printer** — qog'ozga chop etadi.
+- **Proyektor** — rasmni devorga katta qilib ko'rsatadi.
+> Chiqarish qurilmasi axborotni kompyuterdan bizga beradi.
+? Qaysi biri chiqarish qurilmasi? | Printer | Klaviatura | Sichqoncha
+? Musiqani nima orqali eshitamiz? | Karnay | Monitor | Printer
+
+# 30
+**Klaviatura** — kompyuterga harf, raqam va buyruq kiritadigan qurilma.
+- **Harf tugmalari** — so'z yozish uchun.
+- **Space (probel)** — eng uzun tugma, so'zlar orasiga bo'sh joy qo'yadi.
+- **Enter** — yangi qatorga o'tadi yoki buyruqni tasdiqlaydi.
+- **Backspace** — chapdagi belgini o'chiradi.
+- **Shift** — katta harf yozish uchun.
+> Barmoqlarni to'g'ri qo'yib yozish tezroq yozishga yordam beradi.
+? Eng uzun tugma qaysi? | Space | Enter | Shift
+? Yangi qatorga o'tish tugmasi qaysi? | Enter | Space | Backspace
+
+# 31
+**Sichqoncha** — ekrandagi ko'rsatkichni (strelkani) boshqaradi.
+- **Chap tugma** — bir marta bosish: tanlash. Ikki marta tez bosish: ochish.
+- **O'ng tugma** — qo'shimcha menyuni ochadi.
+- **G'ildirak** — sahifani yuqoriga va pastga suradi.
+Paint'da sichqonchaning chap tugmasini bosib turib, harakatlantirsangiz chiziq chiziladi.
+> Sichqonchani yumshoq ushlang, qo'lingiz charchamaydi.
+? Faylni ochish uchun nima qilamiz? | Chap tugmani ikki marta bosamiz | O'ng tugmani bosamiz | G'ildirakni aylantiramiz
+? Sahifani pastga surish uchun nima ishlatiladi? | G'ildirak | Chap tugma | Kabel
+
+# 32
+**Tizim bloki** — kompyuterning "miyasi" va "yuragi". Hamma hisob-kitob shu yerda bo'ladi.
+Uning ichida:
+- **Protsessor** — o'ylaydi va hisoblaydi.
+- **Xotira** — axborotni saqlaydi.
+- **Ventilyator** — ichini sovutadi.
+Tizim blokida yoqish tugmasi va fleshka ulanadigan joylar (portlar) bor. Noutbukda tizim bloki klaviatura ostiga joylashgan.
+> Tizim blokisiz kompyuter ishlamaydi.
+? Kompyuterning "miyasi" qaysi qism? | Tizim bloki | Monitor | Sichqoncha
+? Protsessor nima qiladi? | Hisoblaydi | Chop etadi | Tovush chiqaradi
+
+# 33
+Kompyuterni to'g'ri **yoqish**:
+1. Elektr toki borligini tekshirish.
+2. Tizim blokidagi yoqish tugmasini bosish.
+3. Monitorni yoqish.
+4. Ish stoli paydo bo'lishini kutish.
+To'g'ri **o'chirish**:
+1. Barcha dasturlarni yopish (ishni saqlab).
+2. **Pusk (Start)** → **Завершение работы / Shut down** tugmasini bosish.
+3. Kompyuter o'zi o'chishini kutish.
+> Kompyuterni hech qachon simini sug'urib o'chirmang!
+? Kompyuterni o'chirishdan oldin nima qilinadi? | Dasturlar yopiladi | Sim sug'uriladi | Monitor uriladi
+? Kompyuter qaysi tugma orqali o'chiriladi? | Start → Shut down | Enter | Space
+
+# 34
+**Yil yakuni takrorlash.** Bu yil o'rgandik:
+- Axborot, uning turlari, manbalari va jarayonlari.
+- Kodlash, dekodlash va himoya.
+- Algoritm, ijrochi va blok-sxema (oval, to'rtburchak, romb).
+- Kompyuter turlari va qurilmalari: monitor, klaviatura, sichqoncha, tizim bloki.
+Barakalla! 3-sinfda yanada qiziqroq mavzular kutmoqda.
+? Romb blok-sxemada nimani bildiradi? | Savol | Boshlash | Harakat
+? Qaysi biri kiritish qurilmasi? | Klaviatura | Monitor | Karnay
+? A=1, B=2 kodida "2" qaysi harf? | B | A | D
+? Kompyuterning "miyasi" qaysi qism? | Tizim bloki | Printer | Karnay
+? Tish yuvish ketma-ketligida oxirgi qadam? | Og'izni chayish | Pasta surtish | Cho'tkani olish

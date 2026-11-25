@@ -1,0 +1,382 @@
+# 1
+**Algoritm** — biror maqsadga erishish uchun bajariladigan aniq, tartibli qadamlar ketma-ketligi.
+Algoritmning xususiyatlari:
+- **Aniqlik** — har bir qadam tushunarli.
+- **Tartiblilik** — qadamlar ma'lum ketma-ketlikda.
+- **Natijaviylik** — oxirida natija bo'ladi.
+- **Cheklilik** — qadamlar soni cheklangan, algoritm albatta tugaydi.
+"Sendvich tayyorlash": non olish → sariyog' surtish → pishloq qo'yish → ikkinchi non bilan yopish → likopchaga qo'yish.
+> "Algoritm" so'zi buyuk olim Al-Xorazmiy nomidan kelib chiqqan.
+? "Algoritm" so'zi kimning nomidan olingan? | Al-Xorazmiy | Ibn Sino | Ulug'bek
+? Algoritm albatta tugashi — qaysi xususiyat? | Cheklilik | Aniqlik | Tartiblilik
+
+# 2
+Katta va murakkab masalani bir martada yechish qiyin. Uni **kichik bosqichlarga ajratamiz**. Bu **dekompozitsiya** deyiladi.
+"Sinfni tozalash" masalasi:
+1. Partalarni artish.
+2. Polni supurish.
+3. Doskani tozalash.
+4. Axlatni chiqarish.
+Har bir bosqichni alohida odam bajarishi ham mumkin — ish tezlashadi.
+> Katta ishni bo'laklarga bo'lsang — oson bo'ladi.
+? Masalani bosqichlarga ajratish nima deyiladi? | Dekompozitsiya | Kodlash | Saqlash
+? Bosqichlarga ajratishning foydasi? | Ish osonlashadi | Ish qiyinlashadi | Hech qanday
+
+# 3
+**Algoritmni bajarish** — uning qadamlarini birma-bir, tartib bilan amalga oshirish.
+Algoritmni bajaruvchi — **ijrochi**: inson, robot yoki kompyuter.
+Ijrochi algoritmni bajarayotganda:
+- Qadamlarni o'tkazib yubormaydi.
+- Tartibni o'zgartirmaydi.
+- Faqat yozilganini bajaradi.
+Agar natija noto'g'ri chiqsa, demak algoritmda xato bor.
+> Kompyuter siz yozganingizni bajaradi, o'ylaganingizni emas!
+? Ijrochi qadamlarni qanday bajaradi? | Tartib bilan | Xohlagancha | Teskari
+? Natija noto'g'ri chiqsa nimani bildiradi? | Algoritmda xato bor | Hammasi to'g'ri | Kompyuter buzuq
+
+# 4
+**Takrorlanuvchi algoritm (sikl)** — ba'zi qadamlari bir necha marta takrorlanadigan algoritm.
+- Zinadan chiqish: "1 pog'ona chiq" — 10 marta.
+- Gul sug'orish: har bir tuvakka suv quyish — 5 marta.
+- Sakrash: 20 marta sakra.
+"Chiq, chiq, chiq..." deb 10 marta yozish o'rniga "**10 marta takrorla: chiq**" deymiz. Bu algoritmni qisqa va tushunarli qiladi.
+> Takrorlash = sikl.
+? Takrorlanuvchi algoritm boshqacha nima deyiladi? | Sikl | Shart | Kod
+? "5 marta takrorla: qadam qo'y" necha qadam? | 5 | 1 | 10
+
+# 5
+Dasturchilar ham xato qiladi. Algoritmdagi xato **bag (bug)** deyiladi, uni topib tuzatish esa **debugging** (otladka) deyiladi.
+Xato turlari:
+- Qadam **yetishmaydi**: choy damladik, lekin suv qaynatmadik.
+- Qadamlar **tartibi** noto'g'ri: kiyimni dazmollashdan oldin taxladik.
+- **Ortiqcha** qadam bor.
+Xatoni topish: algoritmni qadamma-qadam bajarib chiqing va qaysi joyda natija buzilganini aniqlang.
+> Xato qilish — o'rganishning bir qismi.
+? Algoritmdagi xato nima deyiladi? | Bag (bug) | Fayl | Sikl
+? Xatoni qanday topamiz? | Qadamma-qadam tekshirib | Taxmin qilib | Hech qachon
+
+# 6
+**Scratch** — rangli bloklarni yig'ib dastur tuzadigan muhit. Uni MIT universiteti bolalar uchun yaratgan. Sayt: scratch.mit.edu.
+Scratch oynasining qismlari:
+- **Bloklar palitrasi** (chapda) — Harakat, Ko'rinish, Tovush va boshqa bloklar.
+- **Skript maydoni** (o'rtada) — bloklarni shu yerga sudrab, dastur yig'amiz.
+- **Sahna** (o'ngda) — dastur natijasi ko'rinadi.
+- **Spraytlar ro'yxati** (pastda) — qahramonlar.
+Boshlash uchun **yashil bayroq** bosiladi, to'xtatish uchun — **qizil doira**.
+> Scratch'da kod yozilmaydi, bloklar yig'iladi.
+? Scratch dasturi qanday tuziladi? | Bloklarni yig'ib | Qalam bilan | Faqat ovoz bilan
+? Dasturni qaysi tugma ishga tushiradi? | Yashil bayroq | Qizil doira | Enter
+
+# 7
+**Sprayt** — Scratch'dagi qahramon yoki obyekt (mushuk, it, to'p). **Sahna** — spraytlar harakatlanadigan fon.
+- Yangi sprayt: pastdagi **mushuk boshi** tugmasi → kutubxonadan tanlash.
+- Fonni almashtirish: o'ng pastdagi **Sahna** tugmasi → fon tanlash.
+- Spraytni sichqoncha bilan sahnada boshqa joyga sudrab qo'yish mumkin.
+Har bir spraytning o'z dasturi (skripti) bo'ladi.
+> Bir loyihada ko'p sprayt bo'lishi mumkin.
+? Scratch'dagi qahramon nima deyiladi? | Sprayt | Fon | Blok
+? Spraytlar harakatlanadigan fon nima deyiladi? | Sahna | Palitra | Skript
+
+# 8
+**Takrorlash.** Bu bo'limda o'rgandik:
+- Algoritm va uning xususiyatlari.
+- Masalani bosqichlarga ajratish (dekompozitsiya).
+- Takrorlanuvchi algoritmlar (sikl) va xatolarni tuzatish.
+- Scratch: bloklar, sprayt, sahna.
+? Sikl nima? | Takrorlash | Xato | Sahna
+? Debugging nima? | Xatoni topib tuzatish | Rasm chizish | Fayl saqlash
+? Scratch'da qahramon nima deyiladi? | Sprayt | Server | Fayl
+? Algoritmning albatta tugashi? | Cheklilik | Aniqlik | Ommaviylik
+
+# 9
+**Loyiha: "Scratch'da multfilm yaratish".**
+Reja:
+1. 2 ta sprayt va mos fon tanlang.
+2. Har bir sprayt uchun yashil bayroq bloki bilan boshlanadigan skript yozing.
+3. **Ko'rinish** bo'limidagi **"Salom! demoq 2 soniya"** bloki bilan suhbat qiling.
+4. **"Kutmoq 1 soniya"** bloki bilan navbatma-navbat gapirtiring.
+5. **Harakat** bloklari bilan yurgizing.
+6. Loyihani saqlang.
+> Yaxshi multfilmda boshlanish, voqea va yakun bo'ladi.
+? Qahramonni gapirtiradigan blok qaysi bo'limda? | Ko'rinish | Tovush | Harakat
+? Navbatma-navbat gapirish uchun qaysi blok kerak? | Kutmoq | Takrorlash | O'chirish
+
+# 10
+**Ma'lumotlar** — qayd etilgan faktlar: ism, yosh, bo'y, baho, sana.
+**Ma'lumotlarni yig'ish** usullari:
+- So'rovnoma (savol berib yozish).
+- Kuzatish (masalan, ob-havoni har kuni yozish).
+- O'lchash (bo'y, vazn).
+Yig'ilgan ma'lumotlarni tartibli saqlash uchun **Excel** dasturi qulay: unda jadval kataklariga ma'lumot yoziladi.
+> Ma'lumot to'g'ri va aniq yig'ilsa, xulosa ham to'g'ri bo'ladi.
+? So'rovnoma nima? | Savol berib ma'lumot yig'ish | Rasm chizish | O'yin
+? Ma'lumotni jadvalda saqlash uchun qaysi dastur qulay? | Excel | Paint | Kalkulyator
+
+# 11
+**Ma'lumotlar bazasi** — tartiblangan, saqlanadigan va tez topiladigan ma'lumotlar to'plami.
+Misollar:
+- Telefondagi **kontaktlar** ro'yxati.
+- Kutubxonadagi kitoblar katalogi.
+- Maktabdagi o'quvchilar ro'yxati.
+- Do'kondagi mahsulotlar va narxlari.
+Bazadan kerakli ma'lumotni bir necha soniyada topish mumkin.
+> Ma'lumotlar bazasi — tartibli "elektron shkaf".
+? Telefon kontaktlari — bu? | Ma'lumotlar bazasi | Rasm | O'yin
+? Ma'lumotlar bazasining foydasi? | Kerakli ma'lumot tez topiladi | Ma'lumot yo'qoladi | Hech qanday
+
+# 12
+**Ma'lumotlar jadvali** satr va ustunlardan iborat.
+- **Ustun** (vertikal) — bir turdagi ma'lumot: "Ism", "Yosh", "Sevimli fan". Ustunlar harf bilan belgilanadi: A, B, C.
+- **Satr** (gorizontal) — bitta obyekt haqidagi ma'lumot: bitta o'quvchi. Satrlar raqam bilan: 1, 2, 3.
+- **Katak** — ustun va satr kesishmasi: A1, B2.
+Excel'da birinchi satrga ustun nomlarini (sarlavhalarni) yozamiz.
+> Katak nomi = ustun harfi + satr raqami.
+? Excel'da ustunlar nima bilan belgilanadi? | Harflar bilan | Raqamlar bilan | Ranglar bilan
+? B3 katak qayerda? | B ustun, 3-satr | 3-ustun, B satr | Hech qayerda
+
+# 13
+Jadvalda har bir ustunda bir xil **turdagi** ma'lumot bo'ladi:
+- **Matn** — ism, shahar, fan nomi.
+- **Son** — yosh, bo'y, ball. Sonlar bilan hisoblash mumkin.
+- **Sana** — tug'ilgan kun: 15.03.2016.
+- **Mantiqiy** — ha/yo'q.
+Excel sonlarni katakning o'ng chetiga, matnni chap chetiga joylaydi.
+> To'g'ri turdagi ma'lumot to'g'ri hisob beradi.
+? "Toshkent" qanday ma'lumot turi? | Matn | Son | Sana
+? Excel sonlarni katakning qaysi chetiga joylaydi? | O'ng | Chap | Pastki
+
+# 14
+**Ma'lumotlardan foydalanish:** ularni **saralash** (tartiblash), qidirish va xulosa chiqarish.
+Excel'da saralash:
+1. Jadvalni belgilang.
+2. **Данные / Data → Сортировка / Sort** ni tanlang.
+3. Ustunni tanlang va tartibni: **A dan Z gacha** yoki **kichikdan kattaga**.
+Masalan, o'quvchilarni bo'yi bo'yicha saralasak, kim eng baland ekanini darhol ko'ramiz.
+> Saralangan jadvaldan xulosa chiqarish oson.
+? Saralash nima? | Tartiblash | O'chirish | Bo'yash
+? Excel'da saralash qaysi bo'limda? | Data (Данные) | Fayl | Ko'rinish
+
+# 15
+**Takrorlash.** Bu bo'limda o'rgandik:
+- Ma'lumotlar va ularni yig'ish.
+- Ma'lumotlar bazasi.
+- Jadval: satr, ustun, katak.
+- Ma'lumot turlari va saralash.
+? Katak nomi nimadan iborat? | Ustun harfi va satr raqami | Faqat raqam | Rang
+? 25 qanday ma'lumot turi? | Son | Matn | Sana
+? Kontaktlar ro'yxati — bu? | Ma'lumotlar bazasi | Rasm | Taqdimot
+? Saralash nima? | Tartiblash | Nusxa olish | O'chirish
+
+# 16
+**Loyiha: "Sinf ma'lumotlar bazasi".**
+Excel'da jadval tuzamiz:
+| Ism | Yosh | Bo'y (sm) | Sevimli fan |
+1. Birinchi satrga sarlavhalarni yozing va ularni **qalin** qiling.
+2. 8–10 ta sinfdoshingiz ma'lumotini kiriting.
+3. Jadvalga **chegara** (Границы / Borders) bering.
+4. Bo'y bo'yicha saralang.
+5. Faylni "Sinf bazasi" nomi bilan saqlang.
+> Shaxsiy ma'lumotlarni (manzil, telefon) bazaga kiritmang.
+? Sarlavhalar qaysi satrga yoziladi? | Birinchi | Oxirgi | O'rtadagi
+? Bazaga nimani kiritmaslik kerak? | Manzil va telefon | Ism | Sevimli fan
+
+# 17
+**Dasturlar** ikki katta guruhga bo'linadi:
+- **Tizimli dasturlar** — kompyuterning o'zini boshqaradi. Asosiysi — **operatsion tizim** (Windows, macOS, Android). Antivirus ham tizimli dasturga yaqin.
+- **Amaliy dasturlar** — foydalanuvchi ishini bajaradi: Word, Excel, PowerPoint, Paint, brauzer, o'yinlar.
+Tizimli dasturisiz amaliy dasturlar ishlamaydi.
+> Operatsion tizim — kompyuterning "boshqaruvchisi".
+? Windows qanday dastur? | Tizimli | Amaliy | O'yin
+? Word qanday dastur? | Amaliy | Tizimli | Antivirus
+
+# 18
+Kompyuter yoqilgandan keyin ko'rinadigan asosiy ekran — **ish stoli**.
+Uning elementlari:
+- **Belgilar (ikonkalar)** — dastur, fayl va papkalarning kichik rasmlari.
+- **Vazifalar paneli** — ekranning pastidagi chiziq.
+- **Pusk (Start) tugmasi** — barcha dasturlar ro'yxati.
+- **Soat va til** — vazifalar panelining o'ng tomonida.
+- **Savat (Korzina)** — o'chirilgan fayllar.
+- **Fon rasmi** — ish stoli orqa foni.
+> Ish stoli qanchalik tartibli bo'lsa, ishlash shuncha oson.
+? O'chirilgan fayllar qayerga tushadi? | Savatga | Pusk'ka | Soatga
+? Ekran pastidagi chiziq nima deyiladi? | Vazifalar paneli | Sahna | Katak
+
+# 19
+**Fayl tizimi** — fayl va papkalar qanday tartibda saqlanishi.
+- **Disk** (C:, D:) — eng katta "shkaf".
+- **Papka** — "javon", ichida fayl va boshqa papkalar bo'ladi.
+- **Fayl** — "hujjat": matn, rasm, musiqa.
+Fayllarni ko'rish uchun **Проводник / File Explorer** (sariq papka belgisi) ochiladi.
+Yangi papka: o'ng tugma → **Создать → Папка**.
+> Har bir faylning **nomi** va **kengaytmasi** bor: hisobot.docx, rasm.png.
+? Fayllarni ko'rish dasturi? | Проводник (File Explorer) | Paint | Kalkulyator
+? "rasm.png" da ".png" nima? | Kengaytma | Papka | Disk
+
+# 20
+**Matnli axborot** bilan ishlash Word'da:
+- **Kiritish** — klaviaturadan yozish.
+- **Tahrirlash** — xatolarni tuzatish, so'z qo'shish va o'chirish.
+- **Imlo tekshiruvi** — qizil to'lqinli chiziq bilan belgilangan so'zda xato bo'lishi mumkin. Unga o'ng tugmani bosib, to'g'ri variantni tanlang.
+Tez tahrir: **Backspace** — chapdagi belgini, **Delete** — o'ngdagi belgini o'chiradi. **Ctrl + Z** — oxirgi amalni bekor qiladi.
+> Yozib bo'lgach, matnni bir marta to'liq o'qib chiqing.
+? Oxirgi amalni bekor qilish? | Ctrl + Z | Ctrl + S | Ctrl + P
+? Qizil to'lqinli chiziq nimani bildiradi? | Imlo xatosi bo'lishi mumkin | Sarlavha | Rasm
+
+# 21
+**Matnni formatlash** — uning ko'rinishini o'zgartirish. Avval matn **belgilanadi**, keyin **Главная / Home** bo'limidan:
+- **Shrift turi** — Times New Roman, Arial.
+- **Shrift o'lchami** — 14, 20, 28.
+- **Rang** — "A" harfi tagidagi rangli chiziq.
+- **B** qalin, **I** kursiv, **U** tagiga chizilgan.
+- **Tekislash** — chapga, markazga, o'ngga, ikki chetga.
+Sarlavha odatda markazga va kattaroq shriftda joylanadi.
+> Formatlashdan oldin matnni belgilashni unutmang!
+? Sarlavhani markazga qo'yish — bu? | Tekislash | Imlo | Saqlash
+? Kursiv qaysi tugma? | I | B | U
+
+# 22
+**PowerPoint** — taqdimot (prezentatsiya) tayyorlash dasturi. Taqdimot **slaydlar**dan iborat.
+1. PowerPoint'ni oching → **Пустая презентация / Blank presentation**.
+2. Birinchi slayd — sarlavha slaydi: mavzu va ismingiz.
+3. Yangi slayd: **Главная → Создать слайд / New Slide**.
+4. Har bir slaydga sarlavha va qisqa matn yozing.
+5. **F5** — taqdimotni boshidan ko'rsatish.
+> Slaydda kam so'z, katta shrift — tomoshabin uchun qulay.
+? Taqdimot nimadan iborat? | Slaydlardan | Kataklardan | Spraytlardan
+? Taqdimotni ko'rsatish tugmasi? | F5 | F1 | Esc
+
+# 23
+Taqdimotni jonli qilish uchun **rasm** va **animatsiya** qo'shamiz.
+- Rasm: **Вставка / Insert → Рисунки / Pictures**.
+- Animatsiya: obyektni belgilang → **Анимация / Animations** → effekt tanlang ("Появление / Appear", "Вылет / Fly In").
+- Animatsiya obyektni slaydda **paydo qiladi**, **harakatlantiradi** yoki **yo'qotadi**.
+> Animatsiyani ko'p ishlatmang: e'tibor chalg'iydi.
+? Animatsiya qaysi bo'limda? | Animations (Анимация) | Fayl | Ko'rinish
+? Rasm qayerdan qo'shiladi? | Insert → Pictures | Animations | Fayl → Chiqish
+
+# 24
+**O'tish (transition)** — bir slayddan keyingisiga o'tishdagi effekt.
+1. Slaydni tanlang.
+2. **Переходы / Transitions** bo'limini oching.
+3. Effekt tanlang: "Выцветание / Fade", "Сдвиг / Push".
+4. **Применить ко всем / Apply to All** — hamma slaydlarga.
+Animatsiya slayd **ichidagi** obyekt uchun, o'tish esa **slaydlar orasida**.
+> Bitta taqdimotda 1–2 xil o'tish effekti yetarli.
+? Slaydlar orasidagi effekt? | O'tish (Transition) | Animatsiya | Shrift
+? Hamma slaydlarga qo'llash tugmasi? | Apply to All | Save | Delete
+
+# 25
+**Takrorlash.** Bu bo'limda o'rgandik:
+- Tizimli va amaliy dasturlar.
+- Ish stoli, fayl tizimi.
+- Word'da tahrirlash va formatlash.
+- PowerPoint: slayd, rasm, animatsiya, o'tish.
+? Excel qanday dastur? | Amaliy | Tizimli | Operatsion tizim
+? Slayddagi obyektni harakatlantirish? | Animatsiya | O'tish | Saralash
+? Fayl kengaytmasiga misol? | .docx | Pusk | Savat
+? Matnni formatlashdan oldin nima qilinadi? | Matn belgilanadi | Fayl o'chiriladi | Kompyuter o'chiriladi
+
+# 26
+**Loyiha: "Multimediali taqdimot".** Multimedia — matn, rasm, tovush va video birgalikda.
+5 slaydli taqdimot rejasi:
+1. Sarlavha slaydi.
+2. Mavzuga kirish.
+3. Asosiy ma'lumot va rasm.
+4. Qiziqarli fakt va animatsiya.
+5. Xulosa va "E'tiboringiz uchun rahmat!".
+Barcha slaydlarga o'tish effektini qo'llang va **F5** bilan tekshiring.
+> Taqdimotni sinfdoshlarga ko'rsatishdan oldin bir marta mashq qiling.
+? Multimedia nima? | Matn, rasm, tovush va video birga | Faqat matn | Faqat raqam
+? Taqdimot oxirida nima bo'ladi? | Xulosa | Sarlavha | Hech narsa
+
+# 27
+**Internet** — butun dunyo kompyuterlarini bog'lovchi ulkan tarmoq.
+**WWW (World Wide Web, Butunjahon o'rgimchak to'ri)** — internetdagi saytlar va web-sahifalar tizimi.
+- **Sayt** — bir-biriga bog'langan sahifalar: kun.uz, uz.wikipedia.org.
+- **Web-sahifa** — saytning bitta sahifasi.
+- **Havola (ssilka)** — bosilganda boshqa sahifaga o'tkazuvchi so'z yoki rasm.
+> Internet — "yo'llar", WWW — shu yo'llardagi "uylar" (saytlar).
+? WWW nima? | Saytlar va web-sahifalar tizimi | Kompyuter | Printer
+? Havola nima qiladi? | Boshqa sahifaga o'tkazadi | Rasm chizadi | O'chiradi
+
+# 28
+**Internetdan axborot izlash** — qidiruv tizimi (Google, Yandex) yordamida.
+Yaxshi izlash maslahatlari:
+- **Kalit so'zlar** yozing: "Amir Temur tug'ilgan yili".
+- Bir nechta so'rovni sinab ko'ring.
+- Natijalarning 2–3 tasini solishtiring.
+- Ishonchli saytlarni tanlang: rasmiy saytlar, ensiklopediya.
+> Bir saytda yozilgan narsani boshqa manbada tekshiring.
+? Qidiruvda nima yozamiz? | Kalit so'zlar | Butun kitob | Hech narsa
+? Ma'lumot to'g'riligini qanday tekshiramiz? | Bir necha manbada solishtiramiz | Birinchi saytga ishonamiz | Tekshirmaymiz
+
+# 29
+**Internetda muloqot** — xabar, chat, video qo'ng'iroq, elektron pochta orqali.
+Odob qoidalari (**netiket**):
+- Salomlashing va xushmuomala bo'ling.
+- KATTA HARFLAR bilan yozmang — bu baqirishdek ko'rinadi.
+- Boshqalarni haqorat qilmang.
+- Birovning rasmini ruxsatsiz tarqatmang.
+- Javob kutayotganingizda sabrli bo'ling.
+> Internetdagi muloqot ham haqiqiy muloqot.
+? Internetdagi odob qoidalari nima deyiladi? | Netiket | Brauzer | Server
+? KATTA harflar bilan yozish nimani bildiradi? | Baqirishni | Xursandlikni | Hech narsani
+
+# 30
+**Internetda xavfsizlik** — 5 ta oltin qoida:
+1. Shaxsiy ma'lumotlarni (manzil, telefon, maktab) bermang.
+2. Parolni sir saqlang va kuchli qiling.
+3. Notanish havola va fayllarni ochmang.
+4. Notanish odam bilan uchrashmang.
+5. Nimadir qo'rqitsa yoki noqulay bo'lsa — kattalarga ayting.
+"Siz yutib oldingiz!" degan xabarlar ko'pincha **aldov (fishing)** bo'ladi.
+> Shubha bo'lsa — bosmang!
+? "Siz telefon yutdingiz!" degan xabar ko'pincha? | Aldov | Haqiqat | Dars
+? Notanish fayl kelsa? | Ochmaymiz | Darhol ochamiz | Hammaga yuboramiz
+
+# 31
+**Sun'iy intellekt (SI)** — kompyuterning odamga o'xshab o'rganishi, tanishi va javob berishi.
+Misollar:
+- Telefon yuzingizni tanib ochiladi.
+- Ovozli yordamchilar (Alisa, Siri) savolga javob beradi.
+- Tarjimon dasturlar.
+- YouTube sizga yoqadigan videoni taklif qiladi.
+SI ko'p **misollardan o'rganadi**: masalan, minglab mushuk rasmini ko'rib, mushukni taniydi.
+> SI — inson yaratgan va inson o'rgatgan yordamchi.
+? SI qanday o'rganadi? | Ko'p misollardan | O'zidan o'zi | Hech qachon
+? SI ga misol? | Yuzni taniydigan telefon | Qog'oz daftar | Qalam
+
+# 32
+**Sun'iy intellektdan to'g'ri foydalanish:**
+- Savolni aniq va tushunarli bering.
+- SI ham **xato qilishi** mumkin — javobni darslik yoki o'qituvchi bilan tekshiring.
+- Uy vazifasini SI o'rniga o'zingiz bajaring; SI dan faqat tushuntirish so'rang.
+- SI ga shaxsiy ma'lumotlarni yozmang.
+- Ota-ona ruxsati bilan foydalaning.
+> SI — yordamchi, sizning o'rningizga o'ylovchi emas.
+? SI javobiga darhol ishonish kerakmi? | Yo'q, tekshirish kerak | Ha, har doim | Faqat kechqurun
+? SI ga nima yozmaslik kerak? | Shaxsiy ma'lumotlar | Savol | Mavzu nomi
+
+# 33
+**Takrorlash.** Bu bo'limda o'rgandik:
+- Internet va WWW, sayt, havola.
+- Axborot izlash va ishonchli manbalar.
+- Netiket va xavfsizlik.
+- Sun'iy intellekt va undan to'g'ri foydalanish.
+? Sayt nima? | Bog'langan web-sahifalar | Printer | Fayl
+? Fishing nima? | Aldov xabarlar | O'yin | Dastur
+? SI javobini nima qilamiz? | Tekshiramiz | Ko'chiramiz | O'chiramiz
+? Netiket nima? | Internetdagi odob | Parol | Brauzer
+
+# 34
+**Yil yakuni!** 4-sinfda o'rgandik:
+- Algoritmlar, sikl, xatolarni tuzatish va Scratch.
+- Ma'lumotlar, jadval, ma'lumotlar bazasi va Excel.
+- Word va PowerPoint'da ishlash.
+- Internet, xavfsizlik va sun'iy intellekt.
+Yakuniy ish: eng qiziq mavzu bo'yicha qisqa taqdimot yoki hujjat tayyorlang.
+? Scratch'da qahramon? | Sprayt | Slayd | Katak
+? Slaydlar orasidagi effekt? | O'tish | Saralash | Sikl
+? Katak nomi? | Ustun harfi + satr raqami | Faqat rang | Fayl nomi
+? Algoritmdagi xatoni tuzatish? | Debugging | Kodlash | Saralash

@@ -1,0 +1,761 @@
+# 1
+Kompyuterning asosiy qurilmalari:
+- **Tizim bloki** — protsessor, xotira va boshqa qismlar shu yerda. Kompyuterning "miyasi".
+- **Monitor** — tasvirni ko'rsatadi (chiqarish qurilmasi).
+- **Klaviatura** — matn va buyruq kiritadi (kiritish qurilmasi).
+- **Sichqoncha** — ekrandagi ko'rsatkichni boshqaradi.
+- **Karnay, printer, mikrofon, kamera** — qo'shimcha qurilmalar.
+**Kompyuter sinfida xavfsizlik:** ho'l qo'l bilan tegmang, simlarni tortmang, ovqat va ichimlikni yaqin keltirmang, ekrandan 50–70 sm uzoqda o'tiring, har 20 daqiqada ko'zga dam bering.
+> Qurilma g'alati ishlasa yoki hid chiqsa — darhol o'qituvchiga ayting.
+? Kompyuterning "miyasi" qayerda? | Tizim blokida | Monitorda | Klaviaturada
+? Ekrandan qancha uzoqda o'tirish kerak? | 50–70 sm | 5 sm | 3 metr
+? Klaviatura qanday qurilma? | Kiritish | Chiqarish | Xotira
+
+# 2
+**Operatsion tizim (OT)** — kompyuterni boshqaruvchi asosiy dastur. U boshqa dasturlarni ishga tushiradi, fayllarni saqlaydi, qurilmalarni boshqaradi.
+Mashhur OT: **Windows**, **macOS**, **Linux**; telefonlarda **Android**, **iOS**.
+Windows'da ishlash:
+- **Pusk (Start)** — barcha dasturlar.
+- **Ish stoli** — belgilar va fayllar.
+- **Проводник / File Explorer** — papkalarni ko'rish.
+- Dasturni ochish: belgini ikki marta bosish; yopish: o'ng yuqoridagi **X**.
+> OT — kompyuter va inson o'rtasidagi "tarjimon".
+? Telefonda qaysi OT bor? | Android | Word | Excel
+? Dasturni yopish tugmasi? | X | B | F5
+
+# 3
+**Sichqoncha:**
+- **Chap tugma** bir marta — tanlash; ikki marta — ochish.
+- **O'ng tugma** — kontekst menyu (qo'shimcha buyruqlar).
+- **G'ildirak** — sahifani aylantirish.
+- **Sudrash (drag)** — chap tugmani bosib turib siljitish.
+**Klaviatura guruhlari:**
+- Harf-raqam tugmalari, **Space**, **Enter**, **Backspace**, **Delete**.
+- **Shift** — katta harf; **Caps Lock** — doimiy katta harf.
+- **Ctrl, Alt** — tezkor buyruqlar uchun (Ctrl+C, Ctrl+V).
+- Strelkalar — kursorni siljitish.
+> Kursor — matn yoziladigan miltillovchi chiziq.
+? Kontekst menyu qaysi tugma bilan ochiladi? | O'ng tugma | Chap tugma | G'ildirak
+? Doimiy katta harf rejimi? | Caps Lock | Shift | Enter
+
+# 4
+**Tez yozish (ko'r usul)** — klaviaturaga qaramasdan 10 barmoq bilan yozish.
+- Asosiy qator: chap qo'l **F D S A**, o'ng qo'l **J K L ;**. F va J tugmalarida kichik bo'rtiq bor — barmoqlar shu joyni topadi.
+- Har bir barmoq o'z tugmalariga javob beradi.
+- Bosh barmoqlar — **Space** uchun.
+- Belni tik tuting, bilaklar erkin bo'lsin.
+Avval **to'g'ri**, keyin **tez** yozishga harakat qiling. Mashq uchun **TypingClub**, **Klava.org**, **EduClub TypingJungle** kabi dasturlar bor.
+> Har kuni 10 daqiqa mashq — oy oxirida ikki baravar tezlik.
+? Ko'r usulda asosiy qator qaysi? | F D S A va J K L ; | Q W E R | Raqamlar
+? Qaysi tugmalarda bo'rtiq bor? | F va J | A va L | Enter va Space
+
+# 5
+**Amaliy ish: matn terish musobaqasi.**
+Yozish tezligi **daqiqadagi belgilar (belgi/daq)** yoki so'zlar soni bilan o'lchanadi. Aniqlik — xatosiz yozilgan belgilar foizi.
+Musobaqa qoidalari:
+1. Bir xil matn, bir xil vaqt (masalan, 3 daqiqa).
+2. Natija = tezlik va xatolar soni.
+3. G'olib — tez **va** aniq yozgan.
+O'z natijangizni yozib boring va o'tgan safar bilan solishtiring.
+> Asosiy raqib — kechagi o'zingiz.
+? Yozish tezligi nimada o'lchanadi? | Daqiqadagi belgilar soni | Metrlarda | Kilogrammda
+? Musobaqada nima muhim? | Tezlik va aniqlik | Faqat tezlik | Faqat rang
+
+# 6
+**Microsoft Word** — matnli hujjatlar yaratish dasturi.
+Word oynasi:
+- **Lenta (tasma)** — tepadagi bo'limlar: Главная, Вставка, Макет...
+- **Ish maydoni** — oq varaq, matn shu yerga yoziladi.
+- **Holat qatori** — pastda: sahifa va so'zlar soni.
+Yangi hujjat: **Файл → Создать → Новый документ**. Saqlash: **Ctrl + S**, nom bering.
+> Hujjatni ish boshida saqlang va tez-tez Ctrl + S bosing.
+? Word'da matn qayerga yoziladi? | Ish maydoniga | Lentaga | Holat qatoriga
+? Saqlash tugmalari? | Ctrl + S | Ctrl + Z | Ctrl + A
+
+# 7
+Matnni tahrirlashdan oldin uni **belgilash** kerak.
+- **So'z** — ustiga ikki marta bosish.
+- **Abzas** — uch marta bosish.
+- **Ixtiyoriy qism** — chap tugmani bosib turib sudrash.
+- **Hammasi** — **Ctrl + A**.
+- Klaviatura bilan: **Shift + strelkalar**.
+Belgilangan matn ko'k fon bilan ajralib turadi. Endi uni o'chirish, ko'chirish yoki bezash mumkin.
+> Avval belgila — keyin buyruq ber.
+? Butun matnni belgilash? | Ctrl + A | Ctrl + S | Ctrl + P
+? So'zni belgilash uchun necha marta bosiladi? | Ikki | Bir | To'rt
+
+# 8
+**Almashuv buferi (clipboard)** — nusxalangan matn vaqtincha saqlanadigan joy.
+- **Copy (Ctrl + C)** — nusxa olish, asl joyida qoladi.
+- **Cut (Ctrl + X)** — kesish, asl joyidan olinadi.
+- **Paste (Ctrl + V)** — qo'yish, kursor turgan joyga.
+Copy + Paste = **nusxalash**. Cut + Paste = **ko'chirish**.
+> Ctrl + Z — oxirgi xatoni bekor qilish.
+? Kesish tugmalari? | Ctrl + X | Ctrl + C | Ctrl + V
+? Copy dan keyin asl matn? | Joyida qoladi | O'chadi | Rangi o'zgaradi
+
+# 9
+**Matnni o'chirish va ko'chirish — amaliyot.**
+- **Backspace** — kursordan **chapdagi** belgini o'chiradi.
+- **Delete** — kursordan **o'ngdagi** belgini yoki belgilangan matnni o'chiradi.
+- Abzasni ko'chirish: belgilash → **Ctrl + X** → yangi joyga borish → **Ctrl + V**.
+- Sichqoncha bilan: belgilangan matnni sudrab olib borish.
+> Ko'p narsani o'chirib yubordingizmi? Ctrl + Z yordam beradi.
+? Kursordan chapdagi belgini o'chiradigan tugma? | Backspace | Delete | Enter
+? Abzasni ko'chirish ketma-ketligi? | Belgilash → Ctrl+X → Ctrl+V | Ctrl+V → Ctrl+X | Ctrl+S
+
+# 10
+**Matnni bezash (formatlash)** — **Главная / Home** bo'limida:
+- **Shrift turi** (Arial, Times New Roman, Calibri).
+- **O'lcham** (12, 14, 20, 36).
+- **Qalin (Ctrl+B)**, **kursiv (Ctrl+I)**, **tagiga chizilgan (Ctrl+U)**.
+- **Matn rangi** va **belgilash rangi** (marker).
+- **Tekislash**: chap, markaz (Ctrl+E), o'ng, ikki chet.
+Yaxshi qoida: bitta hujjatda 2 tadan ko'p shrift ishlatmang.
+> Sarlavha — katta va qalin, asosiy matn — o'qish uchun qulay.
+? Kursiv qilish tugmalari? | Ctrl + I | Ctrl + B | Ctrl + U
+? Bitta hujjatda nechta shrift yaxshi? | 1–2 ta | 10 ta | Hech qancha
+
+# 11
+Hujjatga **rasm** qo'shish: **Вставка / Insert → Рисунки / Pictures** → faylni tanlash.
+Rasm bilan ishlash:
+- **O'lchamni o'zgartirish** — burchakdagi doirachalarni sudrash (proporsiya saqlanadi).
+- **Joylashuv** — rasm yonidagi tugma: "В тексте", "Вокруг рамки / Square" (matn rasm atrofidan oqadi).
+- **Aylantirish** — rasm ustidagi aylana strelka.
+> Rasmni burchagidan torting, aks holda u cho'zilib ketadi.
+? Rasm qaysi bo'limdan qo'shiladi? | Insert (Вставка) | Главная | Рецензирование
+? Proporsiyani saqlab kattalashtirish uchun qayerdan tortiladi? | Burchakdan | O'rtadan | Matndan
+
+# 12
+**Shakllar (Shapes)** — tayyor geometrik figuralar: to'rtburchak, doira, strelka, yulduz.
+Qo'shish: **Вставка → Фигуры**, keyin varaqda sudrab chizish. Shakl ichiga matn yozish mumkin.
+**WordArt** — chiroyli, bezakli yozuv: **Вставка → WordArt**. Bannerlar va sarlavhalar uchun qulay.
+Shakl rangi: **Формат → Заливка фигуры** (to'ldirish), **Контур** (chegara).
+> Banner: katta WordArt + rangli shakl fon.
+? Bezakli yozuv qaysi vosita bilan? | WordArt | Excel | Paint
+? Shakl ichini rang bilan to'ldirish? | Заливка (Fill) | Контур | Удалить
+
+# 13
+**Amaliy ish: "Mening maktabim" hujjati.**
+Tarkibi:
+1. WordArt sarlavha: "Mening maktabim".
+2. 2–3 abzas matn: maktab haqida, sevimli fan, do'stlar.
+3. Maktab rasmi (matn atrofidan oqib o'tadigan).
+4. Shakl ichida qiziq fakt.
+5. Sahifa chegarasi: **Дизайн → Границы страниц**.
+Tekshiring: imlo xatolari yo'qmi, hamma narsa bir sahifaga sig'dimi.
+> Chiroyli hujjat — tartibli, o'qishga qulay va xatosiz.
+? Sahifa chegarasi qayerda? | Дизайн → Границы страниц | Файл → Печать | Вставка → Таблица
+? Yaxshi hujjat qanday bo'ladi? | Tartibli va xatosiz | Rangli va chalkash | Bo'sh
+
+# 14
+Word **imloni** avtomatik tekshiradi:
+- **Qizil to'lqinli chiziq** — imlo xatosi yoki lug'atda yo'q so'z.
+- **Ko'k/yashil chiziq** — grammatik yoki tinish belgisi xatosi.
+Tuzatish: so'zga o'ng tugma → to'g'ri variantni tanlash. To'liq tekshiruv: **F7** yoki **Рецензирование → Правописание**.
+Lekin Word har doim ham haq emas — ismlar va o'zbekcha so'zlarni ham xato deb ko'rsatishi mumkin. Yakuniy qarorni siz qilasiz.
+> Til tanlash: Рецензирование → Язык → O'zbek.
+? Imloni to'liq tekshirish tugmasi? | F7 | F5 | F1
+? Qizil to'lqinli chiziq nimani bildiradi? | Imlo xatosi bo'lishi mumkin | Sarlavha | Havola
+
+# 15
+**Qidirish va almashtirish:**
+- **Найти / Find (Ctrl + F)** — matndan so'zni topish. Topilganlar sariq rangda belgilanadi.
+- **Заменить / Replace (Ctrl + H)** — so'zni boshqasiga almashtirish. "Заменить все / Replace All" — barchasini bir martada.
+Masalan, matnda "mushuk" 10 marta yozilgan, uni "it" ga almashtirish bir soniya oladi.
+> Katta hujjatlarda bu vosita vaqtni juda tejaydi.
+? So'z qidirish tugmalari? | Ctrl + F | Ctrl + H | Ctrl + Z
+? Hammasini almashtirish tugmasi? | Replace All | Find | Save
+
+# 16
+**Sahifa yo'nalishi:**
+- **Книжная / Portrait** — tik (kitob kabi). Oddiy hujjatlar uchun.
+- **Альбомная / Landscape** — yotiq. Jadval, sertifikat, poster uchun.
+O'zgartirish: **Макет / Layout → Ориентация**.
+Yana: **Поля / Margins** — sahifa chetlari, **Размер** — qog'oz o'lchami (A4).
+> Chop etishdan oldin yo'nalish va chetlarni tekshiring.
+? Yotiq sahifa nima deyiladi? | Landscape (Альбомная) | Portrait | Margins
+? Standart qog'oz o'lchami? | A4 | A10 | B1
+
+# 17
+**Chop etishga tayyorlash:**
+1. **Файл → Печать (Ctrl + P)** — oldindan ko'rish (Print Preview).
+2. Sahifalar soni, chetlar, rasm joylashuvini tekshiring.
+3. Printer, nusxalar soni va sahifalarni tanlang.
+4. **Печать** tugmasi.
+Oldindan ko'rish qog'ozni tejaydi: xatoni chop etishdan oldin ko'rasiz.
+> Avval ko'r — keyin chop et.
+? Chop etish oynasi tugmalari? | Ctrl + P | Ctrl + S | Ctrl + C
+? Oldindan ko'rishning foydasi? | Qog'oz tejaladi | Rang qo'shiladi | Fayl o'chadi
+
+# 18
+**Hujjatni saqlash:**
+- **Сохранить (Ctrl + S)** — joriy faylni saqlash.
+- **Сохранить как** — yangi nom yoki joy, boshqa formatda.
+- **Qulay nom**: "5-sinf_Word_amaliy.docx" — nima ekanini nomidan bilish kerak.
+- **PDF** formatida saqlash: Сохранить как → Тип файла → PDF. PDF har qanday qurilmada bir xil ko'rinadi, lekin tahrirlash qiyin.
+> DOCX — tahrirlash uchun, PDF — yuborish va chop etish uchun.
+? Qaysi format hamma qurilmada bir xil ko'rinadi? | PDF | DOCX | TXT
+? Yangi nom bilan saqlash? | Сохранить как | Сохранить | Печать
+
+# 19
+**Fayl** — nomlangan axborot to'plami. **Papka** — fayllar guruhi.
+Fayl nomi: **nom.kengaytma**. Kengaytma fayl turini bildiradi:
+- **.docx** — Word hujjati
+- **.pdf** — PDF hujjat
+- **.jpg, .png** — rasm
+- **.pptx** — taqdimot, **.xlsx** — Excel jadval
+- **.mp3** — musiqa, **.mp4** — video
+Papka yaratish: o'ng tugma → **Создать → Папку**. Nomlash qoidasi: aniq va tushunarli.
+> Fayl nomida \ / : * ? " < > | belgilari bo'lmaydi.
+? .png qanday fayl? | Rasm | Musiqa | Jadval
+? Word hujjati kengaytmasi? | .docx | .mp3 | .jpg
+
+# 20
+**Nazorat ishi: Word va fayllar.** Takrorlang:
+- Belgilash, Copy/Cut/Paste, o'chirish.
+- Formatlash: shrift, o'lcham, rang, tekislash.
+- Rasm, shakl, WordArt.
+- Imlo, Find/Replace, sahifa yo'nalishi, chop etish.
+- Saqlash, PDF, fayl turlari va papkalar.
+? Ko'chirish uchun qaysi juftlik? | Ctrl+X va Ctrl+V | Ctrl+C va Ctrl+S | Ctrl+Z va Ctrl+P
+? .pptx qanday fayl? | Taqdimot | Rasm | Musiqa
+? Yotiq sahifa? | Landscape | Portrait | A4
+? So'zni almashtirish tugmalari? | Ctrl + H | Ctrl + F | Ctrl + A
+? Butun matnni belgilash? | Ctrl + A | Ctrl + E | Ctrl + I
+
+# 21
+**Grafik muharrir** — rasm chizish va tahrirlash dasturi: **Paint**, Paint 3D, GIMP, Photoshop.
+Paint asboblari:
+- **Qalam (Pencil)** — ingichka chiziq.
+- **Cho'tka (Brush)** — turli qalinlikdagi chiziq.
+- **Bo'yoq chelak (Fill)** — yopiq sohani bo'yash.
+- **Matn (A)** — yozuv qo'shish.
+- **O'chirg'ich (Eraser)**.
+- **Pipetka** — rasmdan rang olish.
+- **Lupa** — kattalashtirish.
+> Rasmni chizishdan oldin uning rejasini o'ylang.
+? Rasmdan rang oladigan asbob? | Pipetka | Lupa | Qalam
+? Yopiq sohani bo'yaydigan asbob? | Bo'yoq chelak | O'chirg'ich | Matn
+
+# 22
+**Shakllar (Shapes)** guruhida: **chiziq (Line)**, **to'g'ri to'rtburchak**, **oval/aylana**, uchburchak, yulduz.
+- Mukammal **kvadrat** yoki **aylana** chizish uchun **Shift** tugmasini bosib turing.
+- To'g'ri gorizontal chiziq — Shift bilan.
+- Shaklni chizgach, uning **kontur** va **to'ldirish** rangini tanlash mumkin.
+> Shift — "to'g'ri" qiluvchi tugma.
+? Mukammal aylana uchun qaysi tugma bosib turiladi? | Shift | Ctrl | Alt
+? Chiziq chizish asbobi? | Line | Fill | Eraser
+
+# 23
+- **Pencil (qalam)** — 1 piksel qalinlikdagi ingichka chiziq. Kontur va mayda detallar uchun.
+- **Brush (cho'tka)** — turli shakl va qalinlikdagi chiziq: oddiy, kalligrafik, purkagich (sprey), moybo'yoq.
+Usul: avval qalam bilan **kontur** chizing, keyin cho'tka yoki bo'yoq chelak bilan **bo'yang**.
+**Chap tugma** — 1-rang, **o'ng tugma** — 2-rang bilan chizadi.
+> Kontur yopiq bo'lmasa, bo'yoq chelak butun varaqni bo'yab yuboradi.
+? Kontur chizish uchun qaysi asbob qulay? | Pencil | Fill | Lupa
+? O'ng tugma bilan chizganda qaysi rang? | 2-rang | 1-rang | Qora
+
+# 24
+**Rang palitrasi** — tanlash mumkin bo'lgan ranglar to'plami.
+- **1-rang (asosiy)** — chap tugma uchun.
+- **2-rang (fon)** — o'ng tugma uchun.
+- **Изменить цвета / Edit colors** — istalgan rangni aralashtirib olish.
+Kompyuterda har bir rang uchta asosiy rangdan hosil bo'ladi: **Qizil, Yashil, Ko'k — RGB**. Har biri 0 dan 255 gacha.
+> RGB(255, 0, 0) — qizil, (0, 0, 0) — qora, (255, 255, 255) — oq.
+? Kompyuter ranglari qaysi uchta rangdan hosil bo'ladi? | Qizil, yashil, ko'k | Sariq, qora, oq | Pushti, jigarrang, kulrang
+? RGB(255,255,255) qaysi rang? | Oq | Qora | Qizil
+
+# 25
+Chiziq va shakl **qalinligi** — **Толщина / Size** tugmasi orqali tanlanadi (1, 3, 5, 8 px).
+Shakl uchun:
+- **Контур** — chegara chizig'i: oddiy, punktir, yo'q.
+- **Заливка** — ichini to'ldirish: rang bilan yoki bo'sh.
+Bir xil shaklni turli qalinlikda chizib, farqini solishtiring.
+> Qalin chiziq — e'tibor tortadi, ingichka — nozik detal.
+? Chiziq qalinligi qaysi tugma bilan? | Size (Толщина) | Fill | Crop
+? Shakl ichini to'ldirish? | Заливка | Контур | O'chirish
+
+# 26
+**Amaliy ish: geometrik shakllardan robot.**
+Reja:
+1. Bosh — kvadrat.
+2. Ko'zlar — 2 ta aylana (Shift bilan).
+3. Tana — katta to'rtburchak.
+4. Qo'l va oyoqlar — ingichka to'rtburchaklar.
+5. Antenna — chiziq va kichik aylana.
+6. Bo'yoq chelak bilan rangli qiling va **Сохранить как → PNG**.
+> Murakkab rasm — oddiy shakllar yig'indisi.
+? Robot boshini qaysi shakl bilan chizamiz? | Kvadrat | Yulduz | Strelka
+? Rasmni qaysi formatda saqlaymiz? | PNG | DOCX | MP3
+
+# 27
+Shaklni **ko'paytirish** — bir xil detalni qayta chizmasdan nusxalash:
+1. **Выделить / Select** bilan shaklni belgilang.
+2. **Ctrl + C**, **Ctrl + V** — nusxa chap yuqori burchakda paydo bo'ladi.
+3. Nusxani sudrab kerakli joyga qo'ying.
+**O'lchamni o'zgartirish:** belgilangan qism burchagidan tortish yoki **Изменить размер / Resize** (foiz yoki pikselda).
+> Bir xil daraxt yoki yulduzlarni nusxalash bilan tez chizish mumkin.
+? Qismni belgilash asbobi? | Select (Выделить) | Fill | Pencil
+? Nusxa qo'yish? | Ctrl + V | Ctrl + C | Ctrl + S
+
+# 28
+Tasvir qismi bilan ishlash:
+- **Копировать (Ctrl+C)** — nusxa olish.
+- **Вырезать (Ctrl+X)** — kesib olish (o'rnida fon rangi qoladi).
+- **Вставить (Ctrl+V)** — qo'yish.
+- **Прозрачное выделение / Transparent selection** — fonni shaffof qilib ko'chirish (oq fon ko'chmaydi).
+> Shaffof belgilash bilan bir rasmdagi narsani boshqasiga "yopishtirish" chiroyli chiqadi.
+? Kesib olingan joyda nima qoladi? | Fon rangi | Hech narsa o'zgarmaydi | Boshqa rasm
+? Oq fonsiz ko'chirish uchun? | Transparent selection | Fill | Lupa
+
+# 29
+- **Crop (Обрезать)** — rasmni kesish: belgilangan qism qoladi, qolgani olib tashlanadi.
+- **Rotate (Повернуть)** — aylantirish: 90° o'ngga/chapga, 180°.
+- **Flip (Отразить)** — oynadagi aksdek teskari qilish: gorizontal yoki vertikal.
+Crop: Select bilan qismni belgilang → **Обрезать**.
+> 90° ikki marta = 180°.
+? Rasmdan faqat kerakli qismni qoldirish? | Crop | Rotate | Fill
+? 90° ni ikki marta aylantirsak? | 180° | 45° | 360°
+
+# 30
+**O'chirg'ich (Eraser)** — tanlangan joyni **2-rang (fon rangi)** bilan bo'yaydi. Odatda fon oq, shuning uchun "o'chgandek" ko'rinadi.
+- O'chirg'ich o'lchamini **Size** dan tanlang.
+- Katta qismni o'chirish: Select → **Delete**.
+**Saqlash:** **Ctrl + S** yoki **Файл → Сохранить как** → format tanlash.
+> Ehtiyot bo'ling: Ctrl + Z faqat saqlashdan oldin yordam beradi.
+? O'chirg'ich aslida nima qiladi? | Fon rangi bilan bo'yaydi | Rasmni o'chiradi | Kesadi
+? Katta qismni tez o'chirish? | Select → Delete | Pencil | Fill
+
+# 31
+Rasm formatlari:
+- **JPG (JPEG)** — fotosuratlar uchun. Hajmi kichik, lekin siqishda sifat biroz yo'qoladi.
+- **PNG** — chizma, logotip, skrinshot uchun. Sifat yo'qolmaydi, **shaffof fon** bo'lishi mumkin. Hajmi kattaroq.
+- **GIF** — oddiy animatsiyalar.
+Rasm hajmini kamaytirish: **Изменить размер** bilan piksel o'lchamini kichraytirish.
+> Foto — JPG, chizma va logotip — PNG.
+? Shaffof fon qaysi formatda bo'ladi? | PNG | JPG | DOCX
+? Fotosurat uchun qulay format? | JPG | PNG | TXT
+
+# 32
+**Kollaj** — bir nechta rasmni bitta kompozitsiyaga birlashtirish.
+1. Katta oq varaq (masalan, 1200×800 px) oching.
+2. Har bir rasmni oching → Ctrl+A → Ctrl+C → kollajga Ctrl+V.
+3. O'lchamini moslang, joylashtiring.
+4. Matn bilan sarlavha qo'shing.
+5. PNG yoki JPG formatda saqlang.
+> Kollajda rasmlar bir mavzuga bog'liq bo'lsin.
+? Kollaj nima? | Bir nechta rasm birlashmasi | Bitta so'z | Jadval
+? Kollajda sarlavha qaysi asbob bilan? | Matn (A) | O'chirg'ich | Pipetka
+
+# 33
+**Poster** — e'tiborni tortadigan, uzoqdan o'qiladigan e'lon yoki plakat.
+Yaxshi poster qoidalari:
+- **Katta sarlavha** — 2–4 so'z.
+- **Bitta asosiy rasm**.
+- **3 ta qisqa ma'lumot**.
+- **Kontrast**: to'q fonda och yozuv yoki aksincha.
+- Ko'pi bilan 3 ta rang.
+Mavzu: IT, kompyuter, robotlar, dasturlash.
+> Poster 3 soniyada tushunilishi kerak.
+? Posterda sarlavha qanday bo'ladi? | Katta va qisqa | Kichik va uzun | Bo'lmaydi
+? Postersda nechta rang yaxshi? | Ko'pi bilan 3 | 15 | 1 ta ham emas
+
+# 34
+**Nazorat ishi va mini-loyiha: "Mening IT dunyom".**
+Loyihada o'rganganlaringizni birlashtiring: Word hujjat yoki poster + rasm + matn.
+Takrorlash: grafik muharrir asboblari, shakllar, rang, Crop/Rotate, JPG/PNG, kollaj.
+Himoyada 2–3 gap bilan tushuntiring: nima qildingiz, qaysi asboblardan foydalandingiz, nima qiyin bo'ldi.
+? Rasmni kesish amali? | Crop | Flip | Fill
+? Logotip uchun qulay format? | PNG | JPG | MP3
+? Mukammal aylana uchun? | Shift bosib chizish | Ctrl bosib chizish | Hech narsa
+? O'chirg'ich qaysi rang bilan bo'yaydi? | Fon rangi | Qora | Qizil
+
+# 35
+**Algoritm** — maqsadga erishish uchun aniq, tartibli qadamlar ketma-ketligi.
+Kundalik hayotdagi algoritmlar: retsept, yo'l ko'rsatish, kiyinish, maktabga tayyorlanish.
+Algoritm xususiyatlari:
+- **Diskretlik** — alohida qadamlardan iborat.
+- **Tushunarlilik** — ijrochi tushunadi.
+- **Aniqlik** — har qadam bir ma'noli.
+- **Natijaviylik** — natijaga olib keladi.
+- **Ommaviylik** — o'xshash masalalarga ham ishlaydi.
+> Al-Xorazmiy — "algoritm" so'zining asoschisi.
+? Algoritm alohida qadamlardan iboratligi? | Diskretlik | Ommaviylik | Aniqlik
+? Retsept — bu? | Algoritm | Rasm | Fayl
+
+# 36
+**Ijrochi** — algoritmni bajaruvchi: inson, robot, kompyuter.
+Har bir ijrochining **buyruqlar tizimi** bor — u tushunadigan buyruqlar ro'yxati.
+"Robot" ijrochisi buyruqlari: **yuqoriga, pastga, chapga, o'ngga**.
+"Robotga yo'l ko'rsat": kataklardan iborat maydonda robotni maqsadga olib borish uchun ketma-ket buyruqlar yoziladi:
+o'ngga, o'ngga, pastga, pastga, o'ngga...
+> Ijrochi o'z buyruqlar tizimidan tashqaridagi buyruqni bajarmaydi.
+? Ijrochi tushunadigan buyruqlar ro'yxati? | Buyruqlar tizimi | Kod kaliti | Fayl
+? Robot "uch" buyrug'ini bajaradimi (agar tizimida bo'lmasa)? | Yo'q | Ha | Ba'zan
+
+# 37
+**Blok-sxema** — algoritmning shakllar yordamidagi tasviri.
+Asosiy belgilar:
+- **Oval** — boshlanish / tugash.
+- **To'g'ri to'rtburchak** — amal (harakat).
+- **Parallelogramm** — ma'lumot kiritish / chiqarish.
+- **Romb** — shart (savol), Ha/Yo'q chiqishlari.
+- **Strelka** — bajarilish yo'nalishi.
+> Blok-sxema yuqoridan pastga o'qiladi.
+? Ma'lumot kiritish belgisi? | Parallelogramm | Romb | Oval
+? Shart qaysi shaklda? | Romb | Oval | To'rtburchak
+
+# 38
+Oddiy algoritmni blok-sxemaga aylantirish:
+1. Algoritm qadamlarini yozing.
+2. **Boshlash** — oval.
+3. Har bir harakat — alohida to'rtburchak.
+4. Agar savol bo'lsa — romb.
+5. **Tamom** — oval.
+6. Hammasini strelkalar bilan ulang.
+"Choy damlash": Boshlash → suv qaynatish → choynakka choy solish → suv quyish → 5 daqiqa kutish → Tamom.
+> Bitta shakl — bitta harakat.
+? Blok-sxema qaysi shakl bilan boshlanadi? | Oval | Romb | Parallelogramm
+? Shakllar nima bilan ulanadi? | Strelkalar | Ranglar | Raqamlar
+
+# 39
+**Axborotni guruhlash** — o'xshash ma'lumotlarni birlashtirish. Bu katta hajmdagi ma'lumotni tushunishni osonlashtiradi.
+Masalan, 20 ta o'quvchi bahosini guruhlaymiz: "5" olganlar — 6 ta, "4" — 9 ta, "3" — 5 ta.
+Guruhlangan ma'lumotni **diagramma** ko'rinishida ko'rsatish yanada qulay: ustunlar balandligi sonlarni ifodalaydi.
+> Diagramma — raqamlarning rasmi.
+? Diagramma nima? | Raqamlarning rasmi | Matn | Ovoz
+? Guruhlashning foydasi? | Ma'lumotni tushunish osonlashadi | Ma'lumot yo'qoladi | Hech qanday
+
+# 40
+**Microsoft Excel** — elektron jadval dasturi. U hisob-kitob va diagrammalar uchun.
+Excel oynasi:
+- **Lenta** — buyruqlar bo'limlari.
+- **Formula qatori (fx)** — katakdagi ma'lumot yoki formula.
+- **Nom maydoni** — tanlangan katak manzili (A1).
+- **Ustun sarlavhalari** — A, B, C...
+- **Satr raqamlari** — 1, 2, 3...
+- **Varaq yorliqlari** — pastda: Лист1, Лист2.
+> Excel fayli — "kitob", ichida "varaqlar".
+? Katak manzili qayerda ko'rinadi? | Nom maydonida | Lentada | Varaq yorlig'ida
+? Excel faylidagi sahifalar nima deyiladi? | Varaqlar | Slaydlar | Spraytlar
+
+# 41
+- **Katak (yacheyka)** — ustun va satr kesishmasi: **B3**.
+- **Ustun** — vertikal, harf bilan: A, B, C.
+- **Satr** — gorizontal, raqam bilan: 1, 2, 3.
+- **Diapazon** — kataklar guruhi: **A1:C5** — A1 dan C5 gacha to'rtburchak (3 ustun × 5 satr = 15 katak).
+Diapazonni belgilash: birinchi katakdan oxirgisigacha sudrash.
+> Ikki nuqta (:) "dan ... gacha" degani.
+? A1:C5 da nechta katak bor? | 15 | 5 | 8
+? Satrlar nima bilan belgilanadi? | Raqamlar | Harflar | Ranglar
+
+# 42
+**Amaliy ish: ma'lumotlar jadvali.**
+1. A1: "Ism", B1: "Yosh", C1: "Bo'y (sm)".
+2. 2–6 satrlarga 5 ta do'stingiz ma'lumotini kiriting.
+3. Sarlavhalarni qalin qiling, fon rang bering.
+4. Ustun kengligini moslang: ustunlar orasidagi chiziqqa ikki marta bosish.
+5. **Границы → Все границы** — chegaralar.
+> Katakni tahrirlash: F2 yoki ikki marta bosish.
+? Sarlavhalar qaysi satrga yoziladi? | 1-satr | 10-satr | Oxirgi
+? Katakni tahrirlash tugmasi? | F2 | F5 | F12
+
+# 43
+**Piktogramma** — sonlarni rasmlar (belgilar) bilan ko'rsatish. Masalan, 1 ta olma rasmi = 2 kg.
+Piktogramma tuzish:
+1. Ma'lumotni yig'ing (4 ta meva va ularning soni).
+2. **Shkala** tanlang: 1 belgi nechta birlikka teng.
+3. Har bir qatorga kerakli sonda belgi chizing.
+> Piktogramma bolalar va keng ommaga tushunarli.
+? Piktogramma nima? | Sonlarni rasmlar bilan ko'rsatish | Matn | Formula
+? 1 belgi = 2 kg, 3 belgi = ? | 6 kg | 3 kg | 5 kg
+
+# 44
+**Formula** — Excel'da hisoblash. Har doim **=** belgisi bilan boshlanadi.
+- Qo'shish: **=A1+B1**
+- Ayirish: **=A1-B1**
+- Ko'paytirish: **=A1*B1**
+- Bo'lish: **=A1/B1**
+**SUM** funksiyasi — yig'indi: **=SUM(A1:A5)** — A1 dan A5 gacha sonlarni qo'shadi. Tezkor tugma: **Автосумма Σ**.
+Formulada son emas, **katak manzili** ishlatiladi — son o'zgarsa, natija o'zi yangilanadi.
+> Formula "=" bilan boshlanmasa, Excel uni oddiy matn deb biladi.
+? Formula qaysi belgi bilan boshlanadi? | = | + | #
+? =SUM(A1:A3) nima qiladi? | A1 dan A3 gacha qo'shadi | Ko'paytiradi | O'chiradi
+
+# 45
+**Amaliy ish: o'quvchilar natijalari.**
+| Ism | Matematika | Ona tili | Informatika | Jami |
+1. 5 ta o'quvchi va 3 ta fan bahosini kiriting.
+2. E2 katakka: **=SUM(B2:D2)**.
+3. Formulani pastga **nusxalang**: katak burchagidagi kvadratchani (to'ldirish markeri) sudrang.
+4. Eng yuqori jami balli o'quvchini toping.
+> Formula pastga nusxalanganda satr raqami o'zi o'zgaradi: B3:D3, B4:D4...
+? Jami ballni hisoblash formulasi? | =SUM(B2:D2) | =B2 | SUM
+? Formulani pastga nusxalash? | To'ldirish markerini sudrash | Ctrl + P | F7
+
+# 46
+**Diagramma** — jadvaldagi sonlarning grafik ko'rinishi.
+Yaratish:
+1. Jadvalni (sarlavhalar bilan) belgilang.
+2. **Вставка / Insert → Диаграммы / Charts**.
+3. Turini tanlang.
+4. **Название диаграммы** — sarlavha bering.
+5. **O'qlar (oslar)** nomini qo'shing: gorizontal — nima, vertikal — qancha.
+> Diagrammaga albatta sarlavha bering.
+? Diagramma qaysi bo'limdan qo'shiladi? | Insert (Вставка) | Fayl | Formula
+? Diagrammadan oldin nima qilinadi? | Jadval belgilanadi | Fayl yopiladi | Hech narsa
+
+# 47
+Diagramma turlari:
+- **Ustunli (gistogramma)** — qiymatlarni **solishtirish** uchun: kim ko'p, kim kam.
+- **Doiraviy** — **butunning qismlari** uchun: sinfning necha foizi futbolni yaxshi ko'radi. Jami 100%.
+- **Chiziqli** — vaqt bo'yicha **o'zgarish** uchun: har oydagi harorat.
+> To'g'ri diagramma turini tanlash — xulosa chiqarishni osonlashtiradi.
+? Butunning qismlari uchun qaysi diagramma? | Doiraviy | Chiziqli | Ustunli
+? Vaqt bo'yicha o'zgarish uchun? | Chiziqli | Doiraviy | Hech qaysi
+
+# 48
+**Diagrammani tahrirlash** — diagramma ustiga bosganda **Конструктор / Design** va **Формат** bo'limlari chiqadi.
+- **Экспресс-макет** — tayyor joylashuvlar.
+- **Стили** — tayyor uslublar.
+- Ustun rangini o'zgartirish: ustunga bosish → **Заливка**.
+- **Подписи данных / Data labels** — ustun ustiga sonni yozish.
+- Diagrammani sudrab joyini, burchagidan o'lchamini o'zgartirish.
+> Muhim ustunni ajralib turadigan rangga bo'yang.
+? Ustun ustiga son yozish? | Data labels | Legend | Crop
+? Diagramma tahrirlash bo'limi? | Конструктор (Design) | Рецензирование | Вид
+
+# 49
+**Diagrammadan xulosa chiqarish:**
+1. Eng **katta** va eng **kichik** qiymatni toping.
+2. Qiymatlarni **solishtiring**: qanchaga farq qiladi?
+3. **O'zgarish tendensiyasi** bormi (o'sish, kamayish)?
+4. Xulosani 1–2 gap bilan yozing.
+Masalan: "Sinfimizda eng ko'p o'quvchi futbolni yaxshi ko'radi (12 ta), eng kam — shaxmatni (3 ta)".
+> Diagramma — savol, xulosa — javob.
+? Xulosa chiqarishda birinchi nima qilinadi? | Eng katta va kichikni topish | Ranglarni o'zgartirish | Faylni o'chirish
+? Statistika nima? | Ma'lumotlarni yig'ish va tahlil qilish | Rasm | O'yin
+
+# 50
+**Nazorat ishi: Excel va diagrammalar.** Takrorlang:
+- Katak, satr, ustun, diapazon.
+- Formula: =, +, -, *, /, SUM.
+- To'ldirish markeri.
+- Diagramma turlari va tahrirlash.
+- Xulosa chiqarish.
+? =A1*B1 nima qiladi? | Ko'paytiradi | Qo'shadi | Bo'ladi
+? B2:B6 da nechta katak? | 5 | 6 | 2
+? Solishtirish uchun qaysi diagramma? | Ustunli | Doiraviy | Hech qaysi
+? Formula nima bilan boshlanadi? | = | : | !
+
+# 51
+**Scratch** — vizual dasturlash muhiti (scratch.mit.edu).
+- **Sprayt (Sprite)** — qahramon: mushuk, robot, to'p.
+- **Sahna (Stage)** — spraytlar harakatlanadigan joy, 480×360 piksel.
+- **Fon (Backdrop)** — sahna rasmi.
+Bloklar ranglar bo'yicha guruhlangan: **Harakat** (ko'k), **Ko'rinish** (binafsha), **Tovush** (pushti), **Hodisalar** (sariq), **Boshqaruv** (to'q sariq).
+Dastur **"yashil bayroq bosilganda"** bloki bilan boshlanadi.
+> Har bir spraytning o'z skripti, kostyumlari va tovushlari bor.
+? Sahna o'lchami? | 480×360 | 100×100 | 1920×1080
+? Harakat bloklari qaysi rangda? | Ko'k | Qizil | Qora
+
+# 52
+Scratch sahnasi — **koordinata tekisligi**:
+- **X** — gorizontal: −240 (chap) dan 240 (o'ng) gacha.
+- **Y** — vertikal: −180 (past) dan 180 (yuqori) gacha.
+- Markaz: **(0, 0)**.
+Harakat bloklari:
+- **"10 qadam yur"**
+- **"x: 0 y: 0 ga bor"**
+- **"x ni 10 ga o'zgartir"**, **"y ni 10 ga o'zgartir"**
+- **"1 soniyada x: y: ga sirpan"**
+> Y oshsa — yuqoriga, X oshsa — o'ngga.
+? Sahna markazi koordinatasi? | (0, 0) | (240, 180) | (100, 100)
+? Spraytni yuqoriga siljitish uchun qaysi qiymat oshadi? | Y | X | Hech qaysi
+
+# 53
+**Amaliy ish: labirint.**
+1. Fon sifatida labirint chizing (devorlar bir rangda, masalan qora).
+2. Kichik sprayt tanlang.
+3. Strelka tugmalari bilan boshqarish:
+**"o'ng strelka bosilganda" → "x ni 5 ga o'zgartir"** (va boshqa yo'nalishlar uchun ham).
+4. Devorga tegsa — boshlang'ich joyga qaytish:
+**"agar qora rangga tegsa" → "x: -200 y: 150 ga bor"**.
+> Labirint o'yini — hodisa + harakat + shart.
+? Strelka bilan boshqarish qaysi bloklar bilan? | Hodisalar ("tugma bosilganda") | Tovush | Ko'rinish
+? Devorga tekkanini qanday bilamiz? | "rangga tegsa" sharti | Kutish bloki | Hech qanday
+
+# 54
+**Yo'nalish (burchak)** — sprayt qaysi tomonga qarayotgani:
+- **90°** — o'ngga, **−90°** — chapga, **0°** — yuqoriga, **180°** — pastga.
+Bloklar: **"90 yo'nalishga qara"**, **"15 gradus o'ngga buril"**.
+**Kvadrat** chizish: 4 marta — 100 qadam yur, 90° buril. 4 × 90° = 360° — to'liq aylana.
+> Har qanday yopiq shakl uchun burilishlar yig'indisi 360°.
+? Sprayt o'ngga qarashi uchun yo'nalish? | 90 | 0 | 180
+? Kvadratda har burilish necha gradus? | 90 | 45 | 120
+
+# 55
+**Sikl (takrorlash)** — bloklarni bir necha marta bajarish.
+- **"10 marta takrorla"** (repeat) — aniq son marta.
+- **"doimo takrorla"** (forever) — to'xtatilguncha.
+Misol: **"8 marta takrorla: 45° buril"** — sprayt to'liq aylanadi (8 × 45° = 360°).
+Siklsiz bir xil blokni 8 marta qo'yish kerak bo'lardi.
+> Sikl dasturni qisqa va tartibli qiladi.
+? Aniq son marta takrorlash bloki? | repeat | forever | if
+? 8 marta 45° burilsa jami? | 360° | 90° | 180°
+
+# 56
+**Shart (if)** — "agar ... bo'lsa, ... qil".
+- **"agar ... bo'lsa"** (if) — shart to'g'ri bo'lsa bajariladi.
+- **"agar ... bo'lsa ... aks holda"** (if-else) — ikki yo'l.
+Sezish bloklari (havorang): **"chetga tegdimi?"**, **"... rangga tegdimi?"**, **"sichqonchaga tegdimi?"**.
+Misol: doimo takrorla → agar chetga tegsa → "To'xta!" de.
+> Shart doimiy tekshirilishi uchun uni "doimo takrorla" ichiga qo'ying.
+? "Agar ... bo'lsa" bloki inglizcha? | if | repeat | forever
+? Shartni doimiy tekshirish uchun? | "doimo takrorla" ichiga qo'yish | Bir marta bosish | Kutish
+
+# 57
+**O'zgaruvchi** — qiymatni saqlaydigan "quti". Masalan, **Ball (Score)**.
+Yaratish: **O'zgaruvchilar → "O'zgaruvchi yaratish"** → nom: Ball.
+Bloklar:
+- **"Ball ni 0 ga tenglashtir"** — boshida nolga.
+- **"Ball ni 1 ga o'zgartir"** — 1 qo'shish.
+O'zgaruvchi qiymati sahnada ko'rinadi. O'yinlarda ball, vaqt, hayotlar soni o'zgaruvchida saqlanadi.
+> O'yin boshida o'zgaruvchini albatta 0 ga tenglashtiring.
+? Ballni saqlash uchun nima kerak? | O'zgaruvchi | Fon | Kostyum
+? O'yin boshida Ball nechaga tenglashtiriladi? | 0 | 100 | 10
+
+# 58
+**Debuglash** — dasturdagi xatoni (bug) topish va tuzatish.
+Usullar:
+1. Dasturni ishga tushirib, nima **noto'g'ri** ekanini aniqlang.
+2. Bloklarni birma-bir tekshiring: tartib, son qiymatlar.
+3. Bitta blokni bosib, uning nima qilishini alohida ko'ring.
+4. Vaqtincha **"demoq"** bloki bilan o'zgaruvchi qiymatini chiqaring.
+Tipik xatolar: o'zgaruvchi 0 ga tenglashtirilmagan, shart sikl ichida emas, noto'g'ri koordinata.
+> Xato — dasturchining eng yaxshi o'qituvchisi.
+? Debuglash nima? | Xatoni topib tuzatish | Rasm chizish | Fon tanlash
+? Tipik xato? | O'zgaruvchi 0 ga tenglashtirilmagan | Yashil bayroq bor | Sahna bor
+
+# 59
+**Amaliy loyiha: "Mini Game".** O'yin rejasini tuzamiz:
+1. **Maqsad** — nima qilish kerak? (yulduzlarni yig'ish)
+2. **Qoida** — qanday boshqariladi? (strelkalar)
+3. **Ball** — qachon oshadi? (yulduzga tekkanda +1)
+4. **G'alaba sharti** — qachon yutadi? (Ball = 10)
+5. **Mag'lubiyat** — qachon yutqazadi? (dushmanga tegsa)
+Kerakli bloklar: hodisalar, harakat, sikl, shart, o'zgaruvchi.
+> Avval qog'ozda reja — keyin Scratch'da kod.
+? O'yinda ball qayerda saqlanadi? | O'zgaruvchida | Fonda | Kostyumda
+? G'alaba sharti nima? | O'yinda yutish qoidasi | Fon rangi | Sprayt nomi
+
+# 60
+**Internet** — dunyo tarmoqlari tarmog'i. **Sayt** — bir-biriga bog'langan **web-sahifalar** to'plami.
+**Qidiruv tizimlari:** Google, Yandex, Bing. Ular milliardlab sahifani indekslaydi va so'rovingizga mos natija beradi.
+Yaxshi so'rov:
+- Kalit so'zlar: "quyosh tizimi sayyoralar soni".
+- Qo'shtirnoq — aniq ibora: "Amir Temur".
+- Bir necha xil so'rov sinab ko'rish.
+> Qidiruv tizimi — internetning kutubxonachisi.
+? Qidiruv tizimiga misol? | Google | Word | Paint
+? Aniq ibora bilan qidirish uchun? | Qo'shtirnoq | Yulduzcha | Nuqta
+
+# 61
+**Brauzer** — web-sahifalarni ko'rish dasturi: Chrome, Edge, Firefox, Safari, Opera.
+**URL** — sahifa manzili. Masalan: **https://uz.wikipedia.org/wiki/Informatika**
+- **https://** — protokol (s — xavfsiz).
+- **uz.wikipedia.org** — domen nomi.
+- **/wiki/Informatika** — sahifa yo'li.
+**Domen zonalari:** .uz — O'zbekiston, .com — tijorat, .org — tashkilot, .edu — ta'lim.
+> Manzil qatorida qulf belgisi — xavfsiz ulanish.
+? URL da domen qaysi qism? | uz.wikipedia.org | https:// | /wiki
+? .uz zonasi nimani bildiradi? | O'zbekiston | Tijorat | Ta'lim
+
+# 62
+**Ma'lumotni solishtirish va tekshirish:**
+1. Kamida **2–3 manbada** tekshiring.
+2. Sayt muallifi kim? Rasmiy tashkilotmi?
+3. Ma'lumot **yangimi**? Sanasi qachon?
+4. Faktmi yoki shaxsiy fikrmi?
+5. Reklama yoki "sensatsiya" sarlavhalardan ehtiyot bo'ling.
+> Ko'p saytda bir xil gap yozilgan bo'lsa ham, uni rasmiy manbada tekshiring.
+? Ma'lumotni nechta manbada tekshirish kerak? | 2–3 ta | 0 | Faqat bitta
+? Ishonchli manbaga misol? | Rasmiy tashkilot sayti | Noma'lum reklama | Shubhali xabar
+
+# 63
+**Elektron pochta (email)** — internet orqali xat yuborish.
+Manzil tuzilishi: **ism@domen**
+- **aziza.rahimova** — foydalanuvchi nomi.
+- **@** — "et" belgisi ("kuchukcha").
+- **gmail.com** — pochta xizmati domeni.
+Yangi xat: **Написать / Compose** → **Кому (To)** — oluvchi manzili, **Тема (Subject)** — mavzu, **matn** → **Отправить (Send)**.
+> Mavzu qatorini bo'sh qoldirmang — xat nima haqida ekanini aytadi.
+? Email manzilida majburiy belgi? | @ | # | %
+? Xat mavzusi qaysi maydonga yoziladi? | Тема (Subject) | Кому (To) | Matn
+
+# 64
+**Xatga fayl biriktirish:**
+1. Yangi xat oching.
+2. **Скрепка (qisqich) / Attach** belgisini bosing.
+3. Faylni tanlang → **Открыть**.
+4. Fayl yuklanguncha kuting, keyin **Отправить**.
+**Xatni o'qish va javob:**
+- **Входящие / Inbox** — kelgan xatlar.
+- **Ответить / Reply** — jo'natuvchiga javob.
+- **Переслать / Forward** — xatni boshqaga yuborish.
+> Katta fayllarni (25 MB dan ko'p) bulut orqali havola bilan yuboring.
+? Fayl biriktirish belgisi? | Qisqich (skrepka) | Yulduz | Savat
+? Kelgan xatni boshqa odamga yuborish? | Forward (Переслать) | Reply | Delete
+
+# 65
+**Xavfsiz internet:**
+- **Kuchli parol:** kamida 8–12 belgi, katta va kichik harf, raqam, belgi: **Kitob#2026uz**. Har saytga alohida parol.
+- **Shaxsiy ma'lumot:** manzil, telefon, pasport, parolni bermang.
+- **Spam** — keraksiz reklama xatlari.
+- **Fishing (phishing)** — aldov: rasmiy kabi ko'rinadigan soxta sayt yoki xat paroli o'g'irlash uchun. Belgilari: shoshiltirish ("24 soat ichida!"), sovg'a va'dasi, xatolarga to'la manzil (g00gle.com).
+> Hech bir rasmiy xizmat parolingizni xatda so'ramaydi.
+? Fishing nima? | Parol o'g'irlash uchun aldov | Baliq ovi o'yini | Antivirus
+? Qaysi parol kuchliroq? | Kitob#2026uz | 12345678 | parol
+
+# 66
+**Amaliy ish: "Xavfsiz internet" plakati.**
+Word yoki Paint'da:
+1. Katta sarlavha: "Internetda xavfsiz bo'l!"
+2. 5 ta qoida ro'yxati (parol, shaxsiy ma'lumot, fishing, notanishlar, kattalarga aytish).
+3. Har qoida yonida kichik rasm yoki belgi.
+4. Kontrast ranglar.
+5. PDF yoki PNG formatda saqlash.
+> Qoidalar qisqa bo'lsin: "Parolni hech kimga aytma!".
+? Plakatni yuborish uchun qulay format? | PDF | DOCX | TXT
+? Qoidalar qanday yozilsin? | Qisqa va aniq | Juda uzun | Kichik harfda
+
+# 67
+**Web-sahifa va dasturlash bilan tanishuv.**
+Web-sahifalar **HTML** tilida yoziladi:
+```html
+<h1>Salom, dunyo!</h1>
+<p>Men 5-sinfda o'qiyman.</p>
+```
+**Python** — eng mashhur dasturlash tillaridan biri:
+```python
+print("Salom, dunyo!")
+```
+print — ekranga chiqarish buyrug'i.
+Dasturlash orqali saytlar, o'yinlar, ilovalar va robotlar yaratiladi. Platformadagi **Kod maydoni**da HTML'ni hoziroq sinab ko'rishingiz mumkin!
+> Har bir dasturchi "Salom, dunyo!" dan boshlagan.
+? Web-sahifalar qaysi tilda yoziladi? | HTML | Excel | Paint
+? Python'da ekranga chiqarish buyrug'i? | print | show | write
+
+# 68
+**Yakuniy takrorlash va loyiha himoyasi.**
+Bu yil o'rgandik: kompyuter qurilmalari, tez yozish, Word, grafika, algoritm va blok-sxema, Excel va diagrammalar, Scratch, internet va email, xavfsizlik, HTML va Python bilan tanishuv.
+Loyiha himoyasi rejasi:
+1. Loyiha nomi va maqsadi.
+2. Qaysi dasturlardan foydalandingiz.
+3. Natija va nimani o'rgandingiz.
+? =SUM(A1:A5) nima qiladi? | Qo'shadi | Ko'paytiradi | O'chiradi
+? Scratch'da takrorlash bloki? | repeat | if | say
+? Fishing belgisi? | Shoshiltirish va sovg'a va'dasi | Rasmiy manzil | Qulf belgisi
+? Shaffof fon qaysi formatda? | PNG | JPG | DOCX
+? Blok-sxemada shart? | Romb | Oval | To'rtburchak

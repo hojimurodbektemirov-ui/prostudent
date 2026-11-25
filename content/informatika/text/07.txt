@@ -1,0 +1,797 @@
+# 1
+**Stil (uslub)** — matnga bir bosishda qo'llanadigan tayyor formatlar to'plami: shrift, o'lcham, rang, interval.
+Asosiy stillar (**Главная → Стили**):
+- **Heading 1 (Заголовок 1)** — bosh sarlavha.
+- **Heading 2 (Заголовок 2)** — bo'lim sarlavhasi.
+- **Normal (Обычный)** — asosiy matn.
+Afzalliklari:
+- Butun hujjat bir xil ko'rinadi.
+- Stilni o'zgartirsangiz (o'ng tugma → **Изменить**), u qo'llangan hamma joy birdan yangilanadi.
+- Stillar asosida **avtomatik mundarija** (Ссылки → Оглавление) va **Navigatsiya paneli** ishlaydi.
+> Sarlavhani qo'lda kattalashtirmang — unga stil bering.
+? Bo'lim sarlavhasi uchun qaysi stil? | Heading 2 | Normal | Title
+? Avtomatik mundarija nima asosida tuziladi? | Sarlavha stillari | Rasmlar | Jadvallar
+? Stilni o'zgartirsak nima bo'ladi? | U qo'llangan hamma joy yangilanadi | Faqat bitta so'z o'zgaradi | Hech narsa
+
+# 2
+**Wrap Text (Обтекание текстом)** — rasm va matnning o'zaro joylashuvi:
+- **In Line with Text** — rasm harf kabi qatorda turadi.
+- **Square** — matn rasm atrofidan to'rtburchak bo'ylab oqadi.
+- **Tight** — rasm shakli bo'ylab.
+- **Behind Text / In Front of Text** — rasm matn ortida yoki ustida.
+**Crop (Обрезка)** — rasmning keraksiz chetlarini kesish: rasmni tanlang → **Формат рисунка → Обрезка** → qora chiziqlarni suring.
+**O'lcham** — burchakdagi doirachadan tortish (proporsiya saqlanadi) yoki aniq santimetr kiritish.
+> Rasmni yon tomondan tortsangiz, u cho'ziladi va xunuk ko'rinadi.
+? Matn rasm atrofidan oqishi uchun? | Square | In Line with Text | Behind Text
+? Rasmning keraksiz chetini olib tashlash? | Crop | Rotate | Wrap
+? Proporsiyani saqlab kattalashtirish uchun qayerdan tortiladi? | Burchakdan | Yon tomondan | Markazdan
+
+# 3
+**Jadval** — satr va ustunlardan iborat to'r. Ma'lumotni tartibli ko'rsatadi.
+Qo'shish: **Вставка → Таблица** → kerakli ustun × satr sonini tanlang.
+Jadval bilan ishlash (**Макет / Layout**):
+- Satr yoki ustun qo'shish/o'chirish.
+- **Объединить ячейки** — kataklarni birlashtirish (sarlavha uchun).
+- **Разделить ячейки** — bo'lish.
+**Конструктор / Design** — tayyor jadval uslublari, chegaralar va to'ldirish rangi.
+> Jadvalning birinchi satri sarlavha bo'lsin va u ajralib tursin.
+? Kataklarni birlashtirish buyrug'i? | Объединить ячейки | Разделить ячейки | Удалить
+? Jadval qayerdan qo'shiladi? | Вставка → Таблица | Файл → Печать | Главная → Стили
+
+# 4
+**Ro'yxatlar** matnni tartibli qiladi:
+- **Belgili (marker, bullets)** — tartib muhim bo'lmaganda: xaridlar ro'yxati.
+- **Raqamli (numbering)** — tartib muhim: retsept, ko'rsatma.
+- **Ko'p darajali** — ichma-ich: bob → bo'lim → band. **Tab** — darajani pasaytirish, **Shift+Tab** — ko'tarish.
+Tugmalar: **Главная → Маркеры / Нумерация / Многоуровневый список**.
+> Ro'yxat bandlari qisqa va bir xil tuzilishda bo'lsin.
+? Retsept qadamlari uchun qaysi ro'yxat? | Raqamli | Belgili | Ro'yxatsiz
+? Ro'yxatda darajani pasaytirish tugmasi? | Tab | Enter | Delete
+
+# 5
+**Header (колонтитул верхний)** — har bir sahifaning tepasidagi maydon. **Footer** — pastidagi.
+U yerga odatda: hujjat nomi, muallif, maktab nomi, **sahifa raqami**, sana yoziladi.
+Qo'shish: **Вставка → Верхний / Нижний колонтитул** yoki sahifa tepasiga ikki marta bosish.
+Sahifa raqami: **Вставка → Номер страницы**.
+Header'ni bir marta yozasiz — u barcha sahifalarda chiqadi.
+> Header/Footer'dan chiqish: asosiy matnga ikki marta bosing.
+? Sahifa raqami odatda qayerda bo'ladi? | Footer'da | Matn o'rtasida | Jadvalda
+? Header necha sahifada chiqadi? | Barcha sahifalarda | Faqat birinchisida | Hech birida
+
+# 6
+**Ustunlar (Колонки)** — matnni gazeta yoki jurnal kabi 2–3 ustunga bo'lish.
+**Макет → Колонки → Две / Три**.
+- **Другие колонки** — ustunlar kengligi va oraliq, ular orasidagi chiziq.
+- **Разрыв колонки** — matnni majburan keyingi ustunga o'tkazish.
+Faqat bir qismni ustunlarga bo'lish uchun avval o'sha matnni belgilang.
+> Gazeta, buklet va e'lonlar uchun 2–3 ustun qulay.
+? Matnni ustunlarga bo'lish qaysi bo'limda? | Макет (Layout) | Вставка | Рецензирование
+? Matnni keyingi ustunga majburan o'tkazish? | Разрыв колонки | Enter | Delete
+
+# 7
+**Sahifa sozlamalari (Макет):**
+- **Поля (Margins)** — chetki maydonlar: oddiy, tor, keng.
+- **Ориентация** — Portrait (tik) yoki Landscape (yotiq).
+- **Размер** — qog'oz o'lchami (A4, A5).
+**Print Preview (Файл → Печать, Ctrl+P)** — chop etishdan oldin sahifa qanday chiqishini ko'rish: sahifalar soni, rasm va jadvallar joylashuvi.
+> Avval Print Preview — keyin chop etish. Qog'oz va bo'yoq tejaladi.
+? Chetki maydonlar qanday ataladi? | Поля (Margins) | Колонки | Стили
+? Chop etishdan oldin ko'rish? | Print Preview | Save As | Undo
+
+# 8
+**Internetda xavfsizlik — amaliyot.**
+Asosiy qoidalar:
+1. **Kuchli parol**: 12+ belgi, harf, raqam, belgi. Har saytga alohida.
+2. **Ikki bosqichli tasdiqlash (2FA)**: parol + SMS yoki ilova kodi.
+3. **https** va qulf belgisini tekshiring.
+4. **Fishing**: "hisobingiz bloklandi", "sovg'a yutdingiz" — aldov bo'lishi mumkin.
+5. **Shaxsiy ma'lumot**: manzil, pasport, karta raqamini bermang.
+6. **Yangilanishlar va antivirus**: tizimni yangilab turing.
+> Shubha bo'lsa — bosmang, kattalardan so'rang.
+? 2FA nima? | Ikki bosqichli tasdiqlash | Antivirus | Brauzer
+? Xavfsiz sayt belgisi? | https va qulf | Ko'p reklama | Qizil sarlavha
+
+# 9
+**Nazorat ishi: Word.** Takrorlang:
+- Stillar va mundarija.
+- Wrap text, Crop, rasm o'lchami.
+- Jadval, ro'yxatlar.
+- Header/Footer, sahifa raqami.
+- Ustunlar, chetki maydonlar, Print Preview.
+? Sarlavha uslubi? | Heading 1 | Normal | Footer
+? Sahifa pastidagi maydon? | Footer | Header | Margin
+? Gazeta ko'rinishi uchun? | Ustunlar | Jadval | WordArt
+? Rasm atrofidan matn oqishi? | Square | Crop | Bullets
+
+# 10
+**Loyiha xususiyatlari** — ish boshlashdan oldin aniqlanadi:
+- **Mavzu** — nima haqida?
+- **Maqsad** — nima uchun? (xabar berish, o'rgatish, ishontirish)
+- **Auditoriya** — kim uchun? (sinfdoshlar, ota-onalar, kichiklar)
+- **Natija** — qanday mahsulot? (8 slaydli taqdimot)
+- **Muddat va resurslar** — qachongacha, qaysi dastur, qanday rasmlar.
+Bu reja **loyiha topshirig'i (brief)** deyiladi.
+> Auditoriya dizaynni belgilaydi: bolalarga — yorqin, rasmiylarga — sokin.
+? "Kim uchun?" savoli? | Auditoriya | Maqsad | Muddat
+? Loyiha rejasi hujjati nima deyiladi? | Brief | Footer | Slayd
+
+# 11
+**O'tish effekti (Transition)** — bir slayddan keyingisiga o'tish usuli.
+**Переходы / Transitions** bo'limi:
+- Effekt tanlash: Fade, Push, Wipe, Morph.
+- **Параметры эффектов** — yo'nalish.
+- **Длительность** — davomiylik (masalan, 1 soniya).
+- **Применить ко всем** — barcha slaydlarga.
+> Bitta taqdimotda 1–2 xil o'tish effekti yetarli — ko'pi chalg'itadi.
+? Slaydlar orasidagi effekt? | Transition | Animation | Layout
+? Barcha slaydlarga qo'llash? | Применить ко всем | Удалить | Сохранить
+
+# 12
+**Vaqt va audio:**
+- **Avtomatik almashish**: Переходы → **Смена слайда → После** — masalan 5 soniya. Taqdimot o'zi o'ynaydi.
+- **Audio**: Вставка → **Звук** → fayldan. **Воспроизведение** bo'limida: "Для всех слайдов" (fon musiqasi), "Непрерывно", "Скрыть при показе".
+- **Записать показ слайдов** — ovozli sharh bilan yozib olish.
+> Musiqa ovozi sharhdan baland bo'lmasin.
+? Slayd o'zi almashishi uchun? | Смена слайда → После | Animatsiya | Шрифт
+? Fon musiqasi barcha slaydlarda chalinishi? | Для всех слайдов | Только щелчок | Удалить
+
+# 13
+**Animatsiya** — slayd ichidagi obyekt (matn, rasm) harakati. **Анимация** bo'limi:
+- **Вход (kirish)** — paydo bo'lish: Появление, Вылет, Масштаб.
+- **Выделение (ajratish)** — e'tiborni tortish: Пульсация, Вращение.
+- **Выход (chiqish)** — yo'qolish.
+- **Пути перемещения** — chizilgan yo'l bo'ylab harakat.
+**Добавить анимацию** — bitta obyektga bir nechta effekt.
+> Animatsiya ma'noga xizmat qilsin: punktlar birma-bir chiqishi tushunishni osonlashtiradi.
+? Obyektning paydo bo'lishi qaysi guruh? | Вход | Выход | Выделение
+? Obyektni yo'l bo'ylab harakatlantirish? | Пути перемещения | Переходы | Макет
+
+# 14
+**Animatsiya vaqtini moslash** — **Область анимации (Animation Pane)**:
+- Ketma-ketlikni o'zgartirish: sudrab yoki strelkalar bilan.
+- **Начало (Start)**: По щелчку (bosganda), С предыдущим (oldingisi bilan birga), После предыдущего (oldingisidan keyin).
+- **Длительность** — effekt davomiyligi.
+- **Задержка** — kechikish.
+Sozlagach **F5** bilan boshidan sinab ko'ring.
+> "После предыдущего" — taqdimotni avtomatik ssenariyga aylantiradi.
+? Animatsiyalar tartibi qayerda boshqariladi? | Область анимации | Переходы | Дизайн
+? Oldingi effektdan keyin avtomatik boshlanish? | После предыдущего | По щелчку | Задержка
+
+# 15
+**Nazorat ishi: taqdimot.**
+- **Transition** — slaydlar **orasidagi** effekt.
+- **Animation** — slayd **ichidagi** obyekt effekti.
+Takrorlang: loyiha brief'i, o'tish, vaqt, audio, animatsiya guruhlari, Animation Pane.
+? Slayddagi rasmning paydo bo'lishi — bu? | Animatsiya | O'tish | Maket
+? Slayd avtomatik almashishi qayerda sozlanadi? | Переходы | Анимация | Вид
+? Animatsiyani oldingisi bilan birga boshlash? | С предыдущим | По щелчку | Выход
+? Taqdimotni boshidan ko'rsatish tugmasi? | F5 | F7 | F2
+
+# 16
+Elektron jadval loyihasini boshlashdan oldin:
+- **Auditoriya**: kim foydalanadi? (o'quvchi, ota-ona, do'kon egasi)
+- **Maqsad**: qanday masalani yechadi? (xarajatlarni hisoblash, baholarni tahlil qilish)
+- **Kirish ma'lumotlari**: nimalar kiritiladi?
+- **Natija**: qanday hisob yoki diagramma chiqadi?
+Masalan: "Oilaviy byudjet" — ota-onalar uchun; maqsad — oylik xarajatni nazorat qilish.
+> Maqsad aniq bo'lsa, jadval tuzilishi o'zi aniq bo'ladi.
+? Jadval loyihasida "kim foydalanadi?" — bu? | Auditoriya | Formula | Diagramma
+? Oilaviy byudjet jadvalining maqsadi? | Xarajatlarni nazorat qilish | Rasm chizish | Musiqa
+
+# 17
+**Elektron jadvalni loyihalash** — avval qog'ozda maket:
+1. **Ustunlar**: Sana | Kategoriya | Tavsif | Summa.
+2. **Kirish kataklari** — foydalanuvchi to'ldiradi (rangli fon bilan ajrating).
+3. **Hisob kataklari** — formulalar (o'zgartirilmaydi).
+4. **Natija bloki** — jami, o'rtacha, eng katta.
+Dizayn: sarlavha satri qalin va rangli, raqamlar bir xil formatda, ustun kengligi moslangan.
+> Kirish va hisob kataklarini rang bilan ajratish xatolarni kamaytiradi.
+? Foydalanuvchi to'ldiradigan kataklar? | Kirish kataklari | Formula kataklari | Sarlavha
+? Loyihalashni nimadan boshlaymiz? | Maketdan | Diagrammadan | Chop etishdan
+
+# 18
+**Formulalar** "=" bilan boshlanadi:
+- **=SUM(D2:D20)** — jami.
+- **=AVERAGE(D2:D20)** — o'rtacha.
+- **=MAX(...)**, **=MIN(...)** — eng katta, eng kichik.
+- **=COUNT(...)** — sonli kataklar soni.
+**Sinovdan o'tkazish (testing)**: natijasi oldindan ma'lum bo'lgan qiymatlarni kiriting (masalan 10, 20, 30 → jami 60, o'rtacha 20) va formula to'g'ri ishlashini tekshiring. Bo'sh katak va noto'g'ri qiymatni ham sinang.
+> Har formulani kamida 3 xil qiymat bilan tekshiring.
+? O'rtacha qiymat funksiyasi? | AVERAGE | SUM | COUNT
+? 10, 20, 30 uchun =SUM natijasi? | 60 | 20 | 30
+
+# 19
+**Model** — haqiqiy jarayon yoki obyektning soddalashtirilgan nusxasi. **Modellashtirish** — model yordamida "nima bo'ladi, agar...?" savoliga javob topish.
+Elektron jadvaldagi model:
+- **Kirish o'zgaruvchilari**: oylik daromad, xarajatlar.
+- **Formulalar**: qoldiq = daromad − xarajat.
+- **Natija**: oy oxiridagi jamg'arma.
+Kirish qiymatini o'zgartirsangiz, natija darhol qayta hisoblanadi.
+> "Agar har oy 50 000 so'm tejasam, yil oxirida qancha bo'ladi?" — model javob beradi.
+? Model nima? | Jarayonning soddalashtirilgan nusxasi | Rasm | Shrift
+? Modelda kirish qiymati o'zgarsa? | Natija qayta hisoblanadi | Hech narsa o'zgarmaydi | Fayl o'chadi
+
+# 20
+**Ma'lumot to'plash shakli (so'rovnoma)**:
+- Savollar aniq va qisqa.
+- Javob turlari: **ha/yo'q**, **variantli**, **son** (yosh), **shkala** (1–5).
+- Ochiq savollar kam bo'lsin — ularni hisoblash qiyin.
+Elektron jadvalda: har savol — ustun, har javob beruvchi — satr.
+Onlayn shakllar: **Google Forms**, **Microsoft Forms** — javoblar avtomatik jadvalga tushadi.
+> Yaxshi savol: "Haftada necha soat kitob o'qiysiz?" — natijasi son.
+? So'rovnoma jadvalida har bir javob beruvchi? | Satr | Ustun | Varaq
+? Javoblari avtomatik jadvalga tushadigan vosita? | Google Forms | Paint | Audacity
+
+# 21
+**Formatlash** jadvalni o'qishga qulay qiladi:
+- **Son formatlari** (Главная → Число): денежный (pul), процентный (%), дата, количество знаков после запятой.
+- **Hoshiyalar** (Границы).
+- **To'ldirish rangi** va shrift.
+- **Выравнивание**: matn chapda, son o'ngda; sarlavha markazda.
+- **Форматировать как таблицу** — tayyor uslub, filtrlar bilan.
+> Format qiymatni o'zgartirmaydi — faqat ko'rinishini.
+? 0.25 ni 25% ko'rinishida ko'rsatish? | Foiz formati | Hoshiya | Diagramma
+? Format qiymatni o'zgartiradimi? | Yo'q, faqat ko'rinishini | Ha | Ba'zan
+
+# 22
+**Elektron jadvalni baholash mezonlari:**
+1. **To'g'rilik** — formulalar to'g'ri hisoblaydimi?
+2. **Qulaylik** — kirish kataklari aniqmi?
+3. **O'qilishi** — sarlavhalar, formatlar tushunarlimi?
+4. **Maqsadga mosligi** — auditoriya savoliga javob beradimi?
+5. **Xatolarga chidamlilik** — noto'g'ri qiymat kiritilsa nima bo'ladi?
+Baholashni boshqa odamga ham bajartiring — u siz ko'rmagan xatoni topadi.
+> Fikr-mulohaza (feedback) — eng yaxshi tekshiruv.
+? Formulalar to'g'ri ishlashi qaysi mezon? | To'g'rilik | Rang | Shrift
+? Baholashda kim yordam beradi? | Boshqa foydalanuvchi | Hech kim | Faqat kompyuter
+
+# 23
+**Diagramma** natijani bir qarashda tushuntiradi:
+- **Ustunli** — kategoriyalarni solishtirish.
+- **Chiziqli** — vaqt bo'yicha o'zgarish.
+- **Doiraviy** — butunning ulushlari (100%).
+- **Nuqtali (scatter)** — ikki o'zgaruvchi bog'liqligi.
+Qo'shish: ma'lumotni belgilang → **Вставка → Диаграммы** → sarlavha, o'qlar nomi, legenda.
+> Diagrammani tanlashdan oldin so'rang: men nimani ko'rsatmoqchiman?
+? Oylar bo'yicha harorat o'zgarishi uchun? | Chiziqli | Doiraviy | Jadval
+? Byudjet ulushlari uchun? | Doiraviy | Chiziqli | Nuqtali
+
+# 24
+**Shartli formatlash** — katak rangi qiymatga qarab o'zgaradi: **Главная → Условное форматирование**.
+- **Правила выделения ячеек → Меньше** → 60 → qizil: 60 dan past ballar qizil.
+- **Гистограммы, Цветовые шкалы** — qiymat kattaligini rangli chiziq bilan ko'rsatish.
+**Maqsadni qidirish (Goal Seek)** — **Данные → Анализ "что если" → Подбор параметра**: "Jami 100 bo'lishi uchun qaysi qiymat kerak?" savoliga javob topadi.
+> Shartli formatlash muammoli joylarni bir zumda ko'rsatadi.
+? 60 dan past ballarni qizil qilish? | Shartli formatlash | Saralash | Diagramma
+? Kerakli natija uchun kirish qiymatini topish? | Goal Seek | Filter | Crop
+
+# 25
+**Nazorat ishi: Excel.** Takrorlang:
+- Loyihalash: auditoriya, maqsad, maket.
+- SUM, AVERAGE, MAX, MIN, COUNT.
+- Model, so'rovnoma, formatlash.
+- Diagramma turlari, shartli formatlash, Goal Seek.
+? Eng katta qiymat funksiyasi? | MAX | MIN | SUM
+? Qiymatga qarab katak rangini o'zgartirish? | Shartli formatlash | Hoshiya | Freeze
+? "Nima bo'ladi, agar...?" savoliga javob beruvchi? | Model | Footer | Slayd
+? Formula belgisi? | = | # | @
+
+# 26
+**Takrorlash: Excel.**
+Mini-amaliyot — "Sinf baholari":
+1. Ustunlar: Ism | Matematika | Ingliz | Informatika | O'rtacha.
+2. O'rtacha: **=AVERAGE(B2:D2)**, pastga nusxalang.
+3. **=MAX(E2:E11)** — eng yaxshi o'rtacha.
+4. 60 dan pastini shartli formatlash bilan qizil qiling.
+5. Ustunli diagramma yarating.
+> Bitta mashqda butun bo'limni takrorlash mumkin.
+? O'rtachani pastga nusxalash qanday? | To'ldirish markerini sudrash | Qayta yozish | Ctrl+P
+? Eng yaxshi natijani topish? | MAX | MIN | COUNT
+
+# 27
+**Ma'lumotlar bazasi (MB)** — tartiblangan, bog'langan ma'lumotlar to'plami.
+Loyihalashni **maqsad**dan boshlaymiz: "Kutubxona bazasi — kitoblarni va kim olganini kuzatish".
+Keyin **maydonlar** tanlanadi — har biri bitta xususiyat:
+Kitob_ID | Nomi | Muallif | Yil | Janr | Mavjud (ha/yo'q)
+Qoidalar: har maydon **bitta** ma'lumot saqlaydi; nomlar qisqa va aniq; **ID** — har yozuvni noyob qiladi.
+> Maydonni bo'lib saqlang: "Ism" va "Familiya" alohida — qidirish oson.
+? MB loyihasi nimadan boshlanadi? | Maqsaddan | Rangdan | Diagrammadan
+? Har yozuvni noyob qiluvchi maydon? | ID | Janr | Yil
+
+# 28
+**Ma'lumot turlari:**
+- **Matn (Text)** — ism, nom.
+- **Son (Number)** — yil, narx, miqdor.
+- **Sana/vaqt (Date)** — 25.11.2026.
+- **Mantiqiy (Yes/No, Boolean)** — ha/yo'q.
+- **Valyuta**, **avtoraqam (AutoNumber)** — ID uchun.
+To'g'ri tur tanlash: saralash, hisoblash va tekshirish to'g'ri ishlaydi.
+MB jadvalini yaratish (Access yoki Excel/Google Sheets'da): maydon nomlari → turlari → birlamchi kalit.
+> Telefon raqami — **matn**, chunki u bilan hisoblanmaydi va "+998" bor.
+? Telefon raqami qaysi tur? | Matn | Son | Sana
+? "Mavjud: ha/yo'q" qaysi tur? | Mantiqiy | Matn | Valyuta
+
+# 29
+**Ochiladigan ro'yxat** — maydonga faqat tayyor variantlardan tanlash: Janr = {Ertak, Roman, Ilmiy, She'r}.
+Excel'da: **Данные → Проверка данных → Список**. Access'da: **Мастер подстановок**.
+Foydasi: yozuv xatolari bo'lmaydi ("Ertak", "ertak", "Ertk" emas).
+**Forma (Form)** — yozuvlarni bittadan qulay kiritish oynasi: maydon nomlari, kiritish joylari, tugmalar ("Keyingi", "Saqlash").
+> Forma — oddiy foydalanuvchi uchun bazaning "yuzi".
+? Ochiladigan ro'yxatning foydasi? | Yozuv xatolarini kamaytiradi | Rang qo'shadi | Faylni kichraytiradi
+? Yozuvlarni qulay kiritish oynasi? | Forma | Hisobot | Query
+
+# 30
+**Bazani sinovdan o'tkazish:**
+- Haqiqiy ma'lumotlarga o'xshash 5–10 yozuv kiriting.
+- Noto'g'ri qiymat kiritib ko'ring (yilga matn) — baza qabul qilmasligi kerak.
+- Qidiruv va saralash to'g'ri ishlashini tekshiring.
+**Ma'lumotlar xavfsizligi:**
+- **Parol** va foydalanuvchi huquqlari (kim ko'radi, kim o'zgartiradi).
+- **Zaxira nusxa (backup)**.
+- **Shifrlash**.
+- Shaxsiy ma'lumotlarni keraksiz yig'maslik.
+> Zaxira nusxasi yo'q baza — bir xato bilan yo'qolishi mumkin bo'lgan baza.
+? Bazani himoyalash usuli? | Zaxira nusxa | Ko'proq rang | Kattaroq shrift
+? Yilga matn kiritilsa, yaxshi baza nima qiladi? | Qabul qilmaydi | Saqlaydi | O'chiradi
+
+# 31
+**Ma'lumotni Word'ga yuborish** — bazadan hisobot, xat yoki ro'yxat tayyorlash.
+- Oddiy usul: bazadagi jadvalni nusxalab Word'ga qo'yish va formatlash.
+- **Слияние (Mail Merge)**: Word'dagi bitta xat shabloni + bazadagi ro'yxat = har bir odam uchun alohida xat yoki sertifikat. **Рассылки → Начать слияние → Выбрать получателей → Вставить поле слияния**.
+> Mail Merge bilan 30 ta sertifikatni 1 daqiqada tayyorlash mumkin.
+? Bitta shablondan ko'p shaxsiy xat yaratish? | Mail Merge | Crop | Freeze
+? Mail Merge qaysi bo'limda? | Рассылки | Вставка | Вид
+
+# 32
+**Ma'lumotni Excel'ga yuborish** — hisoblash va diagramma uchun.
+- Access: **Внешние данные → Экспорт → Excel**.
+- Universal format: **CSV** (vergul bilan ajratilgan matn) — deyarli har qanday dastur ochadi.
+Excel'da: ma'lumotlarni saralash, **=COUNTIF** bilan sanash (masalan, har janrda nechta kitob), diagramma qurish.
+> CSV — dasturlar orasidagi "umumiy til".
+? Dasturlar orasida ma'lumot almashish uchun qulay format? | CSV | MP3 | PNG
+? Har janrda nechta kitob borligini sanash? | COUNTIF | ROUND | MAX
+
+# 33
+**Nazorat ishi: ma'lumotlar bazasi.**
+- **Maydon** — bitta xususiyat (ustun).
+- **Yozuv** — bitta obyekt haqidagi ma'lumot (satr).
+- **Ma'lumot turi** — matn, son, sana, mantiqiy.
+- **Forma** — kiritish oynasi.
+Yana: ochiladigan ro'yxat, sinov, xavfsizlik, eksport.
+? Bitta kitob haqidagi satr? | Yozuv | Maydon | Forma
+? Sana qaysi tur? | Date | Text | Yes/No
+? Ma'lumot kiritish oynasi? | Forma | Hisobot | Kalit
+? Zaxira nusxa nima uchun? | Ma'lumot yo'qolmasligi uchun | Bezak uchun | Tezlik uchun
+
+# 34
+**Takrorlash: MB.**
+Bazangizni yaxshilang:
+1. 3 ta yangi yozuv qo'shing.
+2. Takrorlangan yoki xato yozuvlarni toping (bir xil kitob ikki marta, yil "20025").
+3. Turlar va ochiladigan ro'yxatlarni tekshiring.
+4. Bazani saralab, Excel'ga eksport qiling.
+> Toza baza — to'g'ri xulosa.
+? Takroriy yozuvlar qanday muammo? | Natijani buzadi | Foydali | Hech qanday
+? "20025" yil — bu? | Kiritish xatosi | To'g'ri qiymat | Kalit
+
+# 35
+**Dasturlash asoslari:**
+- **Dastur** — kompyuter bajaradigan buyruqlar ketma-ketligi.
+- **Algoritm** — masalani yechish qadamlari (dasturdan oldin o'ylanadi).
+- **Buyruq** — ijrochiga bitta ko'rsatma ("10 qadam yur").
+- **Sprayt** — Scratch'dagi obyekt; har spraytning o'z skripti bor.
+- **Hodisa (event)** — dasturni ishga tushiruvchi narsa: bayroq bosildi, tugma bosildi.
+- **Sikl**, **shart**, **o'zgaruvchi** — dasturning asosiy "g'ishtlari".
+> Algoritm — reja, dastur — uning kompyuter tushunadigan tildagi ko'rinishi.
+? Dasturni ishga tushiruvchi narsa? | Hodisa | Kostyum | Fon
+? Algoritm va dastur farqi? | Algoritm — reja, dastur — kod | Farqi yo'q | Dastur — rasm
+
+# 36
+**Amaliy mashg'ulot: harakatlanuvchi qahramon.**
+Scratch'da:
+1. **"bayroq bosilganda"** → **"x: 0 y: 0 ga bor"**.
+2. **"doimo takrorla"** ichida: **"10 qadam yur"**, **"chetga tegsa qaytar"**.
+3. **"aylanish usuli: chap-o'ng"** — qahramon teskari bo'lib qolmaydi.
+4. Strelka tugmalari bilan boshqarish: **"o'ng strelka bosilganda"** → **"x ni 10 ga o'zgartir"**.
+> Har bir yangi blokni qo'shgach, darhol sinab ko'ring.
+? Qahramon chetdan qaytishi uchun? | "chetga tegsa qaytar" | "kut" | "o'chir"
+? Strelka bilan boshqarish qaysi bloklar guruhi? | Hodisalar | Tovush | Pen
+
+# 37
+**O'zgaruvchi** — nomlangan xotira katagi, qiymati o'zgarib turadi: **Score**, **Hayot**, **Vaqt**.
+Scratch'da (**O'zgaruvchilar**):
+- **"Score ni 0 ga tenglashtir"** — qiymat berish.
+- **"Score ni 1 ga o'zgartir"** — qo'shish (−1 — ayirish).
+- O'zgaruvchini ifodada ishlatish: **"Score × 2"**.
+O'zgaruvchi **global** (hamma spraytlar uchun) yoki **lokal** (faqat shu sprayt) bo'ladi.
+> O'yin boshida o'zgaruvchilarni boshlang'ich qiymatga qaytaring.
+? O'zgaruvchiga 1 qo'shish bloki? | "1 ga o'zgartir" | "1 ga tenglashtir" | "1 qadam yur"
+? Hamma spraytlar ko'radigan o'zgaruvchi? | Global | Lokal | Kostyum
+
+# 38
+**Amaliy: "Spraytni bos — ochko ol" o'yini.**
+1. **Score** o'zgaruvchisi; bayroq bosilganda → 0.
+2. **"bu sprayt bosilganda"** → **Score ni 1 ga o'zgartir** → **tasodifiy joyga bor**.
+3. G'alaba: **"doimo takrorla"** ichida **"agar Score = 10 bo'lsa"** → **"G'alaba!" de** → **"hammasini to'xtat"**.
+4. Qiyinlashtirish: sprayt o'zi ham harakatlansin.
+> Tasodifiy joy — o'yinni qiziqarli qiladi.
+? Sprayt bosilganda ishlaydigan hodisa? | "bu sprayt bosilganda" | "bayroq bosilganda" | "tugma bosilganda"
+? G'alabani tekshirish uchun qaysi blok? | "agar ... bo'lsa" | "kut" | "kostyum"
+
+# 39
+**Shartli dasturlash** — dastur vaziyatga qarab qaror qiladi:
+- **agar ... bo'lsa** (if)
+- **agar ... bo'lsa ... aks holda** (if-else)
+**To'qnashuv (collision)** — ikki obyekt bir-biriga tegishi: **"... ga tegdimi?"**, **"... rangga tegdimi?"** sezish bloklari.
+Ssenariy: qahramon devorga tegsa → **"180 gradus buril"** yoki orqaga qayt; dushmanga tegsa → **Hayot −1**.
+> To'qnashuvni tekshirish doim "doimo takrorla" ichida bo'lishi kerak.
+? Ikki obyektning tegishi nima deyiladi? | To'qnashuv | Sikl | Kostyum
+? Tegishni tekshiruvchi bloklar qaysi guruhda? | Sezish | Tovush | Ko'rinish
+
+# 40
+**Validatsiya** — kiritilgan ma'lumot to'g'riligini tekshirish.
+Scratch'da: **"... deb so'ra va kut"** → javob **"javob"** blokida.
+Dastur: yoshni so'raydi → agar **javob < 5** yoki **javob > 100** bo'lsa → "Noto'g'ri yosh, qaytadan kiriting" → qayta so'raydi.
+Bu **"... bo'lguncha takrorla"** sikli bilan qulay:
+repeat until (javob > 5 va javob < 100): so'ra va kut.
+Bo'y uchun ham chegaralar (50–250 sm).
+> Foydalanuvchi har doim xato kiritishi mumkin — dastur bunga tayyor bo'lsin.
+? Validatsiya nima? | Kiritilgan ma'lumotni tekshirish | Rasm chizish | Musiqa
+? Scratch'da so'ralgan qiymat qaysi blokda? | "javob" | "x" | "kostyum"
+
+# 41
+**Kostyum** — spraytning tashqi ko'rinishi. Bir spraytda bir nechta kostyum bo'ladi.
+- **"keyingi kostyum"**, **"... kostyumga o'zgartir"**.
+- Kostyumlar tez almashsa — **animatsiya** (yurish, uchish).
+**Vaqt** bilan ishlash:
+- **"0.2 soniya kut"** — kadrlar orasidagi pauza.
+- **Taymer** (Sezish) va **"taymerni nolga tushir"** — o'yin vaqti.
+Misol: doimo takrorla → keyingi kostyum → 0.2 soniya kut.
+> Kutish vaqti kichik — tez animatsiya; katta — sekin.
+? Spraytning tashqi ko'rinishi? | Kostyum | Fon | Skript
+? Animatsiya tezligini nima belgilaydi? | Kutish vaqti | Fon rangi | Sprayt nomi
+
+# 42
+**Testlash va debaglash:**
+- **Test** — dasturni turli holatlarda ishga tushirib, kutilgan natija bilan solishtirish.
+- **Bug** — xato. **Debaglash** — xatoni topish va tuzatish.
+Usullar:
+1. Xatoni qayta hosil qiling (qachon chiqadi?).
+2. Dasturni bo'laklab tekshiring — bloklarni alohida bosing.
+3. O'zgaruvchini sahnada ko'rsatib kuzating.
+4. Bitta o'zgartirish → yana test.
+Tipik xatolar: o'zgaruvchi nolga qaytarilmagan, shart sikl tashqarisida, noto'g'ri tartib.
+> Bir vaqtda faqat bitta narsani o'zgartiring.
+? Xatoni topish va tuzatish? | Debaglash | Kompilyatsiya | Animatsiya
+? Debaglashda birinchi qadam? | Xatoni qayta hosil qilish | Dasturni o'chirish | Fon almashtirish
+
+# 43
+**Nazorat ishi: Scratch.**
+- **O'zgaruvchi**: Score ni 1 ga o'zgartir.
+- **Shart**: agar chetga tegsa → buril.
+- **Validatsiya**: yosh 5–100 oralig'ida bo'lguncha so'ra.
+- **Debaglash**: xatoni qayta hosil qil → tekshir → tuzat.
+? Foydalanuvchi kiritgan qiymat qaysi blokda? | javob | taymer | x
+? To'qnashuvni tekshirish qayerda bo'lishi kerak? | doimo takrorla ichida | Faqat boshida | Hech qayerda
+? Kostyumlarni almashtirib hosil bo'ladi? | Animatsiya | Validatsiya | Shart
+? Score o'yin boshida? | 0 ga tenglashtiriladi | O'chiriladi | 100 bo'ladi
+
+# 44
+**HTML (HyperText Markup Language)** — veb-sahifalar tuzilishini belgilovchi til. Sahifa **teglar**dan iborat.
+```html
+<!DOCTYPE html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8">
+    <title>Mening sahifam</title>
+  </head>
+  <body>
+    <h1>Salom!</h1>
+  </body>
+</html>
+```
+- **head** — xizmat ma'lumotlari (sarlavha, kodlash). **body** — ko'rinadigan qism.
+- Faylni **index.html** nomi bilan saqlab, brauzerda oching.
+Platformadagi **Kod maydoni**da `!` yozib **Tab** bossangiz, shu shablon tayyor bo'ladi.
+> Har bir ochilgan teg yopilishi kerak: <h1> ... </h1>.
+? Sahifaning ko'rinadigan qismi? | body | head | title
+? Brauzer yorlig'idagi nom qaysi tegda? | title | h1 | body
+
+# 45
+**Matn teglari:**
+```html
+<h1>Bosh sarlavha</h1>
+<h2>Bo'lim</h2>
+<p>Bu <strong>muhim</strong> va <em>urg'uli</em> so'z.</p>
+<p>Birinchi qator<br>Ikkinchi qator</p>
+<hr>
+```
+- **h1–h6** — sarlavhalar darajasi (h1 bitta bo'lsin).
+- **p** — paragraf. **br** — yangi qator. **hr** — gorizontal chiziq.
+- **strong** — qalin (muhim), **em** — kursiv (urg'u).
+- Ro'yxatlar: **ul/ol** va **li**.
+> HTML tuzilmani beradi; ko'rinishni CSS bezaydi.
+? Paragraf tegi? | p | br | h1
+? Qalin (muhim) matn tegi? | strong | em | hr
+
+# 46
+**Havola (link)** — **a** tegi:
+```html
+<a href="https://uz.wikipedia.org" target="_blank">Vikipediya</a>
+<a href="about.html">Men haqimda</a>
+<a href="#aloqa">Aloqa bo'limiga</a>
+```
+- **href** — manzil. To'liq manzil (tashqi sayt) yoki fayl nomi (ichki sahifa).
+- **target="_blank"** — yangi oynada ochish.
+- **#id** — shu sahifadagi bo'limga o'tish.
+> Havola matni nima ochilishini aytsin: "Dars jadvali", "bu yerni bosing" emas.
+? Havola manzili qaysi atributda? | href | src | alt
+? Yangi oynada ochish? | target="_blank" | href="#" | alt
+
+# 47
+**Rasm** — **img** tegi (yopilmaydi):
+```html
+<img src="rasmlar/maktab.jpg" alt="Maktab binosi" width="400">
+```
+- **src** — rasm manzili (fayl yo'li yoki URL).
+- **alt** — tavsif: rasm ochilmasa yoki ekran o'quvchi dastur uchun.
+- **width / height** — o'lcham (pikselda). Faqat bittasini bersangiz, proporsiya saqlanadi.
+Rasmni papkaga tartibli joylang: **rasmlar/** papkasi.
+> alt — majburiy odat: u ko'zi ojiz foydalanuvchilar uchun.
+? Rasm manzili qaysi atributda? | src | href | alt
+? alt nima uchun? | Rasm tavsifi | Rasm o'lchami | Rasm rangi
+
+# 48
+**Ranglar va dizayn** — **CSS** bilan:
+```html
+<style>
+  body {
+    background-color: #f6f3ec;
+    color: #0f1b33;
+    font-family: Arial, sans-serif;
+  }
+  h1 {
+    color: #2f6bff;
+  }
+</style>
+```
+Rang yozish usullari:
+- Nomi: **red**, **navy**.
+- HEX: **#2f6bff** (qizil-yashil-ko'k, 00–ff).
+- RGB: **rgb(47, 107, 255)**.
+Dizayn qoidasi: 2–3 asosiy rang, matn va fon kontrasti yuqori.
+> Och fonda to'q matn — o'qish oson.
+? Fon rangi xususiyati? | background-color | color | font
+? #000000 qaysi rang? | Qora | Oq | Qizil
+
+# 49
+**Nazorat ishi: HTML.**
+```html
+<h1>Sarlavha</h1>
+<p>Paragraf</p>
+<a href="https://maktab.uz">Havola</a>
+<img src="rasm.png" alt="Tavsif">
+```
+Takrorlang: html/head/body, matn teglari, havola, rasm, ranglar.
+? Rasm tegi? | img | a | p
+? Havola tegi? | a | link | href
+? Eng katta sarlavha? | h1 | h6 | p
+? Matn rangi xususiyati? | color | background | src
+
+# 50
+**Saytni internetga joylash (hosting):**
+1. Sayt fayllarini tayyorlang: **index.html**, CSS, rasmlar — bitta papkada.
+2. Hosting tanlang: **GitHub Pages**, **Netlify** (bepul) yoki pullik hosting.
+3. Hisob oching va fayllarni yuklang.
+4. Sayt manzil oladi: **ism.github.io/sayt**.
+5. Xohlasangiz **domen** sotib olib ulang (maktab.uz).
+Tekshiring: hamma havolalar va rasmlar ishlayaptimi, telefonda qanday ko'rinadi.
+> Bosh sahifa doim **index.html** deb nomlanadi.
+? Bosh sahifa fayl nomi? | index.html | main.css | home.png
+? Bepul hostingga misol? | GitHub Pages | Word | Audacity
+
+# 51
+**Kompyuter tarmog'i** — ma'lumot almashish uchun ulangan qurilmalar.
+Turlari (hajm bo'yicha):
+- **LAN (lokal)** — bir bino yoki xona: maktab kompyuter sinfi.
+- **MAN** — shahar miqyosida.
+- **WAN (global)** — mamlakatlar, butun dunyo: Internet.
+Ulanish: **simli** (kabel) va **simsiz** (Wi-Fi).
+Tarmoq foydasi: fayl va printerni birga ishlatish, internetga ulanish, aloqa.
+> Internet — eng katta WAN.
+? Maktab kompyuter sinfi tarmog'i? | LAN | WAN | MAN
+? Eng katta global tarmoq? | Internet | Bluetooth | USB
+
+# 52
+**Tarmoq komponentlari:**
+- **Tarmoq kartasi (NIC)** — kompyuterni tarmoqqa ulaydi, har birida noyob **MAC-manzil**.
+- **Kabel** (o'ralgan juftlik, optik tola) va **RJ-45 jek**.
+- **Switch (kommutator)** — lokal tarmoq qurilmalarini ulaydi.
+- **Router (marshrutizator)** — turli tarmoqlarni ulaydi, internetga chiqaradi.
+- **Modem** — provayder liniyasi signalini raqamli ma'lumotga aylantiradi.
+- **Access point** — Wi-Fi nuqtasi.
+> Uydagi "Wi-Fi qurilmasi" odatda router + modem + access point birga.
+? Turli tarmoqlarni ulovchi qurilma? | Router | Switch | Kabel
+? Har tarmoq kartasining noyob manzili? | MAC | URL | PIN
+
+# 53
+**Hub, Switch, Router farqi:**
+| Qurilma | Ishlash usuli |
+| Hub | Kelgan ma'lumotni **hamma** portlarga yuboradi (eskirgan, sekin) |
+| Switch | Ma'lumotni faqat **kerakli** qurilmaga yuboradi (MAC bo'yicha) |
+| Router | **Tarmoqlar orasida** yo'l tanlaydi (IP bo'yicha), internetga ulaydi |
+**Modem** — provayder bilan bog'laydi. **Kabel va jek (RJ-45)** — simli ulanish.
+> Switch — "aqlli tarqatuvchi", Hub — "baqiruvchi".
+? Ma'lumotni hamma portga yuboradigan qurilma? | Hub | Switch | Router
+? IP manzil bo'yicha yo'l tanlovchi? | Router | Hub | Jek
+
+# 54
+**Tarmoqni loyihalash** bosqichlari:
+1. **Ehtiyoj**: nechta qurilma, qayerda, qanday tezlik kerak?
+2. **Topologiya** tanlash: **yulduz** (hamma switch'ga ulanadi — eng keng tarqalgan), **shina**, **halqa**.
+3. **Qurilmalar ro'yxati**: router, switch, kabellar, Wi-Fi nuqtalari.
+4. **Sxema** chizish: qurilmalar va ulanishlar.
+5. **Xavfsizlik** va kengayish imkoniyati.
+> Yulduz topologiyada bitta kabel uzilsa, faqat bitta kompyuter o'chadi.
+? Eng keng tarqalgan topologiya? | Yulduz | Halqa | Shina
+? Loyihalash nimadan boshlanadi? | Ehtiyojni aniqlashdan | Kabel sotib olishdan | Parol qo'yishdan
+
+# 55
+**Tarmoq administratori** vazifalari:
+- Qurilmalar va foydalanuvchilarni qo'shish/boshqarish.
+- **Huquqlar** berish: kim nimaga kira oladi.
+- **Monitoring**: tezlik, yuklama, nosozliklar.
+- **Yangilash**: dasturlar va xavfsizlik tuzatmalari.
+- **Zaxira nusxa** olish.
+- Muammolarni hal qilish (troubleshooting).
+> Yaxshi administrator muammoni foydalanuvchilar sezmasdan oldin topadi.
+? Kim nimaga kira olishini belgilash? | Huquqlar berish | Monitoring | Backup
+? Tarmoq tezligi va nosozliklarni kuzatish? | Monitoring | Validatsiya | Animatsiya
+
+# 56
+**Tarmoq xavfsizligi:**
+1. **Firewall (tarmoqlararo ekran)** — keraksiz ulanishlarni bloklaydi.
+2. **Wi-Fi** uchun kuchli parol va **WPA2/WPA3** shifrlash.
+3. Router'ning standart parolini o'zgartirish.
+4. **Antivirus** va muntazam yangilanish.
+5. **Mehmon tarmog'i** — tashrif buyuruvchilar uchun alohida Wi-Fi.
+6. Ochiq jamoat Wi-Fi'da maxfiy ishlarni qilmaslik yoki **VPN** ishlatish.
+> Eng zaif bo'g'in — ko'pincha parol.
+? Keraksiz ulanishlarni bloklovchi vosita? | Firewall | Switch | Modem
+? Wi-Fi shifrlash standarti? | WPA2/WPA3 | HTML | CSV
+
+# 57
+**Amaliy: maktab tarmog'ini loyihalash.**
+Sxema elementlari:
+- **Internet → Modem → Router (firewall bilan)**.
+- **Asosiy switch** → kompyuter sinfi switch'i (15–20 PC), o'qituvchilar xonasi, kutubxona.
+- **Wi-Fi nuqtalari**: o'qituvchilar va mehmonlar uchun alohida tarmoq.
+- **Printer** va **server** (fayllar, zaxira).
+Har elementni yorliq bilan belgilang va ulanish turini (kabel / Wi-Fi) ko'rsating.
+> O'quvchilar, o'qituvchilar va mehmonlar tarmoqlarini ajratish — xavfsizlik uchun muhim.
+? Maktab tarmog'ida internetga chiqish qaysi qurilma orqali? | Router | Printer | Switch
+? Mehmonlar uchun alohida tarmoq nima uchun? | Xavfsizlik uchun | Tezlikni pasaytirish uchun | Bezak uchun
+
+# 58
+**Nazorat ishi: tarmoqlar.**
+- **Router** — tarmoqlarni ulaydi, internetga chiqaradi.
+- **Switch** — lokal tarmoq qurilmalarini ulaydi.
+- **Modem** — provayder signalini o'zgartiradi.
+- **Kabel/jek** — simli ulanish.
+Yana: LAN/WAN, topologiya, administrator, xavfsizlik.
+? Lokal tarmoq qisqartmasi? | LAN | WAN | VPN
+? Hub va switch farqi? | Switch faqat kerakli qurilmaga yuboradi | Farqi yo'q | Hub tezroq
+? Tarmoq himoya ekrani? | Firewall | Router | Jek
+? Yulduz topologiyada markazda nima? | Switch | Printer | Modem
+
+# 59
+**Animatsiya** — ketma-ket kadrlar (rasmlar) tez almashib, harakat illyuziyasini beradi. Odatda **12–24 kadr/soniya (fps)**.
+Turlari: **2D** (chizma), **3D**, **stop-motion** (plastilin, o'yinchoqlar).
+**Video** — kamera bilan yozilgan haqiqiy tasvirlar ketma-ketligi (odatda 24–60 fps).
+Asosiy tushunchalar: **kadr**, **fps**, **o'lcham (1920×1080)**, **format (MP4)**, **montaj** (kesish, birlashtirish).
+> Animatsiya — chiziladi, video — suratga olinadi.
+? Harakat illyuziyasi nimadan hosil bo'ladi? | Kadrlarning tez almashishidan | Rangdan | Ovozdan
+? fps nima? | Soniyadagi kadrlar soni | Fayl hajmi | Rang soni
+
+# 60
+**Pencil2D** — bepul 2D animatsiya dasturi.
+Asosiy elementlar:
+- **Vaqt shkalasi (Timeline)** — kadrlar.
+- **Qatlamlar**: Bitmap (chizma), Vector, Camera, Sound.
+- **Onion skin** — oldingi kadr xira ko'rinadi, keyingisini moslab chizish oson.
+Ish tartibi: 1-kadrda chizing → yangi kadr (**Add Frame**) → biroz o'zgartirib chizing → **Play** → **FPS** sozlang → **File → Export → Movie/GIF**.
+> Onion skin — animatorning eng yaxshi yordamchisi.
+? Oldingi kadrni xira ko'rsatuvchi vosita? | Onion skin | Timeline | Export
+? Animatsiyani GIF qilib saqlash? | Export | Save Frame | Undo
+
+# 61
+**Takrorlash: animatsiya.**
+Animatsiyangizni yaxshilang:
+- Kadrlar sonini oshiring — harakat silliqlashadi.
+- **FPS** ni 6, 12, 24 qilib sinang: kichik — sekin va "sakrab", katta — tez va silliq.
+- Bir kadrni 2 marta takrorlash — harakatni sekinlatadi.
+- Fon va qahramonni alohida qatlamga ajrating.
+> 12 fps — maktab loyihasi uchun yaxshi muvozanat.
+? Harakatni silliqroq qilish uchun? | Kadrlar sonini oshirish | Rangni o'zgartirish | Ovozni o'chirish
+? FPS kichik bo'lsa animatsiya? | Sekin va sakrab | Silliq | Ovozli
+
+# 62
+**Adobe Express (oldingi Spark)** — onlayn video, poster va slaydli video yaratish xizmati (shablonlar bilan). O'xshash vositalar: **Canva**, **CapCut**.
+Video tayyorlashdan oldin **ssenariy**:
+| Slayd | Tasvir | Matn | Ovoz |
+1. Kirish — sarlavha.
+2–4. Asosiy fikrlar — rasm va qisqa yozuv.
+5. Xulosa va chaqiriq.
+Har slayd 3–6 soniya.
+> Ssenariy — videoning "algoritmi".
+? Video tayyorlashdan oldin nima yoziladi? | Ssenariy | Kod | Formula
+? Shablonli onlayn video vositasi? | Adobe Express / Canva | Excel | Access
+
+# 63
+**Saundtrek va ovozli sharh (narration):**
+- **Saundtrek** — fon musiqasi. Mualliflik huquqiga e'tibor bering: bepul kutubxonalar (YouTube Audio Library).
+- **Narration** — sizning ovozingiz bilan tushuntirish. Matnni oldindan yozing, sekin va aniq o'qing.
+- Ovoz balandligi: sharh — baland, musiqa — past (**ducking**).
+- Mikrofon: shovqinsiz xonada, og'izdan 15–20 sm.
+> Avval matn — keyin yozuv. Ikkinchi urinish doim yaxshiroq.
+? Fon musiqasi nima deyiladi? | Saundtrek | Narration | Kadr
+? Sharh va musiqa balandligi? | Sharh balandroq | Musiqa balandroq | Teng
+
+# 64
+**Auditoriya talablari** — video kim uchun?
+- **Kichik bolalar**: yorqin ranglar, sodda so'zlar, qisqa (1–2 daqiqa).
+- **O'smirlar**: dinamik montaj, zamonaviy musiqa.
+- **Ota-onalar / o'qituvchilar**: aniq faktlar, sokin uslub, subtitr.
+Shuningdek: til, video uzunligi, qaysi platformada ko'riladi (telefon — vertikal 9:16, kompyuter — 16:9).
+> Bir xil video hamma uchun yaxshi bo'lolmaydi.
+? Telefon uchun video formati? | Vertikal 9:16 | 4:3 | Kvadrat 1:1 faqat
+? Kichik bolalar uchun video? | Qisqa va yorqin | Uzun va rasmiy | Ovozsiz
+
+# 65
+**Reklama videosi** — mahsulotni qisqa va esda qoladigan qilib ko'rsatish.
+**AIDA** modeli:
+- **A**ttention — diqqatni tortish (birinchi 3 soniya!).
+- **I**nterest — qiziqish uyg'otish: muammo.
+- **D**esire — istak: mahsulot qanday yordam beradi.
+- **A**ction — harakatga chaqiriq: "Hozir sinab ko'ring!".
+20–30 soniyalik reklama: 1 g'oya, 1 asosiy xabar, aniq chaqiriq.
+> Halol reklama — mahsulotda yo'q xususiyatni va'da qilmaydi.
+? AIDA'dagi birinchi bosqich? | Diqqatni tortish | Harakat | Istak
+? Reklama oxirida nima bo'ladi? | Harakatga chaqiriq | Sarlavha | Hech narsa
+
+# 66
+**Audacity** — bepul audio muharrir.
+Asosiy amallar:
+- **Yozish** (qizil tugma) va **to'xtatish**.
+- **Belgilash** va **Delete** — ortiqcha qismni kesish.
+- **Эффекты**: Noise Reduction (shovqinni kamaytirish), Normalize (balandlikni tekislash), Fade In/Out (sekin kirish/chiqish).
+- **Eksport**: **Файл → Экспорт → MP3/WAV**.
+> Shovqinni kamaytirish uchun avval "jimlik" qismini namuna sifatida belgilang.
+? Ovozning sekin pasayib tugashi? | Fade Out | Normalize | Delete
+? Audio eksport formati? | MP3 | DOCX | PNG
+
+# 67
+**Nazorat ishi: multimedia.**
+- **Pencil2D** — 2D animatsiya.
+- **Adobe Express / Canva** — shablonli video.
+- **Audacity** — audio yozish va tahrirlash.
+Yana: kadr, fps, ssenariy, narration, auditoriya, AIDA.
+? Audio tahrirlash dasturi? | Audacity | Pencil2D | Excel
+? Animatsiya dasturi? | Pencil2D | Audacity | Access
+? Soniyadagi kadrlar soni? | fps | MB | dpi
+? Reklama modeli? | AIDA | LAN | HTML
+
+# 68
+**Yil yakuni!** 7-sinfda o'rgandik:
+- **Word**: stillar, jadval, ustunlar, Header/Footer.
+- **PowerPoint**: o'tish, animatsiya, vaqt, audio.
+- **Excel**: formulalar, model, diagramma, shartli formatlash.
+- **Ma'lumotlar bazasi**: maydon, tur, forma, eksport.
+- **Scratch**: o'zgaruvchi, shart, validatsiya, debaglash.
+- **HTML**, **tarmoqlar**, **multimedia**.
+Yakuniy loyiha g'oyasi: sayt, o'yin yoki video — nom, maqsad, auditoriya.
+? Matnni gazeta ko'rinishiga keltirish? | Ustunlar | Jadval | Footer
+? Tarmoqlarni ulovchi qurilma? | Router | Hub | Jek
+? HTML'da rasm tegi? | img | a | p
+? Bazaga kiritish oynasi? | Forma | Query | Slayd
+? Scratch'da kiritilgan qiymat? | javob | x | kostyum

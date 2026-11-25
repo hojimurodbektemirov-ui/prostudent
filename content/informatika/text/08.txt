@@ -1,0 +1,751 @@
+# 1
+- **Ma'lumot (data)** — qayta ishlanmagan faktlar: "36.6", "Toshkent", "25".
+- **Axborot (information)** — ma'noga ega bo'lgan ma'lumot: "Bemorning harorati 36.6 — normal".
+- **Bilim (knowledge)** — axborotni tushunish va qo'llash: "Harorat 37 dan oshsa, shifokorga murojaat qilish kerak".
+**Bilimlar bazasi** — qoidalar va faktlar to'plami (masalan, shifokorlar tajribasi).
+**Manbalar:**
+- **Bevosita (birlamchi)** — ma'lumotni o'zingiz yig'asiz: so'rovnoma, o'lchash, kuzatish. + Aniq va maqsadga mos; − ko'p vaqt va mehnat.
+- **Bilvosita (ikkilamchi)** — boshqalar yig'gan: kitob, sayt, statistika. + Tez va arzon; − eskirgan yoki maqsadga to'liq mos bo'lmasligi mumkin.
+**Axborot sifati**: aniqlik, dolzarblik, to'liqlik, ishonchlilik, tushunarlilik.
+> Ma'lumot → axborot → bilim: har bosqichda qiymat ortadi.
+? "36.6" — bu? | Ma'lumot | Bilim | Axborot sifati
+? So'rovnoma qanday manba? | Bevosita | Bilvosita | Bilimlar bazasi
+? Bilvosita manbaning kamchiligi? | Eskirgan bo'lishi mumkin | Juda qimmat | Ko'p mehnat talab qiladi
+
+# 2
+- **Kodlash** — ma'lumotni boshqa ko'rinishga o'tkazish (saqlash va uzatish uchun): "Toshkent" → "TSH", erkak/ayol → E/A. + Joy tejaladi, tez kiritiladi; − kodni bilmagan tushunmaydi, aniqlik yo'qolishi mumkin.
+- **Shifrlash** — ma'lumotni begonalar o'qiy olmasligi uchun kalit bilan o'zgartirish.
+**Simmetrik shifrlash** — bitta kalit bilan shifrlanadi va ochiladi (Sezar shifri, AES). Tez, lekin kalitni xavfsiz yetkazish muammo.
+**Asimmetrik shifrlash** — ikki kalit: **ochiq kalit** (hamma biladi, shifrlaydi) va **yopiq kalit** (faqat egasida, ochadi). RSA; https va messenjerlarda ishlatiladi.
+> Sezar shifri: har harf 3 ta suriladi: OLMA → RODP.
+? Bitta kalit bilan shifrlash va ochish? | Simmetrik | Asimmetrik | Kodlash
+? Asimmetrik shifrlashda kim ochadi? | Yopiq kalit egasi | Hamma | Hech kim
+? https qaysi shifrlashdan foydalanadi? | Asimmetrik (va simmetrik) | Hech qanday | Faqat Sezar
+
+# 3
+**Ma'lumot to'g'riligini tekshirish** ikki xil:
+- **Validatsiya** — kompyuter avtomatik tekshiradi: ma'lumot **mantiqan mumkinmi**?
+  - **Diapazon**: yosh 6–18.
+  - **Tur**: yoshga faqat son.
+  - **Uzunlik**: telefon 9 raqam.
+  - **Format**: sana kk.oo.yyyy.
+  - **Mavjudlik**: maydon bo'sh emas.
+- **Verifikatsiya** — ma'lumot **manbaga mosmi**? (ko'chirishda xato bo'lmadimi)
+Validatsiya "13" yoshni qabul qiladi, lekin haqiqiy yosh 31 bo'lsa — buni faqat verifikatsiya topadi.
+> Validatsiya — mantiqiylikni, verifikatsiya — aniqlikni tekshiradi.
+? Yosh 6–18 oralig'ida bo'lishi — qaysi tekshiruv? | Diapazon | Uzunlik | Format
+? Ko'chirish xatosini topadigan tekshiruv? | Verifikatsiya | Validatsiya | Shifrlash
+
+# 4
+**Verifikatsiya usullari:**
+1. **Vizual tekshirish** — kiritilgan ma'lumotni manba bilan ko'z bilan solishtirish. Oddiy, lekin odam ham xato qilishi mumkin.
+2. **Ikki marta kiritish (double entry)** — ma'lumot ikki marta kiritiladi, kompyuter ikkalasini solishtiradi. Mos kelmasa — xato. Masalan, parolni "takrorlang" maydoni.
+Ikki marta kiritish ishonchliroq, lekin vaqt ko'proq ketadi.
+> Ro'yxatdan o'tishda parol va emailni ikki marta so'rash — verifikatsiya.
+? Parolni "takrorlang" maydoni qaysi usul? | Ikki marta kiritish | Vizual tekshirish | Diapazon
+? Vizual tekshirishning kamchiligi? | Odam ham xato qiladi | Juda qimmat | Kompyuter kerak emas
+
+# 5
+**Apparat ta'minot (hardware)** — kompyuterning fizik qismlari.
+**Ichki qurilmalar** (korpus ichida): ona plata, **protsessor (CPU)**, **tezkor xotira (RAM)**, **SSD/HDD**, videokarta (GPU), quvvat bloki, sovutgich.
+**Tashqi (periferik) qurilmalar**:
+- **Kiritish**: klaviatura, sichqoncha, mikrofon, skaner, kamera.
+- **Chiqarish**: monitor, printer, karnay, proyektor.
+- **Saqlash**: flesh, tashqi disk.
+> Ona plata — barcha qismlarni bog'lovchi "asos".
+? Barcha ichki qismlarni bog'lovchi plata? | Ona plata | Videokarta | Quvvat bloki
+? Skaner qanday qurilma? | Kiritish | Chiqarish | Ichki
+
+# 6
+**Xotira qurilmalari:**
+- **RAM** — tezkor, vaqtinchalik (tok o'chsa tozalanadi), ishlayotgan dasturlar uchun.
+- **ROM** — o'zgarmas, kompyuter yuklanishi uchun dastur (BIOS/UEFI).
+- **HDD** — magnit disk, arzon, sekinroq. **SSD** — flesh-xotira, tez, harakatlanuvchi qismsiz.
+- **Flesh, xotira kartasi**, **bulut** (Google Drive).
+**Tizimli dasturiy ta'minot** — kompyuter ishini ta'minlaydi: **operatsion tizim** (Windows, Linux, Android), **drayverlar**, utilitlar.
+**Drayver** — OT ga ma'lum qurilma (printer, videokarta) bilan "gaplashish"ni o'rgatuvchi dastur.
+> Yangi printer ishlamasa — avval drayverini o'rnating.
+? Tok o'chganda tozalanadigan xotira? | RAM | ROM | SSD
+? OT ga qurilma bilan ishlashni o'rgatuvchi dastur? | Drayver | Brauzer | Antivirus
+
+# 7
+**Amaliy dasturiy ta'minot** — foydalanuvchi vazifalari uchun: Word, Excel, brauzer, o'yinlar, grafik muharrirlar.
+**Foto tahrirlash dasturlari**: Photoshop, GIMP (bepul), Photopea (onlayn), Snapseed (telefon).
+Asosiy amallar:
+- **Crop** — kesish, kompozitsiya.
+- **Yorqinlik / kontrast**, rang balansi.
+- **Qatlamlar (layers)** — rasmning alohida qismlari.
+- **Filtr va effektlar**, shovqinni kamaytirish.
+- O'lcham va format (JPG, PNG) bilan saqlash.
+> Asl faylni saqlab qo'ying — tahrirni nusxasida qiling.
+? Bepul foto muharrir? | GIMP | Word | Audacity
+? Rasmning alohida qismlari? | Qatlamlar | Kadrlar | Slaydlar
+
+# 8
+**Video tahrirlash dasturlari**: DaVinci Resolve, Shotcut (bepul), CapCut, Adobe Premiere. Vazifasi: kesish, birlashtirish, o'tishlar, matn, musiqa, rang korreksiyasi, eksport (MP4).
+**Veb-sahifa ishlab chiqish dasturlari**:
+- **Kod muharrirlari**: Visual Studio Code, Notepad++ — HTML, CSS, JS yozish.
+- **Vizual konstruktorlar**: WordPress, Wix, Tilda — kodsiz sayt.
+- **Brauzer + DevTools (F12)** — sahifani tekshirish.
+> Shu platformadagi Kod maydoni ham kichik veb-ishlab chiqish muhiti!
+? Bepul video muharrir? | Shotcut | Excel | Paint
+? HTML yozish uchun kod muharriri? | Visual Studio Code | Audacity | Photoshop
+
+# 9
+**Foydalanuvchi interfeysi (UI) boshqaruv elementlari:**
+- **Tugma (button)**, **menyu**, **matn maydoni (text box)**.
+- **Bayroqcha (checkbox)** — bir nechta tanlov; **radio tugma** — bitta tanlov.
+- **Ochiluvchi ro'yxat (drop-down)**, **slayder**, **yorliq (tab)**.
+**Utilitlar** — tizimga xizmat ko'rsatuvchi kichik dasturlar: antivirus, arxivator (7-Zip), diskni tozalash, zaxira nusxa.
+**Buyurtma (custom) dastur** — maxsus tashkilot uchun yoziladi: aniq ehtiyojga mos, lekin qimmat va uzoq.
+**Tayyor (off-the-shelf) dastur** — hamma uchun sotiladi: arzon, tez o'rnatiladi, lekin ortiqcha yoki yetishmaydigan funksiyalar bo'lishi mumkin.
+> Bitta variantni tanlash uchun — radio tugma, bir nechtasi — checkbox.
+? Bir nechta variant tanlash elementi? | Checkbox | Radio tugma | Slayder
+? Arxivator qaysi turga kiradi? | Utilit | Amaliy o'yin | Drayver
+? Buyurtma dasturning kamchiligi? | Qimmat va uzoq | Hamma uchun bir xil | Juda arzon
+
+# 10
+**Loyiha ishi** bosqichlari:
+1. **Mavzu** tanlash (masalan, "Maktab uchun qaysi dastur kerak?").
+2. **Maqsad** va **vazifalar**.
+3. **Reja**: kim nima qiladi, muddat.
+4. **Bajarish**: ma'lumot yig'ish, mahsulot yaratish.
+5. **Taqdimot** va **baholash**.
+Yaxshi maqsad **SMART**: aniq (Specific), o'lchanadigan (Measurable), erishiladigan (Achievable), dolzarb (Relevant), muddatli (Time-bound).
+> "Yaxshi taqdimot qilaman" emas — "15-dekabrgacha 8 slaydli taqdimot tayyorlayman".
+? SMART'dagi T nima? | Muddatli | Tez | Texnik
+? Loyihaning oxirgi bosqichi? | Taqdimot va baholash | Mavzu tanlash | Reja
+
+# 11
+**Nazorat ishi: apparat va dasturiy ta'minot.**
+| Turi | Misollar |
+| Ichki qurilma | CPU, RAM, SSD, ona plata |
+| Tashqi qurilma | Monitor, printer, skaner |
+| Tizimli DT | Windows, drayverlar, utilitlar |
+| Amaliy DT | Word, GIMP, Shotcut, brauzer |
+Yana: ma'lumot/axborot/bilim, kodlash va shifrlash, validatsiya va verifikatsiya.
+? Windows qaysi turga kiradi? | Tizimli DT | Amaliy DT | Apparat
+? GIMP qaysi turga kiradi? | Amaliy DT | Tizimli DT | Drayver
+? Mantiqiylikni tekshirish? | Validatsiya | Verifikatsiya | Shifrlash
+? Ochiq va yopiq kalitli shifrlash? | Asimmetrik | Simmetrik | Sezar
+
+# 12
+**Sensor (datchik)** — fizik kattalikni o'lchab, elektr signaliga aylantiruvchi qurilma. Kompyuter yoki mikrokontroller (Arduino) uni o'qiydi.
+- **Harakat** — xavfsizlik signalizatsiyasi, avtomatik chiroq.
+- **Bosim** — tarozi, avtomobil shinasi, sensorli ekran.
+- **Namlik** — issiqxona, havo namlatgichi.
+- **Harorat** — konditsioner, isitgich, termometr.
+- **Yorug'lik** — ko'cha chiroqlari, telefon ekrani yorqinligi.
+Sensor → ADC (analog-raqamli o'zgartirgich) → kompyuter → qaror → aktuator (motor, chiroq).
+> Smartfonda 10 dan ortiq sensor bor: akselerometr, giroskop, yorug'lik, yaqinlik...
+? Telefon ekrani yorqinligini qaysi sensor boshqaradi? | Yorug'lik | Namlik | Bosim
+? Analog signalni raqamliga aylantiruvchi? | ADC | RAM | Router
+
+# 13
+**Elektron xavfsizlik** — ma'lumotlar, qurilmalar va shaxsni raqamli tahdidlardan himoya qilish.
+Uchta asosiy tamoyil (**CIA**):
+- **Maxfiylik** (Confidentiality) — faqat ruxsat etilganlar ko'radi.
+- **Yaxlitlik** (Integrity) — ma'lumot ruxsatsiz o'zgarmaydi.
+- **Foydalanish imkoniyati** (Availability) — kerak paytda ishlaydi.
+Himoya qoidalari: kuchli parol + 2FA, yangilanishlar, antivirus, zaxira nusxa, shubhali havolalarni bosmaslik.
+> Xavfsizlik — bir martalik ish emas, doimiy odat.
+? Ma'lumotni faqat ruxsat etilganlar ko'rishi? | Maxfiylik | Yaxlitlik | Foydalanish imkoniyati
+? Ma'lumot ruxsatsiz o'zgarmasligi? | Yaxlitlik | Maxfiylik | Tezlik
+
+# 14
+**Raqamli tahdidlar:**
+- **Phishing** — soxta xat/sayt orqali parol va karta ma'lumotini o'g'irlash.
+- **Pharming** — foydalanuvchini to'g'ri manzil yozganda ham soxta saytga yo'naltirish (DNS buzish).
+- **Vishing** — telefon qo'ng'irog'i orqali aldash ("bankdan qo'ng'iroq qilyapmiz, SMS kodni ayting").
+- **Troyan** — foydali dastur qiyofasidagi zararli dastur.
+- **Worm (qurt)** — o'zini tarmoq orqali o'zi ko'paytiradi.
+- **Spyware** — yashirincha kuzatadi, klavishlarni yozib oladi.
+- **Rootkit** — tizimda chuqur yashirinib, boshqa zararlilarga yo'l ochadi.
+- **Adware** — majburiy reklama ko'rsatadi.
+- **Ransomware** — fayllarni shifrlab, to'lov talab qiladi.
+Himoya: antivirus, yangilanish, 2FA, rasmiy manbalardan o'rnatish, **zaxira nusxa** (ransomware'ga qarshi eng yaxshi chora), SMS kodni hech kimga aytmaslik.
+> Bank hech qachon SMS kodingizni so'ramaydi.
+? Telefon orqali aldash? | Vishing | Worm | Adware
+? Fayllarni shifrlab to'lov talab qiladi? | Ransomware | Spyware | Pharming
+? O'zini o'zi tarmoqda ko'paytiradi? | Worm | Troyan | Phishing
+
+# 15
+**Salomatlik va xavfsizlik:**
+Salomatlik xavflari va choralari:
+- **Ko'z charchashi** — 20-20-20 qoidasi: har 20 daqiqada 20 soniya 6 metr uzoqqa qarash.
+- **Bel va bo'yin og'rig'i** — to'g'ri o'tirish, ekran ko'z darajasida.
+- **Qo'l og'rig'i (RSI)** — tanaffus, ergonomik klaviatura/sichqoncha.
+- **Uyqu buzilishi** — uxlashdan 1 soat oldin ekransiz.
+Xavfsizlik xavflari: elektr toki (ho'l qo'l, buzilgan sim), yong'in (rozetkani ortiqcha yuklamaslik), simlarga qoqilish.
+> Har soatda 5–10 daqiqa harakat qiling.
+? 20-20-20 qoidasi nima uchun? | Ko'z charchamasligi uchun | Tez yozish uchun | Uxlash uchun
+? Rozetkani ortiqcha yuklash xavfi? | Yong'in | Ko'z charchashi | Spam
+
+# 16
+**Raqamli tengsizlik (digital divide)** — odamlar o'rtasida raqamli texnologiyalarga ega bo'lish va ulardan foydalanish imkoniyatidagi farq.
+Sabablari:
+- **Iqtisodiy** — qurilma va internet narxi.
+- **Hududiy** — qishloqda tezkor internet yo'qligi.
+- **Ta'lim** — raqamli savodxonlik darajasi.
+- **Yosh** — keksalar qiynaladi.
+- **Infratuzilma** — elektr va aloqa tarmog'i.
+Sanoati rivojlangan va rivojlanmagan hududlar, turli ijtimoiy-iqtisodiy guruhlar orasidagi farq aniq ko'rinadi.
+Yechimlar: arzon internet, jamoat Wi-Fi'si, maktablarda IT ta'limi, qurilma ulashish dasturlari.
+> Masofaviy ta'lim davrida internet yo'q o'quvchilar ortda qolgan — bu raqamli tengsizlik.
+? Raqamli tengsizlik nima? | Texnologiyaga ega bo'lishdagi farq | Ekran o'lchami | Kodlash
+? Qishloqda internet sustligi qaysi sabab? | Hududiy | Yosh | Ta'lim
+
+# 17
+**Nazorat ishi: sensorlar, xavfsizlik, raqamli tengsizlik.**
+Atamalar: sensor, CIA, phishing, vishing, ransomware, troyan, worm, 20-20-20, raqamli tengsizlik.
+? Harakatni sezuvchi qurilma? | Harakat sensori | Router | Drayver
+? Soxta saytga avtomatik yo'naltirish? | Pharming | Vishing | Adware
+? Ransomware'ga qarshi eng yaxshi chora? | Zaxira nusxa | Ko'proq reklama | Kattaroq ekran
+? Raqamli tengsizlikka qarshi yechim? | Arzon internet va IT ta'limi | Internetni o'chirish | Qurilmalarni qimmatlashtirish
+
+# 18
+**Samaradorlik** — texnologiya qancha foyda beradi va qancha resurs talab qiladi.
+- **Samarasi yuqori**: elektron hukumat xizmatlari (my.gov.uz — navbatsiz hujjat), onlayn to'lov, masofaviy tibbiyot, aqlli svetofor.
+- **Samarasi past**: eskirgan uskunalar, internet bo'lmagan joyda onlayn tizim, foydalanuvchi o'rganmagan murakkab dastur.
+Turli davlatlar tajribasi: Estoniya — deyarli barcha davlat xizmatlari onlayn; Janubiy Koreya — eng tez internetlardan biri; Afrika — mobil to'lovlar (M-Pesa) bank tizimini o'rnini bosdi.
+> Texnologiya samarasi uni qanday joriy etishga bog'liq.
+? Samarasi yuqori texnologiyaga misol? | Elektron davlat xizmatlari | Internet yo'q joyda onlayn tizim | Eskirgan kompyuter
+? Mobil to'lovlar qayerda bank o'rnini bosdi? | Afrikada (M-Pesa) | Antarktidada | Hech qayerda
+
+# 19
+**Tarmoqlar hajmi bo'yicha:**
+- **LAN (Local Area Network)** — bino yoki kampus: maktab, ofis. Tez, xususiy, arzon.
+- **WAN (Wide Area Network)** — shaharlar va davlatlar: bank filiallari tarmog'i, Internet. Provayder liniyalari, sekinroq, qimmat.
+- **WLAN** — simsiz lokal tarmoq (Wi-Fi).
+| Belgi | LAN | WAN |
+| Hudud | Kichik | Katta |
+| Tezlik | Yuqori | Pastroq |
+| Egasi | Tashkilot | Provayderlar |
+> Internet — WAN'larning eng kattasi.
+? Bank filiallarini birlashtiruvchi tarmoq? | WAN | LAN | PAN
+? Simsiz lokal tarmoq? | WLAN | WAN | VPN
+
+# 20
+**Tarmoq arxitekturasi:**
+- **Kliyent-server** — markaziy **server** xizmat ko'rsatadi (fayl, sayt, pochta), **kliyentlar** so'rov yuboradi. + Markaziy boshqaruv, xavfsizlik, zaxira; − server qimmat, u ishdan chiqsa hamma to'xtaydi.
+- **Peer-to-peer (P2P)** — barcha kompyuterlar teng, bir-biri bilan bevosita almashadi. + Arzon, oddiy; − boshqaruv va xavfsizlik zaif, katta tarmoq uchun noqulay.
+> Maktab tizimi — kliyent-server; ikki do'st kompyuteri o'rtasida fayl almashish — P2P.
+? Markaziy kompyuter xizmat ko'rsatadigan tarmoq? | Kliyent-server | P2P | Yulduz
+? P2P ning afzalligi? | Arzon va oddiy | Markaziy xavfsizlik | Server kuchli
+
+# 21
+**VPN (Virtual Private Network)** — ommaviy tarmoq (Internet) ustida **shifrlangan "tunnel"** yaratadi.
+Foydalanish holatlari:
+- Xodim uydan kompaniyaning ichki tarmog'iga xavfsiz ulanadi.
+- Jamoat Wi-Fi'da (kafe, aeroport) ma'lumotlarni himoya qilish.
+- Filiallarni xavfsiz bog'lash.
+VPN trafikni shifrlaydi va IP-manzilni yashiradi, lekin noma'lum bepul VPN'lar ma'lumotingizni yig'ishi mumkin.
+> VPN — Internet ichidagi shaxsiy yopiq yo'lak.
+? VPN nima yaratadi? | Shifrlangan tunnel | Yangi sayt | Printer
+? Qachon VPN foydali? | Jamoat Wi-Fi'da | Offline o'yinda | Rasm chizishda
+
+# 22
+- **Internet** — global ommaviy tarmoq, hamma ulana oladi.
+- **Intranet** — tashkilotning **ichki** yopiq tarmog'i: xodimlar uchun e'lonlar, hujjatlar, jadvallar. Faqat ichkaridagilar kiradi.
+- **Ekstranet** — intranetning bir qismi tanlangan **tashqi hamkorlar**ga ochilgan (yetkazib beruvchilar, mijozlar).
+Internet xususiyatlari: markazlashmagan, IP manzillar va **TCP/IP** protokollari, DNS (nom → IP), WWW, email, bulut xizmatlari.
+> Maktab elektron jurnali — intranet; ota-onalarga ochilgan qismi — ekstranetga o'xshash.
+? Faqat xodimlar kiradigan ichki tarmoq? | Intranet | Internet | Ekstranet
+? Domen nomini IP ga aylantiruvchi tizim? | DNS | VPN | LAN
+
+# 23
+**Internetda muloqot usullari:** email, messenjerlar (Telegram), ijtimoiy tarmoqlar, forum va bloglar, video qo'ng'iroq.
+**Mobil tarmoqlar avlodlari:**
+- **2G** — qo'ng'iroq va SMS.
+- **3G** — mobil internet, video qo'ng'iroq.
+- **4G (LTE)** — tez internet, HD video.
+- **5G** — juda tez va kam kechikish: aqlli shaharlar, avtonom avtomobillar, IoT.
+> Har yangi avlod — tezlik oshishi va kechikish kamayishi.
+? Kam kechikish va IoT qaysi avlodning xususiyati? | 5G | 2G | 3G
+? 2G nima uchun mo'ljallangan? | Qo'ng'iroq va SMS | HD video | Avtonom mashinalar
+
+# 24
+**Videokonferensiya** — bir necha joydagi odamlarning video va ovoz orqali uchrashuvi (Zoom, Google Meet, Teams). **Veb-konferensiya** — brauzer orqali, ekran ulashish, chat, so'rovnomalar bilan.
+Kerak: kamera, mikrofon, karnay/quloqchin, barqaror internet, dastur.
+**Jamiyatga ta'siri:**
++ Yo'l va vaqt tejaladi, masofaviy ta'lim va ish, xalqaro hamkorlik, ekologiya (kam safar).
+− Jonli muloqot kamayadi, internetga bog'liqlik, "Zoom charchoqi", maxfiylik xavfi.
+> Videokonferensiyada: mikrofonni o'chirib turing, gapirganda yoqing.
+? Videokonferensiyaning ijobiy ta'siri? | Vaqt va yo'l tejaladi | Jonli muloqot ko'payadi | Internet kerak emas
+? Videokonferensiya dasturiga misol? | Google Meet | Excel | GIMP
+
+# 25
+**Nazorat ishi: tarmoqlar va Internet.**
+Atamalar: LAN, WAN, WLAN, kliyent-server, P2P, VPN, intranet, ekstranet, DNS, 4G/5G, videokonferensiya.
+? Hamma kompyuterlar teng bo'lgan tarmoq? | P2P | Kliyent-server | WAN
+? Tashqi hamkorlarga ochilgan tarmoq? | Ekstranet | Intranet | LAN
+? Jamoat Wi-Fi'da himoya? | VPN | Adware | Hub
+? Lokal tarmoq? | LAN | WAN | 5G
+
+# 26
+**Ekspert tizim** — muayyan sohadagi mutaxassis (ekspert) bilimini saqlab, savollar orqali muammoga yechim yoki tavsiya beruvchi kompyuter dasturi. Sun'iy intellektning bir turi.
+Misollar:
+- **Tibbiy tashxis** — simptomlar bo'yicha kasallikni taxmin qiladi.
+- **Avtomobil nosozligi** — "Motor ishga tushmayapti" → sabablar.
+- **Geologiya** — foydali qazilma qidirish.
+- **Moliya** — kredit berish qarori.
+- Shaxmat dasturlari.
+> Ekspert tizim mutaxassisni o'rnini bosmaydi — unga yordam beradi.
+? Ekspert tizim kimning bilimini saqlaydi? | Soha mutaxassisining | Tasodifiy odamning | Hech kimning
+? Ekspert tizimga misol? | Tibbiy tashxis tizimi | Paint | Kalkulyator
+
+# 27
+Ekspert tizim tuzilishi:
+- **Bilimlar bazasi** — faktlar va **qoidalar**: "AGAR harorat > 38 VA yo'tal bor BO'LSA, gripp ehtimoli yuqori".
+- **Yakunlovchi (xulosa) mexanizmi (inference engine)** — foydalanuvchi javoblarini qoidalarga solishtirib, xulosa chiqaradi.
+- **Foydalanuvchi interfeysi** — savol beradi va javobni ko'rsatadi.
+- **Tushuntirish moduli** — "Nega shunday xulosa?" savoliga javob beradi.
+> Bilimlar bazasi — "nimalarni biladi", yakunlovchi mexanizm — "qanday o'ylaydi".
+? AGAR-U HOLDA qoidalari qayerda saqlanadi? | Bilimlar bazasida | Interfeysda | Monitorda
+? Javoblarni qoidalarga solishtirib xulosa chiqaradi? | Yakunlovchi mexanizm | Printer | Bilimlar bazasi
+
+# 28
+**Ekspert tizim interfeysi** talablari:
+1. **Tushunarli savollar** — oddiy til, bitta savol — bitta narsa.
+2. **Qulay javob turlari** — ha/yo'q, ro'yxatdan tanlash.
+3. **Tushuntirish** — xulosa sababini ko'rsatish.
+4. **Ehtimollik** — "gripp ehtimoli 80%".
+5. **Orqaga qaytish** va javobni o'zgartirish.
+6. Xatolarga chidamlilik.
+> Yaxshi interfeys — foydalanuvchi o'ylamasdan ishlata oladigan interfeys.
+? Ekspert tizim xulosa sababini ko'rsatishi qaysi talab? | Tushuntirish | Rang | Tezlik
+? Qulay javob turi? | Ha/yo'q yoki ro'yxat | Uzun insho | Javobsiz
+
+# 29
+**Ekspert tizimdan foydalanish** — namuna dialog (avtomobil):
+1. Tizim: "Motor ishga tushadimi?" — Foydalanuvchi: "Yo'q".
+2. Tizim: "Chiroqlar yonadimi?" — "Yo'q".
+3. Tizim: "Xulosa: akkumulyator zaryadsizlangan (ehtimol 85%). Tavsiya: akkumulyatorni zaryadlang yoki almashtiring."
+Afzalliklari: doim mavjud, charchamaydi, izchil javob beradi, bir nechta ekspert bilimini birlashtiradi.
+Kamchiliklari: sog'lom aql va hissiyot yo'q, bilim eskirishi mumkin, yaratish qimmat.
+> Har bir savol keyingi savolni tanlaydi — xuddi tarmoqlanuvchi algoritm.
+? Ekspert tizimning afzalligi? | Charchamaydi va izchil | Hissiyoti bor | Bepul yaratiladi
+? Ekspert tizimning kamchiligi? | Sog'lom aql yo'q | Doim mavjud | Tez ishlaydi
+
+# 30
+**Ma'lumotlarni qayta ishlash tizimi**: **Kiritish → Qayta ishlash → Chiqarish** (+ saqlash).
+Misol — do'kon kassasi: shtrix-kod skanerlanadi (kiritish) → narx bazadan topiladi va jami hisoblanadi (qayta ishlash) → chek chiqadi (chiqarish) → sotuv bazaga yoziladi (saqlash).
+Qayta ishlash turlari:
+- **Paketli (batch)** — ma'lumotlar yig'ilib, keyin birdaniga qayta ishlanadi: oylik maosh, kommunal hisoblar.
+- **Onlayn** — darhol, foydalanuvchi bilan muloqotda: chipta bron qilish.
+- **Real vaqt** — keyingi darsda.
+> Oylik maoshni har daqiqada hisoblash shart emas — paketli qayta ishlash yetarli.
+? Oylik maosh hisoblash qanday qayta ishlash? | Paketli | Real vaqt | Hech qanday
+? Kassada chek chiqishi qaysi bosqich? | Chiqarish | Kiritish | Saqlash
+
+# 31
+**Nazorat ishi: ekspert tizimlar va qayta ishlash.**
+Atamalar: ekspert tizim, bilimlar bazasi, qoida (AGAR-U HOLDA), yakunlovchi mexanizm, interfeys, kiritish-qayta ishlash-chiqarish, paketli va onlayn qayta ishlash.
+? Ekspert tizimning "o'ylovchi" qismi? | Yakunlovchi mexanizm | Interfeys | Monitor
+? Kommunal hisoblar qanday qayta ishlanadi? | Paketli | Real vaqt | Qo'lda
+? Chipta bron qilish? | Onlayn | Paketli | Ekspert
+? Qoida shakli? | AGAR ... U HOLDA ... | FOR ... NEXT | <p></p>
+
+# 32
+**Real vaqt rejimida qayta ishlash** — ma'lumot kelishi bilan **darhol** (millisekundlarda) qayta ishlanadi va javob beriladi. Kechikish xavfli yoki qabul qilib bo'lmas holatlarda kerak.
+Misollar:
+- Avtomobilning **ABS** tormoz tizimi va xavfsizlik yostiqchalari.
+- Samolyot avtopiloti.
+- Svetoforni boshqarish, yong'in signalizatsiyasi.
+- Kardiomonitor (shifoxonada).
+- Onlayn o'yinlar.
+Tizim: **sensor → protsessor → aktuator**, doimiy **qayta aloqa (feedback)** sikli.
+> Yostiqcha 0.03 soniyada ochilishi kerak — kechiksa, foydasi yo'q.
+? Real vaqt tizimiga misol? | ABS tormoz | Oylik maosh | Yillik hisobot
+? Real vaqt tizimida nima eng muhim? | Darhol javob | Chiroyli dizayn | Arzonlik
+
+# 33
+**Excel'da jadval yaratish va boshqarish:**
+- Satr/ustun **qo'shish**: o'ng tugma → **Вставить**; **o'chirish** → **Удалить**.
+- **Yashirish**: o'ng tugma → **Скрыть**; **ko'rsatish** — qo'shni ustunlarni belgilab → **Показать**.
+- **Kenglik/balandlik**: chegarani sudrash yoki ikki marta bosish (avto).
+- **Formatlash sifatida jadval** (Ctrl+T) — filtrlar va avtokengayish bilan "aqlli jadval".
+> Yashirilgan ustunlar o'chmaydi — formulalar ularni ishlataveradi.
+? Ustunni ko'rinmas qilish? | Скрыть | Удалить | Очистить
+? "Aqlli jadval" tezkor tugmasi? | Ctrl+T | Ctrl+P | Ctrl+B
+
+# 34
+**Elektron jadval xavfsizligi** (**Рецензирование**):
+- **Защитить лист** — varaqni himoyalash: tanlangan kataklardan boshqasini o'zgartirib bo'lmaydi. Kirish kataklarini avval **Формат ячеек → Защита → Защищаемая ячейка** belgisini olib tashlab ochiq qoldiring.
+- **Защитить книгу** — varaqlarni qo'shish/o'chirishni taqiqlash.
+- **Fayl paroli**: **Файл → Сведения → Защитить книгу → Зашифровать паролем** — parolsiz ochilmaydi.
+> Parolni unutsangiz, faylni ochib bo'lmaydi — xavfsiz joyda saqlang.
+? Faylni parol bilan shifrlash qayerda? | Файл → Сведения | Вставка | Вид
+? Faqat formulalarni himoyalash uchun? | Защитить лист | Скрыть | Удалить
+
+# 35
+**Panellarni mahkamlash (Freeze Panes)** — katta jadvalni aylantirganda sarlavhalar ko'rinib turadi.
+**Вид → Закрепить области**:
+- **Закрепить верхнюю строку** — birinchi satr.
+- **Закрепить первый столбец** — birinchi ustun.
+- **Закрепить области** — tanlangan katakdan yuqori va chapdagi hamma narsa (B2 tanlansa — 1-satr va A ustun).
+**Разделить** — oynani 2–4 qismga bo'lib, jadvalning turli joylarini solishtirish.
+> 500 satrli jadvalda sarlavha ko'rinmasa — qaysi ustun nima ekanini unutasiz.
+? Birinchi satrni doim ko'rsatish? | Закрепить верхнюю строку | Скрыть | Удалить
+? B2 tanlab "Закрепить области" — nima mahkamlanadi? | 1-satr va A ustun | Faqat B2 | Hech narsa
+
+# 36
+**Formatlash** — son formatlari, hoshiya, ranglar, tekislash.
+**Shartli formatlash** (**Главная → Условное форматирование**):
+- **Правила выделения ячеек**: больше, меньше, между, текст содержит, повторяющиеся значения.
+- **Правила отбора первых и последних**: eng yaxshi 10 ta, o'rtachadan yuqori.
+- **Гистограммы, цветовые шкалы, наборы значков**.
+- **Создать правило → Использовать формулу**: =$C2<50 — butun satrni bo'yash.
+> Shartli formatlash — "ma'lumot o'zi gapiradigan" jadval.
+? 50 dan past ballarni ajratish? | Shartli formatlash | Freeze | Sort
+? Takroriy qiymatlarni topish qoidasi? | Повторяющиеся значения | Гистограммы | Скрыть
+
+# 37
+**Formula** — "=" bilan boshlanadi. **Funksiya** — tayyor formula: =SUM(), =AVERAGE().
+**Nisbiy murojaat (A1)** — nusxalanganda o'zgaradi: C2 dagi **=A2*B2** pastga → **=A3*B3**.
+**Absolyut murojaat ($A$1)** — nusxalanganda o'zgarmaydi. Masalan, kurs yoki chegirma bitta katakda:
+D2: **=C2*$F$1** → D3: **=C3*$F$1**.
+**Aralash**: $A1 (ustun qotgan), A$1 (satr qotgan).
+**F4** tugmasi — murojaat turini almashtiradi.
+> Bitta umumiy qiymat (kurs, foiz, narx) ga murojaat — doim $ bilan.
+? Nusxalanganda o'zgarmaydigan murojaat? | $A$1 | A1 | A$
+? Murojaat turini almashtirish tugmasi? | F4 | F2 | F7
+
+# 38
+**Nomlangan katak va diapazon** — manzil o'rniga mazmunli nom.
+- Katakni tanlab, **Nom maydoni**ga (formula qatori chapida) nom yozing: **Kurs** → Enter.
+- Diapazon: **B2:B20** → **Ballar**.
+- **Формулы → Диспетчер имён** — nomlarni boshqarish.
+Formulada: **=SUM(Ballar)**, **=C2*Kurs**. Nomlangan katak doim **absolyut**.
+> =AVERAGE(Ballar) — =AVERAGE(B2:B20) dan ko'ra tushunarliroq.
+? Nomlangan katak qanday murojaat? | Absolyut | Nisbiy | Aralash
+? Nomlarni boshqarish oynasi? | Диспетчер имён | Сортировка | Фильтр
+
+# 39
+**Yaxlitlash funksiyalari:**
+- **=ROUND(son; raqamlar)** — matematik yaxlitlash: =ROUND(3.456; 2) → 3.46; =ROUND(3.45; 0) → 3.
+- **=ROUNDUP(...)** — doim yuqoriga: =ROUNDUP(3.41; 0) → 4 (masalan, 41 o'quvchiga nechta avtobus).
+- **=ROUNDDOWN(...)** — doim pastga: =ROUNDDOWN(3.99; 0) → 3.
+- **=INT(...)** — butun qismi. Manfiy raqamlar soni: =ROUND(1234; -2) → 1200.
+> Son formati faqat ko'rinishni yaxlitlaydi, ROUND esa qiymatning o'zini.
+? =ROUNDUP(2.1; 0) natijasi? | 3 | 2 | 2.1
+? =ROUND(5.678; 1) natijasi? | 5.7 | 5.6 | 6
+
+# 40
+**Sana va vaqt**: **=TODAY()** — bugungi sana, **=NOW()** — sana va vaqt, **=YEAR()**, **=MONTH()**, **=DAY()**, **=DATEDIF(boshl; tugash; "Y")** — yillar farqi (yosh).
+**Shartli funksiya**: **=IF(shart; rost bo'lsa; yolg'on bo'lsa)** — =IF(B2>=60; "O'tdi"; "O'tmadi"). Ichma-ich IF bilan baholash: =IF(B2>=86;5;IF(B2>=71;4;IF(B2>=56;3;2))).
+**Qidirish**: **=VLOOKUP(qidiriladigan; jadval; ustun_raqami; FALSE)** — =VLOOKUP("Ali"; A2:D20; 3; FALSE) — Alining 3-ustundagi qiymati.
+> VLOOKUP faqat chapdagi ustundan qidiradi; FALSE — aniq moslik.
+? Bugungi sanani qaytaradi? | TODAY | NOW | YEAR
+? =IF(70>=60;"Ha";"Yo'q") natijasi? | Ha | Yo'q | 70
+? VLOOKUP'da aniq moslik uchun? | FALSE | TRUE | 0.5
+
+# 41
+**INDEX va MATCH** — VLOOKUP'dan kuchliroq qidiruv:
+- **=MATCH(qiymat; diapazon; 0)** — qiymatning diapazondagi **o'rnini** (raqamini) beradi: =MATCH("Ali"; A2:A20; 0) → 5.
+- **=INDEX(diapazon; satr_raqami)** — o'sha o'rindagi qiymatni beradi: =INDEX(C2:C20; 5).
+Birga: **=INDEX(C2:C20; MATCH("Ali"; A2:A20; 0))**.
+Afzalligi: istalgan yo'nalishda (chapga ham) qidiradi, ustun qo'shilsa buzilmaydi.
+> MATCH — "qayerda?", INDEX — "u yerda nima bor?".
+? Qiymatning o'rnini qaytaruvchi funksiya? | MATCH | INDEX | SUM
+? INDEX+MATCH'ning VLOOKUP'dan afzalligi? | Chapga ham qidiradi | Sekinroq | Faqat sonlar bilan ishlaydi
+
+# 42
+**Shartli statistik funksiyalar:**
+- **=COUNTIF(diapazon; shart)** — shartga mos kataklar soni: =COUNTIF(B2:B30; ">=86") — a'lochilar soni.
+- **=SUMIF(diapazon; shart; yig'indi_diapazoni)** — shartga moslarni qo'shish: =SUMIF(A2:A50; "Daftar"; C2:C50).
+- **=AVERAGEIF(...)** — shartga moslarning o'rtachasi.
+- Ko'p shartli: **COUNTIFS, SUMIFS, AVERAGEIFS**.
+Matnli shart qo'shtirnoqda: "7-A", "<50".
+> COUNTIF — "nechta?", SUMIF — "jami qancha?".
+? 86 va undan yuqori ballar sonini topish? | =COUNTIF(B2:B30;">=86") | =SUM(B2:B30) | =MAX(B2:B30)
+? Bir nechta shartli sanash? | COUNTIFS | COUNTIF | INDEX
+
+# 43
+**Nazorat ishi: Excel formulalari.**
+| Funksiya | Vazifasi |
+| SUM, AVERAGE | Yig'indi, o'rtacha |
+| ROUND | Yaxlitlash |
+| IF | Shart |
+| VLOOKUP, INDEX+MATCH | Qidirish |
+| COUNTIF, SUMIF | Shartli hisob |
+| TODAY | Bugungi sana |
+Yana: $ absolyut murojaat, nomlangan kataklar, Freeze Panes, himoya.
+? =C2*$F$1 ni pastga nusxalasak 3-satrda? | =C3*$F$1 | =C3*$F$2 | =C2*$F$1
+? Shartga mos yig'indi? | SUMIF | COUNTIF | ROUND
+? Qidiruv funksiyasi? | VLOOKUP | TODAY | INT
+? =ROUNDDOWN(7.9;0) natijasi? | 7 | 8 | 7.9
+
+# 44
+**Validatsiya qoidalari** — noto'g'ri ma'lumot kiritilishining oldini oladi.
+Turlari:
+- **Diapazon** — son 1 dan 100 gacha.
+- **Tur** — faqat butun son yoki sana.
+- **Ro'yxat** — tayyor variantlardan biri ("7-A", "7-B").
+- **Uzunlik** — matn 9 belgidan oshmasin.
+- **Format** — email'da "@" bo'lishi.
+- **Mavjudlik** — maydon bo'sh qolmasin.
+Validatsiya ma'lumot **mantiqan to'g'ri** ekanini tekshiradi, lekin uning **haqiqiyligini** emas.
+> Kiritish bosqichida to'xtatilgan xato — eng arzon xato.
+? Sinf nomini tayyor variantlardan tanlash qaysi qoida? | Ro'yxat | Diapazon | Uzunlik
+? Validatsiya nimani tekshirmaydi? | Ma'lumotning haqiqiyligini | Diapazonni | Turni
+
+# 45
+**Excel'da validatsiya**: **Данные → Проверка данных**:
+- **Тип данных**: Целое число, Десятичное, Список, Дата, Длина текста, Другой (formula).
+- **Минимум / Максимум**: 1 va 100.
+- **Список**: manba: 7-A;7-B;7-C yoki kataklar diapazoni.
+Misol: B2:B30 ga **Целое число, между 1 и 100** — 150 yoki "abc" kiritib bo'lmaydi.
+**Обвести неверные данные** — allaqachon kiritilgan noto'g'ri qiymatlarni aylana bilan belgilaydi.
+> Ochiladigan ro'yxat — validatsiyaning eng qulay turi.
+? Validatsiya qayerda? | Данные → Проверка данных | Вставка → Таблица | Вид
+? Mavjud noto'g'ri qiymatlarni belgilash? | Обвести неверные данные | Сортировка | Скрыть
+
+# 46
+**Kiritishni tekshirish xabarlari** (Проверка данных oynasi):
+- **Сообщение для ввода** — katak tanlanganda maslahat chiqadi: "1 dan 100 gacha ball kiriting".
+- **Сообщение об ошибке** — noto'g'ri qiymatda:
+  - **Останов (Stop)** — kiritishni butunlay taqiqlaydi.
+  - **Предупреждение (Warning)** — ogohlantiradi, lekin ruxsat berishi mumkin.
+  - **Сообщение (Info)** — faqat xabar beradi.
+Sinov: chegaraviy qiymatlar (1, 100), chegaradan tashqari (0, 101) va noto'g'ri tur ("abc") bilan tekshiring.
+> Yaxshi xato xabari nima noto'g'ri va qanday tuzatishni aytadi.
+? Noto'g'ri qiymatni butunlay taqiqlovchi xabar turi? | Stop | Warning | Info
+? Chegaraviy qiymatlarga misol (1–100)? | 1 va 100 | 50 | 1000
+
+# 47
+**Saralash** (**Данные → Сортировка**): A→Z, kichikdan kattaga; **ko'p darajali** — avval sinf, keyin familiya.
+**Filtr** (**Данные → Фильтр**, Ctrl+Shift+L): ustun sarlavhasidagi strelka:
+- Qiymat bo'yicha tanlash.
+- **Числовые фильтры**: больше, меньше, первые 10.
+- **Текстовые фильтры**: содержит, начинается с.
+- Bir nechta ustundagi filtrlar **VA** sharti bilan ishlaydi.
+**Расширенный фильтр** — murakkab shartlar alohida diapazonda.
+> Filtr yozuvlarni o'chirmaydi — yashiradi. Saralash esa tartibni o'zgartiradi.
+? Ma'lumotni o'chirmasdan yashiradi? | Filtr | Saralash | Delete
+? Avval sinf, keyin familiya bo'yicha tartiblash? | Ko'p darajali saralash | Filtr | Freeze
+
+# 48
+**Jamlovchi jadval (Pivot Table)** — katta jadvalni bir necha bosishda guruhlab, yig'indi/o'rtacha/son hisoblaydi.
+**Вставка → Сводная таблица**:
+- **Строки** — guruhlash maydoni (sinf).
+- **Столбцы** — ikkinchi o'lchov (fan).
+- **Значения** — hisob (ballar o'rtachasi, sotuv summasi).
+- **Фильтры** — umumiy filtr.
+**Сводная диаграмма** — pivot jadval asosida diagramma; jadval o'zgarsa, diagramma ham.
+Ma'lumot o'zgarsa: **Обновить**.
+> 1000 satrli sotuvlarni "har oy, har mahsulot bo'yicha jami" ga 30 soniyada aylantirish mumkin.
+? Ma'lumotni guruhlab hisoblovchi jadval? | Pivot Table | Freeze Panes | Validatsiya
+? Pivot'da hisob qaysi maydonga qo'yiladi? | Значения | Строки | Фильтры
+
+# 49
+**Import** — tashqi ma'lumotni Excel'ga olish; **eksport** — Excel'dan boshqa formatga chiqarish.
+Formatlar:
+- **CSV** — vergul (yoki nuqtali vergul) bilan ajratilgan matn. Universal, lekin formatlar va formulalar saqlanmaydi.
+- **TXT**, **XLSX**, **PDF** (faqat ko'rish uchun), **XML/JSON**.
+Import: **Данные → Из текстового/CSV-файла** → ajratuvchi va kodlashni (UTF-8) tanlash → **Загрузить**.
+Eksport: **Сохранить как → CSV (разделители — запятые)**.
+> O'zbekcha harflar buzilsa — kodlashni UTF-8 qilib tanlang.
+? Universal, vergul bilan ajratilgan format? | CSV | XLSX | PNG
+? CSV'da nima saqlanmaydi? | Formulalar va formatlar | Matn | Sonlar
+
+# 50
+**Grafik va diagrammalar**: ustunli, chiziqli, doiraviy, nuqtali (scatter), aralash (kombinatsiyalangan). **Trend chizig'i** — o'zgarish tendensiyasi.
+**Modellashtirish** — jarayonni formulalar bilan ifodalash va "nima bo'ladi, agar...?" savollarini tekshirish:
+- **Подбор параметра (Goal Seek)** — kerakli natija uchun kirish qiymati.
+- **Диспетчер сценариев** — bir nechta stsenariy (optimistik, pessimistik).
+**Simulyator** — haqiqiy jarayonni xavfsiz va arzon sinash uchun model: uchuvchi trenajyori, ob-havo prognozi, yo'l harakati.
+> Model aniqligi kiritilgan farazlar aniqligiga bog'liq.
+? Kerakli natija uchun kirish qiymatini topish? | Goal Seek | VLOOKUP | Freeze
+? Uchuvchi trenajyori — bu? | Simulyator | Pivot | Validatsiya
+
+# 51
+**Nazorat ishi: validatsiya, filtr, diagramma.**
+Takrorlang: validatsiya turlari va xabarlari, saralash va filtr farqi, pivot jadval, import/eksport (CSV), diagramma turlari, Goal Seek, simulyator.
+? Kiritish paytida maslahat chiqaruvchi? | Сообщение для ввода | Сообщение об ошибке | Filtr
+? Filtr va saralash farqi? | Filtr yashiradi, saralash tartiblaydi | Farqi yo'q | Ikkalasi o'chiradi
+? Sotuvlarni oylar bo'yicha guruhlash? | Pivot Table | ROUND | Freeze
+? 1 dan 100 gacha ruxsat — qaysi qoida? | Diapazon | Ro'yxat | Format
+
+# 52
+**Takrorlash: Excel loyihasi.**
+Loyihangizni tekshirish ro'yxati:
+1. Formulalarda **$** kerak joylarda bormi?
+2. Kirish kataklarida **validatsiya** bormi?
+3. Muhim qiymatlar **shartli formatlash** bilan ajratilganmi?
+4. Sarlavhalar **mahkamlangan**mi?
+5. Formula kataklari **himoyalangan**mi?
+6. Diagrammaning sarlavhasi va o'q nomlari bormi?
+7. Xato qiymatlar (#DIV/0!, #N/A) bormi? **=IFERROR(formula; "")** bilan yashirish mumkin.
+> #N/A — VLOOKUP topmadi; #DIV/0! — nolga bo'lish.
+? #DIV/0! xatosi sababi? | Nolga bo'lish | Qiymat topilmadi | Matn juda uzun
+? Xato o'rniga bo'sh qiymat chiqarish? | IFERROR | IF | ROUND
+
+# 53
+**Ma'lumotlar bazasini yaratish** (MS Access yoki boshqa MBBT):
+**Ma'lumot turlari va hajmlari**:
+- **Короткий текст** — 255 belgigacha (ism, kod).
+- **Длинный текст** — izohlar.
+- **Числовой** — butun/kasr; **Денежный**; **Дата/время**; **Логический** (ha/yo'q); **Счётчик** (avtoraqam — ID).
+To'g'ri **hajm** joy tejaydi va xatoni kamaytiradi (ism uchun 50 belgi yetarli).
+**Uch tomonlama bog'lanish** — uchta jadval o'zaro bog'langan tuzilma: **O'quvchilar — Baholar — Fanlar** (Baholar jadvali o'quvchi va fanni bog'laydi).
+> MBBT — ma'lumotlar bazasini boshqarish tizimi (Access, MySQL, PostgreSQL).
+? ID uchun qulay tur? | Счётчик (avtoraqam) | Длинный текст | Логический
+? Ism uchun qaysi tur? | Короткий текст | Денежный | Дата
+
+# 54
+**Bog'lanish turlari:**
+- **Birga-bir (1:1)** — bir yozuvga ikkinchi jadvalda faqat bitta yozuv: o'quvchi — uning pasporti.
+- **Birga-ko'p (1:N)** — eng keng tarqalgan: bitta sinf — ko'p o'quvchi; bitta muallif — ko'p kitob.
+- **Ko'pga-ko'p (M:N)** — o'quvchi ko'p to'garakka qatnaydi, to'garakda ko'p o'quvchi. Uni **oraliq (bog'lovchi) jadval** orqali amalga oshiriladi: O'quvchi — **A'zolik** — To'garak.
+Access'da: **Работа с базами данных → Схема данных** → maydonni sudrab bog'lash.
+> Shu platformada ham o'quvchi va to'garaklar M:N — "members" jadvali orqali bog'langan!
+? Sinf va o'quvchilar bog'lanishi? | Birga-ko'p | Birga-bir | Ko'pga-ko'p
+? Ko'pga-ko'p bog'lanish qanday amalga oshiriladi? | Oraliq jadval orqali | Bitta jadvalda | Mumkin emas
+
+# 55
+- **Oddiy yozuvli (flat file) baza** — bitta jadval: barcha ma'lumot bir joyda. Oddiy, lekin **takrorlanish** ko'p: har bir o'quvchi qatorida sinf rahbari ismi qayta-qayta yoziladi; bitta joyda o'zgartirsangiz, boshqalarida eskisi qoladi (**nomuvofiqlik**).
+- **Relyatsion baza** — bir nechta bog'langan jadval. Har ma'lumot **bir marta** saqlanadi, kalitlar orqali bog'lanadi. Takrorlanish kam, yangilash oson, yaxlitlik yuqori, murakkab so'rovlar mumkin.
+| Belgi | Flat file | Relyatsion |
+| Jadvallar | 1 | Bir nechta |
+| Takrorlanish | Ko'p | Kam |
+| Murakkablik | Oddiy | Murakkabroq |
+> Kichik ro'yxat — flat file yetarli; maktab tizimi — relyatsion kerak.
+? Takrorlanish kam bo'lgan baza? | Relyatsion | Flat file | CSV fayl
+? Flat file kamchiligi? | Ma'lumot takrorlanadi | Juda murakkab | Kalitlar ko'p
+
+# 56
+**Relyatsion bazani yaratish:**
+1. Jadvallarni loyihalash: **Sinflar** (Sinf_ID, Nomi, Rahbar) va **O'quvchilar** (O'quvchi_ID, Ism, Sinf_ID).
+2. Har jadvalga **birlamchi kalit**.
+3. **Import**: Excel/CSV dan — **Внешние данные → Новый источник данных → Из файла**.
+4. **Bog'lash**: Схема данных → Sinflar.Sinf_ID ni O'quvchilar.Sinf_ID ga sudrash → **Обеспечение целостности данных** belgisi.
+5. Sinov: mavjud bo'lmagan sinf raqami bilan o'quvchi kiritib ko'ring — baza ruxsat bermasligi kerak.
+> Bog'lovchi maydonlar bir xil turda bo'lishi shart.
+? Bog'lovchi maydonlar qanday bo'lishi kerak? | Bir xil turda | Har xil turda | Bo'sh
+? Excel ma'lumotini bazaga olish? | Import | Eksport | Freeze
+
+# 57
+**Kalitlar:**
+- **Birlamchi kalit (Primary Key, PK)** — har yozuvni **noyob** aniqlaydi, bo'sh bo'lmaydi: O'quvchi_ID.
+- **Murakkab (tarkibiy) kalit** — ikki yoki undan ortiq maydon birgalikda noyob: **(O'quvchi_ID, Fan_ID)** — Baholar jadvalida.
+- **Tashqi kalit (Foreign Key, FK)** — boshqa jadvalning birlamchi kalitiga ishora: O'quvchilar.Sinf_ID → Sinflar.Sinf_ID.
+- **Nomzod kalit** — PK bo'la oladigan maydon (masalan, pasport raqami).
+> PK — "men kimman", FK — "men kimga tegishliman".
+? Boshqa jadval PK siga ishora qiluvchi maydon? | Tashqi kalit | Birlamchi kalit | Murakkab kalit
+? Ikki maydon birgalikda noyob? | Murakkab kalit | Tashqi kalit | Indeks
+
+# 58
+**Bog'lanishlar yaxlitligi (referential integrity)** — tashqi kalit faqat mavjud yozuvga ishora qiladi:
+- Mavjud bo'lmagan sinfga o'quvchi qo'shib bo'lmaydi.
+- O'quvchilari bor sinfni o'chirib bo'lmaydi (yoki **каскадное удаление** bilan birga o'chadi).
+**Validatsiya** — ma'lumot qoidalarga mosmi (Access: **Правило проверки**, masalan Yosh Between 6 And 18; **Обязательное поле**).
+**Verifikatsiya** — kiritilgan ma'lumot asl manbaga mosmi (ikki marta kiritish, vizual tekshirish).
+> Yaxlitlik — "yetim" yozuvlar bo'lmasligi.
+? Mavjud bo'lmagan sinfga o'quvchi qo'shishni taqiqlaydi? | Bog'lanishlar yaxlitligi | Saralash | Hisobot
+? Ma'lumot manbaga mosligini tekshirish? | Verifikatsiya | Validatsiya | Normallashtirish
+
+# 59
+**Query (so'rov)** — bazadan kerakli ma'lumotni olish.
+- **Oddiy**: tanlangan maydonlar.
+- **Shartli**: Ball > 80; Sinf = "8-A" AND Ball > 80; Ism Like "A*" (A bilan boshlanadi).
+- **Parametrli**: [Sinfni kiriting] — har safar so'raydi.
+- **Jamlanma (итоговый)**: **Группировка** + Sum, Avg, Count — har sinf bo'yicha o'rtacha ball.
+- **Ichki (ko'p jadvalli) so'rov** — bog'langan jadvallardan birga ma'lumot.
+SQL ko'rinishi:
+```sql
+SELECT Sinf, AVG(Ball) FROM Baholar GROUP BY Sinf;
+```
+> Query ma'lumotni o'zgartirmaydi — faqat ko'rsatadi.
+? Har sinf bo'yicha o'rtacha ball? | Jamlanma so'rov | Oddiy so'rov | Forma
+? "A" bilan boshlanuvchi ismlar sharti? | Like "A*" | = "A" | > "A"
+
+# 60
+- **Statik parametr** — so'rovga qotirib yozilgan: Sinf = "8-A" (har doim 8-A).
+- **Dinamik parametr** — ishga tushirilganda so'raladi: Sinf = [Qaysi sinf?].
+**Hisoblanadigan maydonlar** — query'da yangi ustun: **O'rtacha: ([Ball1]+[Ball2]+[Ball3])/3**, **Jami: [Narx]*[Miqdor]**.
+Yoki jadvalda **Вычисляемый** turdagi maydon.
+Hisoblangan qiymatni alohida saqlash shart emas — u har safar yangidan hisoblanadi.
+> Dinamik parametr — bitta so'rov, ko'p foydalanish.
+? Ishga tushirilganda so'raladigan parametr? | Dinamik | Statik | Kalit
+? Narx × Miqdor ustuni — bu? | Hisoblanadigan maydon | Tashqi kalit | Forma
+
+# 61
+**Nazorat ishi: kalitlar, bog'lanishlar, query.**
+Atamalar: PK, FK, murakkab kalit, 1:1, 1:N, M:N, yaxlitlik, flat file, relyatsion baza, jamlanma so'rov, parametr.
+? Har yozuvni noyob aniqlovchi kalit? | Birlamchi | Tashqi | Murakkab
+? O'quvchi va to'garak bog'lanishi? | Ko'pga-ko'p | Birga-bir | Birga-ko'p
+? Takrorlanishi ko'p baza? | Flat file | Relyatsion | Normallashgan
+? So'rov ishga tushganda sinfni so'raydi? | Dinamik parametr | Statik parametr | PK
+
+# 62
+**Saralash** — query yoki jadvalda: o'sish/kamayish, bir nechta maydon bo'yicha.
+**Forma (Form)** — yozuvlarni bittadan ko'rish va kiritish uchun qulay oyna:
+- **Создание → Форма** (avtomatik) yoki **Мастер форм**.
+- Elementlar: matn maydonlari, ochiladigan ro'yxatlar, tugmalar (keyingi, yangi, saqlash).
+- **Подчинённая форма** — bog'langan jadval: sinf formasida uning o'quvchilari ro'yxati.
+Foydalanuvchi jadvalni ko'rmaydi — faqat qulay formani.
+> Forma — xatolarni kamaytiradi va ma'lumot kiritishni tezlashtiradi.
+? Bog'langan yozuvlarni ko'rsatuvchi forma? | Подчинённая форма | Hisobot | Query
+? Formaning foydasi? | Kiritish qulay va xatosiz | Ma'lumotni o'chiradi | Rang beradi
+
+# 63
+**Hisobot (Report)** — ma'lumotni chop etish yoki taqdim etish uchun chiroyli ko'rinishi.
+- **Создание → Отчёт** yoki **Мастер отчётов**.
+- **Guruhlash** (sinf bo'yicha), **saralash**, **jami/o'rtacha**.
+- Sarlavha, sana, sahifa raqami.
+**Eksport**: **Внешние данные → Экспорт** → PDF, Excel, Word, CSV.
+> Forma — kiritish uchun, hisobot — chiqarish uchun.
+? Chop etish uchun tayyorlangan ko'rinish? | Hisobot | Forma | Jadval
+? Hisobotni PDF qilish? | Eksport | Import | Validatsiya
+
+# 64
+**Normallashtirish** — takrorlanish va anomaliyalarni yo'qotish uchun jadvallarni to'g'ri bo'lish.
+- **1NF** — har katakda **bitta** qiymat (atomar), takrorlanuvchi guruhlar yo'q. "Telefonlar: 90..., 91..." — noto'g'ri.
+- **2NF** — 1NF + barcha maydonlar **butun** birlamchi kalitga bog'liq (murakkab kalitning faqat bir qismiga emas).
+- **3NF** — 2NF + kalit bo'lmagan maydonlar bir-biriga bog'liq emas (**tranzitiv bog'liqlik yo'q**). O'quvchilar jadvalida "Sinf rahbari" — u sinfga bog'liq, demak Sinflar jadvaliga ko'chiriladi.
+> 3NF qoidasi: har maydon "kalitga, butun kalitga va faqat kalitga" bog'liq.
+? Har katakda bitta qiymat — qaysi forma? | 1NF | 2NF | 3NF
+? Tranzitiv bog'liqlikni yo'qotish? | 3NF | 1NF | Saralash
+
+# 65
+**Ma'lumotlar lug'ati (data dictionary)** — baza haqidagi "ma'lumot haqida ma'lumot" (metama'lumot):
+| Maydon | Turi | Hajmi | Kalit | Validatsiya | Izoh |
+| Oquvchi_ID | Счётчик | — | PK | — | Noyob raqam |
+| Ism | Текст | 50 | — | Majburiy | To'liq ism |
+| Sinf_ID | Число | — | FK | Mavjud sinf | Sinflar jadvaliga |
+**Fayllarni boshqarish**: nomlash qoidalari, papka tuzilmasi, versiyalar, zaxira, arxivlash, kirish huquqlari.
+> Lug'at — jamoada ishlaganda hammaga bir xil tushunish beradi.
+? Ma'lumot haqidagi ma'lumot? | Metama'lumot | Kalit | Forma
+? Ma'lumotlar lug'atida nima bo'ladi? | Maydon nomi, turi, izoh | Rasmlar | Musiqa
+
+# 66
+**Faylga kirish usullari:**
+- **Ketma-ket (sequential)** — yozuvlar boshidan birma-bir o'qiladi: magnit lenta, log fayllar. Hammasini qayta ishlashda qulay.
+- **Bevosita (direct / random)** — kerakli yozuvga to'g'ridan-to'g'ri borish (manzil yoki indeks orqali): disk, MB. Tez qidiruv.
+**Boshqaruv axborot tizimi (MIS)** — rahbarlar uchun qaror qabul qilishda hisobot va tahlil beruvchi tizim: maktab direktori uchun davomat va o'zlashtirish hisobotlari, do'kon uchun sotuv va zaxira tahlili.
+> MIS — ma'lumotlarni "boshqaruv qarorlari"ga aylantiradi.
+? Kerakli yozuvga to'g'ridan-to'g'ri borish? | Bevosita kirish | Ketma-ket kirish | Arxivlash
+? Rahbarlarga qaror uchun hisobot beruvchi tizim? | MIS | DNS | VPN
+
+# 67
+**Nazorat ishi: ma'lumotlar bazasi.**
+Atamalar: MBBT, ma'lumot turi, PK, FK, 1:N, M:N, relyatsion, yaxlitlik, query, forma, hisobot, normallashtirish (1NF–3NF), ma'lumotlar lug'ati, MIS.
+? Kiritish uchun oyna? | Forma | Hisobot | Query
+? "Sinf rahbari"ni Sinflar jadvaliga ko'chirish — qaysi NF? | 3NF | 1NF | 2NF
+? Bazadagi bog'lovchi maydon? | Tashqi kalit | Hisobot | Lug'at
+? Rahbarlar uchun axborot tizimi? | MIS | P2P | CSV
+
+# 68
+**Yil yakuni!** 8-sinfda o'rgandik:
+- Ma'lumot, axborot, bilim; kodlash va shifrlash; validatsiya va verifikatsiya.
+- Apparat va dasturiy ta'minot, sensorlar, elektron xavfsizlik, raqamli tengsizlik.
+- Tarmoqlar: LAN/WAN, kliyent-server, VPN, intranet, 5G, videokonferensiya.
+- Ekspert tizimlar va real vaqt tizimlari.
+- Excel: murojaatlar, IF, VLOOKUP, INDEX/MATCH, COUNTIF, validatsiya, pivot.
+- Relyatsion MB: kalitlar, bog'lanishlar, query, normallashtirish.
+? Asimmetrik shifrlashda nechta kalit? | Ikkita | Bitta | Uchta
+? Real vaqt tizimiga misol? | ABS tormoz | Oylik maosh | Arxiv
+? Absolyut murojaat belgisi? | $ | # | @
+? Ko'pga-ko'p bog'lanish uchun? | Oraliq jadval | Bitta jadval | CSV
+? Parol bilan aldov xati? | Phishing | Pivot | Freeze
