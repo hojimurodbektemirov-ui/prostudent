@@ -167,6 +167,59 @@ create table if not exists km.awards (
   created_at timestamptz not null default now()
 );
 
+-- v5: o'qituvchilar, fayllar Storage'da, davomat, Telegram, ota-ona, sertifikatlar
+alter table km.users drop constraint if exists users_role_check;
+do $$ begin
+  alter table km.users add constraint users_role_check check (role in ('admin', 'teacher', 'student'));
+exception when duplicate_object then null; end $$;
+alter table km.users add column if not exists parent_code text unique;
+alter table km.classes add column if not exists teacher_ids uuid[] not null default '{}';
+alter table km.classes add column if not exists tg_chat text;
+alter table km.materials add column if not exists owner_id uuid references km.users(id) on delete set null;
+alter table km.assignments add column if not exists owner_id uuid references km.users(id) on delete set null;
+alter table km.files alter column data drop not null;
+alter table km.files add column if not exists path text unique;
+alter table km.files add column if not exists size int;
+alter table km.files add column if not exists owner_id uuid;
+alter table km.files add column if not exists state text not null default 'ready';
+
+create table if not exists km.dl_tickets (
+  path text not null,
+  expires_at timestamptz not null
+);
+create index if not exists dl_tickets_idx on km.dl_tickets(path, expires_at);
+
+create table if not exists km.attendance (
+  group_id uuid not null references km.classes(id) on delete cascade,
+  user_id uuid not null references km.users(id) on delete cascade,
+  day date not null,
+  status text not null check (status in ('bor', 'yoq', 'kech', 'sababli')),
+  primary key (group_id, user_id, day)
+);
+
+create table if not exists km.settings (
+  key text primary key,
+  value text
+);
+
+create table if not exists km.certs (
+  code text primary key,
+  user_id uuid not null references km.users(id) on delete cascade,
+  level text not null,
+  title text not null,
+  issued_at timestamptz not null default now(),
+  unique (user_id, level)
+);
+
+create table if not exists km.tg_log (
+  id bigserial primary key,
+  chat text,
+  body text,
+  request_id bigint,
+  error text,
+  created_at timestamptz not null default now()
+);
+
 -- ---------------------------------------------------------------------
 -- Ichki yordamchilar (tashqaridan chaqirib bo'lmaydi)
 -- ---------------------------------------------------------------------
@@ -183,8 +236,89 @@ begin
   select u.* into v from km.sessions s join km.users u on u.id = s.user_id
    where s.token = p_token and s.expires_at > now();
   if not found then perform km.fail('SESSION'); end if;
-  if p_role is not null and v.role <> p_role then perform km.fail('Bu amal uchun ruxsat yo''q'); end if;
+  if p_role = 'owner' then
+    if v.role <> 'admin' then perform km.fail('Bu amalni faqat bosh admin bajara oladi'); end if;
+  elsif p_role = 'admin' then
+    if v.role not in ('admin', 'teacher') then perform km.fail('Bu amal uchun ruxsat yo''q'); end if;
+  elsif p_role is not null and v.role <> p_role then perform km.fail('Bu amal uchun ruxsat yo''q'); end if;
   return v;
+end $$;
+
+-- O'qituvchiga biriktirilgan guruhlar (bosh admin uchun hammasi)
+create or replace function km.my_groups(v km.users) returns uuid[]
+language sql stable set search_path = km, public as $$
+  select case when v.role = 'admin' then coalesce(array(select id from km.classes), '{}')
+              else coalesce(array(select id from km.classes where v.id = any(teacher_ids)), '{}') end
+$$;
+
+create or replace function km.chk_group(v km.users, g uuid) returns void
+language plpgsql stable set search_path = km, public as $$
+begin
+  if v.role <> 'admin' and (g is null or not (g = any(km.my_groups(v)))) then perform km.fail('Bu guruh sizga biriktirilmagan'); end if;
+end $$;
+
+create or replace function km.chk_groups(v km.users, gs uuid[]) returns void
+language plpgsql stable set search_path = km, public as $$
+begin
+  if v.role <> 'admin' and not (coalesce(gs, '{}') <@ km.my_groups(v)) then perform km.fail('Faqat o''zingizga biriktirilgan guruhlarni tanlang'); end if;
+end $$;
+
+create or replace function km.chk_student(v km.users, u uuid) returns void
+language plpgsql stable set search_path = km, public as $$
+begin
+  if v.role = 'admin' then return; end if;
+  if not exists (select 1 from km.users s where s.id = u and s.role = 'student'
+                   and (s.class_id = any(km.my_groups(v)) or exists (select 1 from km.members m where m.user_id = s.id and m.group_id = any(km.my_groups(v))))) then
+    perform km.fail('Bu o''quvchi sizning guruhlaringizda emas');
+  end if;
+end $$;
+
+-- Fayllar: bazadagi (eski, base64) yoki Storage'dagi (yangi). Bog'lanmaganlari tozalanadi.
+create or replace function km.gc_files() returns void
+language plpgsql set search_path = km, public as $$
+begin
+  delete from km.files f where f.path is null and not exists (select 1 from km.materials x where x.file_id = f.id) and not exists (select 1 from km.submissions x where x.file_id = f.id);
+  update km.files f set state = 'trash' where f.path is not null and f.state = 'ready'
+     and not exists (select 1 from km.materials x where x.file_id = f.id) and not exists (select 1 from km.submissions x where x.file_id = f.id);
+  update km.files set state = 'trash' where path is not null and state = 'pending' and created_at < now() - interval '1 day';
+  delete from km.dl_tickets where expires_at < now();
+end $$;
+
+-- p_file: {name, mime, data} (bazaga) yoki {id} (Storage'ga oldin yuklangan)
+create or replace function km.take_file(v km.users, p_file jsonb) returns uuid
+language plpgsql set search_path = km, public as $$
+declare fid uuid;
+begin
+  if jsonb_typeof(p_file) <> 'object' then return null; end if;
+  if p_file ? 'id' and not (p_file ? 'data') then
+    update km.files set state = 'ready' where id = (p_file->>'id')::uuid and owner_id = v.id and state = 'pending' returning id into fid;
+    if fid is null then perform km.fail('Fayl yuklanmadi, qayta urinib ko''ring'); end if;
+    return fid;
+  end if;
+  insert into km.files(name, mime, data, size, owner_id) values (left(p_file->>'name', 200), left(p_file->>'mime', 100), p_file->>'data', length(p_file->>'data') * 3 / 4, v.id) returning id into fid;
+  return fid;
+end $$;
+
+create or replace function km.setting(k text) returns text
+language sql stable set search_path = km, public as $$ select value from km.settings where key = k $$;
+
+-- Telegram: pg_net orqali xabar (pg_net yoqilmagan bo'lsa jim o'tadi, xato tg_log'ga yoziladi)
+create or replace function km.tg_send(p_chat text, p_text text) returns boolean
+language plpgsql set search_path = km, public as $$
+declare tok text := km.setting('tg_token'); rid bigint;
+begin
+  if coalesce(tok, '') = '' or coalesce(p_chat, '') = '' then return false; end if;
+  begin
+    execute 'select net.http_post(url := $1, body := $2, headers := $3)' into rid
+      using 'https://api.telegram.org/bot' || tok || '/sendMessage',
+            jsonb_build_object('chat_id', p_chat, 'text', p_text, 'disable_web_page_preview', true),
+            '{"Content-Type": "application/json"}'::jsonb;
+    insert into km.tg_log(chat, body, request_id) values (p_chat, left(p_text, 500), rid);
+    return true;
+  exception when others then
+    insert into km.tg_log(chat, body, error) values (p_chat, left(p_text, 500), sqlerrm);
+    return false;
+  end;
 end $$;
 
 create or replace function km.user_json(v km.users) returns jsonb
@@ -317,21 +451,25 @@ end $$;
 -- ---------------------------------------------------------------------
 create or replace function public.km_admin_overview(p_token text) returns jsonb
 language plpgsql security definer set search_path = km, extensions, public as $$
-declare v km.users := km.auth(p_token, 'admin');
+declare v km.users := km.auth(p_token, 'admin'); mg uuid[] := km.my_groups(v);
 begin
   return jsonb_build_object(
+    'role', v.role,
+    'teachers', case when v.role = 'admin' then coalesce((select jsonb_agg(jsonb_build_object('id', t.id, 'full_name', t.full_name, 'login', t.login, 'last_seen', t.last_seen,
+                   'group_ids', coalesce((select jsonb_agg(c.id) from km.classes c where t.id = any(c.teacher_ids)), '[]')) order by t.full_name) from km.users t where t.role = 'teacher'), '[]') else '[]' end,
     'classes', coalesce((select jsonb_agg(jsonb_build_object('id', c.id, 'name', c.name, 'grade', c.grade,
-                 'kind', c.kind, 'courses', c.courses, 'about', c.about, 'inf_open', c.inf_open,
+                 'kind', c.kind, 'courses', c.courses, 'about', c.about, 'inf_open', c.inf_open, 'tg_chat', c.tg_chat,
+                 'teacher_ids', to_jsonb(c.teacher_ids),
                  'count', case when c.kind = 'sinf' then (select count(*) from km.users u where u.class_id = c.id and u.role = 'student')
                                else (select count(*) from km.members m where m.group_id = c.id) end,
                  'member_ids', case when c.kind = 'togarak' then coalesce((select jsonb_agg(m.user_id) from km.members m where m.group_id = c.id), '[]') else '[]' end)
-                 order by c.kind, c.grade, c.name) from km.classes c), '[]'),
+                 order by c.kind, c.grade, c.name) from km.classes c where c.id = any(mg)), '[]'),
     'students', coalesce((select jsonb_agg(km.user_json(u) order by u.full_name) from km.users u where u.role = 'student'), '[]'));
 end $$;
 
 create or replace function public.km_admin_save_class(p_token text, p_id uuid, p_name text, p_grade int) returns jsonb
 language plpgsql security definer set search_path = km, extensions, public as $$
-declare v km.users := km.auth(p_token, 'admin'); c km.classes;
+declare v km.users := km.auth(p_token, 'owner'); c km.classes;
 begin
   begin
     if p_id is null then
@@ -351,6 +489,7 @@ create or replace function public.km_admin_delete_class(p_token text, p_id uuid)
 language plpgsql security definer set search_path = km, extensions, public as $$
 declare v km.users := km.auth(p_token, 'admin');
 begin
+  perform km.chk_group(v, p_id);
   delete from km.classes where id = p_id;
 end $$;
 
@@ -363,6 +502,7 @@ begin
   if jsonb_array_length(p_items) > 60 then perform km.fail('Bir martada ko''pi bilan 60 ta o''quvchi'); end if;
   for it in select * from jsonb_array_elements(p_items) loop
     if length(trim(coalesce(it->>'full_name', ''))) = 0 then continue; end if;
+    if v.role <> 'admin' then perform km.chk_group(v, nullif(it->>'class_id', '')::uuid); end if;
     pw := km.gen_password();
     insert into km.users(role, login, pass_hash, full_name, class_id, photo, photo_kind, stickers)
     values ('student', km.unique_login(coalesce(it->>'login_base', it->>'full_name')), crypt(pw, gen_salt('bf', 8)),
@@ -380,6 +520,8 @@ create or replace function public.km_admin_update_student(p_token text, p_id uui
 language plpgsql security definer set search_path = km, extensions, public as $$
 declare v km.users := km.auth(p_token, 'admin'); s km.users; l text;
 begin
+  perform km.chk_student(v, p_id);
+  if p_data ? 'class_id' and v.role <> 'admin' then perform km.chk_group(v, nullif(p_data->>'class_id', '')::uuid); end if;
   select * into s from km.users where id = p_id and role = 'student';
   if not found then perform km.fail('O''quvchi topilmadi'); end if;
   if p_data ? 'login' then
@@ -405,7 +547,8 @@ create or replace function public.km_admin_reset_passwords(p_token text, p_ids u
 language plpgsql security definer set search_path = km, extensions, public as $$
 declare v km.users := km.auth(p_token, 'admin'); s km.users; pw text; res jsonb := '[]';
 begin
-  for s in select * from km.users where id = any(p_ids) and role = 'student' order by full_name loop
+  for s in select * from km.users u where u.id = any(p_ids) and u.role = 'student'
+             and (v.role = 'admin' or u.id in (select x.id from km.group_students(km.my_groups(v)) x)) order by u.full_name loop
     pw := km.gen_password();
     update km.users set pass_hash = crypt(pw, gen_salt('bf', 8)) where id = s.id;
     delete from km.sessions where user_id = s.id;
@@ -418,6 +561,7 @@ create or replace function public.km_admin_delete_student(p_token text, p_id uui
 language plpgsql security definer set search_path = km, extensions, public as $$
 declare v km.users := km.auth(p_token, 'admin');
 begin
+  perform km.chk_student(v, p_id);
   delete from km.users where id = p_id and role = 'student';
 end $$;
 
@@ -425,9 +569,12 @@ create or replace function public.km_admin_student(p_token text, p_id uuid) retu
 language plpgsql security definer set search_path = km, extensions, public as $$
 declare v km.users := km.auth(p_token, 'admin'); s km.users;
 begin
+  perform km.chk_student(v, p_id);
   select * into s from km.users where id = p_id and role = 'student';
   if not found then perform km.fail('O''quvchi topilmadi'); end if;
-  return jsonb_build_object('user', km.user_json(s), 'progress', s.progress);
+  return jsonb_build_object('user', km.user_json(s), 'progress', s.progress, 'parent_code', s.parent_code,
+    'attendance', coalesce((select jsonb_object_agg(x.status, x.n) from (select status, count(*) n from km.attendance where user_id = s.id and day > current_date - 30 group by status) x), '{}'),
+    'awards', coalesce((select jsonb_agg(jsonb_build_object('xp', a.xp, 'note', a.note, 'sticker', a.sticker, 'created_at', a.created_at) order by a.created_at desc) from (select * from km.awards where user_id = s.id order by created_at desc limit 20) a), '[]'));
 end $$;
 
 -- ---------------------------------------------------------------------
@@ -436,18 +583,26 @@ end $$;
 -- p_data: {name, grade, kind: 'sinf'|'togarak', courses: ['informatika','dasturlash'], about}
 create or replace function public.km_admin_save_group(p_token text, p_id uuid, p_data jsonb) returns jsonb
 language plpgsql security definer set search_path = km, extensions, public as $$
-declare v km.users := km.auth(p_token, 'admin'); c km.classes; cr text[];
+declare v km.users := km.auth(p_token, 'admin'); c km.classes; cr text[]; tids uuid[];
 begin
+  if p_id is not null then perform km.chk_group(v, p_id); end if;
+  if v.role = 'admin' and p_data ? 'teacher_ids' then
+    select coalesce(array_agg(x::uuid), '{}') into tids from jsonb_array_elements_text(p_data->'teacher_ids') x;
+    if exists (select 1 from unnest(tids) t where not exists (select 1 from km.users u where u.id = t and u.role = 'teacher')) then perform km.fail('O''qituvchi topilmadi'); end if;
+  end if;
   select coalesce(array_agg(x), '{}') into cr from jsonb_array_elements_text(coalesce(p_data->'courses', '[]')) x where x in ('informatika', 'dasturlash');
   begin
     if p_id is null then
-      insert into km.classes(name, grade, kind, courses, about)
-      values (trim(p_data->>'name'), (p_data->>'grade')::int, coalesce(p_data->>'kind', 'sinf'), cr, nullif(trim(coalesce(p_data->>'about', '')), ''))
+      insert into km.classes(name, grade, kind, courses, about, teacher_ids, tg_chat)
+      values (trim(p_data->>'name'), (p_data->>'grade')::int, coalesce(p_data->>'kind', 'sinf'), cr, nullif(trim(coalesce(p_data->>'about', '')), ''),
+              case when v.role = 'teacher' then array[v.id] else coalesce(tids, '{}') end, nullif(trim(coalesce(p_data->>'tg_chat', '')), ''))
       returning * into c;
     else
       update km.classes set name = trim(p_data->>'name'), grade = (p_data->>'grade')::int, courses = cr,
              inf_open = case when p_data ? 'inf_open' then nullif(p_data->>'inf_open', '')::int else inf_open end,
-             about = nullif(trim(coalesce(p_data->>'about', '')), '')
+             about = nullif(trim(coalesce(p_data->>'about', '')), ''),
+             tg_chat = case when p_data ? 'tg_chat' then nullif(trim(p_data->>'tg_chat'), '') else tg_chat end,
+             teacher_ids = coalesce(tids, teacher_ids)
        where id = p_id returning * into c;
       if not found then perform km.fail('Guruh topilmadi'); end if;
     end if;
@@ -462,6 +617,7 @@ create or replace function public.km_admin_set_members(p_token text, p_group uui
 language plpgsql security definer set search_path = km, extensions, public as $$
 declare v km.users := km.auth(p_token, 'admin');
 begin
+  perform km.chk_group(v, p_group);
   if not exists (select 1 from km.classes where id = p_group and kind = 'togarak') then perform km.fail('To''garak topilmadi'); end if;
   insert into km.members(group_id, user_id)
   select p_group, u.id from km.users u where u.id = any(coalesce(p_add, '{}')) and u.role = 'student'
@@ -474,6 +630,10 @@ language plpgsql security definer set search_path = km, extensions, public as $$
 declare v km.users := km.auth(p_token, 'admin');
 begin
   if p_class is not null and not exists (select 1 from km.classes where id = p_class and kind = 'sinf') then perform km.fail('Sinf topilmadi'); end if;
+  if v.role <> 'admin' then
+    perform km.chk_group(v, p_class);
+    if exists (select 1 from unnest(p_ids) i where i not in (select x.id from km.group_students(km.my_groups(v)) x)) then perform km.fail('Bu o''quvchi sizning guruhlaringizda emas'); end if;
+  end if;
   update km.users set class_id = p_class where id = any(p_ids) and role = 'student';
 end $$;
 
@@ -481,7 +641,7 @@ create or replace function km.material_json(m km.materials) returns jsonb
 language sql stable set search_path = km, public as $$
   select jsonb_build_object('id', m.id, 'title', m.title, 'kind', m.kind, 'url', m.url, 'body', m.body,
     'group_ids', to_jsonb(m.group_ids), 'created_at', m.created_at,
-    'file', (select jsonb_build_object('id', f.id, 'name', f.name, 'mime', f.mime, 'size', length(f.data) * 3 / 4) from km.files f where f.id = m.file_id))
+    'file', (select jsonb_build_object('id', f.id, 'name', f.name, 'mime', f.mime, 'size', coalesce(f.size, length(f.data) * 3 / 4), 'stored', f.path is not null) from km.files f where f.id = m.file_id), 'owner_id', m.owner_id)
 $$;
 
 -- O'quvchi: o'z sinfi va to'garaklari materiallari. Admin: hammasi.
@@ -489,8 +649,9 @@ create or replace function public.km_materials(p_token text) returns jsonb
 language plpgsql security definer set search_path = km, extensions, public as $$
 declare v km.users := km.auth(p_token); g uuid[];
 begin
-  if v.role = 'admin' then
-    return coalesce((select jsonb_agg(km.material_json(m) order by m.created_at desc) from km.materials m), '[]');
+  if v.role in ('admin', 'teacher') then
+    return coalesce((select jsonb_agg(km.material_json(m) order by m.created_at desc) from km.materials m
+                      where v.role = 'admin' or m.owner_id = v.id or m.group_ids && km.my_groups(v)), '[]');
   end if;
   g := array(select v.class_id where v.class_id is not null union select group_id from km.members where user_id = v.id);
   return coalesce((select jsonb_agg(km.material_json(m) order by m.created_at desc) from km.materials m where m.group_ids && g), '[]');
@@ -504,14 +665,14 @@ begin
   if k not in ('link', 'video', 'text', 'file') then perform km.fail('Material turi noto''g''ri'); end if;
   if k in ('link', 'video') and coalesce(p_data->>'url', '') !~* '^https?://' then perform km.fail('Havola http:// yoki https:// bilan boshlansin'); end if;
   select coalesce(array_agg(x::uuid), '{}') into gids from jsonb_array_elements_text(coalesce(p_data->'group_ids', '[]')) x;
-  if p_data ? 'file' and jsonb_typeof(p_data->'file') = 'object' then
-    insert into km.files(name, mime, data) values (left(p_data->'file'->>'name', 200), left(p_data->'file'->>'mime', 100), p_data->'file'->>'data') returning id into fid;
-  end if;
+  perform km.chk_groups(v, gids);
+  if p_id is not null and v.role <> 'admin' and not exists (select 1 from km.materials where id = p_id and (owner_id = v.id or group_ids && km.my_groups(v))) then perform km.fail('Material topilmadi'); end if;
+  fid := km.take_file(v, p_data->'file');
   begin
     if p_id is null then
       if k = 'file' and fid is null then perform km.fail('Fayl tanlanmagan'); end if;
-      insert into km.materials(title, kind, url, body, file_id, group_ids)
-      values (trim(p_data->>'title'), k, nullif(trim(coalesce(p_data->>'url', '')), ''), nullif(p_data->>'body', ''), fid, gids) returning * into m;
+      insert into km.materials(title, kind, url, body, file_id, group_ids, owner_id)
+      values (trim(p_data->>'title'), k, nullif(trim(coalesce(p_data->>'url', '')), ''), nullif(p_data->>'body', ''), fid, gids, v.id) returning * into m;
     else
       update km.materials set title = trim(p_data->>'title'), kind = k, url = nullif(trim(coalesce(p_data->>'url', '')), ''),
              body = nullif(p_data->>'body', ''), file_id = coalesce(fid, file_id), group_ids = gids
@@ -520,7 +681,7 @@ begin
     end if;
   exception when check_violation then perform km.fail('Sarlavha 1–120 belgi, matn 20 000 belgidan oshmasin, fayl 4 MB dan kichik bo''lsin');
   end;
-  delete from km.files f where not exists (select 1 from km.materials x where x.file_id = f.id) and not exists (select 1 from km.submissions x where x.file_id = f.id);
+  perform km.gc_files();
   return km.material_json(m);
 end $$;
 
@@ -528,21 +689,26 @@ create or replace function public.km_admin_delete_material(p_token text, p_id uu
 language plpgsql security definer set search_path = km, extensions, public as $$
 declare v km.users := km.auth(p_token, 'admin');
 begin
-  delete from km.materials where id = p_id;
-  delete from km.files f where not exists (select 1 from km.materials x where x.file_id = f.id) and not exists (select 1 from km.submissions x where x.file_id = f.id);
+  delete from km.materials where id = p_id and (v.role = 'admin' or owner_id = v.id or group_ids && km.my_groups(v));
+  perform km.gc_files();
 end $$;
 
 create or replace function public.km_get_file(p_token text, p_id uuid) returns jsonb
 language plpgsql security definer set search_path = km, extensions, public as $$
 declare v km.users := km.auth(p_token); f km.files; g uuid[];
 begin
-  if v.role <> 'admin' then
+  if v.role = 'student' then
     g := array(select v.class_id where v.class_id is not null union select group_id from km.members where user_id = v.id);
     if not exists (select 1 from km.materials m where m.file_id = p_id and m.group_ids && g)
        and not exists (select 1 from km.submissions x where x.file_id = p_id and x.user_id = v.id) then perform km.fail('Fayl topilmadi'); end if;
   end if;
   select * into f from km.files where id = p_id;
   if not found then perform km.fail('Fayl topilmadi'); end if;
+  if f.path is not null then
+    delete from km.dl_tickets where expires_at < now();
+    insert into km.dl_tickets(path, expires_at) values (f.path, now() + interval '3 minutes');
+    return jsonb_build_object('name', f.name, 'mime', f.mime, 'path', f.path, 'bucket', 'prostudent');
+  end if;
   return jsonb_build_object('name', f.name, 'mime', f.mime, 'data', f.data);
 end $$;
 
@@ -734,18 +900,19 @@ $$;
 create or replace function km.sub_json(s km.submissions) returns jsonb
 language sql stable set search_path = km, public as $$
   select case when s.assignment_id is null then null else jsonb_build_object('body', s.body, 'link', s.link, 'submitted_at', s.submitted_at, 'score', s.score, 'comment', s.comment, 'graded_at', s.graded_at,
-    'file', (select jsonb_build_object('id', f.id, 'name', f.name, 'mime', f.mime, 'size', length(f.data) * 3 / 4) from km.files f where f.id = s.file_id)) end
+    'file', (select jsonb_build_object('id', f.id, 'name', f.name, 'mime', f.mime, 'size', coalesce(f.size, length(f.data) * 3 / 4), 'stored', f.path is not null) from km.files f where f.id = s.file_id)) end
 $$;
 
 create or replace function public.km_assignments(p_token text) returns jsonb
 language plpgsql security definer set search_path = km, extensions, public as $$
 declare v km.users := km.auth(p_token); g uuid[];
 begin
-  if v.role = 'admin' then
-    return coalesce((select jsonb_agg(jsonb_build_object('id', a.id, 'title', a.title, 'body', a.body, 'group_ids', to_jsonb(a.group_ids), 'due_at', a.due_at, 'max_score', a.max_score, 'lesson_ref', a.lesson_ref, 'created_at', a.created_at,
+  if v.role in ('admin', 'teacher') then
+    return coalesce((select jsonb_agg(jsonb_build_object('id', a.id, 'owner_id', a.owner_id, 'title', a.title, 'body', a.body, 'group_ids', to_jsonb(a.group_ids), 'due_at', a.due_at, 'max_score', a.max_score, 'lesson_ref', a.lesson_ref, 'created_at', a.created_at,
              'total', (select count(*) from km.group_students(a.group_ids)),
              'submitted', (select count(*) from km.submissions s where s.assignment_id = a.id),
-             'graded', (select count(*) from km.submissions s where s.assignment_id = a.id and s.score is not null)) order by a.created_at desc) from km.assignments a), '[]');
+             'graded', (select count(*) from km.submissions s where s.assignment_id = a.id and s.score is not null)) order by a.created_at desc) from km.assignments a
+              where v.role = 'admin' or a.owner_id = v.id or a.group_ids && km.my_groups(v)), '[]');
   end if;
   g := array(select v.class_id where v.class_id is not null union select group_id from km.members where user_id = v.id);
   return coalesce((select jsonb_agg(jsonb_build_object('id', a.id, 'title', a.title, 'body', a.body, 'group_ids', to_jsonb(a.group_ids), 'due_at', a.due_at, 'max_score', a.max_score, 'lesson_ref', a.lesson_ref, 'created_at', a.created_at,
@@ -755,14 +922,21 @@ end $$;
 
 create or replace function public.km_admin_save_assignment(p_token text, p_id uuid, p_data jsonb) returns jsonb
 language plpgsql security definer set search_path = km, extensions, public as $$
-declare v km.users := km.auth(p_token, 'admin'); a km.assignments; gids uuid[];
+declare v km.users := km.auth(p_token, 'admin'); a km.assignments; gids uuid[]; c km.classes; site text := coalesce(km.setting('site_url'), '');
 begin
   select coalesce(array_agg(x::uuid), '{}') into gids from jsonb_array_elements_text(coalesce(p_data->'group_ids', '[]')) x;
+  perform km.chk_groups(v, gids);
+  if p_id is not null and v.role <> 'admin' and not exists (select 1 from km.assignments where id = p_id and (owner_id = v.id or group_ids && km.my_groups(v))) then perform km.fail('Topshiriq topilmadi'); end if;
   begin
     if p_id is null then
-      insert into km.assignments(title, body, group_ids, due_at, max_score, lesson_ref)
-      values (trim(p_data->>'title'), nullif(p_data->>'body', ''), gids, nullif(p_data->>'due_at', '')::timestamptz, coalesce((p_data->>'max_score')::int, 5), nullif(p_data->>'lesson_ref', ''))
+      insert into km.assignments(title, body, group_ids, due_at, max_score, lesson_ref, owner_id)
+      values (trim(p_data->>'title'), nullif(p_data->>'body', ''), gids, nullif(p_data->>'due_at', '')::timestamptz, coalesce((p_data->>'max_score')::int, 5), nullif(p_data->>'lesson_ref', ''), v.id)
       returning * into a;
+      for c in select * from km.classes where id = any(gids) and tg_chat is not null loop
+        perform km.tg_send(c.tg_chat, '📌 Yangi topshiriq (' || c.name || '): ' || a.title ||
+          case when a.due_at is not null then E'\nMuddat: ' || to_char(a.due_at at time zone 'Asia/Tashkent', 'DD.MM.YYYY HH24:MI') else '' end ||
+          E'\nBall: ' || a.max_score || case when site <> '' then E'\n' || site || '#topshiriq-' || a.id else '' end);
+      end loop;
     else
       update km.assignments set title = trim(p_data->>'title'), body = nullif(p_data->>'body', ''), group_ids = gids, due_at = nullif(p_data->>'due_at', '')::timestamptz,
              max_score = coalesce((p_data->>'max_score')::int, 5), lesson_ref = nullif(p_data->>'lesson_ref', '')
@@ -778,8 +952,8 @@ create or replace function public.km_admin_delete_assignment(p_token text, p_id 
 language plpgsql security definer set search_path = km, extensions, public as $$
 declare v km.users := km.auth(p_token, 'admin');
 begin
-  delete from km.assignments where id = p_id;
-  delete from km.files f where not exists (select 1 from km.materials x where x.file_id = f.id) and not exists (select 1 from km.submissions x where x.file_id = f.id);
+  delete from km.assignments where id = p_id and (v.role = 'admin' or owner_id = v.id or group_ids && km.my_groups(v));
+  perform km.gc_files();
 end $$;
 
 -- O'quvchi topshiradi: {body, link, file?: {name, mime, data}}
@@ -796,14 +970,12 @@ begin
     perform km.fail('Javob yozing, havola qo''ying yoki fayl biriktiring');
   end if;
   if coalesce(p_data->>'link', '') <> '' and p_data->>'link' !~* '^https?://' then perform km.fail('Havola http:// yoki https:// bilan boshlansin'); end if;
-  if jsonb_typeof(p_data->'file') = 'object' then
-    insert into km.files(name, mime, data) values (left(p_data->'file'->>'name', 200), left(p_data->'file'->>'mime', 100), p_data->'file'->>'data') returning id into fid;
-  end if;
+  fid := km.take_file(v, p_data->'file');
   insert into km.submissions(assignment_id, user_id, body, link, file_id, submitted_at)
   values (a.id, v.id, nullif(p_data->>'body', ''), nullif(trim(coalesce(p_data->>'link', '')), ''), fid, now())
   on conflict (assignment_id, user_id) do update set body = excluded.body, link = excluded.link, file_id = coalesce(excluded.file_id, km.submissions.file_id), submitted_at = now()
   returning * into s;
-  delete from km.files f where not exists (select 1 from km.materials x where x.file_id = f.id) and not exists (select 1 from km.submissions x where x.file_id = f.id);
+  perform km.gc_files();
   return km.sub_json(s);
 exception when check_violation then perform km.fail('Javob juda uzun yoki fayl 4 MB dan katta'); return null;
 end $$;
@@ -812,7 +984,7 @@ create or replace function public.km_admin_submissions(p_token text, p_assignmen
 language plpgsql security definer set search_path = km, extensions, public as $$
 declare v km.users := km.auth(p_token, 'admin'); a km.assignments;
 begin
-  select * into a from km.assignments where id = p_assignment;
+  select * into a from km.assignments where id = p_assignment and (v.role = 'admin' or owner_id = v.id or group_ids && km.my_groups(v));
   if not found then perform km.fail('Topshiriq topilmadi'); end if;
   return jsonb_build_object('assignment', to_jsonb(a), 'rows', coalesce((select jsonb_agg(jsonb_build_object('user', km.user_json(u), 'sub', (select km.sub_json(s) from km.submissions s where s.assignment_id = a.id and s.user_id = u.id)) order by u.full_name)
      from km.group_students(a.group_ids) u), '[]'));
@@ -822,8 +994,9 @@ create or replace function public.km_admin_grade(p_token text, p_assignment uuid
 language plpgsql security definer set search_path = km, extensions, public as $$
 declare v km.users := km.auth(p_token, 'admin'); a km.assignments; s km.submissions;
 begin
-  select * into a from km.assignments where id = p_assignment;
+  select * into a from km.assignments where id = p_assignment and (v.role = 'admin' or owner_id = v.id or group_ids && km.my_groups(v));
   if not found then perform km.fail('Topshiriq topilmadi'); end if;
+  if not exists (select 1 from km.group_students(a.group_ids) u where u.id = p_user) then perform km.fail('Bu o''quvchiga topshiriq berilmagan'); end if;
   if p_score is not null and p_score not between 0 and a.max_score then perform km.fail('Ball 0 dan ' || a.max_score || ' gacha bo''lsin'); end if;
   insert into km.submissions(assignment_id, user_id, score, comment, graded_at) values (a.id, p_user, p_score, nullif(p_comment, ''), case when p_score is null then null else now() end)
   on conflict (assignment_id, user_id) do update set score = excluded.score, comment = excluded.comment, graded_at = excluded.graded_at
@@ -836,6 +1009,7 @@ create or replace function public.km_admin_gradebook(p_token text, p_group uuid)
 language plpgsql security definer set search_path = km, extensions, public as $$
 declare v km.users := km.auth(p_token, 'admin');
 begin
+  perform km.chk_group(v, p_group);
   return jsonb_build_object(
     'students', coalesce((select jsonb_agg(jsonb_build_object('id', u.id, 'full_name', u.full_name, 'login', u.login, 'xp', u.xp + u.bonus_xp, 'lessons_done', u.lessons_done, 'last_seen', u.last_seen) order by u.full_name) from km.group_students(array[p_group]) u), '[]'),
     'assignments', coalesce((select jsonb_agg(jsonb_build_object('id', a.id, 'title', a.title, 'max_score', a.max_score, 'due_at', a.due_at) order by a.created_at) from km.assignments a where p_group = any(a.group_ids)), '[]'),
@@ -848,6 +1022,7 @@ language plpgsql security definer set search_path = km, extensions, public as $$
 declare v km.users := km.auth(p_token, 'admin'); u km.users;
 begin
   if coalesce(p_xp, 0) not between 0 and 500 then perform km.fail('XP 0 dan 500 gacha bo''lsin'); end if;
+  perform km.chk_student(v, p_user);
   select * into u from km.users where id = p_user and role = 'student';
   if not found then perform km.fail('O''quvchi topilmadi'); end if;
   if jsonb_typeof(p_sticker) = 'object' then
@@ -856,6 +1031,357 @@ begin
   update km.users set stickers = u.stickers, bonus_xp = bonus_xp + coalesce(p_xp, 0) where id = u.id returning * into u;
   insert into km.awards(user_id, sticker, xp, note) values (u.id, case when jsonb_typeof(p_sticker) = 'object' then p_sticker end, coalesce(p_xp, 0), nullif(p_note, ''));
   return km.user_json(u);
+end $$;
+
+-- ---------------------------------------------------------------------
+-- v5: o'qituvchilar, Storage, davomat, Telegram, ota-ona, sertifikat, hisobot, zaxira
+-- ---------------------------------------------------------------------
+
+-- ---------- O'qituvchilar (faqat bosh admin boshqaradi) ----------
+create or replace function public.km_admin_create_teacher(p_token text, p_name text, p_login text) returns jsonb
+language plpgsql security definer set search_path = km, extensions, public as $$
+declare v km.users := km.auth(p_token, 'owner'); t km.users; pw text := km.gen_password(); l text;
+begin
+  if length(trim(coalesce(p_name, ''))) = 0 then perform km.fail('O''qituvchi ismini yozing'); end if;
+  l := lower(trim(coalesce(nullif(p_login, ''), p_name)));
+  if exists (select 1 from km.users where login = l) then perform km.fail('Bu login band'); end if;
+  insert into km.users(role, login, pass_hash, full_name)
+  values ('teacher', km.unique_login(l), crypt(pw, gen_salt('bf', 8)), left(trim(p_name), 80)) returning * into t;
+  return jsonb_build_object('user', km.user_json(t), 'password', pw);
+end $$;
+
+create or replace function public.km_admin_teacher_password(p_token text, p_id uuid) returns jsonb
+language plpgsql security definer set search_path = km, extensions, public as $$
+declare v km.users := km.auth(p_token, 'owner'); t km.users; pw text := km.gen_password();
+begin
+  update km.users set pass_hash = crypt(pw, gen_salt('bf', 8)) where id = p_id and role = 'teacher' returning * into t;
+  if not found then perform km.fail('O''qituvchi topilmadi'); end if;
+  delete from km.sessions where user_id = t.id;
+  return jsonb_build_object('user', km.user_json(t), 'password', pw);
+end $$;
+
+create or replace function public.km_admin_delete_teacher(p_token text, p_id uuid) returns void
+language plpgsql security definer set search_path = km, extensions, public as $$
+declare v km.users := km.auth(p_token, 'owner');
+begin
+  update km.classes set teacher_ids = array_remove(teacher_ids, p_id) where p_id = any(teacher_ids);
+  delete from km.users where id = p_id and role = 'teacher';
+end $$;
+
+-- O'qituvchiga guruhlarni biriktirish (ro'yxat to'liq almashtiriladi)
+create or replace function public.km_admin_set_teacher_groups(p_token text, p_id uuid, p_groups uuid[]) returns void
+language plpgsql security definer set search_path = km, extensions, public as $$
+declare v km.users := km.auth(p_token, 'owner');
+begin
+  if not exists (select 1 from km.users where id = p_id and role = 'teacher') then perform km.fail('O''qituvchi topilmadi'); end if;
+  update km.classes set teacher_ids = array_remove(teacher_ids, p_id) where p_id = any(teacher_ids) and not (id = any(coalesce(p_groups, '{}')));
+  update km.classes set teacher_ids = teacher_ids || p_id where id = any(coalesce(p_groups, '{}')) and not (p_id = any(teacher_ids));
+end $$;
+
+-- ---------- Fayllar: Supabase Storage ----------
+-- 1) sayt "chipta" oladi, 2) faylni Storage'ga to'g'ridan-to'g'ri yuklaydi, 3) material/topshiriqqa {id} bilan biriktiradi
+create or replace function public.km_file_ticket(p_token text, p_name text, p_mime text, p_size int, p_purpose text) returns jsonb
+language plpgsql security definer set search_path = km, extensions, public as $$
+declare v km.users := km.auth(p_token); f km.files; nm text;
+begin
+  if p_purpose = 'material' and v.role not in ('admin', 'teacher') then perform km.fail('Bu amal uchun ruxsat yo''q'); end if;
+  if coalesce(p_size, 0) <= 0 or p_size > 25 * 1024 * 1024 then perform km.fail('Fayl 25 MB dan katta bo''lmasin'); end if;
+  if (select count(*) from km.files where owner_id = v.id and created_at > now() - interval '1 hour') >= 60 then perform km.fail('Juda ko''p fayl yuklandi, birozdan keyin urinib ko''ring'); end if;
+  nm := coalesce(nullif(regexp_replace(lower(coalesce(p_name, 'fayl')), '[^a-z0-9._-]+', '-', 'g'), ''), 'fayl');
+  insert into km.files(name, mime, size, owner_id, state) values (left(coalesce(nullif(p_name, ''), 'fayl'), 200), left(coalesce(nullif(p_mime, ''), 'application/octet-stream'), 100), p_size, v.id, 'pending')
+  returning * into f;
+  update km.files set path = 'f/' || f.id || '/' || right(nm, 80) where id = f.id returning * into f;
+  return jsonb_build_object('id', f.id, 'path', f.path, 'bucket', 'prostudent');
+end $$;
+
+-- Storage qoidalari shu funksiyalardan foydalanadi (bucket "prostudent", yopiq)
+create or replace function public.km_storage_can_upload(p_name text) returns boolean
+language sql stable security definer set search_path = km, public as $$
+  select exists (select 1 from km.files where path = p_name and state = 'pending' and created_at > now() - interval '30 minutes')
+$$;
+create or replace function public.km_storage_can_read(p_name text) returns boolean
+language sql stable security definer set search_path = km, public as $$
+  select exists (select 1 from km.dl_tickets where path = p_name and expires_at > now())
+$$;
+create or replace function public.km_storage_can_delete(p_name text) returns boolean
+language sql stable security definer set search_path = km, public as $$
+  select exists (select 1 from km.files where path = p_name and state = 'trash')
+$$;
+
+-- Keraksiz bo'lib qolgan Storage fayllari ro'yxati (admin paneli ularni o'chiradi)
+create or replace function public.km_admin_storage_trash(p_token text) returns jsonb
+language plpgsql security definer set search_path = km, extensions, public as $$
+declare v km.users := km.auth(p_token, 'admin');
+begin
+  perform km.gc_files();
+  return coalesce((select jsonb_agg(path) from (select path from km.files where state = 'trash' and path is not null limit 100) x), '[]');
+end $$;
+
+create or replace function public.km_admin_storage_purged(p_token text, p_paths text[]) returns void
+language plpgsql security definer set search_path = km, extensions, public as $$
+declare v km.users := km.auth(p_token, 'admin');
+begin
+  delete from km.files where state = 'trash' and path = any(coalesce(p_paths, '{}'));
+end $$;
+
+-- ---------- Davomat ----------
+create or replace function public.km_admin_attendance(p_token text, p_group uuid, p_from date, p_to date) returns jsonb
+language plpgsql security definer set search_path = km, extensions, public as $$
+declare v km.users := km.auth(p_token, 'admin');
+begin
+  perform km.chk_group(v, p_group);
+  return jsonb_build_object(
+    'students', coalesce((select jsonb_agg(jsonb_build_object('id', u.id, 'full_name', u.full_name) order by u.full_name) from km.group_students(array[p_group]) u), '[]'),
+    'marks', coalesce((select jsonb_agg(jsonb_build_object('u', a.user_id, 'day', a.day, 's', a.status)) from km.attendance a
+                        where a.group_id = p_group and a.day between coalesce(p_from, current_date - 30) and coalesce(p_to, current_date)), '[]'));
+end $$;
+
+-- p_marks: {"<user_id>": "bor"|"yoq"|"kech"|"sababli"|null}
+create or replace function public.km_admin_attendance_set(p_token text, p_group uuid, p_day date, p_marks jsonb) returns void
+language plpgsql security definer set search_path = km, extensions, public as $$
+declare v km.users := km.auth(p_token, 'admin'); k text; st text;
+begin
+  perform km.chk_group(v, p_group);
+  if p_day is null or p_day > current_date + 1 or p_day < current_date - 366 then perform km.fail('Sana noto''g''ri'); end if;
+  for k, st in select key, value #>> '{}' from jsonb_each(coalesce(p_marks, '{}')) loop
+    if not exists (select 1 from km.group_students(array[p_group]) u where u.id = k::uuid) then continue; end if;
+    if st is null or st = '' then
+      delete from km.attendance where group_id = p_group and user_id = k::uuid and day = p_day;
+    elsif st in ('bor', 'yoq', 'kech', 'sababli') then
+      insert into km.attendance(group_id, user_id, day, status) values (p_group, k::uuid, p_day, st)
+      on conflict (group_id, user_id, day) do update set status = excluded.status;
+    end if;
+  end loop;
+end $$;
+
+-- ---------- Sozlamalar va Telegram ----------
+create or replace function public.km_admin_settings(p_token text) returns jsonb
+language plpgsql security definer set search_path = km, extensions, public as $$
+declare v km.users := km.auth(p_token, 'admin');
+begin
+  return jsonb_build_object('tg_token_set', coalesce(km.setting('tg_token'), '') <> '', 'site_url', coalesce(km.setting('site_url'), ''),
+    'pg_net', exists (select 1 from pg_namespace where nspname = 'net'),
+    'tg_errors', coalesce((select jsonb_agg(jsonb_build_object('at', created_at, 'error', error)) from (select * from km.tg_log where error is not null order by id desc limit 3) x), '[]'));
+end $$;
+
+-- p_data: {tg_token?, site_url?}
+create or replace function public.km_admin_settings_save(p_token text, p_data jsonb) returns jsonb
+language plpgsql security definer set search_path = km, extensions, public as $$
+declare v km.users := km.auth(p_token, 'owner');
+begin
+  if p_data ? 'tg_token' then
+    if coalesce(p_data->>'tg_token', '') <> '' and p_data->>'tg_token' !~ '^[0-9]{5,15}:[A-Za-z0-9_-]{20,60}$' then perform km.fail('Bot token formati noto''g''ri (BotFather bergan token: 123456:ABC...)'); end if;
+    insert into km.settings(key, value) values ('tg_token', nullif(trim(p_data->>'tg_token'), '')) on conflict (key) do update set value = excluded.value;
+  end if;
+  if p_data ? 'site_url' then
+    if coalesce(p_data->>'site_url', '') <> '' and p_data->>'site_url' !~* '^https://' then perform km.fail('Sayt manzili https:// bilan boshlansin'); end if;
+    insert into km.settings(key, value) values ('site_url', nullif(regexp_replace(trim(p_data->>'site_url'), '#.*$', ''), '')) on conflict (key) do update set value = excluded.value;
+  end if;
+  begin execute 'create extension if not exists pg_net'; exception when others then null; end;
+  return public.km_admin_settings(p_token);
+end $$;
+
+-- Guruhga Telegram orqali e'lon
+create or replace function public.km_admin_announce(p_token text, p_group uuid, p_text text) returns jsonb
+language plpgsql security definer set search_path = km, extensions, public as $$
+declare v km.users := km.auth(p_token, 'admin'); c km.classes;
+begin
+  perform km.chk_group(v, p_group);
+  select * into c from km.classes where id = p_group;
+  if c.tg_chat is null then perform km.fail('Bu guruhga Telegram chat ID kiritilmagan'); end if;
+  if coalesce(km.setting('tg_token'), '') = '' then perform km.fail('Telegram bot ulanmagan (Sozlamalar bo''limi)'); end if;
+  if length(trim(coalesce(p_text, ''))) not between 1 and 2000 then perform km.fail('Xabar 1–2000 belgi bo''lsin'); end if;
+  return jsonb_build_object('sent', km.tg_send(c.tg_chat, '📢 ' || c.name || E'\n' || trim(p_text)));
+end $$;
+
+-- Bot qo'shilgan guruhlarni topish: 1) so'rov yuboriladi, 2) bir necha soniyadan keyin javob o'qiladi
+create or replace function public.km_admin_tg_scan(p_token text) returns bigint
+language plpgsql security definer set search_path = km, extensions, public as $$
+declare v km.users := km.auth(p_token, 'admin'); tok text := km.setting('tg_token'); rid bigint;
+begin
+  if coalesce(tok, '') = '' then perform km.fail('Avval bot tokenini saqlang'); end if;
+  begin
+    execute 'select net.http_get(url := $1)' into rid using 'https://api.telegram.org/bot' || tok || '/getUpdates?allowed_updates=%5B%22message%22%2C%22my_chat_member%22%5D';
+  exception when others then perform km.fail('pg_net yoqilmagan: Supabase → Database → Extensions → pg_net'); end;
+  return rid;
+end $$;
+
+create or replace function public.km_admin_tg_chats(p_token text, p_req bigint) returns jsonb
+language plpgsql security definer set search_path = km, extensions, public as $$
+declare v km.users := km.auth(p_token, 'admin'); body text; j jsonb;
+begin
+  begin
+    execute 'select content from net._http_response where id = $1' into body using p_req;
+  exception when others then perform km.fail('pg_net yoqilmagan'); end;
+  if body is null then return jsonb_build_object('ready', false); end if;
+  j := body::jsonb;
+  if coalesce((j->>'ok')::boolean, false) = false then perform km.fail('Telegram javobi: ' || coalesce(j->>'description', 'xato')); end if;
+  return jsonb_build_object('ready', true, 'chats', coalesce((select jsonb_agg(distinct jsonb_build_object('id', (c->>'id'), 'title', coalesce(c->>'title', c->>'first_name', ''), 'type', c->>'type'))
+     from jsonb_array_elements(j->'result') r, lateral (select coalesce(r->'message'->'chat', r->'my_chat_member'->'chat') c) x where c is not null), '[]'));
+end $$;
+
+-- ---------- Ota-ona havolasi ----------
+create or replace function public.km_admin_parent_code(p_token text, p_user uuid, p_new boolean) returns text
+language plpgsql security definer set search_path = km, extensions, public as $$
+declare v km.users := km.auth(p_token, 'admin'); c text;
+begin
+  perform km.chk_student(v, p_user);
+  select parent_code into c from km.users where id = p_user and role = 'student';
+  if c is null or p_new then
+    c := lower(encode(gen_random_bytes(8), 'hex'));
+    update km.users set parent_code = c where id = p_user;
+  end if;
+  return c;
+end $$;
+
+-- Kirishsiz: ota-ona farzandining natijalarini ko'radi
+create or replace function public.km_parent_view(p_code text) returns jsonb
+language plpgsql security definer set search_path = km, extensions, public as $$
+declare s km.users; g uuid[];
+begin
+  if coalesce(p_code, '') !~ '^[0-9a-f]{16}$' then perform km.fail('Havola noto''g''ri'); end if;
+  select * into s from km.users where parent_code = p_code and role = 'student';
+  if not found then perform km.fail('Havola eskirgan yoki noto''g''ri. O''qituvchidan yangisini so''rang.'); end if;
+  g := array(select s.class_id where s.class_id is not null union select group_id from km.members where user_id = s.id);
+  return jsonb_build_object(
+    'user', jsonb_build_object('full_name', s.full_name, 'class_name', (select name from km.classes where id = s.class_id), 'photo', s.photo, 'photo_kind', s.photo_kind,
+             'stickers', s.stickers, 'xp', s.xp + s.bonus_xp, 'lessons_done', s.lessons_done, 'last_seen', s.last_seen),
+    'groups', coalesce((select jsonb_agg(c.name order by c.kind, c.name) from km.classes c where c.id = any(g)), '[]'),
+    'assignments', coalesce((select jsonb_agg(jsonb_build_object('title', a.title, 'due_at', a.due_at, 'max_score', a.max_score,
+                     'submitted_at', x.submitted_at, 'score', x.score, 'comment', x.comment) order by a.created_at desc)
+                   from (select * from km.assignments where group_ids && g order by created_at desc limit 30) a
+                   left join km.submissions x on x.assignment_id = a.id and x.user_id = s.id), '[]'),
+    'attendance', coalesce((select jsonb_object_agg(t.status, t.n) from (select status, count(*) n from km.attendance where user_id = s.id and day > current_date - 30 group by status) t), '{}'),
+    'absences', coalesce((select jsonb_agg(jsonb_build_object('day', day, 's', status) order by day desc) from (select * from km.attendance where user_id = s.id and status <> 'bor' order by day desc limit 10) t), '[]'),
+    'awards', coalesce((select jsonb_agg(jsonb_build_object('xp', a.xp, 'note', a.note, 'created_at', a.created_at) order by a.created_at desc) from (select * from km.awards where user_id = s.id order by created_at desc limit 10) a), '[]'),
+    'certs', coalesce((select jsonb_agg(jsonb_build_object('code', c.code, 'title', c.title, 'issued_at', c.issued_at) order by c.issued_at) from km.certs c where c.user_id = s.id), '[]'));
+end $$;
+
+-- ---------- Sertifikatlar ----------
+-- O'quvchi bosqichni tugatganda chaqiradi. p_level: masalan "kod-5", p_need: o'sha bosqichdagi darslar soni
+create or replace function public.km_cert_issue(p_token text, p_level text, p_title text, p_need int) returns jsonb
+language plpgsql security definer set search_path = km, extensions, public as $$
+declare v km.users := km.auth(p_token, 'student'); c km.certs; pre text; n int;
+begin
+  if coalesce(p_level, '') !~ '^[a-z]{2,10}-[0-9]{1,2}$' then perform km.fail('Bosqich noto''g''ri'); end if;
+  select * into c from km.certs where user_id = v.id and level = p_level;
+  if found then return to_jsonb(c); end if;
+  pre := split_part(p_level, '-', 2) || '-';
+  select count(*) into n from jsonb_object_keys(coalesce(v.progress->'done', '{}')) k where k like pre || '%';
+  if n < greatest(1, coalesce(p_need, 1)) then perform km.fail('Bosqichdagi barcha darslarni tugating'); end if;
+  insert into km.certs(code, user_id, level, title) values (upper(encode(gen_random_bytes(5), 'hex')), v.id, p_level, left(coalesce(nullif(trim(p_title), ''), p_level), 120)) returning * into c;
+  return to_jsonb(c);
+end $$;
+
+-- Kirishsiz: sertifikat haqiqiyligini tekshirish
+create or replace function public.km_cert_verify(p_code text) returns jsonb
+language plpgsql security definer set search_path = km, extensions, public as $$
+declare c km.certs; u km.users;
+begin
+  select * into c from km.certs where code = upper(trim(coalesce(p_code, '')));
+  if not found then return jsonb_build_object('valid', false); end if;
+  select * into u from km.users where id = c.user_id;
+  return jsonb_build_object('valid', true, 'code', c.code, 'title', c.title, 'issued_at', c.issued_at, 'full_name', u.full_name,
+    'class_name', (select name from km.classes where id = u.class_id));
+end $$;
+
+-- ---------- Hisobot ----------
+create or replace function public.km_admin_report(p_token text) returns jsonb
+language plpgsql security definer set search_path = km, extensions, public as $$
+declare v km.users := km.auth(p_token, 'admin');
+begin
+  return coalesce((select jsonb_agg(r order by r->>'kind', (r->>'grade')::int, r->>'name') from (
+    select jsonb_build_object('id', c.id, 'name', c.name, 'kind', c.kind, 'grade', c.grade,
+      'students', (select count(*) from km.group_students(array[c.id])),
+      'avg_lessons', (select round(avg(u.lessons_done), 1) from km.group_students(array[c.id]) u),
+      'avg_xp', (select round(avg(u.xp + u.bonus_xp)) from km.group_students(array[c.id]) u),
+      'active7', (select count(*) from km.group_students(array[c.id]) u where u.last_seen > now() - interval '7 days'),
+      'assignments', (select count(*) from km.assignments a where c.id = any(a.group_ids)),
+      'submitted', (select count(*) from km.submissions s join km.assignments a on a.id = s.assignment_id
+                     where c.id = any(a.group_ids) and s.submitted_at is not null and s.user_id in (select u.id from km.group_students(array[c.id]) u)),
+      'avg_pct', (select round(avg(s.score * 100.0 / a.max_score)) from km.submissions s join km.assignments a on a.id = s.assignment_id
+                   where c.id = any(a.group_ids) and s.score is not null and s.user_id in (select u.id from km.group_students(array[c.id]) u)),
+      'att_total', (select count(*) from km.attendance t where t.group_id = c.id and t.day > current_date - 30),
+      'att_present', (select count(*) from km.attendance t where t.group_id = c.id and t.day > current_date - 30 and t.status in ('bor', 'kech'))) r
+    from km.classes c where c.id = any(km.my_groups(v))) q), '[]');
+end $$;
+
+-- ---------- Zaxira nusxa ----------
+-- Fayllarning o'zi (bazadagi base64) zaxiraga kirmaydi; Storage'dagi fayllar joyida qoladi
+create or replace function public.km_admin_backup(p_token text) returns jsonb
+language plpgsql security definer set search_path = km, extensions, public as $$
+declare v km.users := km.auth(p_token, 'owner');
+begin
+  return jsonb_build_object('format', 'zis-prostudent', 'version', 5, 'created_at', now(),
+    'classes', coalesce((select jsonb_agg(to_jsonb(x)) from km.classes x), '[]'),
+    'users', coalesce((select jsonb_agg(to_jsonb(x)) from km.users x), '[]'),
+    'members', coalesce((select jsonb_agg(to_jsonb(x)) from km.members x), '[]'),
+    'files', coalesce((select jsonb_agg(to_jsonb(x) - 'data') from km.files x where x.path is not null and x.state = 'ready'), '[]'),
+    'materials', coalesce((select jsonb_agg(to_jsonb(x)) from km.materials x), '[]'),
+    'quizzes', coalesce((select jsonb_agg(to_jsonb(x)) from km.quizzes x), '[]'),
+    'assignments', coalesce((select jsonb_agg(to_jsonb(x)) from km.assignments x), '[]'),
+    'submissions', coalesce((select jsonb_agg(to_jsonb(x)) from km.submissions x), '[]'),
+    'awards', coalesce((select jsonb_agg(to_jsonb(x)) from km.awards x), '[]'),
+    'attendance', coalesce((select jsonb_agg(to_jsonb(x)) from km.attendance x), '[]'),
+    'certs', coalesce((select jsonb_agg(to_jsonb(x)) from km.certs x), '[]'),
+    'settings', coalesce((select jsonb_agg(to_jsonb(x)) from km.settings x where x.key <> 'tg_token'), '[]'));
+end $$;
+
+-- Zaxiradan tiklash: hozirgi ma'lumotlar zaxiradagisi bilan almashtiriladi
+create or replace function public.km_admin_restore(p_token text, p_data jsonb) returns jsonb
+language plpgsql security definer set search_path = km, extensions, public as $$
+declare v km.users := km.auth(p_token, 'owner');
+begin
+  if p_data->>'format' <> 'zis-prostudent' then perform km.fail('Bu ZIS ProStudent zaxira fayli emas'); end if;
+  if not exists (select 1 from jsonb_array_elements(p_data->'users') u where u->>'role' = 'admin') then perform km.fail('Zaxirada admin yo''q'); end if;
+  delete from km.game_answers; delete from km.game_players; delete from km.games;
+  delete from km.attendance; delete from km.certs; delete from km.awards; delete from km.submissions; delete from km.assignments;
+  delete from km.quizzes; delete from km.materials; delete from km.members;
+  delete from km.sessions where token <> p_token;
+  delete from km.users where id <> v.id;
+  delete from km.files where path is null or id not in (select (x->>'id')::uuid from jsonb_array_elements(p_data->'files') x);
+  delete from km.classes;
+  insert into km.classes select * from jsonb_populate_recordset(null::km.classes, p_data->'classes');
+  delete from km.users where id = v.id and not exists (select 1 from jsonb_array_elements(p_data->'users') u where (u->>'id')::uuid = v.id);
+  insert into km.users select * from jsonb_populate_recordset(null::km.users, p_data->'users') on conflict (id) do update set
+    role = excluded.role, login = excluded.login, pass_hash = excluded.pass_hash, full_name = excluded.full_name, class_id = excluded.class_id, photo = excluded.photo,
+    photo_kind = excluded.photo_kind, stickers = excluded.stickers, progress = excluded.progress, xp = excluded.xp, bonus_xp = excluded.bonus_xp,
+    lessons_done = excluded.lessons_done, parent_code = excluded.parent_code;
+  insert into km.members select * from jsonb_populate_recordset(null::km.members, p_data->'members') on conflict do nothing;
+  insert into km.files select * from jsonb_populate_recordset(null::km.files, p_data->'files') on conflict (id) do nothing;
+  insert into km.materials select * from jsonb_populate_recordset(null::km.materials, p_data->'materials');
+  update km.materials set file_id = null where file_id is not null and file_id not in (select id from km.files);
+  insert into km.quizzes select * from jsonb_populate_recordset(null::km.quizzes, p_data->'quizzes');
+  insert into km.assignments select * from jsonb_populate_recordset(null::km.assignments, p_data->'assignments');
+  insert into km.submissions select * from jsonb_populate_recordset(null::km.submissions, p_data->'submissions');
+  update km.submissions set file_id = null where file_id is not null and file_id not in (select id from km.files);
+  insert into km.awards select * from jsonb_populate_recordset(null::km.awards, p_data->'awards');
+  insert into km.attendance select * from jsonb_populate_recordset(null::km.attendance, coalesce(p_data->'attendance', '[]'));
+  insert into km.certs select * from jsonb_populate_recordset(null::km.certs, coalesce(p_data->'certs', '[]'));
+  insert into km.settings select * from jsonb_populate_recordset(null::km.settings, coalesce(p_data->'settings', '[]')) on conflict (key) do update set value = excluded.value;
+  return jsonb_build_object('users', (select count(*) from km.users), 'classes', (select count(*) from km.classes));
+end $$;
+
+-- ---------- Supabase Storage: bucket va qoidalar (Supabase'da bo'lsa) ----------
+do $$
+begin
+  if exists (select 1 from information_schema.tables where table_schema = 'storage' and table_name = 'buckets') then
+    insert into storage.buckets(id, name, public, file_size_limit) values ('prostudent', 'prostudent', false, 26214400)
+    on conflict (id) do update set public = false, file_size_limit = 26214400;
+    drop policy if exists km_upload on storage.objects;
+    create policy km_upload on storage.objects for insert to anon, authenticated with check (bucket_id = 'prostudent' and public.km_storage_can_upload(name));
+    drop policy if exists km_read on storage.objects;
+    create policy km_read on storage.objects for select to anon, authenticated using (bucket_id = 'prostudent' and public.km_storage_can_read(name));
+    drop policy if exists km_delete on storage.objects;
+    create policy km_delete on storage.objects for delete to anon, authenticated using (bucket_id = 'prostudent' and public.km_storage_can_delete(name));
+  end if;
+exception when others then raise notice 'Storage sozlanmadi: %', sqlerrm;
+end $$;
+
+-- Telegram uchun pg_net (Supabase'da bor; bo'lmasa jim o'tadi)
+do $$ begin
+  execute 'create extension if not exists pg_net';
+exception when others then raise notice 'pg_net yoqilmadi: %', sqlerrm;
 end $$;
 
 -- Faqat km_* funksiyalari tashqaridan chaqiriladi; ichki km.* funksiyalar yopiq

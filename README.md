@@ -117,6 +117,13 @@ assets/js/config.js    Supabase manzili va kaliti
 assets/js/api.js       server bilan aloqa (+ demo rejim)
 assets/js/store.js     progress: brauzer + server sinxronizatsiyasi
 assets/js/admin.js     admin panel
+assets/js/staff.js     o'qituvchilar, sozlamalar (Telegram, zaxira), davomat, hisobot, ota-ona kabineti, sertifikatni tekshirish
+assets/js/work.js      topshiriqlar va jurnal
+assets/js/live.js      jonli viktorina (PIN, Supabase Realtime)
+assets/js/python.js    Python brauzerda (Pyodide), py-worker.js alohida oqimda ishlatadi
+assets/js/vendor/      qrcode.js (MIT, Kazuhiko Arase)
+sw.js, manifest.webmanifest  oflayn rejim va telefonga o'rnatish (PWA)
+.github/workflows/keepalive.yml  Supabase'ni har kuni "uyg'otadi"
 assets/js/stickers.js  rasm, stikerlar, stiker tahrirlovchi
 assets/js/app.js       kirish, sahifalar, router
 assets/js/editor.js    kod muharriri
@@ -127,3 +134,17 @@ content/sinf-XX.js     dasturlash darslari
 content/informatika/   informatika: plans/ (xlsx rejalar), text/ (nazariya), sinf-XX.js (tayyor)
 tools/build_informatika.py  rejalar + nazariyadan darslarni yig'adi
 ```
+
+## Platformani kuchaytirish (v5)
+
+- **Fayllar Supabase Storage'da** (25 MB gacha). Storage sozlanmagan bo'lsa, 4 MB gacha fayllar avvalgidek bazaga yoziladi.
+- **O'qituvchilar**: bosh admin "O'qituvchilar" bo'limida qo'shadi va sinflarni biriktiradi. O'qituvchi faqat o'z guruhlarini ko'radi.
+- **Davomat** (guruh sahifasi → Davomat), **Hisobot** (admin panel → Hisobot), **Jurnal** Excel'ga.
+- **Ota-ona havolasi**: o'quvchi sahifasida yaratiladi, ota-ona kirishsiz baho va davomatni ko'radi.
+- **Sertifikat** haqiqiylik kodi va QR bilan; `#tekshirish-KOD` sahifasida tekshiriladi.
+- **Telegram**: Sozlamalar → bot token → guruhlarni topish. Yangi topshiriq guruhga avtomatik yuboriladi (Supabase'da pg_net kerak).
+- **Zaxira**: Sozlamalar → zaxira nusxani yuklab olish / tiklash.
+- **Python** brauzerda: Kod maydoni → Python maydoni, Informatika darslaridagi Python misollarida "Sinab ko'rish".
+- **Scratch, Google Slaydlar/Hujjat/Forma, Drive, Tinkercad, Canva** havolalari materiallarda platforma ichida ochiladi.
+- **Oflayn rejim**: sayt bir marta ochilgandan keyin internet sust bo'lsa ham darslar ochiladi; telefonga ilova sifatida o'rnatiladi.
+- **Jonli viktorina** Supabase Realtime orqali darhol yangilanadi.

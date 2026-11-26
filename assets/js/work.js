@@ -5,15 +5,13 @@
   const fmt = d => d ? new Date(d).toLocaleString('uz-UZ', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' }) : '';
   const overdue = a => a.due_at && new Date(a.due_at) < new Date();
   const msg = (el, t, ok) => { if (el) { el.textContent = t; el.className = 'msg ' + (ok ? 'ok-t' : 'bad-t'); } };
-  function readFile(input, max) {
-    return new Promise((res, rej) => {
-      const f = input.files[0]; if (!f) return res(null);
-      if (f.size > (max || 4) * 1024 * 1024) return rej(new Error('Fayl ' + (max || 4) + ' MB dan katta. Kichikroq fayl tanlang yoki Google Drive havolasini qo\'ying.'));
-      const r = new FileReader(); r.onload = () => res({ name: f.name, mime: f.type || 'application/octet-stream', data: r.result }); r.onerror = () => rej(new Error('Faylni o\'qib bo\'lmadi')); r.readAsDataURL(f);
-    });
+  async function readFile(input, onp) {
+    const f = input.files[0]; if (!f) return null;
+    if (f.size > 25 * 1024 * 1024) throw new Error('Fayl 25 MB dan katta. Kichikroq fayl tanlang yoki Google Drive havolasini qo\'ying.');
+    return KM.api.upload(f, 'submission', onp);
   }
   async function openFile(id, name) {
-    const f = await api.file(id), blob = await (await fetch(f.data)).blob(), url = URL.createObjectURL(blob);
+    const f = await KM.api.fileBlob(id), url = URL.createObjectURL(f.blob);
     const a = document.createElement('a'); a.href = url; a.target = '_blank'; a.rel = 'noopener';
     if (!/^(image\/|application\/pdf|text\/)/.test(f.mime)) a.download = name || f.name;
     document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(url), 60000);
@@ -45,14 +43,14 @@
       '<form class="panel" id="sf"><h2>' + (s ? 'Mening javobim' : 'Javob topshirish') + '</h2>' +
       '<label class="lab" for="sb">Javob matni</label><textarea class="inp" id="sb" rows="6"' + (locked ? ' disabled' : '') + ' placeholder="Javobingizni yozing">' + e(s && s.body || '') + '</textarea>' +
       '<label class="lab" for="sl">Havola (ixtiyoriy)</label><input class="inp mono" id="sl"' + (locked ? ' disabled' : '') + ' placeholder="https://… (Scratch loyiha, Google Drive)" value="' + e(s && s.link || '') + '">' +
-      '<span class="lab">Fayl (4 MB gacha)</span>' + (s && s.file ? '<p><button type="button" class="lnk" id="of">' + e(s.file.name) + '</button></p>' : '') + (locked ? '' : '<label class="btn"><input type="file" id="sfile" hidden>' + (s && s.file ? 'Boshqa fayl tanlash' : 'Fayl tanlash') + '</label> <span class="muted" id="fn"></span>') +
+      '<span class="lab">Fayl (25 MB gacha)</span>' + (s && s.file ? '<p><button type="button" class="lnk" id="of">' + e(s.file.name) + '</button></p>' : '') + (locked ? '' : '<label class="btn"><input type="file" id="sfile" hidden>' + (s && s.file ? 'Boshqa fayl tanlash' : 'Fayl tanlash') + '</label> <span class="muted" id="fn"></span>') +
       (locked ? '<p class="muted">Topshiriq baholangan, uni o\'zgartirib bo\'lmaydi.</p>' : '<div class="acts"><button class="btn pri big" id="sgo">' + (s ? 'Qayta topshirish' : 'Topshirish') + '</button><span class="msg" id="sm" role="status"></span></div>') + '</form></div>' +
       '<aside class="inf-side"><div class="hw-card"><b>Muddat</b><p>' + (a.due_at ? fmt(a.due_at) + (overdue(a) ? ' (o\'tgan)' : '') : 'Belgilanmagan') + '</p></div><div class="hw-card blue"><b>Maksimal ball</b><p>' + a.max_score + '</p></div>' + (s ? '<div class="hw-card blue"><b>Topshirilgan</b><p>' + fmt(s.submitted_at) + '</p></div>' : '') + '</aside></div></section>';
     const of = $('#of'); if (of) of.onclick = () => openFile(s.file.id, s.file.name).catch(x => alert(x.message));
     const fi = $('#sfile'); if (fi) fi.onchange = () => { $('#fn').textContent = fi.files[0] ? fi.files[0].name : ''; };
     const f = $('#sf'); if (f && !locked) f.onsubmit = async ev => {
       ev.preventDefault(); const b = $('#sgo'); b.disabled = true;
-      try { const file = await readFile($('#sfile')); await api.submit(id, { body: $('#sb').value, link: $('#sl').value.trim(), file }); msg($('#sm'), 'Topshirildi!', true); if (!s && !KM.store.s.done['t:' + id]) { KM.store.s.done['t:' + id] = { at: Date.now() }; KM.store.addXP(10); } setTimeout(() => detail(app, id), 700); }
+      try { const file = await readFile($('#sfile'), p => msg($('#sm'), 'Yuklanmoqda… ' + Math.round(p * 100) + '%', true)); await api.submit(id, { body: $('#sb').value, link: $('#sl').value.trim(), file }); msg($('#sm'), 'Topshirildi!', true); if (!s && !KM.store.s.done['t:' + id]) { KM.store.s.done['t:' + id] = { at: Date.now() }; KM.store.addXP(10); } setTimeout(() => detail(app, id), 700); }
       catch (x) { msg($('#sm'), x.message); b.disabled = false; }
     };
   }

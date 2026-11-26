@@ -70,7 +70,12 @@
   const fail = m => { throw new ApiError(m, m === 'SESSION' ? 'SESSION' : 'ERR'); };
   const groupsOf = u => db.classes.filter(c => c.id === u.class_id || db.members.some(m => m.group_id === c.id && m.user_id === u.id)).sort((a, b) => a.kind.localeCompare(b.kind) || a.name.localeCompare(b.name)).map(c => ({ id: c.id, name: c.name, grade: c.grade, kind: c.kind, courses: c.courses, inf_open: c.inf_open == null ? null : c.inf_open }));
   const pub = u => { const c = dload().classes.find(c => c.id === u.class_id); return { id: u.id, role: u.role, login: u.login, full_name: u.full_name, class_id: u.class_id, class_name: c ? c.name : null, grade: c ? c.grade : null, photo: u.photo, photo_kind: u.photo_kind || null, stickers: u.stickers, xp: u.xp, bonus_xp: u.bonus_xp || 0, lessons_done: u.lessons_done, last_seen: u.last_seen, created_at: u.created_at, groups: groupsOf(u) }; };
-  const dauth = (t, role) => { const id = dload().sessions[t], u = db.users.find(u => u.id === id); if (!u) fail('SESSION'); if (role && u.role !== role) fail("Bu amal uchun ruxsat yo'q"); return u; };
+  const dauth = (t, role) => { const id = dload().sessions[t], u = db.users.find(u => u.id === id); if (!u) fail('SESSION');
+    if (role === 'owner') { if (u.role !== 'admin') fail('Bu amalni faqat bosh admin bajara oladi'); }
+    else if (role === 'admin') { if (u.role !== 'admin' && u.role !== 'teacher') fail("Bu amal uchun ruxsat yo'q"); }
+    else if (role && u.role !== role) fail("Bu amal uchun ruxsat yo'q"); return u; };
+  const myStaffGroups = u => u.role === 'admin' ? db.classes.map(c => c.id) : db.classes.filter(c => (c.teacher_ids || []).includes(u.id)).map(c => c.id);
+  const hex = n => Array.from({ length: n }, () => '0123456789abcdef'[Math.floor(Math.random() * 16)]).join('');
   const uniq = b => { b = (b || '').toLowerCase().replace(/[^a-z0-9._-]/g, '').slice(0, 34); if (b.length < 3) b = 'oquvchi'; let c = b, n = 1; while (dload().users.some(u => u.login === c)) c = b + (++n); return c; };
   const sess = u => { const t = uid() + uid(); db.sessions[t] = u.id; u.last_seen = now(); dsave(); return t; };
   const myGroupIds = u => [u.class_id, ...db.members.filter(m => m.user_id === u.id).map(m => m.group_id)].filter(Boolean);
@@ -98,13 +103,14 @@
     km_set_my_stickers: a => { const u = dauth(a.p_token); u.stickers = a.p_stickers.slice(0, 30); dsave(); },
     km_set_my_avatar: a => { const u = dauth(a.p_token); if (u.photo_kind === 'photo') fail("Rasmingizni faqat o'qituvchi o'zgartira oladi"); u.photo = a.p_photo || null; u.photo_kind = a.p_photo ? 'emoji' : null; dsave(); return pub(u); },
     km_change_password: a => { const u = dauth(a.p_token); if (u.pw !== a.p_old) fail("Eski parol noto'g'ri"); if ((a.p_new || '').length < 6) fail("Yangi parol kamida 6 belgi bo'lsin"); u.pw = a.p_new; dsave(); },
-    km_admin_overview: a => { dauth(a.p_token, 'admin'); return { classes: db.classes.slice().sort((x, y) => x.kind.localeCompare(y.kind) || x.grade - y.grade || x.name.localeCompare(y.name)).map(c => Object.assign({}, c, { count: c.kind === 'sinf' ? db.users.filter(u => u.class_id === c.id).length : db.members.filter(m => m.group_id === c.id).length, member_ids: c.kind === 'togarak' ? db.members.filter(m => m.group_id === c.id).map(m => m.user_id) : [] })), students: db.users.filter(u => u.role === 'student').sort((x, y) => x.full_name.localeCompare(y.full_name)).map(pub) }; },
+    km_admin_overview: a => { const me = dauth(a.p_token, 'admin'), mg = myStaffGroups(me); return { role: me.role, teachers: me.role === 'admin' ? db.users.filter(u => u.role === 'teacher').map(t => ({ id: t.id, full_name: t.full_name, login: t.login, last_seen: t.last_seen, group_ids: db.classes.filter(c => (c.teacher_ids || []).includes(t.id)).map(c => c.id) })) : [], classes: db.classes.filter(c => mg.includes(c.id)).slice().sort((x, y) => x.kind.localeCompare(y.kind) || x.grade - y.grade || x.name.localeCompare(y.name)).map(c => Object.assign({}, c, { count: c.kind === 'sinf' ? db.users.filter(u => u.class_id === c.id).length : db.members.filter(m => m.group_id === c.id).length, member_ids: c.kind === 'togarak' ? db.members.filter(m => m.group_id === c.id).map(m => m.user_id) : [] })), students: db.users.filter(u => u.role === 'student').sort((x, y) => x.full_name.localeCompare(y.full_name)).map(pub) }; },
     km_admin_save_group: a => {
       dauth(a.p_token, 'admin'); const d = a.p_data, name = String(d.name || '').trim(), grade = +d.grade;
       if (!name || name.length > 40 || !(grade >= 1 && grade <= 11)) fail("Nomi 1–40 belgi, daraja 1–11 bo'lsin");
       if (db.classes.some(c => c.name === name && c.id !== a.p_id)) fail('"' + name + '" nomi band');
       let c = db.classes.find(c => c.id === a.p_id); if (a.p_id && !c) fail('Guruh topilmadi');
-      if (!c) { c = { id: uid(), kind: d.kind === 'togarak' ? 'togarak' : 'sinf', created_at: now() }; db.classes.push(c); }
+      if (!c) { const me = dauth(a.p_token, 'admin'); c = { id: uid(), kind: d.kind === 'togarak' ? 'togarak' : 'sinf', created_at: now(), teacher_ids: me.role === 'teacher' ? [me.id] : [] }; db.classes.push(c); }
+      if ('tg_chat' in d) c.tg_chat = String(d.tg_chat || '').trim() || null;
       Object.assign(c, { name, grade, courses: (d.courses || []).filter(x => x === 'informatika' || x === 'dasturlash'), about: (d.about || '').trim() || null }); if ('inf_open' in d) c.inf_open = d.inf_open === '' || d.inf_open == null ? null : +d.inf_open; dsave(); return c;
     },
     km_admin_delete_class: a => { dauth(a.p_token, 'admin'); db.classes = db.classes.filter(c => c.id !== a.p_id); db.members = db.members.filter(m => m.group_id !== a.p_id); db.users.forEach(u => { if (u.class_id === a.p_id) u.class_id = null; }); dsave(); },
@@ -114,7 +120,35 @@
     km_admin_update_student: a => { dauth(a.p_token, 'admin'); const u = db.users.find(u => u.id === a.p_id && u.role === 'student'); if (!u) fail("O'quvchi topilmadi"); const d = a.p_data; if ('login' in d) { const l = String(d.login).toLowerCase().trim(); if (!/^[a-z0-9._-]{3,40}$/.test(l)) fail('Login: 3–40 ta lotin harf, raqam, nuqta yoki chiziqcha'); if (db.users.some(x => x.login === l && x.id !== u.id)) fail('Bu login band'); u.login = l; } if ('full_name' in d) u.full_name = String(d.full_name).trim().slice(0, 80); if ('class_id' in d) u.class_id = d.class_id || null; if ('photo' in d) { u.photo = d.photo || null; u.photo_kind = u.photo ? (d.photo_kind || 'photo') : null; } if ('stickers' in d) u.stickers = d.stickers.slice(0, 30); dsave(); return pub(u); },
     km_admin_reset_passwords: a => { dauth(a.p_token, 'admin'); const out = []; db.users.filter(u => a.p_ids.includes(u.id) && u.role === 'student').sort((x, y) => x.full_name.localeCompare(y.full_name)).forEach(u => { u.pw = genPw(); Object.keys(db.sessions).forEach(t => { if (db.sessions[t] === u.id) delete db.sessions[t]; }); out.push({ user: pub(u), password: u.pw }); }); dsave(); return out; },
     km_admin_delete_student: a => { dauth(a.p_token, 'admin'); db.users = db.users.filter(u => !(u.id === a.p_id && u.role === 'student')); db.members = db.members.filter(m => m.user_id !== a.p_id); dsave(); },
-    km_admin_student: a => { dauth(a.p_token, 'admin'); const u = db.users.find(u => u.id === a.p_id && u.role === 'student'); if (!u) fail("O'quvchi topilmadi"); return { user: pub(u), progress: u.progress }; },
+    km_admin_student: a => { dauth(a.p_token, 'admin'); const u = db.users.find(u => u.id === a.p_id && u.role === 'student'); if (!u) fail("O'quvchi topilmadi");
+      const att = {}; (db.attendance || []).filter(x => x.user_id === u.id).forEach(x => att[x.status] = (att[x.status] || 0) + 1);
+      return { user: pub(u), progress: u.progress, parent_code: u.parent_code || null, attendance: att, awards: db.awards.filter(x => x.user_id === u.id).slice(-20).reverse() }; },
+    /* ---------- v5 (demo: soddalashtirilgan) ---------- */
+    km_admin_create_teacher: a => { dauth(a.p_token, 'owner'); const n = String(a.p_name || '').trim(); if (!n) fail("O'qituvchi ismini yozing"); const pw = genPw(); const t = { id: uid(), role: 'teacher', login: uniq(a.p_login || KM.translit(n)), pw, full_name: n.slice(0, 80), class_id: null, photo: null, stickers: [], progress: {}, xp: 0, lessons_done: 0, created_at: now(), last_seen: null }; db.users.push(t); dsave(); return { user: pub(t), password: pw }; },
+    km_admin_teacher_password: a => { dauth(a.p_token, 'owner'); const t = db.users.find(u => u.id === a.p_id && u.role === 'teacher'); if (!t) fail("O'qituvchi topilmadi"); t.pw = genPw(); dsave(); return { user: pub(t), password: t.pw }; },
+    km_admin_delete_teacher: a => { dauth(a.p_token, 'owner'); db.classes.forEach(c => c.teacher_ids = (c.teacher_ids || []).filter(x => x !== a.p_id)); db.users = db.users.filter(u => !(u.id === a.p_id && u.role === 'teacher')); dsave(); },
+    km_admin_set_teacher_groups: a => { dauth(a.p_token, 'owner'); db.classes.forEach(c => { const has = (c.teacher_ids || []).includes(a.p_id), want = (a.p_groups || []).includes(c.id); c.teacher_ids = (c.teacher_ids || []).filter(x => x !== a.p_id); if (want) c.teacher_ids.push(a.p_id); }); dsave(); },
+    km_file_ticket: () => fail('demo'),
+    km_admin_storage_trash: () => [],
+    km_admin_storage_purged: () => null,
+    km_admin_attendance: a => { dauth(a.p_token, 'admin'); return { students: groupStudents([a.p_group]).map(u => ({ id: u.id, full_name: u.full_name })), marks: (db.attendance || []).filter(x => x.group_id === a.p_group && x.day >= a.p_from && x.day <= a.p_to).map(x => ({ u: x.user_id, day: x.day, s: x.status })) }; },
+    km_admin_attendance_set: a => { dauth(a.p_token, 'admin'); db.attendance = db.attendance || []; Object.keys(a.p_marks || {}).forEach(id => { db.attendance = db.attendance.filter(x => !(x.group_id === a.p_group && x.user_id === id && x.day === a.p_day)); if (a.p_marks[id]) db.attendance.push({ group_id: a.p_group, user_id: id, day: a.p_day, status: a.p_marks[id] }); }); dsave(); },
+    km_admin_settings: a => { dauth(a.p_token, 'admin'); return { tg_token_set: false, site_url: '', pg_net: false, tg_errors: [] }; },
+    km_admin_settings_save: () => fail("Demo rejimda Telegram ishlamaydi. Haqiqiy saytda sozlang."),
+    km_admin_announce: () => fail("Demo rejimda Telegram ishlamaydi"),
+    km_admin_tg_scan: () => fail("Demo rejimda Telegram ishlamaydi"),
+    km_admin_tg_chats: () => ({ ready: true, chats: [] }),
+    km_admin_parent_code: a => { dauth(a.p_token, 'admin'); const u = db.users.find(u => u.id === a.p_user && u.role === 'student'); if (!u) fail("O'quvchi topilmadi"); if (!u.parent_code || a.p_new) u.parent_code = hex(16); dsave(); return u.parent_code; },
+    km_parent_view: a => { const u = dload().users.find(u => u.parent_code && u.parent_code === a.p_code && u.role === 'student'); if (!u) fail("Havola eskirgan yoki noto'g'ri. O'qituvchidan yangisini so'rang."); const g = myGroupIds(u), att = {}; (db.attendance || []).filter(x => x.user_id === u.id).forEach(x => att[x.status] = (att[x.status] || 0) + 1); const c = db.classes.find(c => c.id === u.class_id);
+      return { user: { full_name: u.full_name, class_name: c ? c.name : null, photo: u.photo, photo_kind: u.photo_kind, stickers: u.stickers, xp: u.xp + (u.bonus_xp || 0), lessons_done: u.lessons_done, last_seen: u.last_seen }, groups: db.classes.filter(c => g.includes(c.id)).map(c => c.name),
+        assignments: db.assignments.filter(x => x.group_ids.some(y => g.includes(y))).map(x => { const s = db.subs.find(s => s.assignment_id === x.id && s.user_id === u.id) || {}; return { title: x.title, due_at: x.due_at, max_score: x.max_score, submitted_at: s.submitted_at || null, score: s.score == null ? null : s.score, comment: s.comment || null }; }),
+        attendance: att, absences: (db.attendance || []).filter(x => x.user_id === u.id && x.status !== 'bor').slice(-10).reverse().map(x => ({ day: x.day, s: x.status })), awards: db.awards.filter(x => x.user_id === u.id).slice(-10).reverse(), certs: (db.certs || []).filter(x => x.user_id === u.id) }; },
+    km_cert_issue: a => { const u = dauth(a.p_token, 'student'); db.certs = db.certs || []; let c = db.certs.find(x => x.user_id === u.id && x.level === a.p_level); if (c) return c; const pre = a.p_level.split('-')[1] + '-', n = Object.keys((u.progress || {}).done || {}).filter(k => k.startsWith(pre)).length; if (n < Math.max(1, a.p_need || 1)) fail('Bosqichdagi barcha darslarni tugating'); c = { code: hex(10).toUpperCase(), user_id: u.id, level: a.p_level, title: a.p_title, issued_at: now() }; db.certs.push(c); dsave(); return c; },
+    km_cert_verify: a => { const c = (dload().certs || []).find(x => x.code === String(a.p_code || '').trim().toUpperCase()); if (!c) return { valid: false }; const u = db.users.find(u => u.id === c.user_id) || {}, cl = db.classes.find(x => x.id === u.class_id); return { valid: true, code: c.code, title: c.title, issued_at: c.issued_at, full_name: u.full_name, class_name: cl ? cl.name : null }; },
+    km_admin_report: a => { const me = dauth(a.p_token, 'admin'), mg = myStaffGroups(me); return db.classes.filter(c => mg.includes(c.id)).map(c => { const st = groupStudents([c.id]), as = db.assignments.filter(x => x.group_ids.includes(c.id)), sb = db.subs.filter(s => as.some(x => x.id === s.assignment_id) && st.some(u => u.id === s.user_id)), gr = sb.filter(s => s.score != null), at = (db.attendance || []).filter(x => x.group_id === c.id);
+      return { id: c.id, name: c.name, kind: c.kind, grade: c.grade, students: st.length, avg_lessons: st.length ? Math.round(st.reduce((s, u) => s + u.lessons_done, 0) / st.length * 10) / 10 : null, avg_xp: st.length ? Math.round(st.reduce((s, u) => s + u.xp + (u.bonus_xp || 0), 0) / st.length) : null, active7: st.filter(u => u.last_seen && Date.now() - new Date(u.last_seen) < 7 * 864e5).length, assignments: as.length, submitted: sb.filter(s => s.submitted_at).length, avg_pct: gr.length ? Math.round(gr.reduce((s, x) => s + x.score * 100 / as.find(y => y.id === x.assignment_id).max_score, 0) / gr.length) : null, att_total: at.length, att_present: at.filter(x => x.status === 'bor' || x.status === 'kech').length }; }); },
+    km_admin_backup: a => { dauth(a.p_token, 'owner'); return Object.assign({ format: 'zis-prostudent', version: 5, created_at: now(), demo: true }, JSON.parse(JSON.stringify(db)), { sessions: {} }); },
+    km_admin_restore: a => { dauth(a.p_token, 'owner'); const d = a.p_data; if (!d || d.format !== 'zis-prostudent' || !d.demo) fail("Bu demo zaxira fayli emas"); const s = db.sessions; db = Object.assign({}, d); delete db.format; delete db.version; delete db.created_at; delete db.demo; db.sessions = s; dsave(); return { users: db.users.length, classes: db.classes.length }; },
     km_materials: a => { const u = dauth(a.p_token), g = myGroupIds(u); return db.materials.filter(m => u.role === 'admin' || m.group_ids.some(x => g.includes(x))).sort((x, y) => y.created_at.localeCompare(x.created_at)).map(matJson); },
     km_admin_save_material: a => {
       dauth(a.p_token, 'admin'); const d = a.p_data;
@@ -194,6 +228,51 @@
   };
   const T = () => getToken();
   KM.ApiError = ApiError;
+  const sbase = () => String(cfg.supabaseUrl).trim().replace(/\/+$/, '').replace(/\/rest\/v1$/i, '');
+  const sh = extra => { const h = Object.assign({ apikey: cfg.supabaseKey }, extra || {}); if (/^eyJ/.test(cfg.supabaseKey)) h.Authorization = 'Bearer ' + cfg.supabaseKey; return h; };
+  const readData = f => new Promise((res, rej) => { const r = new FileReader(); r.onload = () => res(r.result); r.onerror = () => rej(new ApiError("Faylni o'qib bo'lmadi")); r.readAsDataURL(f); });
+  /* Fayl yuklash: avval Supabase Storage (25 MB gacha), bo'lmasa bazaga (4 MB gacha). Natija: km_admin_save_material / km_submit ga beriladigan {id} yoki {name, mime, data} */
+  async function upload(f, purpose, onProgress) {
+    const mime = f.type || 'application/octet-stream';
+    if (mode === 'supabase') {
+      let t = null;
+      try { t = await call('km_file_ticket', { p_token: T(), p_name: f.name, p_mime: mime, p_size: f.size, p_purpose: purpose }); }
+      catch (e) { if (e.code === 'SESSION' || /25 MB|ko'p fayl|ruxsat/.test(e.message)) throw e; }
+      if (t) {
+        try {
+          const r = await new Promise((res, rej) => {
+            const x = new XMLHttpRequest(); x.open('POST', sbase() + '/storage/v1/object/' + t.bucket + '/' + t.path.split('/').map(encodeURIComponent).join('/'));
+            Object.entries(sh({ 'Content-Type': mime, 'x-upsert': 'false' })).forEach(([k, v]) => x.setRequestHeader(k, v));
+            if (onProgress) x.upload.onprogress = ev => ev.lengthComputable && onProgress(ev.loaded / ev.total);
+            x.onload = () => res(x); x.onerror = () => rej(new Error('net')); x.send(f);
+          });
+          if (r.status >= 200 && r.status < 300) return { id: t.id };
+        } catch (e) {}
+      }
+    }
+    if (f.size > 4 * 1024 * 1024) throw new ApiError(mode === 'supabase' ? "Fayl omboriga yuklab bo'lmadi. 4 MB dan kichik fayl tanlang yoki administratorga ayting (Storage sozlanmagan)." : 'Demo rejimda fayl 4 MB dan kichik bo\'lsin');
+    return { name: f.name, mime, data: await readData(f) };
+  }
+  /* Faylni ochish: {name, mime, blob} */
+  async function fileBlob(id) {
+    const f = await call('km_get_file', { p_token: T(), p_id: id });
+    if (f.path) {
+      const r = await fetch(sbase() + '/storage/v1/object/authenticated/' + f.bucket + '/' + f.path.split('/').map(encodeURIComponent).join('/'), { headers: sh() });
+      if (!r.ok) throw new ApiError("Faylni yuklab bo'lmadi (" + r.status + ')');
+      return { name: f.name, mime: f.mime, blob: await r.blob() };
+    }
+    return { name: f.name, mime: f.mime, blob: await (await fetch(f.data)).blob() };
+  }
+  /* Keraksiz Storage fayllarini tozalash (admin panel ochilganda, jim) */
+  async function storageCleanup() {
+    if (mode !== 'supabase') return;
+    try {
+      const paths = await call('km_admin_storage_trash', { p_token: T() });
+      if (!paths || !paths.length) return;
+      const r = await fetch(sbase() + '/storage/v1/object/prostudent', { method: 'DELETE', headers: sh({ 'Content-Type': 'application/json' }), body: JSON.stringify({ prefixes: paths }) });
+      if (r.ok) { const del = await r.json(); const gone = (Array.isArray(del) ? del : []).map(x => x.name); const missing = paths.filter(p => !gone.includes(p)); await call('km_admin_storage_purged', { p_token: T(), p_paths: gone.concat(missing) }); }
+    } catch (e) {}
+  }
   KM.api = {
     mode,
     hasToken: () => !!getToken(),
@@ -208,6 +287,10 @@
     changePassword: (o, n) => call('km_change_password', { p_token: T(), p_old: o, p_new: n }),
     materials: () => call('km_materials', { p_token: T() }),
     file: id => call('km_get_file', { p_token: T(), p_id: id }),
+    fileBlob, upload, storageCleanup,
+    parentView: code => call('km_parent_view', { p_code: code }),
+    certIssue: (level, title, need) => call('km_cert_issue', { p_token: T(), p_level: level, p_title: title, p_need: need }),
+    certVerify: code => call('km_cert_verify', { p_code: code }),
     quiz: {
       list: () => call('km_quiz_list', { p_token: T() }),
       save: (id, title, qs) => call('km_quiz_save', { p_token: T(), p_id: id || null, p_title: title, p_questions: qs }),
@@ -239,7 +322,22 @@
       submissions: id => call('km_admin_submissions', { p_token: T(), p_assignment: id }),
       grade: (aid, uid, score, comment) => call('km_admin_grade', { p_token: T(), p_assignment: aid, p_user: uid, p_score: score, p_comment: comment }),
       gradebook: gid => call('km_admin_gradebook', { p_token: T(), p_group: gid }),
-      award: (uid, sticker, xp, note) => call('km_admin_award', { p_token: T(), p_user: uid, p_sticker: sticker || null, p_xp: xp || 0, p_note: note || '' })
+      award: (uid, sticker, xp, note) => call('km_admin_award', { p_token: T(), p_user: uid, p_sticker: sticker || null, p_xp: xp || 0, p_note: note || '' }),
+      createTeacher: (name, login) => call('km_admin_create_teacher', { p_token: T(), p_name: name, p_login: login || '' }),
+      teacherPassword: id => call('km_admin_teacher_password', { p_token: T(), p_id: id }),
+      deleteTeacher: id => call('km_admin_delete_teacher', { p_token: T(), p_id: id }),
+      setTeacherGroups: (id, groups) => call('km_admin_set_teacher_groups', { p_token: T(), p_id: id, p_groups: groups }),
+      attendance: (gid, from, to) => call('km_admin_attendance', { p_token: T(), p_group: gid, p_from: from, p_to: to }),
+      setAttendance: (gid, day, marks) => call('km_admin_attendance_set', { p_token: T(), p_group: gid, p_day: day, p_marks: marks }),
+      settings: () => call('km_admin_settings', { p_token: T() }),
+      saveSettings: d => call('km_admin_settings_save', { p_token: T(), p_data: d }),
+      announce: (gid, text) => call('km_admin_announce', { p_token: T(), p_group: gid, p_text: text }),
+      tgScan: () => call('km_admin_tg_scan', { p_token: T() }),
+      tgChats: rid => call('km_admin_tg_chats', { p_token: T(), p_req: rid }),
+      parentCode: (uid, renew) => call('km_admin_parent_code', { p_token: T(), p_user: uid, p_new: !!renew }),
+      report: () => call('km_admin_report', { p_token: T() }),
+      backup: () => call('km_admin_backup', { p_token: T() }),
+      restore: d => call('km_admin_restore', { p_token: T(), p_data: d })
     },
     clearToken: () => setToken('')
   };

@@ -16,7 +16,8 @@
   const total = () => G().reduce((a, g) => a + g.lessons.length, 0);
   const doneCount = () => Object.keys(S().done).filter(id => KM.lesson(id)).length;
   const me = () => KM.session && KM.session.user;
-  const isAdmin = () => !!me() && me().role === 'admin';
+  const isAdmin = () => !!me() && (me().role === 'admin' || me().role === 'teacher');
+  KM.isStaff = () => isAdmin(); KM.isOwner = () => !!me() && me().role === 'admin';
   const TXP = () => S().xp + ((me() && me().bonus_xp) || 0), lvl = () => Math.floor(TXP() / 100) + 1;
   const groups = () => (me() && me().groups) || [];
   const hasCourse = c => isAdmin() || groups().some(g => (g.courses || []).includes(c));
@@ -74,16 +75,16 @@
   function header() {
     const top = $('#top'), u = me();
     top.hidden = !u; if (!u) return;
-    const nav = u.role === 'admin'
+    const nav = KM.isStaff()
       ? [['admin', 'Admin panel'], ['informatika', 'Informatika'], ['dasturlash', 'Dasturlash'], ['admin-topshiriqlar', 'Topshiriqlar'], ['viktorina', 'Viktorina'], ['materiallar', 'Materiallar']]
       : [['bosh', 'Bosh sahifa'], hasCourse('informatika') && ['informatika', 'Informatika'], hasCourse('dasturlash') && ['dasturlash', 'Dasturlash'], ['topshiriqlar', 'Topshiriqlar'], ['viktorina', 'Viktorina'], ['materiallar', 'Materiallar']].filter(Boolean);
     $('#nav').innerHTML = nav.map(n => '<a href="#' + n[0] + '" data-r="' + n[0] + '">' + n[1] + '</a>').join('');
-    $('#xp').hidden = $('#streak').hidden = u.role === 'admin';
+    $('#xp').hidden = $('#streak').hidden = KM.isStaff();
     $('#xp').textContent = TXP() + ' XP';
     $('#streak').textContent = S().streak.n + ' kun';
     $('#who').textContent = u.full_name.split(' ')[0];
     $('#meph').innerHTML = KM.stk.face(u);
-    $('#me').href = u.role === 'admin' ? '#admin' : '#profil';
+    $('#me').href = KM.isStaff() ? '#admin' : '#profil';
   }
   const chips = header;
 
@@ -117,8 +118,8 @@
       try {
         const r = setup ? await KM.api.setupAdmin(lg, pw, $('#fn').value.trim()) : await KM.api.login(lg, pw);
         start(r.user, r.progress || {});
-        location.hash = r.user.role === 'admin' ? 'admin' : 'bosh';
-        if (location.hash === '#' + (r.user.role === 'admin' ? 'admin' : 'bosh')) route();
+        location.hash = r.user.role !== 'student' ? 'admin' : 'bosh';
+        if (location.hash === '#' + (r.user.role !== 'student' ? 'admin' : 'bosh')) route();
       } catch (x) { err.textContent = x.message; err.hidden = false; go.disabled = false; go.textContent = setup ? 'Admin yaratish' : 'Kirish'; }
     };
     $('#lg').focus();
@@ -350,6 +351,7 @@
       '<div class="pn">' + (prev ? '<a class="btn" href="#infdars-' + n + '-' + prev.n + '">← ' + prev.n + '-dars</a>' : '<span></span>') + (next ? '<a class="btn" href="#infdars-' + n + '-' + next.n + '">' + next.n + '-dars →</a>' : '') + '</div></aside></div></article>' +
       '<section class="band alt" id="q"><div class="wrap narrow"><h2 class="sub0">Test</h2><div id="qz"></div><div id="rd"></div></div></section>';
     $$('pre.ex', app).forEach(p => { const c = p.querySelector('code'); c.innerHTML = KM.hl(c.textContent, p.dataset.l); });
+    if (KM.py) KM.py.enhance(app);
     const mark = (score) => {
       const cur = S().inf[id], first = !cur;
       const best = Math.max(score == null ? -1 : score, cur && cur.q != null ? cur.q : -1);
@@ -406,20 +408,33 @@
     };
     draw();
   }
+  /* Mashhur platformalar havolasini "ichida ochiladigan" ko'rinishga o'tkazish */
+  const embedUrl = u => {
+    u = String(u || '').trim(); let m;
+    if ((m = u.match(/scratch\.mit\.edu\/projects\/(\d+)/))) return 'https://scratch.mit.edu/projects/' + m[1] + '/embed';
+    if ((m = u.match(/docs\.google\.com\/presentation\/d\/([\w-]+)/))) return 'https://docs.google.com/presentation/d/' + m[1] + '/embed?start=false&loop=false';
+    if ((m = u.match(/docs\.google\.com\/(document|spreadsheets)\/d\/([\w-]+)/))) return 'https://docs.google.com/' + m[1] + '/d/' + m[2] + '/preview';
+    if ((m = u.match(/docs\.google\.com\/forms\/d\/e\/([\w-]+)/))) return 'https://docs.google.com/forms/d/e/' + m[1] + '/viewform?embedded=true';
+    if ((m = u.match(/drive\.google\.com\/file\/d\/([\w-]+)/))) return 'https://drive.google.com/file/d/' + m[1] + '/preview';
+    if ((m = u.match(/(?:www\.)?tinkercad\.com\/things\/([\w-]+)/))) return 'https://www.tinkercad.com/embed/' + m[1];
+    if ((m = u.match(/canva\.com\/design\/([\w-]+)\/([\w-]+)/))) return 'https://www.canva.com/design/' + m[1] + '/' + m[2] + '/view?embed';
+    return u;
+  };
+  KM.embedUrl = embedUrl;
   const ytId = u => { const m = String(u).match(/(?:youtube\.com\/(?:watch\?v=|shorts\/|embed\/|live\/)|youtu\.be\/)([\w-]{11})/); return m && m[1]; };
   async function materialView(id) {
     app.innerHTML = '<div class="splash grid-bg"><span class="caret"></span></div>';
     let ms; try { ms = await KM.api.materials(); } catch (x) { return notFound(); }
     const m = ms.find(x => x.id === id); if (!m) return notFound();
     let body = '';
-    if (m.kind === 'link') body = '<div class="frame-wrap"><iframe src="' + e(m.url) + '" title="' + e(m.title) + '" allow="fullscreen; clipboard-write" referrerpolicy="no-referrer-when-downgrade"></iframe></div><p class="muted fr-note">Sayt bu oynada ko\'rinmasa (ba\'zi saytlar boshqa sayt ichida ochilishga ruxsat bermaydi), yuqoridagi "Yangi oynada ochish" tugmasini bosing.</p>';
+    if (m.kind === 'link') body = '<div class="frame-wrap"><iframe src="' + e(embedUrl(m.url)) + '" title="' + e(m.title) + '" allow="fullscreen; clipboard-write" referrerpolicy="no-referrer-when-downgrade"></iframe></div><p class="muted fr-note">Sayt bu oynada ko\'rinmasa (ba\'zi saytlar boshqa sayt ichida ochilishga ruxsat bermaydi), yuqoridagi "Yangi oynada ochish" tugmasini bosing.</p>';
     else if (m.kind === 'video') { const y = ytId(m.url); body = y ? '<div class="frame-wrap vid"><iframe src="https://www.youtube-nocookie.com/embed/' + y + '" title="' + e(m.title) + '" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe></div>' : /\.(mp4|webm|ogg)(\?|$)/i.test(m.url) ? '<video class="vid-el" controls src="' + e(m.url) + '"></video>' : '<div class="frame-wrap vid"><iframe src="' + e(m.url) + '" title="' + e(m.title) + '" allowfullscreen></iframe></div>'; }
     else if (m.kind === 'file') body = '<div id="fv" class="fv"><p class="muted">Fayl yuklanmoqda…</p></div>';
     app.innerHTML = '<div class="lbar"><div class="lbar-in"><a class="back" href="#materiallar">← Materiallar</a><h1 class="lt">' + e(m.title) + '</h1>' + ((m.kind === 'link' || m.kind === 'video') ? '<a class="btn sm ghost" href="' + e(m.url) + '" target="_blank" rel="noopener">Yangi oynada ochish ↗</a>' : '') + '</div></div>' +
       '<section class="band mat-view"><div class="wrap">' + (m.body ? '<div class="theory mat-body">' + KM.md(m.body) + '</div>' : '') + body + '</div></section>';
     if (m.kind === 'file' && m.file) {
       try {
-        const f = await KM.api.file(m.file.id), blob = await (await fetch(f.data)).blob(), url = URL.createObjectURL(blob), fv = $('#fv');
+        const f = await KM.api.fileBlob(m.file.id), url = URL.createObjectURL(f.blob), fv = $('#fv');
         if (!fv) return;
         const dl = '<a class="btn pri" href="' + url + '" download="' + e(f.name) + '">Yuklab olish: ' + e(f.name) + '</a>';
         fv.innerHTML = (/^image\//.test(f.mime) ? '<img class="fv-img" src="' + url + '" alt="' + e(f.name) + '">' : /pdf$/.test(f.mime) ? '<div class="frame-wrap"><iframe src="' + url + '" title="' + e(f.name) + '"></iframe></div>' : /^video\//.test(f.mime) ? '<video class="vid-el" controls src="' + url + '"></video>' : /^audio\//.test(f.mime) ? '<audio controls src="' + url + '"></audio>' : '<p class="muted">Bu faylni brauzerda ko\'rsatib bo\'lmaydi, yuklab olib oching.</p>') + '<div class="acts">' + dl + '</div>';
@@ -439,9 +454,19 @@
     const pr = { id: 'p' + Date.now().toString(36), name, html: c.html || '', css: c.css || '', js: c.js || '', t: Date.now() };
     S().projects.unshift(pr); st.save(); return pr;
   }
+  /* ---------- Python maydoni ---------- */
+  function pythonPage() {
+    const st = KM.store, D0 = '# Python maydoni: kod yozing va "Ishga tushirish" ni bosing (Ctrl+Enter)\nism = input("Ismingiz: ")\nprint("Salom,", ism + "!")\n\nfor i in range(1, 6):\n    print(i, "x", i, "=", i * i)\n';
+    app.innerHTML = '<div class="lbar"><div class="lbar-in"><a class="back" href="#maydon">← Kod maydoni</a><h1 class="lt">Python maydoni</h1><div class="acts" style="margin:0"><button class="btn sm ghost" id="pyreset">Namunaga qaytarish</button></div></div></div><section class="band py-page"><div class="wrap" id="pyh"></div></section>';
+    let t = null;
+    const r = KM.py.runner($('#pyh'), S().py || D0, { id: 'm', onChange: v => { clearTimeout(t); t = setTimeout(() => { S().py = v; st.save(); }, 600); } });
+    cleanup.push(() => { clearTimeout(t); S().py = r.get(); st.save(); });
+    KM.ui.confirmBtn($('#pyreset'), 'Kodingiz o\'chadi. Yana bosing', () => { r.set(D0); S().py = D0; st.save(); });
+  }
   function maydon() {
     const ps = S().projects;
     app.innerHTML = '<section class="band"><div class="wrap"><div class="pg-h"><h1>Kod maydoni</h1><p class="lead">Darsdan tashqari erkin ijod: o\'z sahifangiz, o\'yiningiz yoki tajribangiz. Loyihalar hisobingizda saqlanadi.</p></div>' +
+      '<a class="py-card" href="#python"><span class="py-ic" aria-hidden="true">Py</span><span><b>Python maydoni</b><small>print, input, sikllar, funksiyalar: brauzerning o\'zida, hech narsa o\'rnatmasdan</small></span><span aria-hidden="true">→</span></a>' +
       '<h2 class="sub">Yangi loyiha</h2><div class="tpls">' + Object.keys(TPL).map(k => '<button class="tpl" data-k="' + k + '"><b>' + e(TPL[k].name) + '</b><span>' + e(TPL[k].d) + '</span></button>').join('') + '</div>' +
       '<h2 class="sub">Mening loyihalarim</h2>' + (ps.length ? '<div class="projs">' + ps.map(p => '<a class="proj" href="#maydon-' + p.id + '"><b>' + e(p.name) + '</b><span>' + new Date(p.t).toLocaleDateString('uz-UZ') + ' · ' + (p.html.split('\n').length + p.css.split('\n').length + p.js.split('\n').length) + ' qator</span></a>').join('') + '</div>' : '<div class="empty-s"><p>Hali loyiha yo\'q. Yuqoridagi namunalardan birini tanlang yoki darsdagi misolni "Maydonda sinab ko\'rish" tugmasi bilan oching.</p></div>') +
       '</div></section>';
@@ -511,9 +536,15 @@
     const p = gradeProg(g);
     if (p.d < p.n) { app.innerHTML = '<section class="band"><div class="wrap narrow empty"><h1>Sertifikat hali tayyor emas</h1><p>' + g.n + '-sinfning hamma darslarini tugating: hozir ' + p.d + ' / ' + p.n + '.</p><a class="btn pri" href="#sinf-' + n + '">Darslarga qaytish</a></div></section>'; return; }
     const last = Math.max(...lessonsOf(g).map(x => S().done[x.id].at || 0)), d = new Date(last || Date.now());
-    app.innerHTML = '<section class="band"><div class="wrap"><div class="cert st-' + g.stage + '"><div class="cert-in"><p class="cert-k">' + e(KM.config.schoolName || 'ZIS ProStudent') + ' · Dasturlash to\'garagi</p><h1>Sertifikat</h1><p>Ushbu sertifikat</p><p class="cert-n">' + e(me().full_name) + '</p><p>ga <b>' + g.n + '-sinf</b> dasturlash kursi <b>«' + e(g.t) + '»</b> ni muvaffaqiyatli tamomlagani uchun beriladi.</p><div class="cert-f"><div><b>' + g.lessons.length + ' dars</b><span>nazariya, test, amaliyot</span></div><div><b>' + d.toLocaleDateString('uz-UZ') + '</b><span>sana</span></div><div><b class="sig"></b><span>To\'garak rahbari</span></div></div></div></div>' +
+    app.innerHTML = '<section class="band"><div class="wrap"><div class="cert st-' + g.stage + '"><div class="cert-in"><p class="cert-k">' + e(KM.config.schoolName || 'ZIS ProStudent') + ' · Dasturlash to\'garagi</p><h1>Sertifikat</h1><p>Ushbu sertifikat</p><p class="cert-n">' + e(me().full_name) + '</p><p>ga <b>' + g.n + '-sinf</b> dasturlash kursi <b>«' + e(g.t) + '»</b> ni muvaffaqiyatli tamomlagani uchun beriladi.</p><div class="cert-f"><div><b>' + g.lessons.length + ' dars</b><span>nazariya, test, amaliyot</span></div><div><b>' + d.toLocaleDateString('uz-UZ') + '</b><span>sana</span></div><div><b class="sig"></b><span>To\'garak rahbari</span></div></div><div class="cert-v" id="cv"></div></div></div>' +
       '<div class="acts noprint"><button class="btn pri" id="pr">Chop etish yoki PDF</button><a class="btn" href="#sinf-' + n + '">Orqaga</a></div></div></section>';
     $('#pr').onclick = () => { try { window.print(); } catch (err) {} };
+    if (!isAdmin()) KM.api.certIssue('kod-' + n, g.n + '-sinf dasturlash kursi «' + g.t + '»', g.lessons.length).then(c => {
+      const el = $('#cv'); if (!el || !c || !c.code) return;
+      const url = location.origin + location.pathname.replace(/index\.html$/, '') + '#tekshirish-' + c.code;
+      let svg = ''; try { const q = qrcode(0, 'M'); q.addData(url); q.make(); svg = q.createSvgTag({ cellSize: 3, margin: 0, scalable: true }); } catch (x) {}
+      el.innerHTML = '<div class="cert-qr">' + svg + '</div><div><b>Haqiqiylik kodi: ' + e(c.code) + '</b><span>QR kodni skanerlang yoki ' + e(url.replace(/^https?:\/\//, '')) + ' manzilida tekshiring</span></div>';
+    }).catch(() => {});
   }
   function notFound() { app.innerHTML = '<section class="band"><div class="wrap narrow empty"><h1>Sahifa topilmadi</h1><p>Bunday sahifa yo\'q yoki o\'chirilgan.</p><a class="btn pri" href="#bosh">Bosh sahifaga</a></div></section>'; }
   KM.notFound = notFound;
@@ -522,6 +553,12 @@
   function route() {
     cleanup.forEach(f => f()); cleanup = []; document.body.classList.remove('full');
     const h = decodeURIComponent(location.hash.slice(1)) || '', p = h.split('-');
+    if (/^ota-ona-[0-9a-f]{16}$/.test(h) || /^tekshirish-[0-9A-Za-z]{4,20}$/.test(h)) {
+      header(); document.body.classList.toggle('public', !KM.session);
+      if (p[0] === 'ota') KM.staff.parentPage(app, p[2]); else KM.staff.verifyPage(app, p[1]);
+      window.scrollTo(0, 0); return;
+    }
+    document.body.classList.remove('public');
     if (!KM.session) { loginView(KM._needSetup); return; }
     if (p[0] === 'kirish') { location.hash = isAdmin() ? 'admin' : 'bosh'; return; }
     let nav = p[0] || 'bosh';
@@ -536,6 +573,7 @@
     else if (p[0] === 'viktorina' || p[0] === 'oyin') { nav = 'viktorina'; KM.live.route(h, app); }
     else if (p[0] === 'topshiriqlar' || p[0] === 'topshiriq') { if (isAdmin()) { location.hash = 'admin-topshiriqlar'; return; } nav = 'topshiriqlar'; KM.work.student(h, app); }
     else if (p[0] === 'material') { nav = 'materiallar'; materialView(h.slice(9)); }
+    else if (p[0] === 'python') { nav = 'dasturlash'; pythonPage(); }
     else if (p[0] === 'maydon') { nav = 'maydon'; p[1] ? maydonEd(p[1]) : maydon(); }
     else if (p[0] === 'profil') { if (isAdmin()) { location.hash = 'admin'; return; } profil(); }
     else if (p[0] === 'sertifikat') cert(+p[1]);
@@ -550,6 +588,7 @@
   $('#out').onclick = logout;
 
   /* ---------- Ishga tushirish ---------- */
+  if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
   (async function boot() {
     app.innerHTML = '<div class="splash grid-bg"><span class="caret"></span></div>';
     if (KM.api.hasToken()) {

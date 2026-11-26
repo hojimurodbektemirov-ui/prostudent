@@ -3,7 +3,7 @@
   const e = KM.esc, $ = (s, r) => (r || document).querySelector(s), $$ = (s, r) => [...(r || document).querySelectorAll(s)];
   const Q = () => KM.api.quiz;
   const LET = ['A', 'B', 'C', 'D'], TIMES = [5, 10, 20, 30, 60, 90];
-  const me = () => KM.session.user, isAdmin = () => me().role === 'admin';
+  const me = () => KM.session.user, isAdmin = () => me().role !== 'student';
   const site = () => location.origin + location.pathname.replace(/index\.html$/, '');
   const err = (el, x) => { if (el) { el.textContent = x.message || String(x); el.className = 'msg bad-t'; } };
 
@@ -69,10 +69,36 @@
     draw();
   }
 
+  /* ---------- Realtime: Supabase broadcast kanali. Har bir o'zgarishda "tick" yuboriladi, qolganlar darhol yangilanadi.
+     Ulanmasa, oddiy so'rov (har soniyada) ishlayveradi. ---------- */
+  function realtime(gid, onTick) {
+    const c = KM.config || {};
+    if (KM.api.mode !== 'supabase' || !window.WebSocket) return { ok: false, ping() {}, close() {} };
+    const url = String(c.supabaseUrl).trim().replace(/\/+$/, '').replace(/\/rest\/v1$/i, '').replace(/^http/, 'ws') + '/realtime/v1/websocket?apikey=' + encodeURIComponent(c.supabaseKey) + '&vsn=1.0.0';
+    const topic = 'realtime:zis-game-' + gid, R = { ok: false, ping() {}, close() {} };
+    let ws, ref = 0, hb = null, closed = false, retry = 0;
+    const send = (event, payload, t) => { try { if (ws && ws.readyState === 1) ws.send(JSON.stringify({ topic: t || topic, event, payload, ref: String(++ref), join_ref: '1' })); } catch (x) {} };
+    function open() {
+      try { ws = new WebSocket(url); } catch (x) { return; }
+      ws.onopen = () => { send('phx_join', { config: { broadcast: { self: false, ack: false }, presence: { key: '' }, postgres_changes: [], private: false } }); hb = setInterval(() => send('heartbeat', {}, 'phoenix'), 25000); };
+      ws.onmessage = ev => { let m; try { m = JSON.parse(ev.data); } catch (x) { return; } if (m.topic !== topic) return;
+        if (m.event === 'phx_reply' && m.payload && m.payload.status === 'ok' && !R.ok) { R.ok = true; retry = 0; onTick(); }
+        else if (m.event === 'broadcast') onTick(); };
+      ws.onclose = () => { R.ok = false; clearInterval(hb); if (!closed && retry < 5) setTimeout(open, 1000 * ++retry); };
+      ws.onerror = () => {};
+    }
+    R.ping = () => send('broadcast', { type: 'broadcast', event: 'tick', payload: {} });
+    R.close = () => { closed = true; clearInterval(hb); try { ws && ws.close(); } catch (x) {} };
+    open();
+    return R;
+  }
+
   /* ---------- O'yin: boshlovchi va o'yinchi ---------- */
   function game(app, gid) {
     let st = null, timer = null, tick = null, deadline = 0, lastKey = '', busy = false, rewarded = false, sentFor = -1, adv = false, ver = 0;
-    const stop = () => { clearInterval(timer); clearInterval(tick); document.body.classList.remove('lv-on'); };
+    let n = 0, pinged = false;
+    const rt = realtime(gid, () => { lastKey = ''; poll(); });
+    const stop = () => { clearInterval(timer); clearInterval(tick); rt.close(); document.body.classList.remove('lv-on'); };
     KM.onLeave(stop);
     document.body.classList.add('lv-on');
     app.innerHTML = '<div class="lv grid-bg" id="lv"><div class="splash"><span class="caret"></span></div></div>';
@@ -81,14 +107,15 @@
       if (busy || adv) return; busy = true; const v0 = ver; let ns;
       try { ns = await Q().state(gid); if (v0 !== ver || adv) { busy = false; return; } st = ns; } catch (x) { busy = false; if (x.code === 'SESSION') return KM.logout(); root() && (root().innerHTML = '<div class="lv-c"><h1>' + e(x.message) + '</h1><a class="btn pri big" href="#viktorina">Viktorinaga qaytish</a></div>'); stop(); return; }
       busy = false;
+      if (!st.host && !pinged && rt.ok) { pinged = true; rt.ping(); }
       if (st.state === 'question') deadline = Date.now() + st.remaining_ms;
       const key = st.state + ':' + st.q_index + ':' + (st.host ? st.players + ':' + st.answered : (st.me && st.me.answered));
       if (key !== lastKey) { lastKey = key; render(); }
       if (st.host && st.state === 'question' && (st.remaining_ms <= 0 || (st.players > 0 && st.answered >= st.players))) next();
       if (st.state === 'end') { clearInterval(timer); if (!st.host && !rewarded && st.me && !isAdmin()) { rewarded = true; const xp = Math.round(st.me.score / 100); if (xp > 0) KM.store.addXP(xp); } }
     }
-    async function next() { if (adv) return; adv = true; ver++; try { await Q().next(gid); } catch (x) { alertMsg(x.message); } adv = false; ver++; lastKey = ''; poll(); }
-    function countdown() { const el = $('#cd'), ring = $('#cdr'); if (!el || !st || st.state !== 'question') return; const left = Math.max(0, deadline - Date.now()); el.textContent = Math.ceil(left / 1000); if (ring) ring.style.setProperty('--p', left / (st.time * 1000)); }
+    async function next() { if (adv) return; adv = true; ver++; try { await Q().next(gid); rt.ping(); } catch (x) { alertMsg(x.message); } adv = false; ver++; lastKey = ''; poll(); }
+    function countdown() { if (st && st.host && st.state === 'question' && deadline && Date.now() > deadline + 300 && !adv) next(); const el = $('#cd'), ring = $('#cdr'); if (!el || !st || st.state !== 'question') return; const left = Math.max(0, deadline - Date.now()); el.textContent = Math.ceil(left / 1000); if (ring) ring.style.setProperty('--p', left / (st.time * 1000)); }
     function render() {
       const r = root(); if (!r) return;
       const s = st, q = s.question;
@@ -98,14 +125,14 @@
         else if (s.state === 'reveal') { const mx = Math.max(1, ...s.counts); r.innerHTML = '<div class="lv-top"><b>' + (s.q_index + 1) + ' / ' + s.total + '</b><span>' + s.counts.reduce((a, b) => a + b, 0) + ' / ' + s.players + ' javob</span><button class="btn pri" id="go">' + (s.q_index + 1 < s.total ? 'Keyingi savol →' : 'Natijalar →') + '</button></div><div class="lv-c"><h1 class="lv-q sm">' + e(q.q) + '</h1><div class="opts4 rev n' + q.o.length + '">' + q.o.map((o, j) => '<div class="op c' + j + (j === s.answer ? ' right' : ' dim') + '"><i>' + (j === s.answer ? '✓' : LET[j]) + '</i><span>' + e(o) + '</span><b class="cnt" style="--w:' + (s.counts[j] / mx * 100) + '%">' + s.counts[j] + '</b></div>').join('') + '</div>' + board(s.top.slice(0, 5)) + '</div>'; }
         else r.innerHTML = '<div class="lv-top"><b>' + e(s.title) + '</b></div><div class="lv-c"><h1>G\'oliblar</h1>' + podium(s.top) + board(s.top.slice(3, 10), 4) + '<div class="acts"><a class="btn pri big" href="#viktorina">Viktorinaga qaytish</a></div></div>';
         const go = $('#go'); if (go) go.onclick = () => { go.disabled = true; next(); };
-        const end = $('#end'); if (end) KM.ui.confirmBtn(end, 'Yana bosing', async () => { await Q().end(gid); location.hash = 'viktorina'; });
+        const end = $('#end'); if (end) KM.ui.confirmBtn(end, 'Yana bosing', async () => { await Q().end(gid); rt.ping(); location.hash = 'viktorina'; });
       } else {
         const m = s.me;
         if (s.state === 'lobby') r.innerHTML = '<div class="lv-top"><b>' + e(s.title) + '</b><span>' + s.players + ' o\'yinchi</span></div><div class="lv-c"><div class="wait"><span></span><span></span><span></span></div><h1>Siz o\'yindasiz!</h1><p class="lead">Ismingiz ekranda. Boshlovchi o\'yinni boshlashini kuting.</p></div>';
         else if (s.state === 'question') {
           if (m.answered || sentFor === s.q_index) r.innerHTML = '<div class="lv-top"><b>' + (s.q_index + 1) + ' / ' + s.total + '</b><span>' + m.score + ' ball</span></div><div class="lv-c"><div class="wait"><span></span><span></span><span></span></div><h1>Javob qabul qilindi</h1><p class="lead">Boshqalarni kutamiz…</p></div>';
           else { r.innerHTML = '<div class="lv-top"><b>' + (s.q_index + 1) + ' / ' + s.total + '</b><div class="cd sm" id="cdr"><span id="cd"></span></div><span>' + m.score + ' ball</span></div><div class="lv-c"><h2 class="lv-q pl">' + e(q.q) + '</h2><div class="opts4 play n' + q.o.length + '">' + q.o.map((o, j) => '<button class="op c' + j + '" data-c="' + j + '"><i>' + LET[j] + '</i><span>' + e(o) + '</span></button>').join('') + '</div></div>';
-            $$('[data-c]', r).forEach(b => b.onclick = async () => { const qi = s.q_index; sentFor = qi; $$('[data-c]', r).forEach(x => x.disabled = true); b.classList.add('picked'); try { await Q().answer(gid, qi, +b.dataset.c); } catch (x) { alertMsg(x.message); } lastKey = ''; poll(); }); }
+            $$('[data-c]', r).forEach(b => b.onclick = async () => { const qi = s.q_index; sentFor = qi; $$('[data-c]', r).forEach(x => x.disabled = true); b.classList.add('picked'); try { await Q().answer(gid, qi, +b.dataset.c); rt.ping(); } catch (x) { alertMsg(x.message); } lastKey = ''; poll(); }); }
         } else if (s.state === 'reveal') r.innerHTML = '<div class="lv-top"><b>' + (s.q_index + 1) + ' / ' + s.total + '</b><span>' + m.score + ' ball</span></div><div class="lv-c res ' + (m.correct ? 'good' : 'bad') + '"><div class="res-i">' + (m.correct ? '✓' : m.answered ? '✗' : '⏱') + '</div><h1>' + (m.correct ? 'To\'g\'ri!' : m.answered ? 'Noto\'g\'ri' : 'Vaqt tugadi') + '</h1>' + (m.correct ? '<p class="plus">+' + m.points + '</p>' : '') + '<p class="lead">To\'g\'ri javob: <b>' + LET[s.answer] + ') ' + e(q.o[s.answer]) + '</b></p><p class="rank">Siz ' + m.rank + '-o\'rindasiz</p></div>';
         else r.innerHTML = '<div class="lv-top"><b>' + e(s.title) + '</b></div><div class="lv-c"><h1>Siz ' + m.rank + '-o\'rin!</h1><p class="plus">' + m.score + ' ball</p>' + (isAdmin() ? '' : '<p class="lead">+' + Math.round(m.score / 100) + ' XP hisobingizga qo\'shildi</p>') + podium(s.top) + '<div class="acts"><a class="btn pri big" href="#viktorina">Viktorinaga qaytish</a></div></div>';
       }
@@ -113,7 +140,7 @@
     }
     const board = (rows, start) => rows.length ? '<ol class="lb2" start="' + (start || 1) + '">' + rows.map(x => '<li><span>' + e(x.name) + '</span><b>' + x.score + '</b></li>').join('') + '</ol>' : '';
     const podium = top => '<div class="podium">' + [1, 0, 2].map(i => top[i] ? '<div class="pd p' + (i + 1) + '"><span class="pd-n">' + e(top[i].name) + '</span><b>' + top[i].score + '</b><div class="pd-b">' + (i + 1) + '</div></div>' : '<div class="pd empty"></div>').join('') + '</div>';
-    timer = setInterval(poll, 1000); tick = setInterval(countdown, 200); poll();
+    timer = setInterval(() => { if (!rt.ok || ++n % 4 === 0) poll(); }, 1000); tick = setInterval(countdown, 200); poll();
   }
 
   KM.live = {

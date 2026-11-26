@@ -860,3 +860,91 @@ body.lv-on .foot{display:none}
 .subs .sub{margin:0;font-size:inherit}
 .sub-g .msg{margin:0}
 .panel .imp{margin:12px 0 0}
+
+/* ===== v5: xodimlar sahifalari ===== */
+.two-col{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(300px,1fr);gap:24px;align-items:start}
+.two-col>div:not(.panel){display:grid;gap:18px;align-content:start}
+.t-list{display:grid;gap:16px}
+.t-card .t-h{display:flex;justify-content:space-between;gap:12px}
+.t-card h3{font:700 19px var(--hf)}
+.t-card .chks{display:flex;flex-wrap:wrap;gap:8px 16px;margin:6px 0 4px}
+.cred-box:empty{display:none}
+.steps-s{margin:12px 0 18px;padding-left:22px;display:grid;gap:6px;color:var(--ink)}
+.chat-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:12px 14px;margin-top:10px;border-radius:14px;background:var(--zone);border:1.5px solid var(--line)}
+.chat-row>div{flex:1 1 200px}
+.chat-row select{width:auto;flex:0 1 220px}
+.sec-t{font:700 22px var(--hf);margin:34px 0 14px}
+.att-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:14px;margin-bottom:16px}
+.att-top .inp{width:auto}
+.att-list{display:grid;gap:8px}
+.att-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;border-radius:14px;background:var(--zone)}
+.att-n{font-weight:700}
+.attseg{display:inline-flex;flex-wrap:wrap;gap:6px}
+.seg-b{min-height:40px;padding:0 14px;border-radius:999px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font-weight:700;cursor:pointer}
+.seg-b:hover{border-color:var(--blue)}
+.seg-b:focus-visible{outline:3px solid var(--hl);outline-offset:2px}
+.seg-b.on.s-b{background:var(--ok);border-color:var(--ok);color:#fff}
+.seg-b.on.s-y{background:var(--bad);border-color:var(--bad);color:#fff}
+.seg-b.on.s-k{background:#e2a400;border-color:#e2a400;color:#1b1400}
+.seg-b.on.s-s{background:var(--blue);border-color:var(--blue);color:#fff}
+.am{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:8px;font-weight:800;font-size:14px}
+.am.a-b{background:var(--okbg);color:var(--ok)}.am.a-y{background:var(--badbg);color:var(--bad)}.am.a-k{background:light-dark(#fff3cf,#2b230a);color:light-dark(#7a5500,#ffd56b)}.am.a-s{background:var(--tb);color:var(--blueT)}.am.a-n{color:var(--mut)}
+.legend{font-size:14px;margin-top:10px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin-bottom:22px}
+.stat{display:grid;gap:2px;padding:18px 20px;border-radius:18px;background:var(--card);border:1.5px solid var(--line)}
+.stat b{font:800 32px/1.1 var(--hf)}
+.stat span{color:var(--mut);font-size:15px}
+.rep-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.rep{display:grid;gap:10px;color:var(--ink);text-decoration:none}
+.rep:hover{border-color:var(--blue)}
+.rep-h{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.rep-h h3{font:700 20px var(--hf)}
+.rep .muted{margin:0;font-size:15px}
+.rbar{display:grid;gap:4px}
+.rbar-h{display:flex;justify-content:space-between;font-size:14px}
+.rbar-h span{color:var(--mut)}
+.rbar-t{height:10px;border-radius:6px;background:var(--zone);overflow:hidden}
+.rbar-t i{display:block;height:100%;border-radius:6px;background:linear-gradient(90deg,var(--blue),var(--hl))}
+.plain{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:6px}
+.copy-row{display:flex;gap:8px;margin:10px 0}
+.copy-row .inp{flex:1;font-family:var(--mono);font-size:14px}
+.tg-p textarea{margin-top:4px}
+/* ota-ona va tekshirish (kirishsiz) */
+body.public #top{display:none}
+.par-h{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.fc.big{width:120px;height:120px;flex:none;border-radius:24px;overflow:hidden}
+.fc.big svg,.fc.big img{width:100%;height:100%}
+.verify{text-align:center;display:grid;gap:10px;justify-items:center;padding:40px 24px}
+.verify .v-i{display:grid;place-items:center;width:96px;height:96px;border-radius:50%;font:800 48px var(--hf);color:#fff;background:var(--ok)}
+.verify.no .v-i{background:var(--bad)}
+.verify h1{font-size:clamp(26px,4vw,38px)}
+.verify p{margin:0}
+/* sertifikat haqiqiylik kodi */
+.cert-v:empty{display:none}
+.cert-v{display:flex;align-items:center;gap:16px;margin-top:22px;padding-top:18px;border-top:1px dashed currentColor;text-align:left}
+.cert-v>div:last-child{display:grid;gap:2px}
+.cert-v span{font-size:13px;opacity:.75}
+.cert-qr{width:84px;height:84px;flex:none;background:#fff;padding:6px;border-radius:8px}
+.cert-qr svg{width:100%;height:100%;display:block}
+
+/* ===== v5: Python ===== */
+.py-card{display:flex;align-items:center;gap:16px;margin:8px 0 26px;padding:16px 20px;border-radius:18px;background:var(--navy);color:#eef2fb;text-decoration:none;border:1.5px solid #22346a}
+.py-card:hover{border-color:var(--hl)}
+.py-card>span:nth-child(2){flex:1;display:grid;gap:2px}
+.py-card small{color:#b8c6ea;font-size:14px}
+.py-ic{display:grid;place-items:center;width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,#3776ab,#ffd43b);font:800 18px var(--hf);color:#fff}
+.py-try{margin:-6px 0 18px}
+.py-box{margin:-6px 0 22px}
+.pyr{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(260px,1fr);gap:14px;align-items:start}
+.pyr-ed{min-height:260px;border-radius:14px;overflow:hidden;border:1.5px solid #22346a;background:#1e1e1e}
+.pyr-ed>*{min-height:260px}
+.pyr-side{display:grid;gap:4px}
+.pyr-side .acts{margin-top:8px}
+.pyr-in{resize:vertical;min-height:72px}
+.pyr-out{grid-column:1/-1;margin:0;min-height:90px;max-height:360px;overflow:auto;padding:14px 16px;border-radius:14px;background:#0b1226;color:#dfe7ff;font:14px/1.55 var(--mono);white-space:pre-wrap;overflow-wrap:anywhere}
+.pyr-out:empty::before{content:"Natija shu yerda chiqadi";color:#7d8bb3}
+.pyr-e{color:#ff9a8f}.pyr-h{color:#ffd56b}.pyr-i{color:#8ab4ff}
+.py-page .pyr-ed,.py-page .pyr-ed>*{min-height:420px}
+@media(max-width:900px){.two-col{grid-template-columns:minmax(0,1fr)}.pyr{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:560px){.att-row{flex-direction:column;align-items:flex-start}.seg-b{padding:0 10px;font-size:14px}}
+@media print{.rep{break-inside:avoid}}
