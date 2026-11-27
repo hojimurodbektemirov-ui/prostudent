@@ -1048,7 +1048,7 @@ body.public #top{display:none}
 .logo small{margin-top:4px}
 .logo.big{gap:18px;font-size:30px}.logo.big .logo-em{height:88px}.logo.big small{font-size:13px;margin-top:6px}
 .flogo{margin:0}.flogo img{display:block;height:46px;width:auto}
-.dev{cursor:default}.dev-em{background:#123a32}.dev-em img{height:26px;width:auto}
+.dev-em{background:#123a32}.dev-em img{height:26px;width:auto}
 @media(max-width:760px){.logo .logo-em{height:40px}.logo.big .logo-em{height:56px}.logo.big{font-size:20px}.flogo img{height:38px}}
-.dev:hover,.dev:hover .dev-i{transform:none}
+.dev:hover .dev-it{transform:rotate(360deg)}
 .dev-it{background:none;width:42px;height:42px}.dev-it img{display:block;width:42px;height:42px}
