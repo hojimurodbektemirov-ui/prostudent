@@ -3,7 +3,7 @@
   const e = KM.esc, $ = (s, r) => (r || document).querySelector(s), $$ = (s, r) => [...(r || document).querySelectorAll(s)];
   const api = KM.api.admin, face = KM.stk.face;
   let D = null, lastCreds = [], seq = 0, cleaned = false;
-  const totalCode = () => KM.grades.reduce((a, g) => a + g.lessons.length, 0);
+  const totalCode = () => KM.grades.concat(KM.tracks).reduce((a, g) => a + g.lessons.length, 0);
   const siteUrl = () => location.origin + location.pathname.replace(/index\.html$/, '');
   const CN = { informatika: 'Informatika', dasturlash: 'Dasturlash' };
   const X = u => (u.xp || 0) + (u.bonus_xp || 0);
@@ -192,7 +192,7 @@
     const myClubs = togaraklar().filter(c => (c.member_ids || []).includes(id));
     const IG = KM.infGrades.find(g => g.n === s.grade);
     const infRows = IG ? '<div class="gp-r st-orta"><span class="gp-n">Informatika</span><span class="bar"><b style="width:' + (IG.lessons.filter(l => inf[IG.n + '-' + l.n]).length / IG.lessons.length * 100) + '%"></b></span><span class="gp-v">' + IG.lessons.filter(l => inf[IG.n + '-' + l.n]).length + '/' + IG.lessons.length + '</span><span class="gp-c"></span></div>' : '';
-    const codeRows = KM.grades.map(g => { const ids = g.lessons.map((l, i) => g.n + '-' + (i + 1)), d = ids.filter(x => done[x]).length; return d ? '<div class="gp-r st-' + g.stage + '"><span class="gp-n">' + g.n + '-daraja</span><span class="bar"><b style="width:' + (d / ids.length * 100) + '%"></b></span><span class="gp-v">' + d + '/' + ids.length + '</span><span class="gp-c">' + (d === ids.length ? 'tugatdi' : '') + '</span></div>' : ''; }).join('');
+    const codeRows = KM.grades.concat(KM.tracks).map(g => { const ids = g.lessons.map((l, i) => g.n + '-' + (i + 1)), d = ids.filter(x => done[x]).length; return d ? '<div class="gp-r st-' + g.stage + '"><span class="gp-n">' + (g.kurs ? e(g.t) : g.n + '-daraja') + '</span><span class="bar"><b style="width:' + (d / ids.length * 100) + '%"></b></span><span class="gp-v">' + d + '/' + ids.length + '</span><span class="gp-c">' + (d === ids.length ? 'tugatdi' : '') + '</span></div>' : ''; }).join('');
     app.innerHTML = '<section class="ahead grid-bg"><div class="wrap ahead-in"><div><a class="back" href="' + (s.class_id ? '#admin-sinf-' + e(s.class_id) : '#admin-sinf-yoq') + '">← ' + e(s.class_name || 'Sinfsiz') + '</a><h1>' + e(s.full_name) + '</h1><p class="lead"><code class="lgc">' + e(s.login) + '</code> · ' + ago(s.last_seen) + (myClubs.length ? ' · ' + myClubs.map(c => e(c.name)).join(', ') : '') + '</p></div><div class="kpis sm"><div><b>' + X(s) + '</b><span>XP</span></div><div><b>' + s.lessons_done + '</b><span>dars</span></div><div><b>' + ((P.streak && P.streak.n) || 0) + '</b><span>kun seriya</span></div></div></div></section>' +
       '<section class="band"><div class="wrap two"><div><div class="panel"><h2>Rasm, emoji va stikerlar</h2><div id="se"></div><div class="acts"><button class="btn pri" id="sv1">Rasmni saqlash</button><span class="msg" id="m1" role="status"></span></div></div></div>' +
       '<div><form class="panel" id="f"><h2>Ma\'lumotlar</h2><label class="lab" for="nm">Ism va familiya</label><input class="inp" id="nm" value="' + e(s.full_name) + '" maxlength="80"><label class="lab" for="lg">Login</label><input class="inp mono" id="lg" value="' + e(s.login) + '" autocapitalize="off" spellcheck="false"><label class="lab" for="cl">Sinf</label><select class="inp" id="cl">' + classOpts(s.class_id) + '</select><div class="acts"><button class="btn pri">Saqlash</button><span class="msg" id="m2" role="status"></span></div></form>' +
@@ -220,7 +220,7 @@
   /* ---------- O'quvchi kodini ko'rish ---------- */
   function codeItems(P) {
     const out = [];
-    Object.keys(P.code || {}).forEach(id => { const L = KM.lesson(id); if (L) out.push({ title: L.g.n + '-daraja, ' + L.i + '. ' + L.l.t, done: !!(P.done || {})[id], code: P.code[id] }); });
+    Object.keys(P.code || {}).forEach(id => { const L = KM.lesson(id); if (L) out.push({ title: (L.g.kurs ? L.g.t : L.g.n + '-daraja') + ', ' + L.i + '. ' + L.l.t, done: !!(P.done || {})[id], code: P.code[id] }); });
     (P.projects || []).forEach(p => out.push({ title: 'Loyiha: ' + p.name, done: null, code: p }));
     return out;
   }

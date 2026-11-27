@@ -3,6 +3,7 @@
    Informatika darslari: content/informatika/sinf-XX.js → KM.inf({...}) (tools/build_informatika.py yaratadi) */
 window.KM = {
   grades: [],
+  tracks: [],
   infGrades: [],
   stages: {
     boshlang: { t: "Boshlang'ich sinflar", d: "1–4-sinf: kompyuter, algoritm va birinchi veb sahifa" },
@@ -13,6 +14,8 @@ window.KM = {
     informatika: { t: 'Informatika', d: "Fan darslari: o'qituvchi rejasi bo'yicha nazariya, test va uyga vazifa" },
     dasturlash: { t: 'Dasturlash', d: "HTML, CSS va JavaScript: kod yozib, avtomatik tekshiriladigan amaliyot" }
   },
+  /* Alohida kurslar (HTML, CSS, JS, Loyihalar): content/kurs-*.js → KM.kurs({ n: 'html', ... }) */
+  kurs(t) { t.kurs = true; this.tracks.push(t); this.tracks.sort((a, b) => (a.o || 0) - (b.o || 0)); },
   sinf(g) { this.grades.push(g); this.grades.sort((a, b) => a.n - b.n); },
   inf(g) { this.infGrades.push(g); this.infGrades.sort((a, b) => a.n - b.n); },
   esc(s) { return String(s).replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch])); },
@@ -20,9 +23,9 @@ window.KM = {
   x(code, lang) { return '<pre class="ex" data-l="' + (lang || 'html') + '"><code>' + KM.esc(code.trim()) + '</code></pre>'; },
   c(code) { return '<code>' + KM.esc(code) + '</code>'; },
   lesson(id) {
-    const [n, i] = String(id).split('-').map(Number);
-    const g = this.grades.find(g => g.n === n);
-    return g && g.lessons[i - 1] ? { g, l: g.lessons[i - 1], i, id: n + '-' + i } : null;
+    const s = String(id), k = s.lastIndexOf('-'), a = s.slice(0, k), i = +s.slice(k + 1);
+    const g = /^\d+$/.test(a) ? this.grades.find(g => g.n === +a) : this.tracks.find(t => t.n === a);
+    return g && g.lessons[i - 1] ? { g, l: g.lessons[i - 1], i, id: g.n + '-' + i } : null;
   },
   infLesson(id) {
     const [n, i] = String(id).split('-').map(Number);

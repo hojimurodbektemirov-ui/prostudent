@@ -2,7 +2,9 @@
 (function () {
   const st = KM.store, S = () => st.s, e = KM.esc, app = document.getElementById('app');
   const $ = (s, r) => (r || document).querySelector(s), $$ = (s, r) => [...(r || document).querySelectorAll(s)];
-  const G = () => KM.grades;
+  const G = () => KM.grades, T = () => KM.tracks, GA = () => KM.grades.concat(KM.tracks);
+  /* Sinf yoki kurs: nomi va sahifasi */
+  const gName = g => g.kurs ? g.t : g.n + '-sinf', gHref = g => (g.kurs ? '#kurs-' : '#sinf-') + g.n;
   let cleanup = [];
   KM.session = null;
   KM.onLeave = f => cleanup.push(f);
@@ -12,8 +14,8 @@
   const isDone = id => !!S().done[id];
   const gradeProg = g => { const n = g.lessons.length, d = lessonsOf(g).filter(x => isDone(x.id)).length; return { n, d, p: n ? d / n : 0 }; };
   const gradeDone = n => { const g = G().find(g => g.n === n); return !!g && gradeProg(g).d === g.lessons.length; };
-  const unlocked = (g, i) => !S().lock || i === 1 || isDone(g.n + '-' + (i - 1));
-  const total = () => G().reduce((a, g) => a + g.lessons.length, 0);
+  const unlocked = (g, i) => g.free || !S().lock || i === 1 || isDone(g.n + '-' + (i - 1));
+  const total = () => GA().reduce((a, g) => a + g.lessons.length, 0);
   const doneCount = () => Object.keys(S().done).filter(id => KM.lesson(id)).length;
   const me = () => KM.session && KM.session.user;
   const isAdmin = () => !!me() && (me().role === 'admin' || me().role === 'teacher');
@@ -26,14 +28,17 @@
   /* Dasturlash kursini qaysi darajadan boshlash: to'garak yoki sinf darajasi */
   const codeStart = () => { const gs = groups().filter(g => (g.courses || []).includes('dasturlash')); return gs.length ? Math.min(...gs.map(g => g.grade)) : 1; };
   function nextLesson() {
-    const lg = S().last ? +S().last.split('-')[0] : codeStart();
+    const L0 = S().last && KM.lesson(S().last);
+    if (L0 && L0.g.kurs) { const x = lessonsOf(L0.g).find(x => !isDone(x.id)); if (x) return x; }
+    const lg = L0 && !L0.g.kurs ? L0.g.n : codeStart();
     const order = [...G().filter(g => g.n >= lg), ...G().filter(g => g.n < lg)];
     for (const g of order) for (const x of lessonsOf(g)) if (!isDone(x.id)) return x;
     return null;
   }
   function nextHref(L) {
-    const gi = G().indexOf(L.g);
     if (L.i < L.g.lessons.length) return '#dars-' + L.g.n + '-' + (L.i + 1);
+    if (L.g.kurs) { const ti = T().indexOf(L.g); return T()[ti + 1] ? '#kurs-' + T()[ti + 1].n : '#dasturlash'; }
+    const gi = G().indexOf(L.g);
     if (G()[gi + 1]) return '#sinf-' + G()[gi + 1].n;
     return '#profil';
   }
@@ -134,6 +139,10 @@
     const p = gradeProg(g), mins = g.lessons.reduce((a, l) => a + l.min, 0), mine = !isAdmin() && hasCourse('dasturlash') && codeStart() === g.n;
     return '<a class="gc' + (p.d === p.n ? ' full' : '') + (mine ? ' mine' : '') + '" href="#sinf-' + g.n + '"><span class="gc-n">' + g.n + '<small>-daraja</small>' + (mine ? '<em>Sizdan boshlanadi</em>' : '') + '</span><span class="gc-t">' + e(g.t) + '</span><span class="gc-m">' + g.lessons.length + ' dars · ' + mins + ' daqiqa</span><span class="bar"><b style="width:' + (p.p * 100) + '%"></b></span><span class="gc-p">' + (p.d === p.n ? 'Tugatildi ✓' : p.d + ' / ' + p.n + ' dars') + '</span></a>';
   }
+  function tcard(t) {
+    const p = gradeProg(t), mins = t.lessons.reduce((a, l) => a + l.min, 0);
+    return '<a class="tc st-' + t.stage + (p.d === p.n ? ' full' : '') + '" href="#kurs-' + t.n + '"><span class="tc-i">' + e(t.ic || t.t.slice(0, 2)) + '</span><span class="tc-b"><b>' + e(t.t) + '</b><span class="muted">' + e(t.d) + '</span><span class="gc-m">' + t.lessons.length + (t.free ? ' loyiha' : ' dars') + ' · ' + mins + ' daqiqa</span><span class="bar"><b style="width:' + (p.p * 100) + '%"></b></span><span class="gc-p">' + (p.d === p.n ? 'Tugatildi ✓' : p.d + ' / ' + p.n) + '</span></span></a>';
+  }
   /* O'quvchi bosh sahifasi: sinf, to'garaklar, keyingi darslar, yangi materiallar */
   function home() {
     const u = me(), first = u.full_name.split(' ')[0], ig = infGradeOf(), IG = ig && KM.infGrades.find(g => g.n === ig);
@@ -167,37 +176,39 @@
   function codingHome() {
     const nx = nextLesson(), dc = doneCount(), tl = total();
     app.innerHTML = '<section class="ahead grid-bg"><div class="wrap ahead-in"><div><p class="pill-tag"><i></i>HTML · CSS · JavaScript</p><h1>Dasturlash</h1><p class="lead">Kod shu yerda yoziladi va avtomatik tekshiriladi. ' + dc + ' / ' + tl + ' dars tugatildi.</p></div><div class="acts">' +
-      (nx ? '<a class="btn pri big" href="#dars-' + nx.id + '">' + (dc ? 'Davom etish' : 'Boshlash') + ': ' + nx.g.n + '-daraja, ' + e(nx.l.t) + ' <span aria-hidden="true">→</span></a>' : '') + '<a class="btn ghost big" href="#maydon">Kod maydoni</a></div></div></section>' +
+      (nx ? '<a class="btn pri big" href="#dars-' + nx.id + '">' + (dc ? 'Davom etish' : 'Boshlash') + ': ' + e(nx.g.kurs ? nx.g.t : nx.g.n + '-daraja') + ', ' + e(nx.l.t) + ' <span aria-hidden="true">→</span></a>' : '') + '<a class="btn ghost big" href="#maydon">Kod maydoni</a></div></div></section>' +
+      (T().length ? '<section class="band tracks"><div class="wrap"><div class="stage-h"><p class="eyebrow-s">Asosiy yo\'nalish</p><h2>Kurslar va loyihalar</h2><p>Noldan boshlang: avval HTML, keyin CSS, so\'ng JavaScript. Har bir dars oddiydan murakkabga, oxirida o\'zingiz tayyor loyiha yasaysiz.</p></div><div class="tr-grid">' + T().map(tcard).join('') + '</div></div></section>' : '') +
+      '<section class="band"><div class="wrap"><div class="stage-h"><p class="eyebrow-s">Sinflar bo\'yicha</p><h2>1–11-sinf dasturi</h2><p>Har sinf uchun o\'z yoshiga mos darslar.</p></div></div></section>' +
       ['boshlang', 'orta', 'yuqori'].map(k => { const gs = G().filter(g => g.stage === k); if (!gs.length) return ''; return '<section class="band stage st-' + k + '"><div class="wrap"><div class="stage-h"><p class="eyebrow-s">' + e(KM.stages[k].d.split(':')[0]) + '</p><h2>' + e(KM.stages[k].t) + '</h2><p>' + e(KM.stages[k].d.split(': ')[1] || '') + '</p></div><div class="route r' + gs.length + '">' + gs.map(gcard).join('') + '</div></div></section>'; }).join('') +
       '<section class="band how"><div class="wrap"><h2>Dars qanday o\'tadi</h2><div class="how-in">' +
       '<div class="hw"><span class="hw-i">' + ICON.book + '</span><h3>Nazariya</h3><p>Qisqa tushuntirish va rangli kod misollari. Har bir misolni bir tugma bilan kod maydonida ochish mumkin.</p></div>' +
-      '<div class="hw"><span class="hw-i">' + ICON.quiz + '</span><h3>Test</h3><p>2–3 ta savol. Javob berilishi bilan to\'g\'ri yoki noto\'g\'ri ekani va sababi ko\'rsatiladi.</p></div>' +
+      '<div class="hw"><span class="hw-i">' + ICON.quiz + '</span><h3>Test</h3><p>10 tacha oson savol. Javob berilishi bilan to\'g\'ri yoki noto\'g\'ri ekani va sababi ko\'rsatiladi.</p></div>' +
       '<div class="hw"><span class="hw-i">' + ICON.code + '</span><h3>Amaliyot</h3><p>Chapda kod, o\'ngda jonli natija. "Tekshirish" har bir talabni alohida tekshiradi.</p></div>' +
       '</div></div></section>';
   }
 
   /* ---------- Sinf sahifasi ---------- */
   function grade(n) {
-    const g = G().find(g => g.n === n); if (!g) return notFound();
-    const p = gradeProg(g), gi = G().indexOf(g), pg = G()[gi - 1], ng = G()[gi + 1];
-    app.innerHTML = '<section class="ghead grid-bg st-' + g.stage + '"><div class="wrap ghead-in"><div><a class="back" href="#dasturlash">← Dasturlash</a><h1>' + g.n + '-sinf: ' + e(g.t) + '</h1><p class="lead">' + e(g.d) + '</p></div><div class="gring">' + ring(p.p, 88) + '<span><b>' + p.d + ' / ' + p.n + '</b>dars tugatildi</span></div></div></section>' +
+    const g = GA().find(g => g.n === n); if (!g) return notFound();
+    const L = g.kurs ? T() : G(), p = gradeProg(g), gi = L.indexOf(g), pg = L[gi - 1], ng = L[gi + 1];
+    app.innerHTML = '<section class="ghead grid-bg st-' + g.stage + '"><div class="wrap ghead-in"><div><a class="back" href="#dasturlash">← Dasturlash</a><h1>' + (g.kurs ? e(g.t) + ' kursi' : g.n + '-sinf: ' + e(g.t)) + '</h1><p class="lead">' + e(g.d) + '</p></div><div class="gring">' + ring(p.p, 88) + '<span><b>' + p.d + ' / ' + p.n + '</b>dars tugatildi</span></div></div></section>' +
       '<section class="band"><div class="wrap narrow"><ol class="path">' + lessonsOf(g).map(x => {
         const d = isDone(x.id), u = unlocked(g, x.i), q = S().quiz[x.id];
-        const meta = x.l.min + ' daqiqa · ' + (x.l.prac.type === 'robot' ? "Robot o'yini" : 'Kod yozish') + (q != null ? ' · Test: ' + q + '/' + x.l.quiz.length : '') + (d && S().done[x.id].stars ? ' · ' + '★'.repeat(S().done[x.id].stars) : '');
+        const meta = x.l.min + ' daqiqa · ' + (x.l.prac.type === 'robot' ? "Robot o'yini" : x.l.demo ? 'Loyiha' : 'Kod yozish') + (q != null ? ' · Test: ' + q + '/' + x.l.quiz.length : '') + (d && S().done[x.id].stars ? ' · ' + '★'.repeat(S().done[x.id].stars) : '');
         return '<li class="ls ' + (d ? 'done' : u ? 'open' : 'lock') + '"><span class="ls-dot">' + (d ? '✓' : u ? x.i : ICON.lock) + '</span><div class="ls-b"><h3>' + e(x.l.t) + '</h3><p>' + meta + '</p></div>' + (u ? '<a class="btn' + (d ? '' : ' pri') + '" href="#dars-' + x.id + '">' + (d ? 'Takrorlash' : 'Boshlash') + '</a>' : '<span class="ls-lk">Avvalgi darsni tugating</span>') + '</li>';
       }).join('') + '</ol>' +
-      (p.d === p.n && !isAdmin() ? '<div class="cert-cta"><div><h3>Tabriklaymiz! ' + g.n + '-sinf kursi tugadi.</h3><p>Sertifikatni chop etish yoki PDF qilib saqlash mumkin.</p></div><a class="btn pri" href="#sertifikat-' + g.n + '">Sertifikatni ochish</a></div>' : '') +
-      '<div class="gnav">' + (pg ? '<a class="btn" href="#sinf-' + pg.n + '">← ' + pg.n + '-sinf</a>' : '<span></span>') + (ng ? '<a class="btn" href="#sinf-' + ng.n + '">' + ng.n + '-sinf →</a>' : '') + '</div></div></section>';
+      (p.d === p.n && !isAdmin() ? '<div class="cert-cta"><div><h3>Tabriklaymiz! ' + e(g.kurs ? g.t : g.n + '-sinf') + ' kursi tugadi.</h3><p>Sertifikatni chop etish yoki PDF qilib saqlash mumkin.</p></div><a class="btn pri" href="#sertifikat-' + g.n + '">Sertifikatni ochish</a></div>' : '') +
+      '<div class="gnav">' + (pg ? '<a class="btn" href="' + gHref(pg) + '">← ' + e(gName(pg)) + '</a>' : '<span></span>') + (ng ? '<a class="btn" href="' + gHref(ng) + '">' + e(gName(ng)) + ' →</a>' : '') + '</div></div></section>';
   }
 
   /* ---------- Dars ---------- */
   function lesson(id, step) {
     const L = KM.lesson(id); if (!L) return notFound();
     const { g, l, i } = L;
-    if (!unlocked(g, i)) { app.innerHTML = '<section class="band"><div class="wrap narrow empty"><h1>Bu dars hali yopiq</h1><p>Avval ' + g.n + '-sinfning ' + (i - 1) + '-darsini tugating.</p><a class="btn pri" href="#dars-' + g.n + '-' + (i - 1) + '">' + (i - 1) + '-darsga o\'tish</a></div></section>'; return; }
+    if (!unlocked(g, i)) { app.innerHTML = '<section class="band"><div class="wrap narrow empty"><h1>Bu dars hali yopiq</h1><p>Avval ' + e(gName(g)) + ': ' + (i - 1) + '-darsni tugating.</p><a class="btn pri" href="#dars-' + g.n + '-' + (i - 1) + '">' + (i - 1) + '-darsga o\'tish</a></div></section>'; return; }
     if (S().last !== id) { S().last = id; st.save(); }
     const steps = [['', 'Nazariya'], ['test', 'Test'], ['amaliyot', 'Amaliyot']];
-    app.innerHTML = '<div class="lbar st-' + g.stage + '"><div class="lbar-in"><a class="back" href="#sinf-' + g.n + '">← ' + g.n + '-sinf</a><h1 class="lt">' + i + '. ' + e(l.t) + '</h1><nav class="steps" aria-label="Dars qadamlari">' +
+    app.innerHTML = '<div class="lbar st-' + g.stage + '"><div class="lbar-in"><a class="back" href="' + gHref(g) + '">← ' + e(gName(g)) + '</a><h1 class="lt">' + i + '. ' + e(l.t) + '</h1><nav class="steps" aria-label="Dars qadamlari">' +
       steps.map((s, j) => '<a href="#dars-' + id + (s[0] ? '-' + s[0] : '') + '" data-s="' + s[0] + '" class="' + (s[0] === step ? 'on' : '') + '"' + (s[0] === step ? ' aria-current="step"' : '') + '><i>' + (j + 1) + '</i>' + s[1] + '</a>').join('') + '</nav></div></div><div id="lv"></div>';
     markSteps(id);
     const v = $('#lv');
@@ -209,7 +220,7 @@
   }
   function theory(v, L) {
     const { l, id } = L;
-    v.innerHTML = '<article class="band"><div class="wrap narrow theory">' + l.theory + '<div class="key"><b>Asosiy fikr</b><p>' + e(l.key) + '</p></div><div class="acts end"><a class="btn pri big" href="#dars-' + id + '-test">Testga o\'tish →</a></div></div></article>';
+    v.innerHTML = '<article class="band"><div class="wrap narrow theory">' + l.theory + (l.demo ? '<div class="demo"><div class="obar"><span class="dot"></span>Tayyor namuna<small>shu loyihani o\'zingiz yasaysiz</small></div><iframe sandbox="allow-scripts allow-modals" title="Tayyor namuna"></iframe></div>' : '') + '<div class="key"><b>Asosiy fikr</b><p>' + e(l.key) + '</p></div><div class="acts end"><a class="btn pri big" href="#dars-' + id + '-test">Testga o\'tish →</a></div></div></article>';
     $$('pre.ex', v).forEach(p => {
       const c = p.querySelector('code'), lang = p.dataset.l, raw = c.textContent;
       c.innerHTML = KM.hl(raw, lang);
@@ -220,11 +231,12 @@
       };
       p.appendChild(b);
     });
+    if (l.demo) { const P = l.prac; KM.run($('.demo iframe', v), Object.assign({ html: P.html || '', css: P.css || '', js: P.js || '' }, P.sol), null, () => {}); }
   }
   function quiz(v, L) {
     const { l, id } = L;
     v.innerHTML = '<div class="band"><div class="wrap narrow"><div id="cqz"></div></div></div>';
-    KM.quiz.box($('#cqz', v), l.quiz.concat((KM.moreQuiz || {})[id] || []), { key: 'k' + id, title: L.g.n + '-daraja: ' + l.t, href: '#dars-' + id + '-test',
+    KM.quiz.box($('#cqz', v), l.quiz.concat((KM.moreQuiz || {})[id] || []), { key: 'k' + id, title: (L.g.kurs ? L.g.t : L.g.n + '-daraja') + ': ' + l.t, href: '#dars-' + id + '-test',
       extra: '<div class="acts"><a class="btn pri" href="#dars-' + id + '-amaliyot">Amaliyotga o\'tish →</a></div>',
       onFinish: r => { const best = S().quiz[id]; S().quiz[id] = Math.max(r.first, best == null ? -1 : best); st.save(); chips(); markSteps(id); } });
   }
@@ -508,14 +520,14 @@
 
   /* ---------- Sertifikat ---------- */
   function cert(n) {
-    const g = G().find(g => g.n === n); if (!g) return notFound();
-    const p = gradeProg(g);
-    if (p.d < p.n) { app.innerHTML = '<section class="band"><div class="wrap narrow empty"><h1>Sertifikat hali tayyor emas</h1><p>' + g.n + '-sinfning hamma darslarini tugating: hozir ' + p.d + ' / ' + p.n + '.</p><a class="btn pri" href="#sinf-' + n + '">Darslarga qaytish</a></div></section>'; return; }
+    const g = GA().find(g => g.n === n); if (!g) return notFound();
+    const p = gradeProg(g), cn = g.kurs ? '«' + g.t + '» kursi' : g.n + '-sinf dasturlash kursi «' + g.t + '»';
+    if (p.d < p.n) { app.innerHTML = '<section class="band"><div class="wrap narrow empty"><h1>Sertifikat hali tayyor emas</h1><p>' + e(gName(g)) + ': hamma darslarni tugating, hozir ' + p.d + ' / ' + p.n + '.</p><a class="btn pri" href="' + gHref(g) + '">Darslarga qaytish</a></div></section>'; return; }
     const last = Math.max(...lessonsOf(g).map(x => S().done[x.id].at || 0)), d = new Date(last || Date.now());
-    app.innerHTML = '<section class="band"><div class="wrap"><div class="cert st-' + g.stage + '"><div class="cert-in"><p class="cert-k">' + e(KM.config.schoolName || 'ZIS ProStudent') + ' · Dasturlash to\'garagi</p><h1>Sertifikat</h1><p>Ushbu sertifikat</p><p class="cert-n">' + e(me().full_name) + '</p><p>ga <b>' + g.n + '-sinf</b> dasturlash kursi <b>«' + e(g.t) + '»</b> ni muvaffaqiyatli tamomlagani uchun beriladi.</p><div class="cert-f"><div><b>' + g.lessons.length + ' dars</b><span>nazariya, test, amaliyot</span></div><div><b>' + d.toLocaleDateString('uz-UZ') + '</b><span>sana</span></div><div><b class="sig"></b><span>To\'garak rahbari</span></div></div><div class="cert-v" id="cv"></div></div></div>' +
-      '<div class="acts noprint"><button class="btn pri" id="pr">Chop etish yoki PDF</button><a class="btn" href="#sinf-' + n + '">Orqaga</a></div></div></section>';
+    app.innerHTML = '<section class="band"><div class="wrap"><div class="cert st-' + g.stage + '"><div class="cert-in"><p class="cert-k">' + e(KM.config.schoolName || 'ZIS ProStudent') + ' · Dasturlash to\'garagi</p><h1>Sertifikat</h1><p>Ushbu sertifikat</p><p class="cert-n">' + e(me().full_name) + '</p><p>ga <b>' + e(cn) + '</b> ni muvaffaqiyatli tamomlagani uchun beriladi.</p><div class="cert-f"><div><b>' + g.lessons.length + ' dars</b><span>nazariya, test, amaliyot</span></div><div><b>' + d.toLocaleDateString('uz-UZ') + '</b><span>sana</span></div><div><b class="sig"></b><span>To\'garak rahbari</span></div></div><div class="cert-v" id="cv"></div></div></div>' +
+      '<div class="acts noprint"><button class="btn pri" id="pr">Chop etish yoki PDF</button><a class="btn" href="' + gHref(g) + '">Orqaga</a></div></div></section>';
     $('#pr').onclick = () => { try { window.print(); } catch (err) {} };
-    if (!isAdmin()) KM.api.certIssue('kod-' + n, g.n + '-sinf dasturlash kursi «' + g.t + '»', g.lessons.length).then(c => {
+    if (!isAdmin()) KM.api.certIssue('kod-' + n, cn, g.lessons.length).then(c => {
       const el = $('#cv'); if (!el || !c || !c.code) return;
       const url = location.origin + location.pathname.replace(/index\.html$/, '') + '#tekshirish-' + c.code;
       let svg = ''; try { const q = qrcode(0, 'M'); q.addData(url); q.make(); svg = q.createSvgTag({ cellSize: 3, margin: 0, scalable: true }); } catch (x) {}
@@ -541,6 +553,7 @@
     if (p[0] === 'admin') { if (!isAdmin()) { location.hash = 'bosh'; return; } nav = /^admin-(topshiriq|jurnal)/.test(h) ? 'admin-topshiriqlar' : 'admin'; KM.admin.route(h, app); }
     else if (p[0] === 'dasturlash') { nav = 'dasturlash'; codingHome(); }
     else if (p[0] === 'sinf') { nav = 'dasturlash'; grade(+p[1]); }
+    else if (p[0] === 'kurs') { nav = 'dasturlash'; grade(p[1]); }
     else if (p[0] === 'dars') { nav = 'dasturlash'; lesson(p[1] + '-' + p[2], p[3] || ''); }
     else if (p[0] === 'informatika') { nav = 'informatika'; infIndex(); }
     else if (p[0] === 'inf') { nav = 'informatika'; infGradePage(+p[1]); }
@@ -553,7 +566,7 @@
     else if (p[0] === 'takrorlash') { nav = 'bosh'; KM.quiz.review(app); }
     else if (p[0] === 'maydon') { nav = 'maydon'; p[1] ? maydonEd(p[1]) : maydon(); }
     else if (p[0] === 'profil') { if (isAdmin()) { location.hash = 'admin'; return; } profil(); }
-    else if (p[0] === 'sertifikat') cert(+p[1]);
+    else if (p[0] === 'sertifikat') cert(/^\d+$/.test(p[1]) ? +p[1] : p[1]);
     else if (isAdmin()) { location.hash = 'admin'; return; }
     else { nav = 'bosh'; home(); }
     header();
