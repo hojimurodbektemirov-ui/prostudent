@@ -532,19 +532,56 @@
   };
 
   /* ---------- Sertifikat ---------- */
+  /* Sertifikat: ikki dizayn. a = klassik (sinf kurslari), b = sertifikatsiya (alohida kurslar va AI). O'quvchi ikkinchisiga ham o'ta oladi. */
+  function certA(D) {
+    return '<div class="cx cx-a"><i class="cxa-band"></i><i class="cxa-c1"></i><i class="cxa-c2"></i><img class="cxa-wm" src="assets/img/zis-emblem.png" alt="">' +
+      '<div class="cxa-in"><p class="cxa-k">ZIS ProStudent · Zafar International School</p><div class="cxa-mid">' +
+      '<div class="cxa-tr"><img class="cxa-em" src="assets/img/zis-emblem.png" alt="ZIS"><h1 class="cxa-t">Sertifikat</h1><img class="cxa-hx" src="assets/img/zis-it-green.svg" alt="ZIS IT Department"></div>' +
+      '<p class="cxa-u">Ushbu sertifikat</p><p class="cxa-n' + (D.name.length > 26 ? ' long' : '') + '">' + e(D.name) + '</p>' +
+      '<p class="cxa-d">ga <b>' + e(D.course) + '</b> ni muvaffaqiyatli tamomlagani uchun beriladi.</p></div>' +
+      '<div class="cxa-ft"><div class="cx-qr"><span class="q">' + D.qr + '</span><span><b>' + e(D.code) + '</b><small>Haqiqiylik kodi. QR kodni skanerlang yoki saytda tekshiring</small></span></div>' +
+      '<div class="cxa-st"><div><b>' + D.lessons + ' dars</b><small>nazariya, test, amaliyot</small></div><div><b>' + D.date + '</b><small>sana</small></div></div>' +
+      '<div class="cx-sg"><img src="assets/img/imzo.png" alt="Imzo"><div class="ln"></div><b>Bektemirov Xojimurod, MSc</b><small>Head of ZIS IT Department</small></div></div></div></div>';
+  }
+  function certB(D) {
+    return '<div class="cx cx-b"><i class="cxb-diag"></i><i class="cxb-diag2"></i>' +
+      '<div class="cxb-side"><img class="cxb-zis" src="assets/img/zis-logo-white.png" alt="Zafar International School"><div class="cxb-hr"></div>' +
+      '<div class="cxb-it"><img src="assets/img/zis-it-green.svg" alt=""><div class="w"><b>ZIS</b><span>IT<br>Department</span></div></div>' +
+      '<div class="cxb-badge"><svg viewBox="0 0 220 220"><defs><linearGradient id="cxbf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6ee7b7"/><stop offset="1" stop-color="#10b981"/></linearGradient><path id="cxbp" d="M110 110m-86 0a86 86 0 1 1 172 0a86 86 0 1 1-172 0"/></defs>' +
+      '<circle cx="110" cy="110" r="104" fill="none" stroke="url(#cxbf)" stroke-width="5"/><circle cx="110" cy="110" r="96" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.25)"/>' +
+      '<text font-family="JetBrains Mono" font-weight="700" font-size="13" letter-spacing="4" fill="#a7f3d0"><textPath href="#cxbp">ZIS PROSTUDENT • CERTIFIED • ' + D.year + ' •</textPath></text>' +
+      '<image href="assets/img/zis-it-green.svg" x="62" y="62" width="96" height="96"/></svg></div></div>' +
+      '<div class="cxb-in"><p class="cxb-k">ZIS PROSTUDENT · CERTIFICATION</p><h1 class="cxb-t">Sertifikat</h1>' +
+      '<p class="cxb-p">Ushbu sertifikat egasi · This certifies that</p><p class="cxb-n' + (D.name.length > 30 ? ' long' : '') + '">' + e(D.name) + '</p>' +
+      '<p class="cxb-c">' + e(D.course) + ' ni muvaffaqiyatli tamomladi</p>' +
+      '<div class="cxb-meta"><div><b>' + D.lessons + ' dars</b>nazariya, test, amaliyot</div><div><b>' + D.date + '</b>berilgan sana</div><div><b>' + e(D.code) + '</b>sertifikat ID</div></div>' +
+      '<div class="cxb-bot"><div class="cx-sg"><img src="assets/img/imzo.png" alt="Imzo"><div class="ln"></div><b>Bektemirov Xojimurod, MSc</b><small>Head of ZIS IT Department</small></div>' +
+      '<div class="cxb-qr">' + D.qr + '<span>' + e(D.host) + '</span></div></div></div></div>';
+  }
   function cert(n) {
     const g = GA().find(g => g.n === n); if (!g) return notFound();
     const p = gradeProg(g), cn = g.kurs ? '«' + g.t + '» kursi' : g.n + '-sinf dasturlash kursi «' + g.t + '»';
     if (p.d < p.n) { app.innerHTML = '<section class="band"><div class="wrap narrow empty"><h1>Sertifikat hali tayyor emas</h1><p>' + e(gName(g)) + ': hamma darslarni tugating, hozir ' + p.d + ' / ' + p.n + '.</p><a class="btn pri" href="' + gHref(g) + '">Darslarga qaytish</a></div></section>'; return; }
-    const last = Math.max(...lessonsOf(g).map(x => S().done[x.id].at || 0)), d = new Date(last || Date.now());
-    app.innerHTML = '<section class="band"><div class="wrap"><div class="cert st-' + g.stage + '"><div class="cert-in"><p class="cert-k">' + e(KM.config.schoolName || 'ZIS ProStudent') + ' · ' + (g.sec ? e(g.t) : 'Dasturlash to\'garagi') + '</p><h1>Sertifikat</h1><p>Ushbu sertifikat</p><p class="cert-n">' + e(me().full_name) + '</p><p>ga <b>' + e(cn) + '</b> ni muvaffaqiyatli tamomlagani uchun beriladi.</p><div class="cert-f"><div><b>' + g.lessons.length + ' dars</b><span>nazariya, test, amaliyot</span></div><div><b>' + d.toLocaleDateString('uz-UZ') + '</b><span>sana</span></div><div><b class="sig"></b><span>To\'garak rahbari</span></div></div><div class="cert-v" id="cv"></div></div></div>' +
-      '<div class="acts noprint"><button class="btn pri" id="pr">Chop etish yoki PDF</button><a class="btn" href="' + gHref(g) + '">Orqaga</a></div></div></section>';
+    const last = Math.max(...lessonsOf(g).map(x => S().done[x.id].at || 0)), d = new Date(last || Date.now()), z = x => String(x).padStart(2, '0');
+    const D = { name: me().full_name, course: cn, lessons: g.lessons.length, date: z(d.getDate()) + '.' + z(d.getMonth() + 1) + '.' + d.getFullYear(), year: d.getFullYear(), code: '…', qr: '', host: location.host || 'prostudent.uz' };
+    let view = g.kurs ? 'b' : 'a';
+    document.body.classList.add('cert-page'); cleanup.push(() => document.body.classList.remove('cert-page'));
+    app.innerHTML = '<section class="band cert-band"><div class="wrap"><div class="acts noprint cert-bar"><div class="cseg" role="group" aria-label="Sertifikat ko\'rinishi"><button class="btn sm" data-v="a">1-ko\'rinish</button><button class="btn sm" data-v="b">2-ko\'rinish</button></div>' +
+      '<button class="btn pri" id="pr">Chop etish yoki PDF</button><a class="btn" href="' + gHref(g) + '">Orqaga</a></div><div class="cx-wrap" id="cxw"></div>' +
+      '<p class="muted noprint cert-tip">Chop etishda "Landshaft" (yotiq) va "Fon grafikasi" ni yoqing. PDF uchun printer o\'rniga "PDF sifatida saqlash" ni tanlang.</p></div></section>';
+    const w = $('#cxw');
+    const fit = () => { const c = w.firstChild; if (!c) return; const k = Math.min(1, w.clientWidth / 1123); c.style.transform = 'scale(' + k + ')'; w.style.height = Math.ceil(794 * k) + 'px'; };
+    const draw = () => { w.innerHTML = view === 'a' ? certA(D) : certB(D); $$('.cert-bar [data-v]').forEach(b => b.classList.toggle('pri', b.dataset.v === view)); fit(); };
+    $$('.cert-bar [data-v]').forEach(b => b.onclick = () => { view = b.dataset.v; draw(); });
+    window.addEventListener('resize', fit); cleanup.push(() => window.removeEventListener('resize', fit));
     $('#pr').onclick = () => { try { window.print(); } catch (err) {} };
+    draw();
     if (!isAdmin()) KM.api.certIssue('kod-' + n, cn, g.lessons.length).then(c => {
-      const el = $('#cv'); if (!el || !c || !c.code) return;
+      if (!c || !c.code || !$('#cxw')) return;
       const url = location.origin + location.pathname.replace(/index\.html$/, '') + '#tekshirish-' + c.code;
-      let svg = ''; try { const q = qrcode(0, 'M'); q.addData(url); q.make(); svg = q.createSvgTag({ cellSize: 3, margin: 0, scalable: true }); } catch (x) {}
-      el.innerHTML = '<div class="cert-qr">' + svg + '</div><div><b>Haqiqiylik kodi: ' + e(c.code) + '</b><span>QR kodni skanerlang yoki ' + e(url.replace(/^https?:\/\//, '')) + ' manzilida tekshiring</span></div>';
+      D.code = c.code;
+      try { const q = qrcode(0, 'M'); q.addData(url); q.make(); D.qr = q.createSvgTag({ cellSize: 3, margin: 0, scalable: true }); } catch (x) {}
+      draw();
     }).catch(() => {});
   }
   function notFound() { app.innerHTML = '<section class="band"><div class="wrap narrow empty"><h1>Sahifa topilmadi</h1><p>Bunday sahifa yo\'q yoki o\'chirilgan.</p><a class="btn pri" href="#bosh">Bosh sahifaga</a></div></section>'; }
