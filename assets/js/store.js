@@ -37,7 +37,7 @@
       s.streak.n = s.streak.last === y ? s.streak.n + 1 : 1;
       s.streak.last = t;
     },
-    addXP(n) { s.xp += n; this.touch(); save(); },
-    level() { return Math.floor(s.xp / 100) + 1; }
+    addXP(n) { s.xp += n; const d = new Date().toDateString(); if (!s.day || s.day.d !== d) s.day = { d, xp: 0 }; s.day.xp += n; this.touch(); save(); },
+    level() { return KM.quiz ? KM.quiz.level(s.xp).lv : 1; }
   };
 })();

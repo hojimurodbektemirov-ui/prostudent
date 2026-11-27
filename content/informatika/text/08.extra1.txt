@@ -1,0 +1,348 @@
+# 1
+**Ma'lumot → axborot → bilim:** ma'lumot — faktlar (36.6); axborot — ma'noli ma'lumot ("harorat normal"); bilim — axborotni qo'llay olish ("isitma bo'lmasa, darsga boraman").
+**Manbalar:** **bevosita** (o'zingiz to'plagan: so'rovnoma, kuzatish, o'lchash) — aniq, lekin vaqt talab qiladi; **bilvosita** (boshqalar to'plagan: kitob, sayt, statistika) — tez, lekin eskirgan yoki noaniq bo'lishi mumkin.
+**Axborot sifati:** aniqlik, dolzarblik, to'liqlik, ishonchlilik, foydalilik.
+? Kuzatish qanday manba? | Bevosita | Bilvosita | Manba emas
+? Statistika qo'mitasi ma'lumoti qanday manba? | Bilvosita | Bevosita | Shaxsiy
+? Bevosita manbaning kamchiligi? | Ko'p vaqt va kuch talab qiladi | Doim eskirgan | Ishonchsiz
+? Axborot dolzarbligi nima? | Hozirgi vaqtga mosligi | Uzunligi | Rangi
+? To'liq bo'lmagan axborot nimaga olib keladi? | Noto'g'ri qarorga | Yaxshi natijaga | Hech narsaga
+? Bilim nima? | Axborotni tushunib, qo'llay olish | Faqat raqamlar | Fayl
+? Ishonchli axborot belgisi? | Tasdiqlangan manba | Noma'lum muallif | Shov-shuvli sarlavha
+? Ortiqcha (keraksiz) axborot nima qiladi? | Muhimini topishni qiyinlashtiradi | Foydali | Farqi yo'q
+
+# 2
+**Kodlash** — axborotni boshqa belgilar bilan ifodalash (ASCII, Unicode, Morze); maqsad — saqlash va uzatish. **Shifrlash** — maxfiylik uchun.
+**Simmetrik** — bitta kalit (tez, lekin kalitni xavfsiz yetkazish qiyin). **Asimmetrik** — ochiq kalit (shifrlash) + yopiq kalit (ochish); HTTPS shundan foydalanadi.
+? Belgilarni sonlar bilan kodlash standarti? | Unicode (ASCII) | HTML | JPEG
+? Simmetrik shifrlash kamchiligi? | Kalitni xavfsiz yetkazish qiyin | Juda sekin | Ochib bo'lmaydi
+? Ochiq kalit kimga beriladi? | Hammaga | Hech kimga | Faqat serverga
+? Yopiq kalit kimda saqlanadi? | Faqat egasida | Hammada | Internetda
+? Sezar shifri qanday shifrlash? | Simmetrik | Asimmetrik | Kodlash emas
+? AES qanday algoritm? | Simmetrik shifrlash | Asimmetrik | Siqish
+? RSA qanday algoritm? | Asimmetrik shifrlash | Simmetrik | Rasm formati
+? Kodlashning kamchiligi? | Jadval/kalitni bilmasa o'qib bo'lmaydi | Hajmni doim oshiradi | Hech qanday
+
+# 3
+**Validatsiya (tekshiruv) turlari:** **oraliq** (yosh 6–18), **tur** (son yoki matn), **uzunlik** (parol 8+), **format** (sana DD.MM.YYYY), **mavjudlik** (majburiy maydon), **nazorat raqami** (karta, ISBN).
+**Verifikatsiya** — ko'chirishda xato bo'lmaganini tekshirish (ikki marta kiritish, vizual).
+? Bo'sh qoldirib bo'lmaydigan maydon tekshiruvi? | Mavjudlik (presence) | Oraliq | Format
+? Parol kamida 8 belgi — qaysi tekshiruv? | Uzunlik | Tur | Oraliq
+? Sana DD.MM.YYYY shaklida — qaysi tekshiruv? | Format | Oraliq | Uzunlik
+? Karta raqamidagi oxirgi raqam nima uchun? | Nazorat raqami (xatoni aniqlash) | Bezak | Bank kodi
+? Validatsiya ma'lumotning haqiqatan to'g'riligini kafolatlaydimi? | Yo'q, faqat mantiqiyligini | Ha | Doim
+? Yoshga "abc" kiritilsa qaysi tekshiruv ushlaydi? | Tur tekshiruvi | Uzunlik | Mavjudlik
+? Verifikatsiya va validatsiya farqi? | Verifikatsiya — to'g'ri ko'chirilgani, validatsiya — mantiqiyligi | Farqi yo'q | Ikkisi bir xil
+? Email'da @ borligini tekshirish? | Format tekshiruvi | Oraliq | Mavjudlik
+
+# 4
+**Vizual tekshirish** — kiritilgan ma'lumotni asl hujjat bilan ko'z bilan solishtirish (oson, lekin odam xato qiladi). **Ikki marta kiritish** — ma'lumot ikki marta kiritiladi va kompyuter solishtiradi (parolni takrorlash, email tasdiqlash).
+? Ikki marta kiritishning kamchiligi? | Ko'proq vaqt | Xatoni topmaydi | Imkoni yo'q
+? Ikki marta bir xil xato kiritilsa? | Xato aniqlanmaydi | Aniqlanadi | Kompyuter tuzatadi
+? Vizual tekshirish qachon qulay? | Kam ma'lumot bo'lganda | Million yozuvda | Hech qachon
+? Bank o'tkazmasida karta raqamini qayta ko'rsatish qaysi usul? | Vizual tekshirish | Ikki marta kiritish | Shifrlash
+? Ikki kishi bir ma'lumotni alohida kiritib solishtirish? | Ikki marta kiritish | Vizual | Format
+? Verifikatsiyaning maqsadi? | Ko'chirish xatolarini topish | Shifrlash | Siqish
+? Email manzilini ikki marta yozdirish nima uchun? | Xato manzil kiritilmasligi uchun | Bezak | Kerak emas
+? Qaysi biri avtomatik verifikatsiya? | Ikki marta kiritish | Vizual | Hech qaysi
+
+# 5
+**Ichki qurilmalar:** ona plata, protsessor (CPU), tezkor xotira (RAM), videokarta (GPU), quvvat bloki, SSD/HDD, sovitish tizimi. **Tashqi (periferiya):** monitor, klaviatura, sichqoncha, printer, skaner, karnay, veb-kamera.
+? Kompyuterga tok beradigan ichki qism? | Quvvat bloki | Videokarta | RAM
+? Grafika va o'yinlar uchun muhim qism? | Videokarta (GPU) | Klaviatura | Printer
+? 3D printer qanday qurilma? | Chiqarish | Kiritish | Saqlash
+? Protsessorni sovitish uchun nima kerak? | Radiator va ventilyator | Monitor | Kabel
+? Port misoli? | USB, HDMI | RAM | CPU
+? HDMI orqali nima ulanadi? | Monitor yoki televizor | Sichqoncha xolos | Tok
+? Grafik planshet qanday qurilma? | Kiritish | Chiqarish | Saqlash
+? Ona plata nima? | Barcha qismlarni bog'lovchi asosiy plata | Monitor | Kabel
+
+# 6
+**Xotira:** **asosiy** — RAM (o'zgaruvchan, tez), ROM (o'zgarmas, BIOS/UEFI); **ikkilamchi** — HDD (magnit), SSD (flesh), optik disk, fleshka, bulut.
+**Tizimli dasturlar:** operatsion tizim, drayverlar (qurilma bilan ishlash), utilitalar (antivirus, arxivator, diskni tozalash).
+? Kompyuter yoqilganda birinchi ishga tushadigan dastur qayerda? | ROM (BIOS/UEFI) | RAM | Fleshka
+? Magnit diskli xotira? | HDD | SSD | RAM
+? Printer drayveri o'rnatilmasa? | Printer ishlamaydi | Tezroq ishlaydi | Farqi yo'q
+? Utilitaga misol? | Antivirus, arxivator | Word | O'yin
+? Bulutli saqlash afzalligi? | Istalgan joydan kirish | Internetsiz ishlash | Cheksiz tezlik
+? Optik disk misoli? | DVD | SSD | RAM
+? Virtual xotira nima? | RAM yetmaganda diskning bir qismi ishlatiladi | Bulut | Fleshka
+? Diskni defragmentatsiya qilish qaysi disk uchun? | HDD | SSD | RAM
+
+# 7
+**Amaliy dasturlar:** matn, jadval, taqdimot, grafik, multimedia, brauzer, ta'lim. **Foto muharrirlar:** GIMP (bepul), Photoshop, Photopea (onlayn). **Asosiy amallar:** qatlamlar, qirqish, rang tuzatish, retush, filtrlar.
+? Brauzerda ishlaydigan bepul foto muharrir? | Photopea | Excel | Audacity
+? Qatlamlarning afzalligi? | Qismlarni alohida tahrirlash | Hajm kamayadi | Kerak emas
+? Rasmdagi dog'larni yo'qotish? | Retush (shtamp/tiklash asbobi) | Kesish | Aylantirish
+? Yorqinlik/kontrast qaysi amal? | Rang tuzatish | Qirqish | Qatlam
+? GIMP qanday dastur? | Bepul rastr muharrir | Matn muharriri | O'yin
+? Fonni olib tashlash usuli? | Ajratish va o'chirish yoki niqob | Kattalashtirish | Rang qo'shish
+? Foto muharrir loyihasi formati (GIMP)? | XCF | MP3 | DOCX
+? Amaliy dastur nima? | Foydalanuvchi vazifasi uchun dastur | OT | Drayver
+
+# 8
+**Video muharrirlar:** Shotcut, DaVinci Resolve, CapCut, Clipchamp. **Montaj:** kesish, o'tishlar, titrlar, ovoz, eksport.
+**Veb ishlab chiqish:** kod muharrirlari (VS Code, Sublime), WYSIWYG (ko'rib turib yaratish: Google Sites, Wix), brauzer dasturchi vositalari (F12).
+? WYSIWYG nima? | Ko'rgan narsangiz natija bo'ladigan muharrir | Kod muharriri | Video format
+? Brauzer dasturchi vositalari tugmasi? | F12 | F1 | F5
+? Videoga sarlavha yozuvi? | Titr | Fade | Kodek
+? Bepul professional video muharrir? | DaVinci Resolve | Paint | Notepad
+? Kod muharririning afzalligi? | Sintaksisni rangli ko'rsatish, avto-to'ldirish | Rasm chizadi | Video kesadi
+? Google Sites qanday vosita? | Kodsiz sayt yaratish | Kod muharriri | Antivirus
+? Video eksportda kodek nima? | Videoni siqish usuli | Rang | Subtitr
+? Montajda kadrni ikkiga bo'lish? | Split (kesish) | Fade | Render
+
+# 9
+**Interfeys elementlari:** tugma, matn maydoni, **radio tugma** (bitta tanlov), **belgilash qutisi** (bir nechta), ochiladigan ro'yxat, slayder, menyu, dialog oynasi.
+**Utilitalar:** antivirus, arxivator, diskni tozalash, zaxira. **Buyurtma dastur** — maxsus talabga moslab yoziladi (qimmat, uzoq); **tayyor dastur** — arzon, tez, lekin hamma talabga mos emas.
+? Bitta variant tanlash elementi? | Radio tugma | Belgilash qutisi | Slayder
+? Ovoz balandligini sozlash elementi? | Slayder | Radio tugma | Matn maydoni
+? Tayyor dasturning afzalligi? | Arzon va darhol ishlatsa bo'ladi | Hamma talabga mos | Bepul doim
+? Buyurtma dasturning afzalligi? | Aniq ehtiyojga moslangan | Arzon | Tez tayyor
+? Yaxshi interfeys tamoyili? | Sodda, tushunarli, izchil | Murakkab | Tasodifiy
+? Dialog oynasi nima uchun? | Foydalanuvchidan tasdiq yoki ma'lumot so'rash | Bezak | Video
+? Diskni tozalash utilitasi nima qiladi? | Keraksiz fayllarni o'chiradi | Virus yozadi | Rasm chizadi
+? Ochiladigan ro'yxatning afzalligi? | Joy tejaydi, xato kamayadi | Ko'p joy egallaydi | Kerak emas
+
+# 10
+**Loyiha hayotiy sikli:** tahlil (muammo, talablar) → loyihalash (dizayn, reja) → ishlab chiqish → sinov → joriy qilish → baholash.
+**SMART maqsad:** aniq, o'lchanadigan, erishiladigan, dolzarb, muddatli (T — Time-bound).
+? Loyihaning birinchi bosqichi? | Tahlil | Sinov | Joriy qilish
+? Sinov bosqichida nima qilinadi? | Xatolar topiladi va tuzatiladi | Muammo aniqlanadi | Reklama qilinadi
+? Gant diagrammasi nima? | Loyiha vazifalari vaqt jadvali | Doiraviy diagramma | Tarmoq sxemasi
+? Muddatli (Time-bound) maqsad misoli? | "15-dekabrgacha" | "Tez orada" | "Qachondir"
+? Joriy qilish nima? | Tayyor mahsulotni ishlatishga topshirish | Rejalash | Tahlil
+? Loyiha xavflari (risklar) nima uchun aniqlanadi? | Oldindan choralar ko'rish uchun | Kerak emas | Qo'rqitish uchun
+? Jamoada vazifalarni taqsimlash nima beradi? | Samaradorlik | Chalkashlik | Hech narsa
+? Baholash bosqichida? | Natija maqsadga mos keldimi — tahlil | Kod yozish | Muammo izlash
+
+# 12
+**Sensorlar:** harakat (infraqizil, PIR), bosim, harorat (termistor), namlik, yorug'lik (fotorezistor), tovush, gaz, masofa (ultratovush).
+**Analog → raqamli:** sensor signali **ADC** (analog-raqamli o'zgartirgich) orqali kompyuterga keladi. **Monitoring** va **boshqaruv** tizimlari (issiqxona, aqlli uy).
+? Masofani o'lchovchi sensor? | Ultratovush sensori | Harorat | Namlik
+? Issiqxonada namlik pasaysa avtomatik sug'orish — qanday tizim? | Boshqaruv tizimi | Monitoring xolos | Qo'lda
+? Monitoring va boshqaruv farqi? | Monitoring kuzatadi, boshqaruv harakat qiladi | Farqi yo'q | Boshqaruv faqat yozadi
+? Avtomatik eshik qaysi sensor bilan? | Harakat (PIR) | Namlik | Gaz
+? ADC nima qiladi? | Analog signalni raqamliga aylantiradi | Teskarisini | Shifrlaydi
+? Tutun detektori qanday sensor? | Gaz/tutun sensori | Yorug'lik | Bosim
+? Sensorli tizimning afzalligi? | 24/7 aniq kuzatuv, odamsiz | Arzon doim | Xato qilmaydi hech qachon
+? Telefon ekranini qulfdan ochadigan barmoq izi qurilmasi? | Biometrik sensor | Harorat | Namlik
+
+# 13
+**Elektron xavfsizlik uchligi (CIA):** **maxfiylik** (faqat ruxsat etilganlar ko'radi), **yaxlitlik** (ruxsatsiz o'zgarmaydi), **mavjudlik** (kerak bo'lganda ishlaydi).
+**Choralar:** autentifikatsiya (parol, biometriya, 2FA), shifrlash, zaxira, firewall, yangilanishlar.
+? Sayt DDoS hujumi tufayli ishlamay qolsa, qaysi tamoyil buziladi? | Mavjudlik | Maxfiylik | Yaxlitlik
+? Autentifikatsiya nima? | Foydalanuvchi shaxsini tasdiqlash | Shifrlash | Zaxira
+? Biometrik autentifikatsiya misoli? | Barmoq izi, yuz | Parol | PIN
+? Avtorizatsiya nima? | Nimaga ruxsat borligini belgilash | Kirish | Shifrlash
+? Ma'lumot yo'qolishiga qarshi chora? | Muntazam zaxira | Firewall xolos | Monitor
+? 2FA'da "egalik qilish" omili misoli? | Telefon (SMS/ilova kodi) | Parol | Ism
+? Xeshlash nima uchun (parollar)? | Parolni ochiq saqlamaslik uchun | Tezlik | Bezak
+? Ijtimoiy muhandislikka qarshi eng yaxshi chora? | Xabardorlik va ehtiyotkorlik | Antivirus xolos | Router
+
+# 14
+**Tahdidlar:** **phishing** (soxta xat/sayt), **pharming** (soxta saytga avtomatik yo'naltirish), **vishing** (telefon), **smishing** (SMS), **troyan** (foydali niqobidagi zararli dastur), **worm** (o'zini tarqatadi), **spyware** (josuslik), **adware** (reklama), **rootkit** (yashirin boshqaruv), **ransomware** (shifrlab to'lov talab qiladi).
+? SMS orqali aldash? | Smishing | Vishing | Pharming
+? Foydali dastur niqobidagi zararli dastur? | Troyan | Worm | Adware
+? Klaviatura bosishlarini yozib oluvchi dastur? | Keylogger (spyware) | Adware | Worm
+? Ko'p keraksiz reklama ko'rsatadi? | Adware | Rootkit | Ransomware
+? Tizimda yashirinib, boshqaruvni egallovchi? | Rootkit | Adware | Phishing
+? Pharming'dan himoya? | Ishonchli DNS, https va manzilni tekshirish | Ko'p reklama | Parolsiz kirish
+? Ransomware'dan keyin eng yaxshi tiklanish yo'li? | Zaxira nusxadan tiklash | To'lov qilish | Kompyuterni tashlash
+? Worm virus farqi? | Worm o'zi tarmoqda tarqaladi, virus faylga yopishadi | Farqi yo'q | Virus o'zi tarqaladi
+
+# 15
+**Salomatlik:** ko'z charchashi (20-20-20 qoidasi), qomat (ergonomik stul), bilak og'rig'i (to'g'ri klaviatura holati), harakatsizlik (tanaffus), uyqu (kechasi ekransiz).
+**Xavfsizlik:** simlar qoqilmaslik uchun yig'ilgan, rozetka ortiqcha yuklanmagan, suyuqlik uzoqda, ventilyatsiya ochiq.
+? Uzoq yozish natijasida bilak og'rig'i? | Takroriy zo'riqish (RSI) | Gripp | Allergiya
+? Uyquga ta'sir qiluvchi ekran nuri? | Ko'k nur | Qizil nur | Ultrabinafsha
+? Qoqilib yiqilish xavfini kamaytirish? | Simlarni yig'ish | Ko'p sim | Polga qo'yish
+? Ergonomika nima? | Ish joyini insonga qulay qilish fani | Dasturlash | Tarmoq
+? Kompyuter oldida qancha vaqtda tanaffus? | Har soatda kamida 5–10 daqiqa | Hech qachon | 5 soatda
+? Monitor deraza ro'parasida bo'lsa? | Yaltiroq ko'zni charchatadi | Yaxshi | Farqi yo'q
+? Elektr yong'inida suv bilan o'chirish mumkinmi? | Yo'q | Ha | Faqat oz suv
+? Tungi rejim (night mode) nima qiladi? | Ko'k nurni kamaytiradi | Tezlashtiradi | Ovozni o'chiradi
+
+# 16
+**Raqamli tengsizlik** — texnologiya va internetga ega bo'lgan va bo'lmaganlar orasidagi farq. **Sabablar:** hudud (shahar/qishloq), daromad, yosh, ta'lim, nogironlik, til.
+**Yechimlar:** infratuzilma, arzon internet, raqamli savodxonlik kurslari, ochiq ta'lim resurslari, kutubxonalarda kompyuter.
+? Raqamli tengsizlikning iqtisodiy sababi? | Qurilma va internet narxi | Ob-havo | Til xolos
+? Keksa odamlarda raqamli tengsizlik sababi? | Ko'nikma yetishmasligi | Qiziqish yo'qligi xolos | Hech qanday
+? Raqamli savodxonlik nima? | Texnologiyadan to'g'ri va xavfsiz foydalana olish | Tez yozish xolos | Dasturlash
+? Hukumatning yechimi misoli? | Qishloqlarga optik tola tortish | Internetni taqiqlash | Hech narsa
+? Raqamli tengsizlik ta'limga qanday ta'sir qiladi? | Onlayn ta'limdan foydalana olmaslik | Ta'sir qilmaydi | Yaxshilaydi
+? Ko'zi ojizlar uchun yechim? | Ekran o'quvchi dasturlar | Kichik shrift | Ranglar xolos
+? Ochiq ta'lim resursi misoli? | Khan Academy | Pullik kurs xolos | Hech qanday
+? Siz qanday yordam berishingiz mumkin? | Yaqinlarga texnologiyani o'rgatish | Hech qanday | Masxara qilish
+
+# 18
+**Samarasi yuqori texnologiyalar:** mobil to'lovlar (Keniyada M-Pesa), masofaviy ta'lim, telemeditsina, aqlli qishloq xo'jaligi, quyosh energiyasi. **Past samarali** — qimmat, mahalliy sharoitga mos bo'lmagan yoki tez eskiradigan yechimlar.
+? M-Pesa qaysi davlatda mashhur? | Keniya | Yaponiya | Kanada
+? Telemeditsina nima? | Masofadan tibbiy maslahat | Televizor | Dori do'koni
+? Texnologiya samaradorligini nima belgilaydi? | Mahalliy ehtiyojga mosligi va narxi | Faqat yangiligi | Rangi
+? Estoniya qaysi soha bilan mashhur? | Elektron hukumat | Neft | Paxta
+? Aqlli qishloq xo'jaligi misoli? | Sensorli tomchilatib sug'orish | Qo'lda haydash | Hech narsa
+? O'zbekistondagi elektron xizmatlar portali? | my.gov.uz | facebook.com | wikipedia.org
+? Texnologiyani tanlashda nima hisobga olinadi? | Narx, infratuzilma, ko'nikmalar | Faqat moda | Hech narsa
+? Mobil internet rivojlanganda nima yaxshilanadi? | Ta'lim, savdo, aloqa | Hech narsa | Faqat o'yin
+
+# 19
+**LAN** — bir bino yoki kampus (tez, arzon, o'zingiz boshqarasiz). **WAN** — katta hudud, shaharlar va davlatlar (provayder liniyalari). **WLAN** — simsiz lokal tarmoq. **Internet** — eng katta WAN.
+? Bir kampusdagi kompyuterlar tarmog'i? | LAN | WAN | PAN
+? WAN infratuzilmasini kim ta'minlaydi? | Telekom provayderlar | Maktab | O'quvchi
+? WLAN'ning kamchiligi? | Signal devorlardan susayadi, xavfsizlik | Tezroq | Kabel ko'p
+? LAN'ning afzalligi? | Yuqori tezlik, past xarajat | Butun dunyoni qamraydi | Provayder kerak
+? Turli shaharlardagi filiallarni birlashtirish? | WAN | LAN | PAN
+? Tarmoq tezligi o'lchov birligi? | Mbit/s | kg | sm
+? Wi-Fi standart nomi? | IEEE 802.11 | HTML5 | USB 3
+? Ethernet nima? | Simli LAN texnologiyasi | Simsiz | Brauzer
+
+# 20
+**Mijoz-server:** markaziy server xizmat ko'rsatadi (fayllar, xavfsizlik, zaxira — boshqarish oson; server ishdan chiqsa — muammo). **Peer-to-peer (P2P):** hamma teng, server yo'q (arzon, oson; xavfsizlik va zaxira qiyin).
+? P2P kamchiligi? | Markaziy xavfsizlik va zaxira yo'q | Juda qimmat | Server kerak
+? Mijoz-server kamchiligi? | Server ishdan chiqsa hamma ta'sirlanadi | Arzon | Xavfsizlik yo'q
+? Torrent qanday tarmoq? | P2P | Mijoz-server | LAN xolos
+? Bank tizimi qanday tuziladi? | Mijoz-server | P2P | Tarmoqsiz
+? Kichik ofis (3 kompyuter) uchun qulay? | P2P | Katta server fermasi | WAN
+? Server uchun maxsus kim kerak? | Tarmoq administratori | Dizayner | Hech kim
+? Mijoz-serverda foydalanuvchi huquqlari? | Markazdan boshqariladi | Har kim o'zi | Yo'q
+? Veb-sayt ochishda brauzer qanday rolda? | Mijoz | Server | Router
+
+# 21
+**VPN** — internet orqali shifrlangan "tunnel": ma'lumot himoyalanadi, IP-manzil yashiriladi. Masofadan ofis tarmog'iga ulanish, jamoat Wi-Fi'da himoya.
+**Ehtiyot:** bepul noma'lum VPN'lar ma'lumotni o'g'irlashi mumkin; qonunlarga amal qiling.
+? VPN tunneli nima qiladi? | Ma'lumotni shifrlab uzatadi | Tezlikni 10 baravar oshiradi | Virus yuqtiradi
+? Xodim uydan ofis tarmog'iga xavfsiz ulanishi? | VPN | Ochiq Wi-Fi | Bluetooth
+? Bepul noma'lum VPN xavfi? | Ma'lumotlarni yig'ishi mumkin | Xavfsiz doim | Tezroq
+? VPN IP-manzilni nima qiladi? | Yashiradi (VPN server manzili ko'rinadi) | Ko'rsatadi | O'chiradi
+? VPN internetni tezlashtiradimi? | Odatda biroz sekinlashtiradi | Doim tezlashtiradi | Ta'sir qilmaydi
+? VPN to'liq anonimlik beradimi? | Yo'q | Ha | Har doim
+? Shifrlangan tunnel qaysi protokollar bilan? | OpenVPN, WireGuard | HTTP | FTP
+? Jamoat Wi-Fi'da VPN foydasi? | Trafikni tinglashdan himoya | Bepul internet | Tezlik
+
+# 22
+**Intranet** — tashkilot ichki tarmog'i (xodimlar uchun portal). **Ekstranet** — hamkorlarga qisman ochilgan qismi. **Internet** — jamoat tarmog'i. **DNS** — domen nomini IP-manzilga aylantiradi; **TCP/IP** — internet protokollari.
+? Hamkorlarga qisman ochilgan tarmoq? | Ekstranet | Intranet | Internet
+? Maktabning faqat o'qituvchilar uchun portali? | Intranet | Ekstranet | Internet
+? Internet protokollari to'plami? | TCP/IP | HTML/CSS | JPG/PNG
+? IP-manzil versiyalari? | IPv4 va IPv6 | IP1 va IP2 | Faqat IPv8
+? Internetni kim boshqaradi? | Markaziy egasi yo'q, xalqaro tashkilotlar standartlaydi | Bitta kompaniya | Hech kim ishlamaydi
+? Intranet afzalligi? | Ichki ma'lumot xavfsizroq | Hammaga ochiq | Tezroq doim
+? Internet xususiyati? | Global, markazsiz, ochiq | Faqat bitta davlatda | Kichik
+? HTTP qaysi qatlam protokoli? | Ilova (application) | Fizik | Kabel
+
+# 23
+**Internet muloqoti:** email, messenjerlar, forumlar, bloglar, ijtimoiy tarmoqlar, VoIP (internet qo'ng'iroqlar).
+**Mobil tarmoqlar avlodlari:** 1G (analog ovoz), 2G (raqamli ovoz, SMS), 3G (mobil internet), 4G (tez internet, video), 5G (juda tez, kam kechikish, IoT).
+? Mobil internet birinchi bo'lib qaysi avlodda keng tarqaldi? | 3G | 1G | 2G
+? SMS qaysi avlodda paydo bo'ldi? | 2G | 4G | 5G
+? VoIP nima? | Internet orqali ovozli qo'ng'iroq | SMS | Email
+? 5G ning asosiy afzalligi? | Juda yuqori tezlik va kam kechikish | Faqat ovoz | Analog signal
+? Blog nima? | Muntazam yangilanadigan shaxsiy jurnal sayti | Messenjer | Antivirus
+? Mobil tarmoq qanday tuziladi? | Hujayralar (sota) va baza stansiyalari | Bitta minora | Kabellar xolos
+? Kechikish (ping) nima? | Signalning borib-qaytish vaqti | Yuklab olish hajmi | Ekran o'lchami
+? IoT nima? | Buyumlar interneti | Internet tarixi | O'yin
+
+# 24
+**Videokonferensiya** — bir necha joydagi odamlar video orqali uchrashishi (Zoom, Google Meet, Microsoft Teams). Kerak: kamera, mikrofon, karnay/quloqchin, barqaror internet.
+**Ta'siri:** yo'l xarajati tejaladi, masofaviy ish va ta'lim; lekin "ekran charchog'i", jonli muloqot kamayadi, internetsizlar chetda qoladi.
+? Videokonferensiyaning salbiy ta'siri? | Ekran charchog'i | Xarajat tejaladi | Tezlik
+? Videokonferensiyada odob? | Gapirmaganda mikrofonni o'chirish | Doim baqirish | Kamera oldida ovqatlanish
+? Videokonferensiya uchun zarur qurilma? | Kamera va mikrofon | Printer | Skaner
+? Veb-konferensiya va videokonferensiya farqi? | Veb-konferensiya ekran ulashish, chat bilan ko'proq | Farqi yo'q | Veb ovozsiz
+? Ekranni ulashish funksiyasi nima uchun? | Taqdimot va hujjat ko'rsatish | Ovoz o'chirish | Kamera
+? Videokonferensiya atrof-muhitga qanday ta'sir qiladi? | Safarlar kamayib, chiqindi gaz kamayadi | Ifloslantiradi | Ta'sir qilmaydi
+? Yomon internetda nima qilish mumkin? | Kamerani o'chirish | Ko'proq video | Hech narsa
+? Uchrashuvni yozib olish qachon odobli? | Ishtirokchilar roziligi bilan | Doim yashirincha | Hech qachon
+
+# 26
+**Ekspert tizim** — muayyan sohadagi mutaxassis (ekspert) bilimini saqlab, savol-javob orqali maslahat beradigan dastur.
+**Tarkibi:** bilimlar bazasi, qoidalar bazasi, xulosa chiqarish mexanizmi, foydalanuvchi interfeysi, tushuntirish tizimi.
+**Misollar:** tibbiy tashxis, avtomobil nosozligini aniqlash, kredit berish, o'simlik kasalliklari.
+? Ekspert tizim qanday ishlaydi? | Savollar beradi va qoidalar asosida xulosa chiqaradi | Tasodifan javob beradi | Internetdan qidiradi xolos
+? Tushuntirish tizimi nima qiladi? | Xulosa sababini ko'rsatadi | Rang beradi | Saqlaydi
+? Avtomobil nosozligini aniqlovchi dastur qanday tizim? | Ekspert tizim | Matn muharriri | O'yin
+? Ekspert tizimni kim yaratadi? | Bilim muhandisi va soha eksperti | Faqat o'quvchi | Kompyuter o'zi
+? Ekspert tizim inson ekspertni to'liq almashtiradimi? | Yo'q, yordamchi | Ha | Doim
+? Ekspert tizimga yangi bilim qo'shish? | Qoidalar bazasini yangilash | Imkoni yo'q | Qayta yozish xolos
+? Birinchi mashhur tibbiy ekspert tizim? | MYCIN | Windows | Excel
+? Ekspert tizim qaysi sun'iy intellekt sohasiga kiradi? | Bilimga asoslangan tizimlar | Grafika | Tarmoq
+
+# 27
+**Bilimlar bazasi** — faktlar ("qizamiqda toshma bo'ladi"). **Qoidalar bazasi** — AGAR-U HOLDA: "AGAR isitma va toshma bo'lsa, U HOLDA qizamiq ehtimoli bor". **Xulosa mexanizmi (inference engine)** — foydalanuvchi javoblarini qoidalarga solishtirib xulosa chiqaradi.
+? Qoida shakli? | AGAR ... U HOLDA ... | FOR ... NEXT | <p>...</p>
+? Xulosa mexanizmi inglizcha? | Inference engine | Search engine | Game engine
+? "AGAR yomg'ir bo'lsa U HOLDA soyabon ol" — "yomg'ir bo'lsa" nima? | Shart | Natija | Fakt
+? Faktlar qayerda saqlanadi? | Bilimlar bazasida | Interfeysda | Monitorda
+? To'g'ri zanjirli xulosa nima? | Faktlardan xulosaga borish | Xulosadan faktlarga | Tasodifiy
+? Teskari zanjirli xulosa nima? | Gipotezadan boshlab faktlarni tekshirish | Faktdan boshlash | Hech qanday
+? Qoidalar ziddiyatli bo'lsa? | Tizim noto'g'ri xulosa beradi | Yaxshiroq ishlaydi | Farqi yo'q
+? Ekspert tizimning "o'ylovchi" qismi? | Xulosa mexanizmi | Interfeys | Bilim bazasi
+
+# 28
+**Interfeys talablari:** sodda savollar ("Ha/Yo'q", ro'yxatdan tanlash), aniq ko'rsatmalar, xulosa va uning sababi (tushuntirish), ishonchlilik darajasi (%), xatoni tuzatish imkoni.
+? Foydalanuvchiga qulay javob turi? | Ha/Yo'q yoki tanlov | Uzun insho | Kod yozish
+? Xulosa yonida ishonchlilik foizi nima beradi? | Natijaga qanchalik ishonish mumkinligini | Bezak | Kerak emas
+? "Nima uchun bu xulosa?" tugmasi qaysi qism? | Tushuntirish tizimi | Bilim bazasi | Kabel
+? Interfeys murakkab bo'lsa? | Foydalanuvchi xato javob beradi | Yaxshiroq | Farqi yo'q
+? Interfeys qaysi tilda bo'lishi kerak? | Foydalanuvchi tushunadigan tilda | Faqat ingliz | Kod tilida
+? Oldingi javobni o'zgartirish imkoni nima uchun? | Xato javobni tuzatish | Kerak emas | Chalg'itish
+? Ovozli interfeys qachon qulay? | Qo'llar band bo'lganda | Hech qachon | Doim
+? Interfeysni sinash kim bilan? | Haqiqiy foydalanuvchilar bilan | Hech kim | Faqat dasturchi
+
+# 29
+**Afzalliklar:** doim mavjud, charchamaydi, izchil, bilimni saqlaydi, ko'p joyda bir vaqtda ishlaydi. **Kamchiliklar:** sog'lom fikr va hissiyot yo'q, faqat kiritilgan bilim, yangilab borish kerak, xato qoida — xato xulosa.
+? Ekspert tizim afzalligi? | 24/7 ishlaydi va charchamaydi | His-tuyg'u bildiradi | Hamma narsani biladi
+? Ekspert tizim kamchiligi? | Yangi vaziyatga moslasha olmaydi | Doim mavjud | Arzon
+? Xato qoida kiritilsa? | Xato xulosa chiqadi | O'zi tuzatadi | Farqi yo'q
+? Ekspert tizim qayerda ko'p ishlatiladi? | Tibbiyot, moliya, texnik diagnostika | Faqat o'yin | Hech qayerda
+? Ekspert ketib qolsa ham bilim saqlanishi — afzallikmi? | Ha | Yo'q | Kamchilik
+? Ekspert tizim mas'uliyati kimda? | Uni yaratgan va ishlatgan odamlarda | Kompyuterda | Hech kimda
+? Ekspert tizim va mashinali o'qitish farqi? | ET qo'lda yozilgan qoidalar, MO ma'lumotdan o'rganadi | Farqi yo'q | MO qoidalar xolos
+? Tibbiy ekspert tizim xulosasini kim tasdiqlashi kerak? | Shifokor | Bemor o'zi | Hech kim
+
+# 30
+**Qayta ishlash turlari:** **paketli** (batch — ma'lumot yig'ilib, keyin birdan: maosh, kommunal hisoblar), **onlayn/tranzaksion** (darhol: bron, do'kon kassasi), **real vaqt** (zudlik bilan javob: avtopilot, svetofor).
+**Bosqichlar:** kiritish → qayta ishlash → chiqarish → saqlash.
+? Kommunal to'lov hisoblarini oyda bir marta chiqarish? | Paketli qayta ishlash | Real vaqt | Onlayn
+? Aviachipta bron qilish? | Onlayn (tranzaksion) | Paketli | Qo'lda
+? Paketli qayta ishlash afzalligi? | Tungi vaqtda samarali, arzon | Darhol natija | Interaktiv
+? Tranzaksiya nima? | Bitta yaxlit operatsiya (masalan to'lov) | Fayl | Kabel
+? Ikki odam bir o'rindiqni bron qilmasligi uchun? | Tranzaksion tizim yozuvni qulflaydi | Imkoni yo'q | Paketli tizim
+? Kassada mahsulot skanerlanishi qaysi bosqich? | Kiritish | Chiqarish | Saqlash
+? Maosh hisobi qanday turda? | Paketli | Real vaqt | Ekspert tizim
+? Qayta ishlashning oxirgi bosqichi? | Saqlash (va chiqarish) | Kiritish | Tahlil
+
+# 32
+**Real vaqt tizimi** — ma'lumotga juda tez (millisekundlarda) javob beradi: avtopilot, kardiostimulyator, robotlar, avtomobil ABS tormozi, svetofor boshqaruvi, raketa.
+**Muhim:** javob vaqti (kechikmaslik) va ishonchlilik.
+? Real vaqt tizimiga misol? | Avtomobil ABS tormozi | Oylik maosh | Kutubxona katalogi
+? Kardiostimulyator qanday tizim? | Real vaqt | Paketli | Onlayn bron
+? Real vaqt tizimida kechikish nimaga olib kelishi mumkin? | Xavfli oqibatlarga | Hech narsaga | Tezlikka
+? Real vaqt tizimida sensorlar nima uchun? | Ma'lumotni doimiy olish | Bezak | Kerak emas
+? Qattiq real vaqt tizimi? | Muddat buzilishi halokatli (avtopilot) | Kechikish muhim emas | Paketli
+? Yumshoq real vaqt tizimi misoli? | Video striming | Avtopilot | Kardiostimulyator
+? Real vaqt tizimida qaysi tamoyil eng muhim? | Javob tezligi va ishonchlilik | Rangi | Narxi
+? Svetofor harakatga qarab o'zgarishi? | Sensorli real vaqt boshqaruvi | Paketli | Qo'lda
+
+# 33
+**Jadval amallari:** qator/ustun qo'shish, o'chirish, **yashirish/ko'rsatish**, kenglik va balandlik, guruhlash (+/− bilan yig'ish). **"Aqlli jadval"** — Ctrl+T: avtomatik filtr, uslub, kengayish, formulalar ustun nomi bilan.
+? Ctrl+T nima qiladi? | Diapazonni "aqlli jadval" qiladi | Saqlaydi | Chop etadi
+? Yashirilgan ustunni ko'rsatish? | Qo'shni ustunlarni belgilab → Ko'rsatish | Imkoni yo'q | Qayta yozish
+? Qator va ustunlarni guruhlash nima beradi? | Tafsilotlarni yig'ib-yoyish | O'chiradi | Rang beradi
+? Aqlli jadvalga yangi qator qo'shilsa formulalar? | Avtomatik kengayadi | Yo'qoladi | O'zgarmaydi
+? Qator balandligini moslash? | Qator chegarasini ikki marta bosish | F4 | Esc
+? Bir nechta qatorni birdan qo'shish? | Shuncha qatorni belgilab "Qo'yish" | Imkoni yo'q | Bittalab xolos
+? Aqlli jadvalda "Jami qatori"? | Konstruktor → Jami qatori | Imkoni yo'q | Qo'lda
+? Ustunlarni joyini almashtirish? | Shift bosib sudrash yoki kesib joylash | Imkoni yo'q | O'chirish
+
+# 34
+**Himoya darajalari:** **fayl** (ochish uchun parol — Fayl → Ma'lumot → Kitobni himoyalash → Parol bilan shifrlash), **kitob tuzilishi** (varaq qo'shish/o'chirishni taqiqlash), **varaq** (kataklarni tahrirlashni cheklash), **qulflanmagan kataklar** (kiritish uchun ochiq).
+? Faylni ochish uchun parol qo'yish qayerda? | Fayl → Ma'lumot → Kitobni himoyalash | Bosh sahifa | Diagramma
+? Kitob tuzilishini himoyalash nimani taqiqlaydi? | Varaqlarni qo'shish, o'chirish, qayta nomlash | Katak tahrirlashni | Ochishni
+? Parolni unutsangiz? | Faylni ochish juda qiyin yoki imkonsiz | Osongina tiklanadi | Excel aytadi
+? Faqat ba'zi kataklarga kiritish ruxsati? | Ularni "qulflanmagan" qilib varaqni himoyalash | Imkoni yo'q | Hammasini qulflash
+? Formulalarni yashirish (ko'rinmasligi)? | Katak formati → Himoya → "Yashirin" + varaq himoyasi | Rang oq qilish | O'chirish
+? Faqat o'qish uchun tavsiya qilish? | "Faqat o'qish tavsiya etiladi" sozlamasi | Imkoni yo'q | Parolsiz
+? Umumiy (birgalikdagi) tahrirda kim nimani o'zgartirganini ko'rish? | Versiyalar tarixi / o'zgarishlarni kuzatish | Imkoni yo'q | Faqat egasi
+? Zaxira nusxaning himoyadagi o'rni? | Fayl buzilsa yoki o'chsa tiklash | Kerak emas | Faqat parol uchun

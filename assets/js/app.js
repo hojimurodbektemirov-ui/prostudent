@@ -18,7 +18,7 @@
   const me = () => KM.session && KM.session.user;
   const isAdmin = () => !!me() && (me().role === 'admin' || me().role === 'teacher');
   KM.isStaff = () => isAdmin(); KM.isOwner = () => !!me() && me().role === 'admin';
-  const TXP = () => S().xp + ((me() && me().bonus_xp) || 0), lvl = () => Math.floor(TXP() / 100) + 1;
+  const TXP = () => S().xp + ((me() && me().bonus_xp) || 0), lvl = () => KM.quiz.level(TXP()).lv;
   const groups = () => (me() && me().groups) || [];
   const hasCourse = c => isAdmin() || groups().some(g => (g.courses || []).includes(c));
   /* O'quvchining Informatika dasturi: sinfining darajasi (agar sinfga Informatika biriktirilgan bo'lsa) */
@@ -144,7 +144,8 @@
       '<h1>Salom, ' + e(first) + '! Bugun nimani <span class="hl">o\'rganamiz?</span></h1><p class="lead">Darslar, testlar, materiallar va kod yozish — hammasi shu yerda. Boshqa saytga o\'tish shart emas.</p><div class="acts">' +
       (infNext ? '<a class="btn pri big" href="#infdars-' + ig + '-' + infNext.n + '">Informatika: ' + infNext.n + '-dars <span aria-hidden="true">→</span></a>' : '') +
       (nx ? '<a class="btn ' + (infNext ? 'ghost' : 'pri') + ' big" href="#dars-' + nx.id + '">Dasturlash: ' + e(nx.l.t) + '</a>' : '') +
-      (!infNext && !nx ? '<a class="btn pri big" href="#materiallar">Materiallarni ochish</a>' : '') + '<a class="btn ghost big" href="#viktorina">Viktorinaga kirish (PIN)</a></div></div>' +
+      (!infNext && !nx ? '<a class="btn pri big" href="#materiallar">Materiallarni ochish</a>' : '') + '<a class="btn ghost big" href="#viktorina">Viktorinaga kirish (PIN)</a>' + (Object.keys(S().wrong || {}).length ? '<a class="btn ghost big" href="#takrorlash">Xatolar ustida ishlash (' + Object.keys(S().wrong).length + ')</a>' : '') + '</div>' +
+      (d => '<div class="goal"><div class="goal-h"><span>Bugungi maqsad</span><b>' + Math.min(d, 50) + ' / 50 XP</b></div><div class="goal-t"><i style="width:' + Math.min(100, d * 2) + '%"></i></div>' + (d >= 50 ? '<small>Bugungi maqsad bajarildi! 🎯</small>' : '') + '</div>')(S().day && S().day.d === new Date().toDateString() ? S().day.xp : 0) + '</div>' +
       '<div class="hero-v"><div class="polaroid tilt-r">' + KM.stk.face(u) + '<span class="pol-cap">' + e(u.login) + (u.class_name ? ' · ' + e(u.class_name) : '') + '</span></div>' +
       '<div class="term"><div class="term-bar"><i></i><i></i><i></i><span>' + e(u.login) + '@prostudent: ~</span></div><div class="term-b mono"><p class="cmd"><b>$</b> prostudent --men</p><p class="cmt"># ' + e(u.full_name) + '</p>' +
       '<p><span class="k">sinf       </span>: <span class="v">"' + e(u.class_name || '—') + '"</span></p><p><span class="k">xp         </span>: <span class="v">' + TXP() + '</span> <span class="cmt">(' + lvl() + '-daraja)</span></p>' +
@@ -221,21 +222,11 @@
     });
   }
   function quiz(v, L) {
-    const { l, id } = L; let ans = l.quiz.map(() => null);
-    const draw = () => {
-      const fin = ans.every(a => a !== null), score = ans.filter((a, k) => a === l.quiz[k][2]).length;
-      v.innerHTML = '<div class="band"><div class="wrap narrow"><ol class="quiz">' + l.quiz.map((q, k) => '<li class="qq"><h3>' + e(q[0]) + '</h3><div class="opts">' + q[1].map((o, j) => {
-        let cls = ''; if (ans[k] !== null) { if (j === q[2]) cls = ' right'; else if (j === ans[k]) cls = ' wrong'; }
-        return '<button class="opt' + cls + '" data-k="' + k + '" data-j="' + j + '"' + (ans[k] !== null ? ' disabled' : '') + '>' + e(o) + '</button>';
-      }).join('') + '</div>' + (ans[k] !== null ? '<p class="why ' + (ans[k] === q[2] ? 'ok' : 'bad') + '">' + (ans[k] === q[2] ? "To'g'ri! " : "Noto'g'ri. ") + e(q[3]) + '</p>' : '') + '</li>').join('') + '</ol>' +
-        (fin ? '<div class="qres"><div><b>' + score + ' / ' + l.quiz.length + '</b><span>' + (score === l.quiz.length ? "A'lo natija!" : "Yaxshi! Xatolar ustida yana bir o'ylab ko'ring.") + '</span></div><div class="acts"><button class="btn" id="qre">Qayta yechish</button><a class="btn pri" href="#dars-' + id + '-amaliyot">Amaliyotga o\'tish →</a></div></div>' : '') + '</div></div>';
-      if (fin) {
-        const best = S().quiz[id] || 0;
-        if (score > best || S().quiz[id] == null) { if (score > best) st.addXP((score - best) * 5); S().quiz[id] = Math.max(score, best); st.save(); chips(); markSteps(id); }
-      }
-    };
-    v.onclick = ev => { const b = ev.target.closest('.opt'); if (b) { ans[+b.dataset.k] = +b.dataset.j; draw(); } else if (ev.target.id === 'qre') { ans = ans.map(() => null); draw(); } };
-    draw();
+    const { l, id } = L;
+    v.innerHTML = '<div class="band"><div class="wrap narrow"><div id="cqz"></div></div></div>';
+    KM.quiz.box($('#cqz', v), l.quiz.concat((KM.moreQuiz || {})[id] || []), { key: 'k' + id, title: L.g.n + '-daraja: ' + l.t, href: '#dars-' + id + '-test',
+      extra: '<div class="acts"><a class="btn pri" href="#dars-' + id + '-amaliyot">Amaliyotga o\'tish →</a></div>',
+      onFinish: r => { const best = S().quiz[id]; S().quiz[id] = Math.max(r.first, best == null ? -1 : best); st.save(); chips(); markSteps(id); } });
   }
   function robotPrac(v, L) {
     const { l, id } = L;
@@ -333,7 +324,7 @@
       if (l.sec && l.sec !== lastSec) { html += '<li class="sec-li">' + e(l.sec) + '</li>'; lastSec = l.sec; }
       const id = n + '-' + l.n, d = infDone(id), q = S().inf[id] && S().inf[id].q, ctrl = /nazorat/i.test(l.t), proj = /loyiha/i.test(l.t), op = infOpen(n), lk = op != null && l.n > op;
       if (lk) { html += '<li class="il lock"><div class="il-a"><span class="il-n">' + ICON.lock + '</span><span class="il-b"><b>' + e(l.t) + '</b><small>O\'qituvchi bu darsni hali ochmagan</small></span><span class="il-s"></span></div></li>'; return; }
-      html += '<li class="il' + (d ? ' done' : '') + '"><a href="#infdars-' + id + '"><span class="il-n">' + (d ? '✓' : l.n) + '</span><span class="il-b"><b>' + e(l.t) + (ctrl ? ' <em class="tag-c">nazorat</em>' : proj ? ' <em class="tag-p">loyiha</em>' : '') + '</b><small>' + e(l.hw) + '</small></span><span class="il-s">' + (q != null ? 'test ' + q + '/' + l.quiz.length : '') + '</span></a></li>';
+      html += '<li class="il' + (d ? ' done' : '') + '"><a href="#infdars-' + id + '"><span class="il-n">' + (d ? '✓' : l.n) + '</span><span class="il-b"><b>' + e(l.t) + (ctrl ? ' <em class="tag-c">nazorat</em>' : proj ? ' <em class="tag-p">loyiha</em>' : '') + '</b><small>' + e(l.hw) + '</small></span><span class="il-s">' + (q != null ? (m => m ? '<em class="mst m-' + m[0] + '">' + m[1] + '</em> ' : '')(KM.quiz.mastery(q, (S().inf[id] && S().inf[id].n) || l.quiz.length)) + q + '/' + ((S().inf[id] && S().inf[id].n) || l.quiz.length) : '') + '</span></a></li>';
     });
     html += '</ol>';
     app.innerHTML = '<section class="ghead grid-bg st-orta"><div class="wrap ghead-in"><div><a class="back" href="#informatika">← Informatika</a><h1>' + n + '-sinf: Informatika</h1><p class="lead">' + g.lessons.length + ' dars · ' + g.hours + ' soat. Rejadagi mavzu va uyga vazifalar asosida.</p></div><div class="gring">' + ring(done / g.lessons.length, 88) + '<span><b>' + done + ' / ' + g.lessons.length + '</b>dars o\'qildi</span></div></div></section>' +
@@ -352,14 +343,14 @@
       '<section class="band alt" id="q"><div class="wrap narrow"><h2 class="sub0">Test</h2><div id="qz"></div><div id="rd"></div></div></section>';
     $$('pre.ex', app).forEach(p => { const c = p.querySelector('code'); c.innerHTML = KM.hl(c.textContent, p.dataset.l); });
     if (KM.py) KM.py.enhance(app);
-    const mark = (score) => {
+    const mark = r => {
       const cur = S().inf[id], first = !cur;
-      const best = Math.max(score == null ? -1 : score, cur && cur.q != null ? cur.q : -1);
-      S().inf[id] = { at: (cur && cur.at) || Date.now() }; if (best >= 0) S().inf[id].q = best;
-      if (!isAdmin()) st.addXP((first ? 5 : 0) + (score != null && score > ((cur && cur.q) || 0) ? (score - ((cur && cur.q) || 0)) * 5 : 0)); else st.save();
+      const best = Math.max(r ? r.first : -1, cur && cur.q != null ? cur.q : -1);
+      S().inf[id] = { at: (cur && cur.at) || Date.now() }; if (best >= 0) { S().inf[id].q = best; S().inf[id].n = r ? r.total : cur.n; }
+      if (!isAdmin() && first) st.addXP(5); else st.save();
       chips();
     };
-    if (l.quiz.length) quizBox($('#qz'), l.quiz.map(q => [q[0], q[1], q[2], '']), sc => { mark(sc); $('#rd').innerHTML = '<div class="win" role="status"><div><b>Dars o\'qildi!</b></div>' + (next ? '<a class="btn pri" href="#infdars-' + n + '-' + next.n + '">Keyingi dars →</a>' : '<a class="btn pri" href="#inf-' + n + '">Sinf darslari</a>') + '</div>'; });
+    if (l.quiz.length) KM.quiz.box($('#qz'), l.quiz, { key: 'i' + id, title: n + '-sinf: ' + l.t, href: '#infdars-' + n + '-' + l.n, onFinish: sc => { mark(sc); $('#rd').innerHTML = '<div class="win" role="status"><div><b>Dars o\'qildi!</b></div>' + (next ? '<a class="btn pri" href="#infdars-' + n + '-' + next.n + '">Keyingi dars →</a>' : '<a class="btn pri" href="#inf-' + n + '">Sinf darslari</a>') + '</div>'; } });
     else { $('#qz').innerHTML = '<p class="muted">Bu darsda test yo\'q.</p>'; $('#rd').innerHTML = '<button class="btn pri" id="readbtn">O\'qidim</button>'; $('#readbtn').onclick = () => { mark(null); $('#rd').innerHTML = '<p class="ok-t">Belgilandi ✓</p>'; }; }
     $('#present').onclick = () => {
       document.body.classList.toggle('present');
@@ -372,21 +363,6 @@
     cleanup.push(() => { document.removeEventListener('fullscreenchange', onFs); document.body.classList.remove('present'); });
   }
   /* Umumiy test bloki: questions = [[savol, [variantlar], to'g'ri_indeks, izoh], ...] */
-  function quizBox(v, Q, onFinish) {
-    let ans = Q.map(() => null), reported = false;
-    const draw = () => {
-      const fin = ans.every(a => a !== null), score = ans.filter((a, k) => a === Q[k][2]).length;
-      v.innerHTML = '<ol class="quiz">' + Q.map((q, k) => '<li class="qq"><h3>' + e(q[0]) + '</h3><div class="opts">' + q[1].map((o, j) => {
-        let cls = ''; if (ans[k] !== null) { if (j === q[2]) cls = ' right'; else if (j === ans[k]) cls = ' wrong'; }
-        return '<button class="opt' + cls + '" data-k="' + k + '" data-j="' + j + '"' + (ans[k] !== null ? ' disabled' : '') + '>' + e(o) + '</button>';
-      }).join('') + '</div>' + (ans[k] !== null ? '<p class="why ' + (ans[k] === q[2] ? 'ok' : 'bad') + '">' + (ans[k] === q[2] ? "To'g'ri!" : "Noto'g'ri. To'g'ri javob: " + e(q[1][q[2]])) + (q[3] ? ' ' + e(q[3]) : '') + '</p>' : '') + '</li>').join('') + '</ol>' +
-        (fin ? '<div class="qres"><div><b>' + score + ' / ' + Q.length + '</b><span>' + (score === Q.length ? "A'lo natija!" : "Yaxshi! Xatolar ustida yana bir o'ylab ko'ring.") + '</span></div><div class="acts"><button class="btn" data-re="1">Qayta yechish</button></div></div>' : '');
-      if (fin && !reported) { reported = true; onFinish(score); }
-    };
-    v.onclick = ev => { const b = ev.target.closest('.opt'); if (b) { ans[+b.dataset.k] = +b.dataset.j; draw(); } else if (ev.target.dataset.re) { ans = ans.map(() => null); reported = false; draw(); } };
-    draw();
-  }
-
   /* ---------- Materiallar ---------- */
   const MK = { link: ['Sayt', '↗'], video: ['Video', '▶'], text: ['Matn', '¶'], file: ['Fayl', '⇩'] };
   const gname = id => { const g = groups().find(g => g.id === id) || (KM._allGroups || []).find(g => g.id === id); return g ? g.name : null; };
@@ -494,8 +470,8 @@
 
   /* ---------- Profil ---------- */
   function profil() {
-    const u = me(), lv = lvl(), into = TXP() % 100, dc = doneCount(), tl = total();
-    app.innerHTML = '<section class="phead grid-bg"><div class="wrap phead-in"><div class="polaroid tilt-l big">' + KM.stk.face(u) + '<span class="pol-cap">' + e(u.login) + (u.class_name ? ' · ' + e(u.class_name) : '') + '</span></div><div><p class="pill-tag"><i></i>' + (u.class_name ? e(u.class_name) + ' sinf' : 'O\'quvchi') + '</p><h1>' + e(u.full_name) + '</h1><p class="lead">' + lv + '-daraja · keyingi darajaga ' + (100 - into) + ' XP qoldi</p><div class="acts"><button class="btn pri" id="stkbtn">Stikerlarni o\'zgartirish</button><button class="btn ghost" id="pwbtn">Parolni o\'zgartirish</button><button class="btn ghost" id="outbtn">Chiqish</button></div></div></div></section>' +
+    const u = me(), LV = KM.quiz.level(TXP()), lv = LV.lv, dc = doneCount(), tl = total();
+    app.innerHTML = '<section class="phead grid-bg"><div class="wrap phead-in"><div class="polaroid tilt-l big">' + KM.stk.face(u) + '<span class="pol-cap">' + e(u.login) + (u.class_name ? ' · ' + e(u.class_name) : '') + '</span></div><div><p class="pill-tag"><i></i>' + (u.class_name ? e(u.class_name) + ' sinf' : 'O\'quvchi') + '</p><h1>' + e(u.full_name) + '</h1><p class="lead">' + lv + '-daraja · keyingi darajaga ' + (LV.to - TXP()) + ' XP qoldi</p><div class="lvbar"><i style="width:' + Math.round((TXP() - LV.from) * 100 / (LV.to - LV.from)) + '%"></i></div><div class="acts"><button class="btn pri" id="stkbtn">Stikerlarni o\'zgartirish</button><button class="btn ghost" id="pwbtn">Parolni o\'zgartirish</button><button class="btn ghost" id="outbtn">Chiqish</button></div></div></div></section>' +
       '<section class="band" id="edsec" hidden><div class="wrap"><div class="panel"><h2>Rasmimni bezash</h2><div id="sted"></div><div class="acts"><button class="btn pri" id="stksave">Saqlash</button><button class="btn" id="stkcancel">Bekor qilish</button><span id="stkmsg" class="muted" role="status"></span></div></div></div></section>' +
       '<section class="band" id="pwsec" hidden><div class="wrap narrow"><form class="panel" id="pwf"><h2>Parolni o\'zgartirish</h2><label class="lab" for="op">Hozirgi parol</label><input class="inp" id="op" type="password" autocomplete="current-password"><label class="lab" for="np">Yangi parol (kamida 6 belgi)</label><input class="inp" id="np" type="password" autocomplete="new-password"><div class="acts"><button class="btn pri">Saqlash</button><span id="pwmsg" role="status"></span></div></form></div></section>' +
       '<section class="band"><div class="wrap"><div class="stats4"><div class="stat2"><b>' + TXP() + '</b><span>XP</span></div><div class="stat2"><b>' + dc + ' / ' + tl + '</b><span>dars tugatildi</span></div><div class="stat2"><b>' + S().streak.n + '</b><span>kun ketma-ket</span></div><div class="stat2"><b>' + S().projects.length + '</b><span>loyiha</span></div></div>' +
@@ -574,6 +550,7 @@
     else if (p[0] === 'topshiriqlar' || p[0] === 'topshiriq') { if (isAdmin()) { location.hash = 'admin-topshiriqlar'; return; } nav = 'topshiriqlar'; KM.work.student(h, app); }
     else if (p[0] === 'material') { nav = 'materiallar'; materialView(h.slice(9)); }
     else if (p[0] === 'python') { nav = 'dasturlash'; pythonPage(); }
+    else if (p[0] === 'takrorlash') { nav = 'bosh'; KM.quiz.review(app); }
     else if (p[0] === 'maydon') { nav = 'maydon'; p[1] ? maydonEd(p[1]) : maydon(); }
     else if (p[0] === 'profil') { if (isAdmin()) { location.hash = 'admin'; return; } profil(); }
     else if (p[0] === 'sertifikat') cert(+p[1]);

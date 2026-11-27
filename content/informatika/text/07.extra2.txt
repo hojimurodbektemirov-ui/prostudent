@@ -1,0 +1,323 @@
+# 35
+**Asosiy tushunchalar:** **dastur** — kompyuter bajaradigan buyruqlar ketma-ketligi; **dasturlash tili** (Scratch, Python, JavaScript); **sintaksis** — tilning yozish qoidalari; **hodisa** — dasturni ishga tushiruvchi narsa (bosish, tugma); **xato (bug)**.
+**Bilasizmi?** Birinchi dasturchi ayol — Ada Lavleys (XIX asr) hisoblanadi.
+? Birinchi dasturchi deb kim hisoblanadi? | Ada Lavleys | Albert Eynshteyn | Isaak Nyuton
+? Sintaksis nima? | Tilning yozish qoidalari | Dastur natijasi | Kompyuter qismi
+? Hodisaga misol? | Tugma bosilishi | O'zgaruvchi | Rang
+? Vizual (blokli) dasturlash tili? | Scratch | Python | C++
+? Matnli dasturlash tili? | Python | Scratch | Paint
+? Dastur nima? | Kompyuter tilida yozilgan algoritm | Monitor | Fayl turi
+? Kompilyator/interpretator nima qiladi? | Dasturni kompyuter tushunadigan ko'rinishga o'tkazadi | Rasm chizadi | Internet ulaydi
+? Dasturlashning asosiy tuzilmalari? | Ketma-ketlik, shart, sikl | Rang, shrift, o'lcham | Fayl, papka
+
+# 36
+**Hodisa bloklari:** "Bayroq bosilganda", "... tugmasi bosilganda", "Sprayt bosilganda", "Fon ... ga almashganda", "Xabar olganda".
+**Xabarlar (broadcast)** — spritlar bir-biriga signal yuboradi: "Xabar yubor: O'yin boshlandi".
+? Spritlar bir-biriga signal yuborishi? | Xabar (broadcast) | O'zgaruvchi | Kostyum
+? Xabar olganda ishlaydigan blok qaysi bo'limda? | Hodisalar | Harakat | Ovoz
+? "Probel tugmasi bosilganda" qanday blok? | Hodisa | Harakat | Operator
+? Qahramonni o'ng strelka bilan yurgizish? | "o'ng strelka bosilganda → x ni 10 ga o'zgartir" | "bayroq → yashir" | "kut"
+? Bir hodisaga bir nechta skript bo'lishi mumkinmi? | Ha, ular parallel ishlaydi | Yo'q | Faqat ikkita
+? "Xabar yubor va kut" nima qiladi? | Qabul qiluvchilar tugaguncha kutadi | Darhol davom etadi | O'chiradi
+? Sahnada ham hodisa bloklari bormi? | Ha | Yo'q | Faqat bayroq
+? Sichqoncha sprytga tegganini tekshirish? | "sichqoncha ko'rsatkichiga tegyaptimi?" | "bayroq" | "kostyum"
+
+# 37
+**O'zgaruvchi:** "Barcha spritlar uchun" (global) yoki "Faqat shu sprayt uchun" (lokal). **Ro'yxat (list)** — bir nechta qiymatlar to'plami (ismlar, natijalar).
+**Bloklar:** "... ni ... ga tenglashtir", "... ni ... ga o'zgartir", "o'zgaruvchini ko'rsat/yashir".
+? Bir nechta qiymatni saqlash uchun? | Ro'yxat (list) | Bitta o'zgaruvchi | Kostyum
+? Faqat bitta spraytga tegishli o'zgaruvchi? | Lokal ("Faqat shu sprayt uchun") | Global | Ro'yxat
+? Ball=10, "Ballni −3 ga o'zgartir" → ? | 7 | 13 | −3
+? O'zgaruvchini sahnada yashirish? | "o'zgaruvchini yashir" | O'chirish | Imkoni yo'q
+? Ro'yxatga element qo'shish bloki? | "... ni ro'yxatga qo'sh" | "tenglashtir" | "yashir"
+? O'zgaruvchi qiymati qayerda ko'rinadi? | Sahnadagi hisoblagichda | Kostyumda | Ko'rinmaydi
+? Taymer qiymatini o'zgaruvchiga yozish? | "Vaqtni taymer ga tenglashtir" | Imkoni yo'q | Kostyum
+? O'zgaruvchi nomini o'zgartirish? | O'ng tugma → Nomini o'zgartirish | Imkoni yo'q | Qayta yaratish xolos
+
+# 38
+**"Bos-ball" o'yini:** sprayt bosilganda — Ball +1, tasodifiy joyga ko'chish ("tasodifiy joyga bor"); 30 soniya taymer; vaqt tugaganda "O'yin tugadi! Ball: ..." deyish.
+? Spraytni tasodifiy joyga ko'chirish bloki? | "tasodifiy joyga bor" | "x:0 y:0 ga bor" | "yashir"
+? Taymerni boshidan boshlash? | "taymerni nolga tushir" | "kut" | "to'xtat"
+? "taymer > 30" bo'lganda nima qilinadi? | O'yin tugaydi | Ball oshadi | Hech narsa
+? Ballni matn bilan birlashtirib aytish? | "birlashtir (Ball: ) (Ball)" | "qo'sh" | Imkoni yo'q
+? O'yin qiyinlashishi uchun sprayt? | Kichrayadi yoki tezroq ko'chadi | Kattalashadi | To'xtaydi
+? O'yin boshida ball? | 0 ga tenglashtiriladi | O'zgarmaydi | 100
+? Rekordni saqlash uchun? | Alohida "Rekord" o'zgaruvchisi | Imkoni yo'q | Ball xolos
+? Bosilganda ovoz chiqarish? | "... ovozini chal" | "kostyum" | "yur"
+
+# 39
+**To'qnashuv (collision)** — ikki obyektning tegishi: "... ga tegyaptimi?", "... rangga tegyaptimi?". Tekshiruv **"doim"** ichida bo'lishi kerak.
+**Ssenariy:** mashina to'siqqa tegsa — hayot −1, mashina boshlang'ich joyga qaytadi.
+? To'qnashuvni bir marta tekshirsak nima bo'ladi? | Keyingi tegishlar sezilmaydi | Hammasi seziladi | Xato
+? Rangga tegishni tekshirish qachon qulay? | Labirint devorlarida | Ball hisoblashda | Hech qachon
+? To'siqqa tegganda hayotni kamaytirish? | "Hayotni −1 ga o'zgartir" | "Hayotni 1 ga tenglashtir" | "yashir"
+? Bir tegishda hayot bir necha marta kamaysa, sabab? | Tegish davomida shart ko'p marta bajarildi | Kompyuter buzuq | Normal
+? Yuqoridagi muammoni hal qilish? | Tegishdan keyin qisqa "kut" yoki joydan qaytarish | Hayotni oshirish | O'chirish
+? Ikki sprayt orasidagi masofani o'lchash bloki? | "... gacha masofa" | "x pozitsiya" | "o'lcham"
+? Sahna chetiga tegish? | "chetga tegyaptimi?" | "rangga" | "sichqonchaga"
+? To'qnashuv o'yinlarda nima uchun? | Ball, hayot, to'siqlar uchun | Bezak | Kerak emas
+
+# 40
+**Validatsiya** — kiritilgan ma'lumot to'g'riligini tekshirish. Scratch: "so'ra va kut" → "javob". Masalan, yosh 1–120 oralig'ida bo'lmasa — "Noto'g'ri, qayta kiriting" va qayta so'rash ("javob to'g'ri bo'lguncha takrorla").
+? "javob" bloki qaysi bo'limda? | Sensorlar | Operatorlar | Harakat
+? Noto'g'ri kiritishda qayta so'rash uchun? | "... bo'lguncha takrorla" | "doim" | "1 marta"
+? Yosh uchun to'g'ri shart? | javob > 0 va javob < 121 | javob = 0 | javob > 1000
+? Bo'y 50–250 sm oralig'ida emasligini tekshirish? | javob < 50 yoki javob > 250 | javob = 100 | javob > 0
+? Validatsiyaning foydasi? | Xato ma'lumot dasturni buzmaydi | Sekinlashtiradi | Kerak emas
+? Javob son ekanini tekshirish (oddiy usul)? | javob * 1 = javob | Imkoni yo'q | javob uzunligi
+? Real hayotda validatsiya misoli? | Telefon raqami formatini tekshirish | Rasm ko'rish | Musiqa
+? "so'ra va kut" nima qiladi? | Savol beradi va javobni kutadi | Ovoz chaladi | Yashiradi
+
+# 41
+**Kostyumlar:** "kostyumni ... ga almashtir", "keyingi kostyum"; **effektlar** — rang, arvoh (shaffoflik), piksel; **vaqt** — "kut", taymer, "... soniya ... de".
+**FPS:** kostyum almashish tezligi animatsiya silliqligini belgilaydi.
+? Spraytni asta yo'qotish (shaffof)? | "arvoh effektini 10 ga o'zgartir" sikl ichida | "yashir" | "kut"
+? Effektlarni tozalash? | "grafik effektlarni tozala" | "yashir" | Imkoni yo'q
+? Kostyumlar orasida 0,5 soniya kutsak? | Sekin animatsiya | Tez | Animatsiya yo'q
+? Kostyum raqami bloki? | "kostyum raqami" | "javob" | "taymer"
+? Rang effekti nima qiladi? | Spraytning rangini o'zgartiradi | O'lchamini | Joyini
+? Qahramon gapirib, keyin harakatlanishi? | "2 soniya ... de" dan keyin harakat | Bir vaqtda | Imkoni yo'q
+? O'z kostyumingizni chizish? | Kostyum muharririda | Imkoni yo'q | Faqat yuklab
+? Silliq animatsiya uchun kostyum soni? | Ko'proq kadr | 1 ta | 0
+
+# 42
+**Sinov rejasi:** qanday harakat → kutilgan natija → haqiqiy natija → to'g'ri/xato. **Debaglash:** xatoni takrorlash, sababini izlash (bloklarni bittalab tekshirish, qiymatlarni "de" bilan ko'rsatish), tuzatish, qayta sinash.
+? Sinov rejasida kutilgan natija nima uchun? | Haqiqiy natija bilan solishtirish | Bezak | Kerak emas
+? Xatoni topish uchun birinchi qadam? | Xatoni qayta takrorlab ko'rish | Dasturni o'chirish | Kutish
+? O'zgaruvchi qiymatini kuzatish? | Sahnada ko'rsatish yoki "de" bloki | Imkoni yo'q | Kostyum
+? Tuzatgandan keyin? | Boshqa joylar buzilmaganini ham tekshirish | Tugatish | Yashirish
+? Sinovni kim o'tkazgan yaxshi? | Dastur muallifi va boshqa odam | Hech kim | Faqat kompyuter
+? Chegaraviy holat sinovi? | Eng kichik/katta qiymatlar bilan | Oddiy qiymat bilan xolos | Sinovsiz
+? "Kodni boshqaga tushuntirish" usuli nima deyiladi? | Rezina o'rdak usuli | Trassirovka | Kompilyatsiya
+? Xatolar ro'yxati nima uchun? | Hammasini tuzatishni nazorat qilish | Kerak emas | Jazo uchun
+
+# 44
+**HTML hujjat tuzilishi:** `<!DOCTYPE html>`, `<html lang="uz">`, `<head>` (`<meta charset="UTF-8">`, `<title>`), `<body>`.
+**Muharrirlar:** Bloknot, VS Code, onlayn: CodePen, ZIS ProStudent Kod maydoni.
+? O'zbek harflari to'g'ri chiqishi uchun? | `<meta charset="UTF-8">` | `<title>` | `<br>`
+? `lang="uz"` nima beradi? | Sahifa tilini bildiradi | Rang | O'lcham
+? HTML yozish uchun mashhur muharrir? | VS Code | Paint | Excel
+? `<!DOCTYPE html>` nima? | Hujjat HTML5 ekanini bildiradi | Sarlavha | Rasm
+? HTML faylni saqlashda kengaytma? | .html | .txt | .doc
+? `<head>` ichida nima bo'ladi? | Xizmat ma'lumotlari (title, meta, style) | Asosiy matn | Rasmlar
+? Brauzerda sahifa kodini ko'rish? | Ctrl+U | Ctrl+P | Ctrl+B
+? Teglarni ichma-ich yozish to'g'risi? | <p><b>matn</b></p> | <p><b>matn</p></b> | <b><p>matn</b></p>
+
+# 45
+**Matn teglari:** `<h1>`–`<h6>`, `<p>`, `<br>`, `<strong>`/`<b>` (qalin), `<em>`/`<i>` (qiya), `<ul>`/`<ol>` + `<li>` (ro'yxatlar), `<hr>` (gorizontal chiziq).
+? Raqamli ro'yxat tegi? | <ol> | <ul> | <li>
+? Ro'yxat bandi tegi? | <li> | <ol> | <p>
+? Gorizontal chiziq tegi? | <hr> | <br> | <line>
+? Qiya (urg'uli) matn? | <em> | <strong> | <h2>
+? Belgili (nuqtali) ro'yxat? | <ul> | <ol> | <dl>
+? `<h6>` qanday sarlavha? | Eng kichik | Eng katta | O'rta
+? Bir nechta bo'sh joy HTML'da qanday ko'rinadi? | Bitta bo'sh joy | Hammasi | Yo'qoladi
+? Sahifada bitta asosiy sarlavha qaysi tegda bo'lishi tavsiya etiladi? | <h1> | <h3> | <p>
+
+# 46
+**Havola:** `<a href="https://ziyonet.uz">Ziyonet</a>`. **Yangi oynada:** `target="_blank"`. **Ichki havola:** `<a href="#bob2">2-bob</a>` + `<h2 id="bob2">`. **Email:** `href="mailto:..."`.
+? Sahifa ichidagi bo'limga havola? | href="#id" | href="id" | target="#"
+? Email havolasi? | href="mailto:ali@mail.uz" | href="email:" | href="@"
+? Havola matni qayerda yoziladi? | <a> va </a> orasida | href ichida | Hech qayerda
+? Boshqa faylga havola (bir papkada)? | href="sahifa2.html" | href="#sahifa2" | Imkoni yo'q
+? Rasmni havola qilish mumkinmi? | Ha, <a> ichiga <img> qo'yib | Yo'q | Faqat matn
+? Telefon qo'ng'irog'i havolasi? | href="tel:+998..." | href="phone:" | Imkoni yo'q
+? Havola odatda qanday ko'rinadi? | Ko'k va tagiga chizilgan | Qizil qalin | Ko'rinmaydi
+? Yaxshi havola matni? | "Dars jadvalini ko'rish" | "bu yerga bosing" | "havola"
+
+# 47
+**Rasm:** `<img src="maktab.jpg" alt="Maktab binosi" width="400">`. **src** — manzil, **alt** — tavsif (rasm chiqmasa yoki ekran o'quvchi uchun), **width/height** — o'lcham.
+? `<img>` tegi yopuvchi tegga muhtojmi? | Yo'q | Ha | Ba'zan
+? Rasm kengligini 300 pikselga berish? | width="300" | size="300" | big="300"
+? Rasm boshqa papkada (rasmlar/) bo'lsa? | src="rasmlar/maktab.jpg" | src="maktab" | src="#rasmlar"
+? Internetdagi rasmni qo'yish? | src ga to'liq URL | Imkoni yo'q | alt ga URL
+? Rasm chiqmasa nima ko'rinadi? | alt matni | Hech narsa doim | Xato kodi
+? Rasm nomida bo'sh joy bo'lsa nima qilish yaxshi? | Bo'sh joysiz nomlash (maktab_bino.jpg) | Farqi yo'q | Katta harf
+? Faqat width berilsa, height? | Proporsional moslashadi | 0 bo'ladi | O'zgarmaydi
+? Veb uchun qulay rasm formatlari? | JPG, PNG, WebP, SVG | DOCX | MP3
+
+# 48
+**CSS bilan dizayn:** `style="color: red; background-color: #f0f0f0; font-size: 20px;"` yoki `<style>` ichida: `h1 { color: navy; }`.
+**Rang yozish:** nom (red), HEX (#ff0000), RGB (rgb(255,0,0)).
+? Matn rangi xususiyati? | color | background | font
+? #FFFFFF qaysi rang? | Oq | Qora | Qizil
+? Shrift o'lchami xususiyati? | font-size | text-size | size
+? CSS qoidasi `p { color: blue; }` nima qiladi? | Barcha paragraflarni ko'k qiladi | Bitta paragrafni | Hech narsa
+? Matnni markazlash? | text-align: center | align: middle | center: yes
+? `<style>` tegi qayerda yoziladi? | <head> ichida | <body> oxirida faqat | Fayl tashqarisida
+? rgb(0, 128, 0) qaysi rang? | Yashil | Qizil | Ko'k
+? CSS qisqartmasi? | Cascading Style Sheets | Computer Style System | Color Style Site
+
+# 50
+**Saytni internetga joylash (hosting):** fayllar serverga yuklanadi. **Bepul hosting:** GitHub Pages, Netlify. Bosh sahifa — `index.html`. Domen — `ism.github.io` yoki o'z domeningiz.
+**Bilasizmi?** ZIS ProStudent ham GitHub Pages'da joylashgan!
+? GitHub Pages'da sayt manzili qanday? | foydalanuvchi.github.io | foydalanuvchi.uz | github.com xolos
+? Bosh sahifa fayli nomi? | index.html | main.docx | bosh.txt
+? Hosting nima? | Saytni serverda saqlash xizmati | Brauzer | Domen
+? Domen va hosting farqi? | Domen — manzil, hosting — joy | Farqi yo'q | Domen — fayl
+? Saytni yangilash uchun? | O'zgargan fayllarni qayta yuklash | Saytni o'chirish | Imkoni yo'q
+? Saytni joylashdan oldin nima tekshiriladi? | Havolalar, rasmlar, imlo | Hech narsa | Faqat rang
+? .uz domenini qayerdan olish mumkin? | Rasmiy registratorlardan | Paint'dan | Bepul har doim
+? Sayt hamma qurilmada yaxshi ko'rinishi? | Moslashuvchan (responsive) dizayn | Faqat kompyuter | Imkoni yo'q
+
+# 51
+**Tarmoq turlari:** **PAN** (shaxsiy, Bluetooth), **LAN** (lokal — sinf, bino), **MAN** (shahar), **WAN** (global — Internet). Simli (kabel) va simsiz (Wi-Fi).
+**Tarmoq afzalligi:** fayl va printerni bo'lishish, aloqa, internetga umumiy chiqish.
+? Shahar miqyosidagi tarmoq? | MAN | LAN | PAN
+? Telefon va quloqchin Bluetooth orqali — qanday tarmoq? | PAN | WAN | MAN
+? Internet qanday tarmoq? | WAN (global) | LAN | PAN
+? Tarmoqning afzalligi? | Resurslarni bo'lishish | Kompyuter og'irlashadi | Hech qanday
+? Simli tarmoq afzalligi? | Barqaror va tez | Simsiz | Qimmatroq xolos
+? Wi-Fi qanday tarmoq? | Simsiz LAN | Simli WAN | PAN xolos
+? Server nima? | Boshqa kompyuterlarga xizmat ko'rsatuvchi kompyuter | Kabel | Printer
+? Mijoz (client) nima? | Serverdan xizmat oluvchi kompyuter | Router | Kabel
+
+# 52
+**Tarmoq komponentlari:** tarmoq kartasi (NIC, **MAC-manzil** bilan), kabellar (o'ralgan juftlik, optik tola), switch, router, modem, kirish nuqtasi (access point).
+**IP-manzil** — tarmoqdagi qurilma manzili (192.168.1.10); **MAC** — qurilmaning zavod manzili.
+? Optik tola kabelda ma'lumot nima orqali uzatiladi? | Yorug'lik | Tovush | Suv
+? IP-manzil misoli? | 192.168.1.10 | www.uz | AA-BB
+? Wi-Fi signalini tarqatuvchi qurilma? | Kirish nuqtasi (access point) | Printer | Skaner
+? MAC-manzil kimniki? | Tarmoq kartasining zavod manzili | Saytniki | Foydalanuvchiniki
+? Modem nima qiladi? | Provayder signalini kompyuter tushunadiganga aylantiradi | Rasm chizadi | Chop etadi
+? Eng tez tarmoq kabeli? | Optik tola | Telefon simi | Elektr simi
+? Tarmoq kabeli ulagichi? | RJ-45 | USB-C xolos | HDMI
+? Provayder nima? | Internet xizmatini ko'rsatuvchi kompaniya | Brauzer | Antivirus
+
+# 53
+**Hub** — ma'lumotni barcha portlarga yuboradi (eskirgan). **Switch** — faqat kerakli qurilmaga (MAC bo'yicha). **Router** — tarmoqlar orasida yo'l tanlaydi (IP bo'yicha). **Modem** — provayder bilan ulanish.
+**Kabel:** o'ralgan juftlik (UTP), RJ-45 jek, maxsus qisqich bilan siqiladi.
+? Switch ma'lumotni qayerga yuboradi? | Faqat kerakli qurilmaga | Hammaga | Hech qayerga
+? Hub ning kamchiligi? | Hammaga yuborib tarmoqni yuklaydi | Juda aqlli | Simsiz
+? Uy routeri odatda nima qiladi? | Wi-Fi tarqatadi va internetga ulaydi | Faqat chop etadi | Rasm saqlaydi
+? Router qaysi manzil bilan ishlaydi? | IP | MAC xolos | Uy manzili
+? Switch qaysi manzil bilan ishlaydi? | MAC | IP xolos | Email
+? UTP kabel ichida nechta sim bor (odatda)? | 8 ta (4 juft) | 2 ta | 1 ta
+? Kabel uchiga jekni siqish asbobi? | Krimper (qisqich) | Qaychi | Bolg'a
+? Kompyuter sinfidagi 20 ta kompyuterni ulash uchun? | Switch | Modem xolos | Skaner
+
+# 54
+**Topologiyalar:** **yulduz** (hamma markaziy switchga — eng keng tarqalgan), **shina** (bitta umumiy kabel), **halqa**, **to'r (mesh)**.
+**Loyihalash:** ehtiyojlar (nechta qurilma, qayerda) → topologiya → uskunalar ro'yxati → sxema → xarajat.
+? Yulduz topologiyada bitta kabel uzilsa? | Faqat shu kompyuter uziladi | Butun tarmoq | Hech narsa
+? Shina topologiyada asosiy kabel uzilsa? | Butun tarmoq ishlamaydi | Faqat bitta | Hech narsa
+? To'r (mesh) afzalligi? | Ishonchli, ko'p yo'l bor | Arzon | Oddiy
+? Loyihalashda birinchi qadam? | Ehtiyojlarni aniqlash | Kabel sotib olish | Ulash
+? Tarmoq sxemasida nima ko'rsatiladi? | Qurilmalar va ulanishlar | Faqat ranglar | Parollar
+? Yulduz topologiyaning markazida? | Switch | Printer | Monitor
+? Halqa topologiyada ma'lumot qanday yuradi? | Doira bo'ylab birma-bir | Tasodifiy | Faqat markazdan
+? Uskunalar ro'yxatiga nima kiradi? | Switch, router, kabel, jeklar | Daftar | Qalam
+
+# 55
+**Tarmoq boshqaruvi (administrator):** foydalanuvchi hisoblari va huquqlari, IP-manzillarni taqsimlash (DHCP), monitoring (tezlik, nosozlik), yangilanishlar, zaxira, hujjatlashtirish.
+? IP-manzillarni avtomatik taqsimlovchi xizmat? | DHCP | DNS | HTML
+? Tarmoq administratori vazifasi? | Tarmoqni sozlash, himoyalash va kuzatish | Rasm chizish | Dars berish
+? Kompyuter tarmoqqa ulanganini tekshirish buyrug'i? | ping | print | open
+? Foydalanuvchi huquqlarini cheklash nima uchun? | Xavfsizlik va tartib | Tezlik | Kerak emas
+? Tarmoq sxemasini hujjatlashtirish foydasi? | Nosozlikda tez tuzatish | Kerak emas | Bezak
+? Monitoring nima? | Tarmoq holatini doimiy kuzatish | Ekran o'lchami | Rasm
+? Parollar siyosati misoli? | 90 kunda almashtirish, kamida 12 belgi | Parolsiz | 1234
+? Nosozlik bo'lsa birinchi tekshiriladi? | Kabel va ulanishlar | Monitor rangi | Sichqoncha
+
+# 56
+**Xavfsizlik vositalari:** **firewall** (tarmoqlararo ekran), antivirus, **WPA2/WPA3** shifrlash, kuchli Wi-Fi paroli, mehmon tarmog'i, yangilanishlar, VPN.
+**Tahdidlar:** viruslar, fishing, parolni topish (brute force), ochiq tarmoqdagi tinglash.
+? Firewall nima qiladi? | Ruxsatsiz ulanishlarni bloklaydi | Rasm chizadi | Tezlikni oshiradi
+? Zamonaviy Wi-Fi shifrlash? | WPA3 (yoki WPA2) | WEP | Shifrsiz
+? Brute force hujumi? | Parolni ko'p variant bilan sinab topish | Fishing xati | Virus
+? Router standart paroli (admin/admin) ni nima qilish kerak? | Darhol almashtirish | Qoldirish | Hammaga aytish
+? Mehmon Wi-Fi tarmog'ining foydasi? | Asosiy tarmoqni ajratib himoyalaydi | Tezroq | Kerak emas
+? Zararli dasturga misol? | Troyan | Brauzer | Word
+? Dasturiy yangilanishlar nima uchun muhim? | Xavfsizlik teshiklarini yopadi | Rang uchun | Kerak emas
+? Ransomware nima? | Fayllarni shifrlab, pul talab qiluvchi virus | Antivirus | Router
+
+# 57
+**Maktab tarmog'i loyihasi:** kompyuter sinfi (20 PC — switch), o'qituvchilar xonasi, Wi-Fi kirish nuqtalari, server (fayllar), router (internet), firewall, mehmon Wi-Fi, kabel trassasi.
+? Kompyuter sinfi kompyuterlari nimaga ulanadi? | Switchga | To'g'ridan modemga | Printerga
+? O'quvchilar va xodimlar tarmog'ini ajratish? | Alohida segmentlar (VLAN) yoki SSID | Imkoni yo'q | Bitta parol
+? Maktab serverida nima saqlanadi? | Umumiy fayllar va zaxiralar | O'yinlar | Hech narsa
+? Wi-Fi kirish nuqtalari soni nimaga bog'liq? | Bino maydoni va xonalar soniga | Rangga | Hech narsaga
+? Loyiha xarajatlariga nima kiradi? | Uskunalar, kabel, o'rnatish | Faqat kompyuter | Hech narsa
+? Maktabda zararli saytlarni bloklash? | Kontent filtri | Monitorni o'chirish | Imkoni yo'q
+? Tarmoq sxemasini qaysi dasturda chizish mumkin? | draw.io yoki Cisco Packet Tracer | Kalkulyator | Audacity
+? Server xonasida nima muhim? | Sovitish, xavfsizlik, uzluksiz tok | Musiqa | Deraza
+
+# 59
+**Animatsiya** — tez almashadigan kadrlar (rasm) harakat illyuziyasini beradi. **FPS** — soniyadagi kadrlar soni: kino 24, video 30/60. **Kalit kadr** — asosiy holat; **oraliq kadrlar** — ular orasidagi holatlar.
+**Video formatlar:** MP4 (eng keng tarqalgan), MOV, AVI, WebM.
+? Kino odatda necha FPS? | 24 | 1 | 1000
+? Asosiy holatni bildiruvchi kadr? | Kalit kadr | Oraliq kadr | Fon
+? Eng keng tarqalgan video format? | MP4 | DOCX | PNG
+? FPS oshsa animatsiya? | Silliqroq | Uzilib-uzilib | O'zgarmaydi
+? Ko'z harakat illyuziyasini nimadan sezadi? | Kadrlar tez almashinuvidan | Rangdan | Ovozdan
+? Stop-motion animatsiya nima? | Obyektlarni suratga olib, kadrma-kadr harakat | 3D modellash | Ovozli kitob
+? 2 soniyalik animatsiya 12 FPS da nechta kadr? | 24 | 12 | 6
+? Video ruxsati (1920×1080) nima deyiladi? | Full HD | 4K | SD
+
+# 60
+**Pencil2D:** kadrlar vaqt chizig'i, qatlamlar (fon va qahramon alohida), **"piyoz po'sti" (onion skin)** — oldingi kadrni xira ko'rsatadi. Eksport: GIF yoki video.
+? Fon va qahramonni alohida chizish uchun? | Qatlamlar | Bitta kadr | Imkoni yo'q
+? Oldingi kadrni xira ko'rish vositasi? | Onion skin | Lupa | Chelak
+? Kadr qo'shish qayerda? | Vaqt chizig'ida | Fayl menyusida xolos | Imkoni yo'q
+? Animatsiyani video qilib saqlash? | Eksport → Film (MP4) | Ctrl+S xolos | Imkoni yo'q
+? Pencil2D qanday dastur? | Bepul 2D animatsiya dasturi | Matn muharriri | Brauzer
+? Animatsiya tezligini o'zgartirish? | FPS sozlamasi | Rang | Qatlam
+? Bir kadrni nusxalab keyingisini biroz o'zgartirish nima beradi? | Silliq harakat | Hech narsa | Xato
+? Pencil2D'da qatlam turlari? | Bitmap, vektor, kamera, ovoz | Faqat matn | Jadval
+
+# 62
+**Video tayyorlash bosqichlari:** g'oya → **ssenariy** (nima aytiladi) → **storyboard** (kadrlar rejasi) → material (rasm, video, musiqa) → montaj → eksport.
+**Onlayn vositalar:** Adobe Express (Spark), Canva Video, CapCut.
+? Kadrlar rejasini rasmda ko'rsatish? | Storyboard | Ssenariy | Montaj
+? Videoda aytiladigan matn? | Ssenariy | Storyboard | Eksport
+? Video bo'laklarini birlashtirish va kesish? | Montaj | Ssenariy | Eksport
+? Shablonli onlayn video vositasi? | Canva yoki Adobe Express | Excel | Bloknot
+? Videoga subtitr nima uchun? | Ovozsiz ko'ruvchilar va tushunish uchun | Bezak | Kerak emas
+? Qisqa ta'limiy video davomiyligi? | 1–3 daqiqa | 3 soat | 5 soniya
+? Begona musiqani ishlatish? | Litsenziyasiz (royalty-free) yoki ruxsat bilan | Har qanday | Hech qachon
+? Video oxirida nima bo'ladi? | Xulosa yoki chaqiriq | Hech narsa | Yangi mavzu
+
+# 63
+**Saundtrek** — fon musiqasi; **narration** — diktor ovozi (sharh). Sharh aniq eshitilishi uchun musiqa **past** bo'ladi. Ovoz yozish: tinch xona, mikrofon yaqin, avval matnni mashq qilish.
+? Diktor sharhi inglizcha? | Narration | Soundtrack | Effect
+? Sharh va musiqa birga bo'lsa? | Musiqa pastroq | Musiqa balandroq | Bir xil baland
+? Ovoz yozishda shovqinni kamaytirish? | Tinch xona, mikrofon yaqinroq | Ochiq ko'chada | Baland musiqa bilan
+? Ovoz effektlari (SFX) misoli? | Eshik g'ichirlashi, qarsak | Diktor matni | Subtitr
+? Bepul musiqa manbai? | YouTube Audio Library | Har qanday qo'shiq | Radio yozuvi
+? Ovozni videoga moslashtirish nima deyiladi? | Sinxronlash | Kesish | Eksport
+? Sharh yozishdan oldin? | Matnni tayyorlab, mashq qilish | Hech narsa | Baqirish
+? Musiqa juda baland bo'lsa? | Asosiy ma'lumot eshitilmaydi | Yaxshi | Farqi yo'q
+
+# 64
+**Auditoriya talablari:** yosh, qiziqish, til, qurilma (telefon — vertikal 9:16, YouTube — gorizontal 16:9), davomiylik, maxsus ehtiyojlar (subtitr, kontrast).
+? Telefon uchun video nisbati? | 9:16 (vertikal) | 16:9 | 4:3
+? YouTube uchun standart nisbat? | 16:9 | 9:16 | 1:1
+? Kichik bolalar uchun video? | Qisqa, rangli, sodda | Uzun, murakkab | Matnli xolos
+? Eshitish qobiliyati past ko'ruvchilar uchun? | Subtitrlar | Balandroq musiqa | Hech narsa
+? Ota-onalar uchun maktab videosi? | Aniq ma'lumot, xotirjam uslub | Juda tez montaj | Mem-lar
+? Auditoriyani bilmasak nima bo'ladi? | Video maqsadga yetmaydi | Yaxshi bo'ladi | Farqi yo'q
+? Instagram post uchun kvadrat nisbat? | 1:1 | 21:9 | 9:16 xolos
+? Video tili qanday tanlanadi? | Auditoriya tiliga qarab | Tasodifan | Doim ingliz
+
+# 65
+**Reklama modeli AIDA:** **Attention** (diqqat), **Interest** (qiziqish), **Desire** (istak), **Action** (harakat — "Hoziroq yoziling!").
+**Halol reklama:** yolg'on va'da bermaslik, faktlar, ijobiy uslub.
+? AIDA'dagi oxirgi bosqich? | Action (harakat) | Attention | Interest
+? Diqqatni tortish usuli? | Qiziqarli boshlanish, savol, yorqin tasvir | Uzun matn | Jimlik
+? Halol reklama qanday? | Haqiqiy faktlar bilan | Yolg'on va'dalar bilan | Boshqalarni yomonlab
+? Slogan nima? | Qisqa esda qoladigan shior | Narx | Logotip rangi
+? Maktab IT to'garagi reklamasida chaqiriq? | "Bugunoq ro'yxatdan o'ting!" | "IT" | "Xona"
+? Maqsadli auditoriya nima? | Reklama mo'ljallangan odamlar | Hamma | Hech kim
+? "Desire" bosqichida nima ko'rsatiladi? | Foyda va natijalar | Faqat logotip | Hech narsa
+? Reklama samaradorligini qanday bilamiz? | Natijalar (yozilganlar soni) orqali | Rangiga qarab | Bilib bo'lmaydi
+
+# 66
+**Audacity** — bepul ovoz muharriri. Ovoz yozish (qizil tugma), kesish, nusxalash, **Fade in/out** (asta kuchayish/pasayish), **shovqinni kamaytirish**, balandlik (Amplify), eksport: MP3, WAV.
+? Ovozning asta kuchayib boshlanishi? | Fade in | Fade out | Amplify
+? Audacity'da yozishni boshlash tugmasi? | Qizil doira | Yashil uchburchak | Qora kvadrat
+? Fon shovqinini olib tashlash effekti? | Noise Reduction | Echo | Fade
+? Ovoz balandligini oshirish? | Amplify (kuchaytirish) | Trim | Split
+? Siqilmagan sifatli audio format? | WAV | MP3 | ZIP
+? Keraksiz qismni o'chirish? | Belgilab Delete | Fade | Eksport
+? Audacity qanday dastur? | Bepul ochiq kodli audio muharrir | Video muharrir | Brauzer
+? Ikki audio trekni birlashtirish (musiqa + ovoz)? | Ikkalasini alohida treklarga qo'yib eksport | Imkoni yo'q | Faqat bittasi

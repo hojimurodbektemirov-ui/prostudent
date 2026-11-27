@@ -1,0 +1,376 @@
+# 1
+**Qurilmalar guruhlari:** **kiritish** (klaviatura, sichqoncha, mikrofon, kamera, skaner), **chiqarish** (monitor, printer, karnay, proyektor), **saqlash** (qattiq disk, SSD, fleshka), **qayta ishlash** (protsessor).
+**Bilasizmi?** Birinchi elektron kompyuter ENIAC (1946) 27 tonna og'irlikda bo'lgan, bugungi telefon esa undan millionlab marta kuchli.
+? Skaner qanday qurilma? | Kiritish | Chiqarish | Saqlash
+? Printer qanday qurilma? | Chiqarish | Kiritish | Qayta ishlash
+? SSD nima uchun kerak? | Ma'lumotni saqlash uchun | Ovoz chiqarish uchun | Chop etish uchun
+? ENIAC kompyuteri qancha og'irlikda bo'lgan? | 27 tonna | 2 kilogramm | 270 gramm
+? Kompyuter qizib ketsa, birinchi nima qilinadi? | O'qituvchiga aytiladi | Suv sepiladi | Simni tishlab uziladi
+? Ko'zni dam oldirish qoidasi "20-20-20" nimani bildiradi? | Har 20 daqiqada 20 soniya 20 qadam uzoqqa qarash | 20 soat ishlash | 20 marta ko'z qisish
+? Monitor yuqori cheti ko'z bilan qanday holatda bo'lishi kerak? | Ko'z balandligida yoki biroz pastda | Juda balandda | Polda
+? Qaysi qurilma ham kiritish, ham chiqarish? | Sensorli ekran | Sichqoncha | Karnay
+
+# 2
+**Operatsion tizim vazifalari:** dasturlarni ishga tushirish, xotira va fayllarni boshqarish, qurilmalar bilan ishlash, foydalanuvchi bilan muloqot (oyna, menyu, belgilar).
+**Oynalar bilan ishlash:** Alt+Tab — oynalar o'rtasida o'tish, Win+D — ish stolini ko'rsatish.
+? Oynalar o'rtasida o'tish tugmalari? | Alt+Tab | Ctrl+B | Shift+Enter
+? Ish stolini tez ko'rsatish? | Win+D | Ctrl+P | Alt+F
+? Operatsion tizim nima qiladi? | Kompyuter resurslarini boshqaradi | Faqat rasm chizadi | Faqat musiqa qo'yadi
+? macOS qaysi kompaniya kompyuterlarida? | Apple | Samsung | Microsoft
+? Dastur "javob bermasa" uni qanday yopish mumkin? | Vazifalar dispetcheri (Ctrl+Shift+Esc) | Monitorni o'chirish | Klaviaturani urish
+? Linux qanday tizim? | Bepul ochiq kodli OT | Pullik o'yin | Brauzer
+? Pusk menyusi nima uchun? | Dasturlar va sozlamalarni ochish | Faylni o'chirish | Ovoz chiqarish
+? Operatsion tizim qayerda saqlanadi? | Qattiq diskda (SSD) | Monitorda | Sichqonchada
+
+# 3
+**Muhim tugmalar:** **Esc** — bekor qilish, **Tab** — keyingi maydon, **Delete** — o'ngdagi belgini o'chirish, **Backspace** — chapdagini, **Home/End** — qator boshi/oxiri, **Ctrl** va **Alt** — tezkor buyruqlar uchun.
+? Qator oxiriga o'tish tugmasi? | End | Home | Esc
+? Formadagi keyingi maydonga o'tish? | Tab | Enter | Shift
+? Ochilgan menyuni yopish tugmasi? | Esc | Delete | Space
+? Sichqonchaning g'ildiragini bosib turish nima qiladi? | Sahifani aylantirish rejimi | Faylni o'chiradi | Kompyuterni o'chiradi
+? Sichqonchani ikki marta bosish nima uchun? | Fayl yoki dasturni ochish | Belgilash | Nusxa olish
+? Kursor shakli matn ustida qanday bo'ladi? | Vertikal chiziq (I) | Qo'l | Soat
+? Raqamlar blokini yoqish tugmasi? | Num Lock | Caps Lock | Scroll Lock
+? Kursor "soat" shakliga kirsa nima bo'lyapti? | Kompyuter ishlayapti, kutish kerak | Buzildi | O'chdi
+
+# 4
+**To'g'ri o'tirish:** tirsaklar 90° burchakda, bilaklar erkin, oyoqlar polda, ekran ko'z balandligida.
+**Mashq rejasi:** avval asosiy qator, keyin yuqori va pastki qatorlar; aniqlik 95% dan oshgach tezlikni oshiring.
+? Yozishda tirsaklar qanday burchakda bo'lishi kerak? | Taxminan 90° | 30° | 180°
+? Avval nimaga e'tibor beramiz? | Aniqlikka | Tezlikka | Ranglarga
+? Ko'r usulning afzalligi? | Klaviaturaga qaramay tez yozish | Faqat bitta barmoq ishlaydi | Sekinlashadi
+? "D" harfini qaysi barmoq bosadi? | Chap qo'l o'rta barmog'i | O'ng bosh barmoq | Chap jimjiloq
+? "J" harfini qaysi barmoq bosadi? | O'ng ko'rsatkich barmoq | Chap ko'rsatkich | O'ng jimjiloq
+? Necha kun mashq qilish natija beradi? | Har kuni muntazam | Bir marta | Yiliga bir
+? Klava.org nima uchun? | Tez yozishni o'rganish uchun | Rasm chizish | Musiqa
+? Yozishda oyoqlar qayerda bo'lsin? | Polda tekis | Stulda | Havoda
+
+# 5
+**Natijani o'lchash:** tezlik = to'g'ri yozilgan belgilar / daqiqa. Aniqlik = to'g'ri belgilar / jami belgilar × 100%.
+**Misol:** 3 daqiqada 300 belgi, 15 ta xato → tezlik 100 belgi/daq, aniqlik 95%.
+? 2 daqiqada 240 belgi yozildi. Tezlik? | 120 belgi/daq | 240 belgi/daq | 480 belgi/daq
+? 200 belgidan 10 tasi xato. Aniqlik? | 95% | 90% | 10%
+? Musobaqada g'olib kim? | Tez va aniq yozgan | Faqat tez yozgan | Ko'p xato qilgan
+? 5-sinf o'quvchisi uchun yaxshi tezlik taxminan? | 80–120 belgi/daq | 1000 belgi/daq | 5 belgi/daq
+? Natijani nima uchun yozib boramiz? | O'sishni ko'rish uchun | Kerak emas | Boshqalarni masxara qilish uchun
+? Xatolar ko'p bo'lsa nima qilish kerak? | Sekinroq va aniqroq yozish | Tezlashtirish | Mashqni tashlash
+? Musobaqada hamma uchun matn qanday bo'lishi kerak? | Bir xil | Har xil | Ixtiyoriy
+? Yozish tezligining yana bir o'lchovi? | So'z/daqiqa | Kilogramm | Metr
+
+# 6
+**Word oynasi:** lenta (menyu bo'limlari), ishchi maydon (oq varaq), holat satri (sahifa, so'zlar soni), masshtab.
+**Yangi hujjat:** Ctrl+N; **ochish:** Ctrl+O; **saqlash:** Ctrl+S.
+? Yangi hujjat yaratish tugmalari? | Ctrl+N | Ctrl+S | Ctrl+O
+? Mavjud hujjatni ochish? | Ctrl+O | Ctrl+N | Ctrl+P
+? So'zlar soni qayerda ko'rinadi? | Holat satrida (pastda) | Lentada | Ko'rinmaydi
+? Lenta nima? | Bo'limlar va buyruqlar paneli | Fayl nomi | Rasm
+? Masshtab (zoom) nima qiladi? | Ko'rinishni kattalashtiradi/kichraytiradi | Harfni kattalashtiradi | O'chiradi
+? Word hujjati birinchi saqlanganda nima so'raladi? | Fayl nomi va joyi | Parol | Hech narsa
+? Matn yozishda qator oxirida Enter bosish kerakmi? | Yo'q, Word o'zi keyingi qatorga o'tkazadi | Ha, har qatorda | Faqat Shift bilan
+? Xatboshi (abzas) qanday boshlanadi? | Enter bosib | Space bosib | Esc bosib
+
+# 7
+**Belgilash usullari:** so'z — ikki marta bosish; xatboshi — uch marta bosish; qator — chap chetda bosish; Shift + strelkalar — harfma-harf; Ctrl+A — hammasi.
+? Xatboshini belgilash uchun necha marta bosiladi? | 3 marta | 1 marta | 5 marta
+? Shift + o'ng strelka nima qiladi? | Bir harfni belgilaydi | O'chiradi | Saqlaydi
+? Qatorni belgilash usuli? | Chap chetda bosish | O'ng tugma | Esc
+? Belgilangan matn ustiga yozsa nima bo'ladi? | Yangi matn bilan almashadi | Ikkalasi qoladi | Hech narsa
+? Ctrl + Shift + End nima qiladi? | Kursordan hujjat oxirigacha belgilaydi | Saqlaydi | Yopadi
+? Belgilashni bekor qilish? | Bo'sh joyni bir marta bosish | Ctrl+S | Delete
+? Tahrirlash nima? | Matndagi xato va kamchiliklarni tuzatish | Chop etish | Rasm chizish
+? Bir nechta alohida so'zni belgilash uchun qaysi tugma bosib turiladi? | Ctrl | Alt | Tab
+
+# 8
+**Clipboard (almashinuv buferi)** — nusxalangan yoki kesilgan narsa vaqtincha saqlanadigan joy. Ctrl+V uni qayta-qayta joylay oladi.
+**Sichqoncha bilan:** o'ng tugma → Nusxalash / Kesish / Joylash.
+? Nusxalangan matn qayerda turadi? | Almashinuv buferida | Savatda | Printerda
+? Ctrl+V ni 3 marta bossak? | Matn 3 marta joylanadi | 1 marta | Xato chiqadi
+? Copy inglizcha nima? | Nusxalash | Kesish | Joylash
+? Cut dan keyin asl joyda matn qoladimi? | Yo'q | Ha | Yarmi
+? Paste nima? | Joylash | O'chirish | Saqlash
+? Yangi narsa nusxalasak, eskisi buferda qoladimi? | Yo'q, almashadi | Ha | Ikkalasi birlashadi
+? Kompyuter o'chsa bufer nima bo'ladi? | Tozalanadi | Saqlanadi | Faylga yoziladi
+? Faqat matnni (formatsiz) joylash qayerda? | Joylash parametrlari → "Faqat matn" | Ctrl+B | Ctrl+S
+
+# 9
+**Sudrab ko'chirish (drag & drop):** matnni belgilab, sichqoncha bilan yangi joyga sudrash. Ctrl bosib sudrasa — nusxa olinadi.
+**Bekor qilish:** Ctrl+Z, **qaytarish:** Ctrl+Y.
+? Bekor qilingan amalni qaytarish? | Ctrl+Y | Ctrl+Z | Ctrl+X
+? Ctrl bosib sudrasak nima bo'ladi? | Nusxa olinadi | O'chadi | Hech narsa
+? Delete tugmasi qaysi belgini o'chiradi? | Kursordan o'ngdagini | Chapdagini | Hammasini
+? Butun so'zni chapga qarab o'chirish? | Ctrl+Backspace | Shift+Enter | Alt+F4
+? Ko'chirish va nusxalash farqi? | Ko'chirishda asl joydan yo'qoladi | Farqi yo'q | Nusxalashda yo'qoladi
+? Xatoni darhol bekor qilish? | Ctrl+Z | Ctrl+S | Ctrl+N
+? Abzaslar tartibini almashtirish uchun nima qilamiz? | Kesib, yangi joyga joylaymiz | Qayta yozamiz | Chop etamiz
+? Ctrl+Z necha marta ishlaydi? | Bir necha marta ketma-ket | Faqat bir marta | Umuman ishlamaydi
+
+# 10
+**Shrift parametrlari:** nomi (Times New Roman, Arial, Calibri), o'lchami (pt), rangi, belgilash rangi (marker), qalin/qiya/tagiga chizilgan, ustki/pastki indeks (x², H₂O).
+? H₂O dagi kichik "2" nima deyiladi? | Pastki indeks | Ustki indeks | Kursiv
+? x² dagi "2" nima? | Ustki indeks | Pastki indeks | Qalin
+? Matnni sariq rang bilan "marker"lash vositasi? | Belgilash rangi (Highlight) | Shrift rangi | Fon
+? Rasmiy hujjat uchun mos shrift? | Times New Roman yoki Arial | Juda bezakli shrift | Rasmli shrift
+? Shrift o'lchamini oshirish tugmalari? | Ctrl+] (yoki Ctrl+Shift+>) | Ctrl+Z | Ctrl+P
+? Sarlavha uchun qaysi o'lcham mos? | 16–24 pt | 6 pt | 100 pt
+? Qizil shrift ko'p bo'lsa nima bo'ladi? | Ko'zni charchatadi, tartibsiz ko'rinadi | Chiroyli | Hech narsa
+? Tagiga chizish tugmalari? | Ctrl+U | Ctrl+I | Ctrl+B
+
+# 11
+**Rasm qo'shish:** Qo'yish → Rasmlar (fayldan yoki onlayn). **Matnni o'rash:** rasm atrofida matn joylashishi ("Kvadrat", "Matn oldida", "Matn ortida").
+**Rasm formati:** chegaralar, soya, effektlar, kesish.
+? Rasm atrofida matn joylashuvi nima deyiladi? | Matnni o'rash | Formatlash | Saralash
+? Rasm proporsiyasi buzilmasligi uchun qayerdan tortiladi? | Burchakdagi nuqtadan | Yon tomondan | Markazdan
+? Rasmni aylantirish nuqtasi? | Yuqoridagi aylana strelka | Pastki burchak | Yo'q
+? Rasmga ramka qo'shsa bo'ladimi? | Ha, rasm formati orqali | Yo'q | Faqat Paint'da
+? Onlayn rasm ishlatganda nimaga e'tibor beramiz? | Litsenziya va muallifga | Rangiga | Hajmiga xolos
+? Rasmning keraksiz chetini olib tashlash? | Kesish (Crop) | O'chirish | Aylantirish
+? Rasmni matn ortiga qo'yish qachon kerak? | Fon (suv belgisi) sifatida | Hech qachon | Har doim
+? Rasm juda katta hajmli bo'lsa hujjat nima bo'ladi? | Og'irlashadi, sekin ochiladi | Yengillashadi | Hech narsa
+
+# 12
+**Shakllar:** to'rtburchak, doira, strelka, yulduz, chaqiriq (callout). **WordArt** — bezakli yozuv: soya, kontur, egilish.
+**Guruhlash:** bir nechta shaklni belgilab — Guruhlash; endi ular birga harakatlanadi.
+? Bir nechta shaklni birga siljitish uchun? | Guruhlash | O'chirish | Nusxalash
+? Chaqiriq (callout) shakli nima uchun? | Gap yoki izoh yozish uchun | Jadval uchun | Rasm kesish uchun
+? WordArt nimani yaratadi? | Bezakli matn | Jadval | Diagramma
+? Shakl konturi nima? | Chegara chizig'i | Ichki rang | Soyasi
+? Shakl ichiga matn yozish mumkinmi? | Ha | Yo'q | Faqat raqam
+? Mukammal kvadrat chizish uchun qaysi tugma bosib turiladi? | Shift | Ctrl | Alt
+? Shakllarni bir-birining ustiga qo'yish tartibi? | Oldinga/orqaga olib chiqish | Mumkin emas | Faqat rang bilan
+? Strelka shakli nimani ko'rsatish uchun qulay? | Yo'nalish va bog'lanish | Rang | Sana
+
+# 13
+**Hujjat tuzilishi:** sarlavha (markazda, katta), kirish, asosiy qism (rasm bilan), xulosa, muallif. Sahifa chegarasi: **Dizayn → Sahifa chegaralari**.
+**Tekshiruv ro'yxati:** imlo, bir xil shrift, rasm joyida, sahifa chiroyli.
+? Hujjat qanday qismlardan iborat bo'lishi yaxshi? | Sarlavha, asosiy qism, xulosa | Faqat rasm | Faqat sarlavha
+? Hujjat oxirida nimani ko'rsatish mumkin? | Muallif ismi va sanani | Parolni | Telefonni
+? Rasm ostidagi izoh nima deyiladi? | Rasm nomi (caption) | Sarlavha | Kolontitul
+? Barcha sahifada takrorlanadigan yuqori qism? | Kolontitul (header) | Abzas | Jadval
+? Sahifa raqamini qo'yish qayerda? | Qo'yish → Sahifa raqami | Fayl | Ko'rinish
+? Hujjatni topshirishdan oldin nima qilamiz? | Tekshiramiz va saqlaymiz | Darhol yopamiz | O'chiramiz
+? Hujjatda bir nechta har xil shrift bo'lsa? | Tartibsiz ko'rinadi | Chiroyli | Majburiy
+? "Mening maktabim" hujjatiga qanday rasm mos? | Maktab binosi surati | Kosmik kema | Mashina
+
+# 14
+**Imlo tekshiruvi:** qizil to'lqin — imlo, ko'k/yashil — grammatika yoki uslub. O'ng tugma → tavsiya etilgan so'z. **F7** — to'liq tekshirish.
+**Ehtiyot:** dastur o'zbek so'zlarini ham xato deb ko'rsatishi mumkin — lug'at bilan tekshiring.
+? Grammatik xato qanday chiziq bilan ko'rsatiladi? | Ko'k yoki yashil | Qizil | Sariq
+? To'g'ri so'zni tanlash uchun? | O'ng tugma bilan tavsiyalar | F5 | Ctrl+Z
+? Dastur har doim to'g'ri tekshiradimi? | Yo'q, lug'at bilan solishtirish kerak | Ha | Faqat o'zbekchada
+? Hujjat tilini qanday o'zgartiramiz? | Ko'rib chiqish → Til | Fayl → Chop | Dizayn
+? So'zni lug'atga qo'shish nima beradi? | U boshqa xato deb belgilanmaydi | O'chiradi | Kattalashtiradi
+? F7 nima qiladi? | Imloni tekshiradi | Saqlaydi | Chop etadi
+? Imlo xatosi ko'p hujjat qanday taassurot qoldiradi? | Beparvo | Yaxshi | Ilmiy
+? Ikki marta yozilgan so'z ("va va") ni dastur topadimi? | Ha, odatda belgilaydi | Yo'q | Faqat katta harfda
+
+# 15
+**Qidirish:** Ctrl+F — so'zni topish (navigatsiya paneli). **Almashtirish:** Ctrl+H — "Topish" va "Almashtirish" maydonlari, "Almashtirish" yoki "Hammasini almashtirish".
+**Misol:** hujjatdagi hamma "kompyuter" so'zini "kompyuter (EHM)" bilan almashtirish.
+? So'zni almashtirish oynasi? | Ctrl+H | Ctrl+F | Ctrl+K
+? "Hammasini almashtirish" qachon xavfli? | So'z boshqa so'z ichida ham bo'lsa | Hech qachon | Doim
+? Qidiruv natijalari qayerda ko'rinadi? | Navigatsiya panelida | Savatda | Ko'rinmaydi
+? Qidirish faqat butun so'zni topishi uchun? | "Faqat butun so'zlar" belgilanadi | Ctrl+B | Imkoni yo'q
+? Almashtirish nima uchun kerak? | Ko'p joydagi xatoni birdan tuzatish | Chop etish | Saqlash
+? Qidiruvda katta-kichik harf farqlanadimi? | Sozlamaga bog'liq | Doim | Hech qachon
+? 10 betlik hujjatda bitta so'zni tez topish? | Ctrl+F | Varaqlab o'qish | Imkoni yo'q
+? Almashtirishdan keyin noto'g'ri bo'lsa? | Ctrl+Z bilan bekor qilamiz | Hujjat buzildi | Qayta yozamiz
+
+# 16
+**Sahifa sozlamalari (Maket):** yo'nalish (kitob — tik, albom — yotiq), o'lcham (A4: 210×297 mm), maydonlar (chetlar), ustunlar.
+**Chop etishdan oldin** — oldindan ko'rish (Ctrl+P).
+? Tik sahifa nima deyiladi? | Kitob (portret) | Albom | Kvadrat
+? A4 o'lchami? | 210×297 mm | 100×100 mm | 500×700 mm
+? Sahifa maydonlari nima? | Matn bilan qog'oz cheti orasidagi joy | Rasm | Jadval
+? Matnni ikki ustunga bo'lish qayerda? | Maket → Ustunlar | Qo'yish → Rasm | Fayl
+? Yotiq sahifa qachon qulay? | Keng jadval yoki poster uchun | Hech qachon | Insho uchun
+? Yangi sahifadan boshlash (sahifa uzilishi)? | Ctrl+Enter | Enter | Shift+Tab
+? Sahifa yo'nalishi qaysi bo'limda? | Maket (Layout) | Qo'yish | Ko'rib chiqish
+? Maktab hujjatlarida odatda qaysi qog'oz? | A4 | A1 | A7
+
+# 17
+**Chop etish sozlamalari:** printer tanlash, nusxalar soni, sahifalar (hammasi yoki 1–2), bir/ikki tomonlama, rangli/oq-qora.
+**Qog'ozni tejash:** oldindan ko'ring, keraksiz bo'sh sahifalarni olib tashlang.
+? Faqat 2-sahifani chop etish uchun? | "Sahifalar" maydoniga 2 yoziladi | Hammasini chop etib, kerakmasini tashlash | Imkoni yo'q
+? 5 nusxa chop etish? | Nusxalar sonini 5 qilish | 5 marta Ctrl+S | Imkoni yo'q
+? Qog'ozni tejash usuli? | Ikki tomonlama chop etish | Har bir so'zni alohida betda | Katta shrift
+? Rangli siyohni tejash uchun? | Oq-qora chop etish | Rangli | Bo'sh qog'oz
+? Chop etishdan oldin nima muhim? | Oldindan ko'rish | Kompyuterni o'chirish | Faylni o'chirish
+? Printer ishlamasa birinchi nima tekshiriladi? | Yoqilgani, qog'oz va ulanish | Monitor | Sichqoncha
+? "Bo'sh sahifa" chop etilsa sabab nima bo'lishi mumkin? | Hujjat oxirida ortiqcha Enter'lar | Printer yangi | Shrift chiroyli
+? Hujjat qaysi formatda chop etishga yuborilsa ko'rinishi buzilmaydi? | PDF | TXT | MP3
+
+# 18
+**PDF** — hamma qurilmada bir xil ko'rinadigan format, tahrirlash qiyin. Word'da: **Fayl → Saqlash (boshqacha) → PDF**.
+**Yaxshi fayl nomi:** `5A_Aliyev_insho_2026-11.docx` — kim, nima, qachon.
+? Qaysi nom yaxshiroq? | 5A_Aliyev_insho.docx | asdfgh.docx | yangi hujjat (3).docx
+? PDF ning afzalligi? | Hamma joyda bir xil ko'rinadi | Oson tahrirlanadi | Musiqa saqlaydi
+? Yangi nom yoki formatda saqlash tugmasi? | F12 (Saqlash boshqacha) | F5 | F1
+? Avtosaqlash nima? | Dastur o'zi vaqti-vaqti bilan saqlaydi | Fayl o'chadi | Chop etadi
+? Fayl nomida qaysi belgilar ishlatilmaydi? | / \ : * ? | Harflar | Raqamlar
+? PDF faylni nima bilan ochamiz? | Brauzer yoki PDF ko'ruvchi | Paint | Kalkulyator
+? Ishni ikki joyda saqlash nima uchun foydali? | Biri yo'qolsa, ikkinchisi qoladi | Joy tejash uchun | Kerak emas
+? Bulutli saqlashga misol? | Google Drive | Monitor | Klaviatura
+
+# 19
+**Fayl va papka:** fayl — ma'lumot; papka — fayllar "qutisi". Yaratish: o'ng tugma → Yaratish. Qayta nomlash: **F2**. O'chirish: **Delete** (savatga), **Shift+Delete** (butunlay).
+**Turlari:** DOCX (Word), PDF, JPG va PNG (rasm), MP4 (video), MP3 (ovoz), ZIP (arxiv).
+? Shift+Delete nima qiladi? | Faylni savatsiz butunlay o'chiradi | Nusxa oladi | Qayta nomlaydi
+? ZIP qanday fayl? | Arxiv (siqilgan) | Rasm | Video
+? Fayl turini nima ko'rsatadi? | Kengaytma (nuqtadan keyingi qism) | Fayl hajmi | Sanasi
+? JPG qanday fayl? | Rasm | Matn | Musiqa
+? Fayl hajmi nimada o'lchanadi? | Bayt, KB, MB, GB | Metr | Litr
+? 1 KB taxminan necha bayt? | 1024 | 10 | 1 000 000
+? Papkalarni tartibli nomlash foydasi? | Faylni tez topish | Kerak emas | Hajm kamayadi
+? Bir papkada ikkita bir xil nomli fayl bo'lishi mumkinmi? | Yo'q | Ha | Faqat rasmlar
+
+# 21
+**Grafik muharrir asboblari:** qalam, cho'tka, chelak (to'ldirish), pipetka (rang olish), o'chirg'ich, shakllar, matn, lupa (masshtab), belgilash.
+**Rastr rasm** — mayda nuqtalardan (piksellardan) iborat.
+? Rasm mayda nuqtalardan iborat. Ular nima deyiladi? | Piksellar | Baytlar | Shriftlar
+? Pipetka nima qiladi? | Rasmdan rang oladi | Bo'yaydi | O'chiradi
+? Lupa (masshtab) nima uchun? | Rasmni kattalashtirib ko'rish | Kesish | Bo'yash
+? Paint'ga o'xshash bepul dastur? | GIMP yoki Krita | Excel | Word
+? Rasmni kattalashtirganda "zinapoya" ko'rinsa sabab? | Piksellar kattalashdi | Rasm buzildi | Rang o'zgardi
+? Chelak qanday sohani bo'yaydi? | Yopiq va bir xil rangli sohani | Butun ekranni doim | Faqat chiziqni
+? Ikkinchi rangni (fon rangini) qanday ishlatamiz? | Sichqonchaning o'ng tugmasi bilan | Klaviatura | Ishlatib bo'lmaydi
+? Grafik muharrirda yangi rasm? | Ctrl+N | Ctrl+B | Ctrl+F
+
+# 22
+**Shakllar:** chiziq, to'g'ri to'rtburchak, oval, ko'pburchak. **Shift** bosib turilsa — to'g'ri chiziq, kvadrat, aylana chiqadi.
+**Kontur va to'ldirish:** shakl chegarasi rangi va ichki rangi alohida tanlanadi.
+? Mukammal kvadrat uchun qaysi tugma bosib turiladi? | Shift | Ctrl | Esc
+? Gorizontal to'g'ri chiziq chizish uchun? | Chiziq + Shift | Qalam | Chelak
+? Shaklning ichki rangi nima deyiladi? | To'ldirish (fill) | Kontur | Fon
+? Ko'pburchak asbobi nima chizadi? | Ko'p burchakli shakl (uchburchak, yulduz) | Faqat doira | Matn
+? Shakl chizilgach uni siljitsa bo'ladimi (Paint)? | Faqat tanlab turganda | Har doim | Hech qachon
+? Oval asbobi bilan nima chiziladi? | Ellips va aylana | Kvadrat | Chiziq
+? Kontur qalinligi nima? | Chegara chizig'i qalinligi | Rasm hajmi | Rang
+? Shakllardan qanday rasm yasash mumkin? | Uy, robot, mashina | Hech qanday | Faqat matn
+
+# 23
+**Qalam (Pencil)** — ingichka, aniq chiziq (1 piksel). **Cho'tka (Brush)** — turli shakl va qalinlikdagi yumshoq chiziq: kalligrafiya, purkagich (sprey), akvarel.
+? Purkagich (sprey) qanday iz qoldiradi? | Mayda nuqtalar to'plami | To'g'ri chiziq | Matn
+? Mayda detallarni chizish uchun? | Qalam | Purkagich | Chelak
+? Cho'tka turini qayerdan tanlaymiz? | Cho'tkalar menyusidan | Fayl | Ko'rinish
+? Chap tugma bilan chizganda qaysi rang? | Asosiy (1-rang) | Fon rangi | Oq doim
+? Yumshoq chiziq uchun? | Cho'tka | Qalam | O'chirg'ich
+? Qalam chizig'i qalinligi? | Odatda 1 piksel (o'zgartirsa bo'ladi) | 50 piksel | Ko'rinmaydi
+? Bulut rasmini chizishga qaysi asbob mos? | Purkagich yoki yumshoq cho'tka | Chiziq | Lupa
+? Xato chizilgan chiziqni tez bekor qilish? | Ctrl+Z | Ctrl+S | F5
+
+# 24
+**RGB modeli:** ekrandagi har bir rang **Qizil (R), Yashil (G), Ko'k (B)** dan hosil bo'ladi; har biri 0–255. (255,0,0) — qizil, (0,0,0) — qora, (255,255,0) — sariq.
+**Ranglarni tahrirlash** oynasida o'z rangingizni yaratishingiz mumkin.
+? RGB(0,0,0) qaysi rang? | Qora | Oq | Qizil
+? RGB(255,0,0) qaysi rang? | Qizil | Yashil | Ko'k
+? RGB(0,0,255) qaysi rang? | Ko'k | Qizil | Sariq
+? RGB(255,255,0) qaysi rang? | Sariq | Qora | Ko'k
+? Har bir rang komponentasi qanday oraliqda? | 0–255 | 0–10 | 1–100
+? Printer qaysi ranglar bilan bosadi? | CMYK (ko'kish, qizg'ish, sariq, qora) | Faqat RGB | Faqat oq
+? O'z rangingizni qayerda yaratasiz? | "Ranglarni tahrirlash" | Chelak | Lupa
+? Kulrang qanday hosil bo'ladi? | R, G, B teng (masalan 128,128,128) | Faqat R | Faqat B
+
+# 25
+**Qalinlik** — "O'lcham" menyusidan tanlanadi. **To'ldirish turlari:** bir xil rang, yo'q, gradient (boshqa dasturlarda).
+**Qatlamlar tartibi:** keyin chizilgan shakl oldingisining ustida turadi.
+? Keyin chizilgan shakl qayerda turadi? | Oldingisining ustida | Ostida | Ko'rinmaydi
+? Shaklni kontursiz chizsa bo'ladimi? | Ha, kontur "yo'q" | Yo'q | Faqat qora kontur
+? Gradient nima? | Bir rangdan boshqasiga silliq o'tish | Chiziq | Matn turi
+? Chiziq qalinligi qayerdan tanlanadi? | "O'lcham" menyusidan | Fayl | Ko'rinish
+? Ichi bo'sh doira chizish uchun? | To'ldirish "yo'q" | To'ldirish "bir xil" | Chelak
+? Ikkita bir xil shakl chizishning tez yo'li? | Nusxalash va joylash | Qaytadan chizish | Imkoni yo'q
+? Qalin chiziq qachon mos? | Asosiy konturlar uchun | Mayda detallar uchun | Hech qachon
+? Svetofor chizish uchun qaysi shakllar? | To'rtburchak va 3 ta doira | Faqat chiziqlar | Matn
+
+# 26
+**Robot rasmi rejasi:** bosh — kvadrat/to'rtburchak, ko'zlar — doira, og'iz — chiziq yoki to'rtburchak, tana — katta to'rtburchak, qo'l-oyoqlar — ingichka to'rtburchak, antenna — chiziq va doira.
+**Saqlash:** PNG — sifatli va shaffof fon mumkin.
+? Robot ko'zi uchun qaysi shakl qulay? | Doira | Uchburchak | Chiziq
+? Rasmni chizishdan oldin nima foydali? | Reja (eskiz) tuzish | Kompyuterni o'chirish | Saqlash
+? Simmetrik rasm qanday? | Ikki tomoni bir xil | Tartibsiz | Rangsiz
+? Robot antennasini qanday chizamiz? | Chiziq va kichik doira | Katta kvadrat | Chelak bilan
+? Ranglar uyg'un bo'lishi uchun? | 3–4 ta mos rang tanlanadi | 20 ta rang | Faqat qora
+? PNG formatning afzalligi? | Sifat yo'qolmaydi | Eng kichik hajm doim | Video saqlaydi
+? Rasm nomi qanday bo'lsin? | robot_Aliyev.png | 1.png | asdf.png
+? Chizilgan robotni Word hujjatiga qo'shsa bo'ladimi? | Ha, rasm sifatida | Yo'q | Faqat chop etib
+
+# 27
+**Belgilash (Select):** to'rtburchak yoki erkin shaklda. Belgilangan qismni siljitish, o'lchamini o'zgartirish (burchakdan tortish), aylantirish, nusxalash mumkin.
+**Qiyshaytirish (Skew)** — shaklni yonga egish.
+? Erkin shakldagi belgilash? | Erkin belgilash (lasso) | To'rtburchak belgilash | Chelak
+? Belgilangan qismni nusxalab ko'paytirish? | Ctrl+C, Ctrl+V | Ctrl+Z | Delete
+? O'lcham o'zgartirish (Resize) qayerda? | Rasm → O'lchamini o'zgartirish | Fayl | Ko'rinish
+? Foizda kichraytirish: 50% nimani bildiradi? | Ikki baravar kichik | Ikki baravar katta | O'zgarmaydi
+? Ctrl bosib belgilangan qismni sudrasak (ko'p dasturlarda)? | Nusxa hosil bo'ladi | O'chadi | Hech narsa
+? Yulduzlar osmonini tez chizish usuli? | Bitta yulduzni ko'p nusxalash | Har birini qayta chizish | Imkoni yo'q
+? Skew nima qiladi? | Qiyshaytiradi | Bo'yaydi | Kesadi
+? Belgilashni bekor qilish tugmasi? | Esc | Enter | Space
+
+# 28
+**Kesish va joylash:** belgilangan qism Ctrl+X bilan olinadi, uning joyida **fon rangi** qoladi. **Shaffof belgilash** yoqilsa, oq fon ko'chmaydi.
+? Kesilgan joyda nima qoladi? | Fon rangi | Hech narsa (teshik) | Qora rang doim
+? Shaffof belgilash nima beradi? | Oq fon ko'chirilmaydi | Rasm o'chadi | Rang o'zgaradi
+? Boshqa rasmdan qismni olish uchun? | O'sha rasmda nusxalab, bu yerga joylash | Imkoni yo'q | Qayta chizish
+? Joylangan qism qayerda paydo bo'ladi? | Odatda yuqori chap burchakda | Markazda doim | Ko'rinmaydi
+? Joylangan qismni nima qilsa bo'ladi? | Kerakli joyga siljitish | Hech narsa | Faqat o'chirish
+? Ctrl+X va Delete farqi? | Ctrl+X buferga oladi, Delete butunlay o'chiradi | Farqi yo'q | Delete nusxa oladi
+? Bir rasmdagi mushukni boshqa fonga o'tkazish? | Belgilab nusxalab, yangi fonga joylash | Imkoni yo'q | Chop etish
+? Kesib olish inglizcha nima? | Cut | Copy | Crop
+
+# 29
+**Crop** — rasmning faqat belgilangan qismini qoldirish. **Rotate** — 90°, 180° aylantirish. **Flip** — ko'zgudagidek akslantirish (gorizontal/vertikal).
+? Rasmni ko'zgudagidek akslantirish? | Flip (akslantirish) | Crop | Resize
+? 90° ni to'rt marta aylantirsak? | Boshlang'ich holat | Teskari | 180°
+? Crop qachon kerak? | Keraksiz chetni olib tashlashda | Rang berishda | Matn yozishda
+? 180° aylantirish nima beradi? | Rasm teskari bo'ladi | O'zgarmaydi | Yo'qoladi
+? Vertikal akslantirish? | Yuqori-past almashadi | Chap-o'ng almashadi | Rang almashadi
+? Telefonda olingan rasm yon turib qolsa? | 90° aylantiramiz | Kesamiz | O'chiramiz
+? Crop qilingandan keyin rasm hajmi? | Kichrayadi | Kattalashadi | O'zgarmaydi
+? Aylantirish qaysi menyuda? | Rasm (Image) → Aylantirish | Fayl | Ranglar
+
+# 30
+**O'chirg'ich** aslida **fon rangi (2-rang)** bilan bo'yaydi. Katta joy — kattaroq o'chirg'ich yoki belgilab **Delete**.
+**Saqlash:** Fayl → Saqlash boshqacha → format tanlash (PNG, JPG, BMP).
+? O'chirg'ich qaysi rang bilan bo'yaydi? | Fon (2-rang) bilan | Asosiy rang | Oq doim
+? O'chirg'ich o'lchamini qanday kattalashtiramiz? | O'lcham menyusidan | Imkoni yo'q | Ctrl+B
+? Rasmni JPG formatda saqlash qayerda? | Saqlash boshqacha → JPEG | Ctrl+P | Ranglar
+? BMP formatning kamchiligi? | Hajmi juda katta | Ochilmaydi | Rangsiz
+? Saqlanmagan rasm yopilsa nima so'raladi? | O'zgarishlarni saqlaysizmi? | Parol | Hech narsa
+? Belgilangan katta qismni o'chirish? | Delete | Enter | Space
+? Fon rangini qizil qilib o'chirg'ich ishlatsak? | Qizil iz qoladi | Oq qoladi | O'chirmaydi
+? Ishni qanchalik tez-tez saqlash kerak? | Muntazam (Ctrl+S) | Faqat oxirida | Hech qachon
+
+# 31
+**JPG** — fotosuratlar uchun, hajmi kichik, lekin sifat biroz yo'qoladi. **PNG** — aniq chiziqlar, logotip, shaffof fon. **GIF** — oddiy animatsiya.
+**Hajmni kamaytirish:** o'lchamini (pikselni) kichraytirish yoki JPG sifatini pasaytirish.
+? Oddiy animatsiyali rasm formati? | GIF | DOCX | MP3
+? Logotip uchun eng yaxshi format? | PNG | JPG | BMP
+? JPG hajmini kamaytirish usuli? | Sifatini pasaytirish yoki o'lchamini kichraytirish | Kattalashtirish | Rang qo'shish
+? Rasm o'lchami nimada ifodalanadi? | Pikselda (eni × bo'yi) | Kilogrammda | Litrda
+? 1920×1080 rasm nechta piksel eni bor? | 1920 | 1080 | 3000
+? Rasmni yuborishdan oldin nega kichraytiramiz? | Tez yuborilishi uchun | Chiroyli bo'lishi uchun | Kerak emas
+? Qaysi format fon shaffofligini saqlamaydi? | JPG | PNG | GIF
+? Skrinshot (ekran surati) uchun qulay format? | PNG | MP4 | ZIP
+
+# 32
+**Kollaj** — bir nechta rasmdan bitta kompozitsiya. Reja: mavzu tanlash → rasmlar yig'ish → fon → rasmlarni joylash, o'lchamini moslash → sarlavha → saqlash.
+? Kollaj uchun rasmlarni qanday joylaymiz? | Muvozanatli va chiroyli tartibda | Bir-birining ustiga tartibsiz | Faqat bitta rasm
+? Kollaj mavzusiga misol? | "Mening ta'tilim" | Tasodifiy rasmlar | Bo'sh fon
+? Rasm o'lchamlarini moslash nima uchun? | Kollaj uyg'un ko'rinishi uchun | Hajm oshishi uchun | Kerak emas
+? Kollaj uchun bepul onlayn vosita? | Canva | Excel | Kalkulyator
+? Begona rasmlardan foydalanishda nima kerak? | Muallif ruxsati yoki erkin litsenziya | Hech narsa | Rasmni bo'yash
+? Kollaj sarlavhasi qanday? | Qisqa va o'qilishi oson | Juda uzun | Ko'rinmas
+? Kollajni qaysi formatda saqlaymiz? | PNG yoki JPG | DOCX | MP3
+? Kollajda ramka (chegara) nima beradi? | Rasmlarni ajratib, tartibli ko'rsatadi | Hajmni kamaytiradi | Kerak emas
+
+# 33
+**Poster** — katta sarlavha, bitta asosiy g'oya, 2–3 rang, ko'zga tashlanadigan rasm, qisqa matn.
+**Kontrast** — fon va matn ranglari farqli bo'lsin (qora fonda oq, oq fonda to'q ko'k).
+? Posterda nechta asosiy g'oya bo'lishi yaxshi? | Bitta | O'nta | Hech qancha
+? Kontrast nima? | Ranglarning bir-biridan aniq farqi | Bir xil ranglar | Rasm hajmi
+? Qaysi juftlik yaxshi o'qiladi? | To'q ko'k fonda oq matn | Sariq fonda oq matn | Qora fonda to'q ko'k
+? IT poster mavzusiga misol? | "Internetda xavfsiz bo'l!" | Ovqat retsepti | Ob-havo
+? Posterdagi matn uzunligi? | Qisqa, bir qarashda o'qiladigan | Uzun maqola | Matnsiz doim
+? Poster sarlavhasini qanday ajratamiz? | Katta, qalin shriftda | Kichik shriftda | Rangsiz
+? Posterni qanday baholaymiz? | 3 metrdan o'qiladimi — tekshiramiz | Hajmiga qarab | Rang soniga qarab
+? Posterda manzil yoki QR-kod nima uchun? | Qo'shimcha ma'lumotga yo'naltirish | Bezak | Kerak emas

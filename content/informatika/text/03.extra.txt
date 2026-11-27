@@ -1,0 +1,345 @@
+# 1
+**Axborot hamma joyda:** ko'chadagi belgilar, do'kondagi narxlar, soat, kalendar, ob-havo, kitob, ustozning gapi.
+**Bilasizmi?** Hayvonlar ham axborot almashadi: asalarilar "raqs" bilan gul qayerdaligini bir-biriga aytadi.
+? Soat bizga qanday axborot beradi? | Vaqt haqida | Ob-havo haqida | Narx haqida
+? Do'kondagi narx yorlig'i nima? | Axborot | O'yinchoq | Shirinlik
+? Asalarilar axborotni qanday uzatadi? | "Raqs" bilan | Telefon bilan | Xat bilan
+? Kalendar nimani ko'rsatadi? | Sana va kunlarni | Haroratni | Narxni
+? Kitob qanday axborot manbasi? | Matnli | Hidli | Ta'mli
+? Ko'chadagi "Maktab" belgisi haydovchiga nima deydi? | Ehtiyot bo'l, bolalar bor | Tezlashtir | To'xtama
+? Axborotni qaysi a'zolar bilan qabul qilamiz? | Sezgi a'zolari bilan | Faqat qo'l bilan | Faqat oyoq bilan
+? Ob-havo xabari qayerdan olinadi? | Televizor, radio, internet | Faqat daftardan | Hech qayerdan
+
+# 2
+**Ma'lumot** — alohida faktlar, sonlar, so'zlar: "25", "qizil", "Toshkent". **Axborot** — ma'nosi tushunarli bo'lgan ma'lumot: "Toshkentda bugun +25°".
+**Misol:** "8:00" — ma'lumot. "Dars 8:00 da boshlanadi" — axborot.
+? "Qizil" so'zi alohida nima? | Ma'lumot | Axborot | Kod
+? "Svetofor qizil — to'xta" bu nima? | Axborot | Faqat ma'lumot | Raqam
+? Ma'lumotni axborotga nima aylantiradi? | Ma'no (tushunish) | Rang | O'lcham
+? "36,6" — bu nima? | Ma'lumot | Axborot | Rasm
+? "Tana harorati 36,6 — sog'lom" — bu nima? | Axborot | Faqat ma'lumot | Kod
+? Kompyuter nima bilan ishlaydi? | Ma'lumotlar bilan | Ovqat bilan | Suv bilan
+? Jadvaldagi raqamlar — bu nima? | Ma'lumotlar | O'yin | Rasm
+? Qaysi biri axborot? | "Ertaga dars yo'q, bayram" | "Ertaga" | "Bayram"
+
+# 3
+**Saqlash:** kompyuterda ma'lumot **fayl**ga yoziladi, fayllar **papka**larga joylanadi. Fayl nomi + kengaytma: `rasm.png`, `hikoya.docx`.
+**Tezkor tugmalar:** **Ctrl+S** — saqlash, **Ctrl+Z** — bekor qilish.
+? Fayl nima? | Saqlangan ma'lumot | Qurilma | Tugma
+? Papka nima uchun kerak? | Fayllarni tartibli joylash uchun | O'yin uchun | Hisoblash uchun
+? Ctrl+S nima qiladi? | Saqlaydi | O'chiradi | Chop etadi
+? `hikoya.docx` qanday fayl? | Word hujjati | Rasm | Musiqa
+? `rasm.png` qanday fayl? | Rasm | Matn | Video
+? Saqlanmagan ish chiroq o'chsa nima bo'ladi? | Yo'qolishi mumkin | Saqlanadi | Kitobga yoziladi
+? Ma'lumotni qayerda saqlash mumkin? | Kompyuter, fleshka, bulut | Faqat devorda | Hech qayerda
+? Ctrl+Z nima qiladi? | Oxirgi amalni bekor qiladi | Saqlaydi | Yopadi
+
+# 4
+**Qayta ishlash** — ma'lumotdan yangi natija olish: **saralash** (alifbo yoki son tartibida), **hisoblash**, **tahrirlash**, **guruhlash**.
+**Misol:** sinfdagi bo'ylarni o'lchab, eng balandini topish — qayta ishlash.
+? 5, 2, 9 sonlarini o'sish tartibida yozing. | 2, 5, 9 | 9, 5, 2 | 5, 9, 2
+? Guruhlash misoli? | Mevalar va sabzavotlarni ajratish | Bitta olma yeyish | Uxlash
+? Eng katta sonni topish — bu nima? | Qayta ishlash | Saqlash | Uzatish
+? Matndagi xatolarni tuzatish — bu nima? | Tahrirlash | Saralash | Uzatish
+? "ari, bola, anor" alifbo tartibida? | anor, ari, bola | bola, ari, anor | ari, anor, bola
+? Kalkulyator qanday qayta ishlaydi? | Hisoblaydi | Saqlaydi | Uzatadi
+? Rasmni kichraytirish — bu nima? | Qayta ishlash | Yig'ish | Uzatish
+? Qayta ishlashdan keyin nima hosil bo'ladi? | Yangi axborot | Hech narsa | Eski axborot o'chadi
+
+# 5
+**Internetda izlash:** brauzerni oching → qidiruv tizimi (Google, Yandex) → **kalit so'z** yozing → Enter.
+**Maslahat:** qisqa va aniq yozing: "Samarqand Registon tarixi". Ishonchli saytlardan (rasmiy, ta'lim saytlari) foydalaning.
+? Qidiruv tizimiga misol? | Google | Word | Paint
+? Kalit so'z nima? | Izlash uchun asosiy so'z | Parol | Kalit rasmi
+? Qaysi qidiruv aniqroq? | "Zebra qayerda yashaydi" | "hayvon" | "narsa"
+? Internetdagi hamma ma'lumot to'g'rimi? | Yo'q, tekshirish kerak | Ha, doim | Faqat rasmlar
+? Qidiruvni boshlash tugmasi? | Enter | Backspace | Shift
+? Kutubxonada axborot qanday izlanadi? | Katalog va kitob javonlari orqali | Internetsiz izlab bo'lmaydi | Faqat so'rab
+? Topilgan rasmni boshqa joyda ishlatsa bo'ladimi? | Muallif ruxsati bilan | Har doim | Hech qachon ko'rish ham mumkin emas
+? Kattalardan qachon yordam so'raymiz? | Noqulay narsa chiqsa | Hech qachon | Faqat o'yinda
+
+# 6
+**Matn bezash (Word):** **B** — qalin, *I* — qiya, U — tagiga chizilgan; shrift o'lchami va rangi; tekislash (chap, markaz, o'ng).
+**Sarlavha** — qisqa, katta va markazda bo'ladi.
+? Sarlavha odatda qayerda joylashadi? | Markazda | Pastda | Burchakda
+? Shrift o'lchamini nima o'zgartiradi? | Harflar kattaligini | Rangini | Tilini
+? Matnni markazga tekislash qachon kerak? | Sarlavha uchun | Hech qachon | Har bir so'z uchun
+? Qiya harf tugmasi? | I | B | U
+? Word qanday dastur? | Matn muharriri | Rasm muharriri | O'yin
+? Yangi xatboshi qaysi tugma bilan boshlanadi? | Enter | Space | Shift
+? Matn rangini o'zgartirish mumkinmi? | Ha | Yo'q | Faqat qora
+? Matnni tagiga chizish tugmasi? | U | I | B
+
+# 7
+**Paint asboblari:** qalam, cho'tka, **chelak** (bo'yash), shakllar (to'rtburchak, doira), o'chirg'ich, matn (A), palitra (ranglar).
+**Maslahat:** chelak faqat **yopiq** shaklni bo'yaydi — chiziqlar tutashmasa, hamma joy bo'yalib ketadi.
+? Paint'da xatoni nima bilan o'chiramiz? | O'chirg'ich | Chelak | Qalam
+? Doira chizish uchun nima tanlanadi? | Shakllar (oval) | Matn | Chelak
+? Rang qayerdan tanlanadi? | Palitradan | Klaviaturadan | Menyu yo'q
+? Paint'da yozuv qo'shish asbobi? | A (Matn) | Cho'tka | O'chirg'ich
+? Chelak bilan bo'yaganda hamma joy bo'yalsa, sabab? | Shakl yopiq emas | Rang yomon | Kompyuter buzuq
+? Diagramma nima? | Sonlarni rasmli ko'rsatish | Matn | Ovoz
+? Rasmni saqlash tugmalari? | Ctrl+S | Ctrl+P | Ctrl+C
+? Grafik axborotga misol? | Rasm, xarita, diagramma | Qo'shiq | Hid
+
+# 9
+**Loyiha bosqichlari:** 1) mavzu tanlash; 2) ma'lumot yig'ish; 3) hujjat yoki taqdimot tayyorlash; 4) himoya qilish (taqdim etish).
+**Word'da rasm qo'shish:** Qo'yish (Insert) → Rasmlar.
+? Loyihaning birinchi bosqichi? | Mavzu tanlash | Himoya | Chop etish
+? Loyihani taqdim etish nima deyiladi? | Himoya | O'chirish | Saqlash
+? Word'da rasm qo'shish menyusi? | Qo'yish (Insert) | Fayl | Ko'rinish
+? Loyihada ma'lumot qayerdan yig'iladi? | Kitob, internet, suhbat | Faqat tushdan | Hech qayerdan
+? Jamoada ishlashda nima muhim? | Vazifani bo'lishish va yordamlashish | Hammasini bitta odam qiladi | Janjal
+? To'garak haqida ma'lumotda nima bo'ladi? | Nomi, vaqti, nima o'rgatiladi | Faqat rasm | Hech narsa
+? Loyiha oxirida nima qilinadi? | Natija ko'rsatiladi | Tashlab yuboriladi | Yashiriladi
+? Hujjatni chop etish tugmalari? | Ctrl+P | Ctrl+S | Ctrl+Z
+
+# 10
+**Tarmoq** — o'zaro ulangan kompyuterlar. **Lokal tarmoq** — bitta bino ichida (maktab sinfi). **Internet** — butun dunyo tarmog'i. **Wi-Fi** — simsiz ulanish.
+? Maktab sinfidagi kompyuterlar tarmog'i? | Lokal tarmoq | Internet | Tarmoq emas
+? Tarmoq nima uchun kerak? | Ma'lumot almashish uchun | Kompyuterni og'irlashtirish uchun | Kerak emas
+? Kompyuterlar tarmoqqa nima orqali ulanadi? | Kabel yoki Wi-Fi | Ip bilan | Hech narsa bilan
+? Router (marshrutizator) nima qiladi? | Qurilmalarni tarmoqqa ulaydi | Rasm chizadi | Chop etadi
+? Internet nima? | Butun dunyo kompyuterlari tarmog'i | Bitta kompyuter | O'yin
+? Tarmoq orqali printer ishlatsa bo'ladimi? | Ha, bir nechta kompyuter bitta printerdan | Yo'q | Faqat bittasi
+? Wi-Fi paroli nima uchun? | Begonalar ulanmasligi uchun | Chiroyli bo'lishi uchun | Kerak emas
+? Telefon internetga qanday ulanadi? | Wi-Fi yoki mobil aloqa | Faqat kabel | Ulanmaydi
+
+# 11
+**Kodlash** — axborotni boshqa belgilar bilan ifodalash. Kodlar: harflar, raqamlar, **shtrix-kod**, **QR-kod**, Morze kodi, piktogrammalar.
+**Kompyuter** hammasini **ikkilik kod** (0 va 1) bilan saqlaydi.
+? Shtrix-kod nima bilan o'qiladi? | Skaner bilan | Qo'l bilan | Quloq bilan
+? Ikkilik kodda qaysi raqamlar bor? | 0 va 1 | 1 va 2 | 0 dan 9 gacha
+? A=1, B=2, D=3, E=4 bo'lsa, "BEDA" kodi? | 2 4 3 1 | 1 2 3 4 | 4 3 2 1
+? Telefon raqami qanday kod? | Raqamli | Rangli | Ovozli
+? Piktogramma nima? | Rasmli belgi | Ovoz | Raqam
+? Kodlashdan maqsad? | Axborotni qulay saqlash va uzatish | Uni yo'q qilish | Bezash
+? Morze kodida "SOS" nimani bildiradi? | Yordam so'rash | Salom | Xayr
+? Kompyuter rasmni qanday saqlaydi? | Sonlar (0 va 1) ko'rinishida | Qog'ozda | Saqlamaydi
+
+# 12
+**Shifrlash** — axborotni begonalar o'qiy olmaydigan qilib yozish. **Kalit** bilan ochiladi.
+**Misol (Sezar shifri):** har harfni alifboda 1 ta keyingisiga almashtiramiz: "ota" → "pub".
+? Shifr kalitsiz oson ochiladimi? | Yo'q | Ha | Kalit kerak emas
+? Sezar shifrida 1 qadam bilan "a" nima bo'ladi? | b | z | c
+? Shifrlash qayerda ishlatiladi? | Parollar va bank kartalarida | Faqat o'yinda | Hech qayerda
+? Shifrni ochish nima deyiladi? | Deshifrlash | Kodlash | Saqlash
+? Kodlash va shifrlash farqi? | Shifrlash — maxfiylik uchun | Farqi yo'q | Kodlash maxfiy
+? Messenjerlarda xabarlar nima bilan himoyalanadi? | Shifrlash bilan | Rang bilan | Ovoz bilan
+? Kalitni kimga berish kerak? | Faqat xabar oluvchiga | Hammaga | Internetga
+? Sezar shifri qaysi davrda o'ylab topilgan? | Qadimgi Rimda | Bugun | Kelajakda
+
+# 13
+**Tarmoqda uzatish:** xabar kichik bo'laklarga (paketlarga) bo'linadi, tarmoq orqali yuboriladi va manzilda qayta yig'iladi.
+Har bir qurilmaning **manzili** (IP-manzil) bor — xuddi uy manziliga o'xshab.
+? Xabar tarmoqda qanday bo'laklarga bo'linadi? | Paketlarga | Varaqlarga | Qutilarga
+? Kompyuterning tarmoqdagi manzili? | IP-manzil | Uy raqami | Telefon raqami
+? Elektron xat yuborish uchun nima kerak? | Elektron pochta manzili | Konvert | Marka
+? Fayl yuborish usuli? | Messenjer yoki pochta | Faqat fleshka | Hech qanday
+? Video qo'ng'iroq uchun nima kerak? | Kamera, mikrofon va internet | Faqat printer | Faqat klaviatura
+? Internet sekin bo'lsa nima bo'ladi? | Xabar kech yetadi | Xabar yo'qoladi doim | Kompyuter o'chadi
+? Xabar yuboruvchi kim? | Manba | Qabul qiluvchi | Kanal
+? Xabar qabul qiluvchiga yetganda paketlar nima bo'ladi? | Qayta yig'iladi | O'chadi | Ko'payadi
+
+# 14
+**Tarmoqda xavfsizlik qoidalari:** shaxsiy ma'lumotni (manzil, telefon, parol) aytmang; notanish odam bilan uchrashmang; shubhali havolani bosmang; yomon narsa ko'rsangiz — kattalarga ayting.
+? Internetda notanish odam uchrashishni taklif qilsa? | Rad etaman va kattalarga aytaman | Boraman | Yashiraman
+? Shaxsiy ma'lumotga nima kiradi? | Manzil, telefon, parol | Sevimli multfilm | Ob-havo
+? "Siz yutdingiz! Bosing" degan xabar? | Ehtimol aldov, bosmang | Bosing | Do'stlarga yuboring
+? Profil rasmiga nima qo'yish xavfsizroq? | Avatar yoki rasm chizilgan surat | Uy manzili | Maktab hujjati
+? Yomon xabar kelsa nima qilamiz? | Kattalarga ko'rsatamiz | Javob qaytaramiz | Hammaga yuboramiz
+? Begona fayl yuklab olish xavflimi? | Ha, virus bo'lishi mumkin | Yo'q | Faqat rasmlar
+? Akkaunt parolini nechta saytda bir xil qilish yaxshi? | Har biriga alohida | Hammasida bir xil | Parolsiz
+? Onlayn o'yinda kimdir parol so'rasa? | Bermayman | Beraman | Yarmini aytaman
+
+# 16
+**Plakat** — qisqa va katta yozuvlar, rasm va rang bilan axborot beruvchi varaq.
+**Yaxshi plakat:** katta sarlavha, 3–5 ta qisqa qoida, mos rasm, o'qilishi oson ranglar.
+? Plakatdagi yozuv qanday bo'lishi kerak? | Qisqa va katta | Uzun va mayda | Ko'rinmas
+? Word'da raqamli ro'yxat qilish tugmasi? | Numeratsiya (1, 2, 3) | Qalin | Chop etish
+? Plakat sarlavhasi qanday? | Katta va ko'zga tashlanadigan | Kichik | Pastda
+? Plakatda nechta qoida yozgan yaxshi? | 3–5 ta | 50 ta | Bittayam emas
+? Xavfsizlik plakatiga qanday rasm mos? | Qulf, qalqon belgisi | Tort | Futbol to'pi
+? Rangli fonga qanday yozuv o'qiladi? | Unga zid (kontrast) rangda | Fon rangida | Ko'rinmas rangda
+? Loyiha natijasini kimga ko'rsatamiz? | Sinfdoshlar va o'qituvchiga | Hech kimga | Faqat o'zimizga
+? Plakat qanday axborot? | Matn va grafik | Faqat ovoz | Faqat hid
+
+# 17
+**Ijtimoiy tarmoq** — odamlar xabar, rasm, video almashadigan saytlar va ilovalar (Telegram, Instagram, YouTube).
+**Muhim:** ko'p tarmoqlar **13 yoshdan** ruxsat beradi. Bolalar kattalar nazoratida foydalanadi.
+? Ko'p ijtimoiy tarmoqlar necha yoshdan? | 13 yoshdan | 3 yoshdan | Yosh chegarasi yo'q
+? Ijtimoiy tarmoqqa joylangan rasm qayerga ketadi? | Ko'p odamlar ko'rishi mumkin | Hech kim ko'rmaydi | O'chib ketadi
+? Ijtimoiy tarmoqda vaqtni qanday o'tkazamiz? | Chegaralangan vaqt, foydali narsalar | Kun bo'yi | Tunda
+? Notanish odam "do'st" bo'lishni so'rasa? | Kattalardan maslahat so'rayman | Darhol qabul | Uyiga boraman
+? YouTube nima? | Video ijtimoiy tarmog'i | Kalkulyator | Matn muharriri
+? Ijtimoiy tarmoqda boshqalarga qanday munosabatda bo'lamiz? | Hurmat bilan | Haqorat bilan | Masxara bilan
+? Ijtimoiy tarmoqning foydasi? | Aloqa, bilim, yangiliklar | Faqat zarar | Hech qanday
+? Ijtimoiy tarmoqdagi ko'p vaqt nimaga zarar? | Ko'z, uyqu va darslarga | Hech narsaga | Faqat telefonga
+
+# 18
+**Raqamli iz** — internetda qoldirgan hamma narsa: rasmlar, izohlar, layklar, qidiruvlar. U uzoq saqlanadi va o'chirish qiyin.
+**Qoida:** joylashdan oldin o'ylang — "Buni 10 yildan keyin ham ko'rishsa, uyalmaymanmi?"
+? Raqamli izni o'chirish osonmi? | Yo'q, qiyin | Ha, juda oson | O'zi o'chadi
+? Qaysi biri raqamli iz? | Internetga joylangan rasm | Daftarga chizilgan rasm | Qumdagi iz
+? Joylashdan oldin nima qilamiz? | O'ylab ko'ramiz | Tez joylaymiz | Hammaga yuboramiz
+? Yaxshi raqamli iz misoli? | Ijodiy ishingiz, yutuqlaringiz | Yomon izoh | Haqoratli rasm
+? Layk bosish ham iz qoldiradimi? | Ha | Yo'q | Faqat kechqurun
+? Boshqaning rasmini ruxsatsiz joylash mumkinmi? | Yo'q | Ha | Do'st bo'lsa ha
+? Kelajakda raqamli izni kim ko'rishi mumkin? | Maktab, ish beruvchi, boshqalar | Hech kim | Faqat siz
+? Qidiruv tarixi raqamli izmi? | Ha | Yo'q | Faqat telefonda
+
+# 19
+**Kuchli parol:** kamida 8 belgi, katta va kichik harflar, raqam, belgi: `Qush7!Daryo`.
+**Ikki bosqichli himoya** — parol + telefonga kelgan kod. Hisobni ancha xavfsiz qiladi.
+? Kuchli parolda nima bo'ladi? | Harf, raqam va belgi | Faqat ism | Faqat 1111
+? Ikki bosqichli himoya nima? | Parol + qo'shimcha kod | Ikkita parolni bir xil qilish | Parolsiz kirish
+? Parolni qachon almashtiramiz? | Kimdir bilib qolsa | Hech qachon | Har daqiqada
+? Kompyuterni o'chirmay ketsak nima bo'lishi mumkin? | Boshqa birov hisobga kiradi | Hech narsa | Kompyuter dam oladi
+? Virus nima? | Zararli dastur | Foydali o'yin | Qurilma
+? Dasturni qayerdan yuklagan xavfsiz? | Rasmiy do'kon yoki saytdan | Notanish havoladan | Reklamadan
+? Parolni eslab qolish usuli? | Esda qoladigan iborani o'zgartirish | Partaga yozish | Hammaga aytish
+? "Qush7!Daryo" nechta belgidan iborat? | 11 ta | 5 ta | 3 ta
+
+# 20
+**Kiberbulling** — internetda haqorat qilish, masxara qilish, qo'rqitish, yolg'on tarqatish.
+**Nima qilish kerak:** javob qaytarmang, skrinshot oling, bloklang, darhol kattalarga ayting. O'zingiz hech kimni xafa qilmang.
+? Kiberbullingga javob qaytarish kerakmi? | Yo'q | Ha, qattiqroq | Ha, hammaga
+? Dalil uchun nima qilish mumkin? | Skrinshot olish | Hammasini o'chirish | Telefonni sindirish
+? Haqoratlovchini nima qilamiz? | Bloklaymiz va kattalarga aytamiz | Do'st qilamiz | Javob yozamiz
+? Do'stingizni kimdir masxara qilyapti. Siz? | Qo'llab-quvvatlayman, kattalarga aytaman | Men ham kulaman | E'tibor bermayman
+? Kimdir haqida yolg'on tarqatish — bu? | Kiberbulling | Hazil | Yangilik
+? Kiberbulling qayerda bo'lishi mumkin? | Chat, o'yin, ijtimoiy tarmoqlarda | Faqat maktabda | Hech qayerda
+? Kiberbulling odamga qanday ta'sir qiladi? | Xafa qiladi, qo'rqitadi | Quvontiradi | Ta'sir qilmaydi
+? Yaxshi onlayn odob nima? | Hurmat va mehribonlik | Masxara | So'kinish
+
+# 21
+**QR-kod** — kvadrat shtrix-kod. Ichida havola, matn, telefon raqami yoki Wi-Fi paroli bo'lishi mumkin. Telefon kamerasi bilan o'qiladi.
+**Ehtiyot:** notanish joydagi QR-kod soxta saytga olib borishi mumkin.
+? QR-kod qanday shaklda? | Kvadrat | Doira | Uchburchak
+? QR-kod qayerda ishlatiladi? | Menyu, chipta, to'lov, reklama | Faqat kitobda | Hech qayerda
+? Notanish QR-kodni skanerlash xavfsizmi? | Ehtiyot bo'lish kerak | Har doim xavfsiz | Hech qachon ishlamaydi
+? Shtrix-kod va QR-kod farqi? | QR-kodga ko'proq ma'lumot sig'adi | Farqi yo'q | Shtrix-kod kattaroq
+? QR-kod qaysi davlatda o'ylab topilgan? | Yaponiyada | Misrda | Antarktidada
+? QR-kodni skanerlash uchun nima ochiladi? | Kamera | Kalkulyator | Radio
+? Sertifikatdagi QR-kod nima uchun? | Haqiqiyligini tekshirish uchun | Bezak uchun | O'yin uchun
+? QR-kod ichiga parol yozsa bo'ladimi? | Ha, masalan Wi-Fi paroli | Yo'q | Faqat rasm
+
+# 22
+**Virtual muzey** — muzeyni internet orqali kompyuter yoki telefonda aylanib ko'rish.
+**Misol:** Luvr (Parij), Ermitaj (Sankt-Peterburg), Samarqanddagi Registon — onlayn sayohat qilish mumkin.
+? Virtual muzeyga borish uchun nima kerak? | Internet va qurilma | Samolyot | Chipta
+? Virtual muzeyning foydasi? | Uzoqdagi muzeyni uydan ko'rish | Hech qanday | Faqat pul
+? Luvr muzeyi qayerda? | Parijda | Toshkentda | Londonda
+? Virtual sayohatda eksponatni yaqinlashtirsa bo'ladimi? | Ha, kattalashtirib | Yo'q | Faqat qo'l bilan
+? Virtual muzey qanday axborot beradi? | Rasm, matn, ba'zan ovoz | Faqat hid | Faqat ta'm
+? Haqiqiy muzeyning afzalligi? | Narsalarni jonli ko'rish | Hech qanday | Uydan chiqmaslik
+? Registon qaysi shaharda? | Samarqandda | Buxoroda | Xivada
+? 3D-tur nima? | Joyni har tomondan aylanib ko'rish | Kitob | Ovozli xabar
+
+# 23
+**Qo'shimcha reallik (AR)** — haqiqiy dunyoga kompyuter tasvirini qo'shish (telefon kamerasida).
+**Misollar:** kamera niqoblari, xonaga mebel "qo'yib ko'rish", o'yinlarda ko'cha bo'ylab qahramon izlash.
+? AR qanday qurilmada ishlaydi? | Telefon yoki planshet kamerasida | Faqat radioda | Kalkulyatorda
+? AR da haqiqiy dunyo ko'rinadimi? | Ha, ustiga tasvir qo'shiladi | Yo'q | Faqat qora ekran
+? Do'konda mebelni xonaga "qo'yib ko'rish" — bu? | AR | VR | Kodlash
+? AR ning foydasi? | O'qish va xarid qilishni qulay qiladi | Ko'rishni yomonlashtiradi | Foydasi yo'q
+? AR da tasvir nimaga qo'shiladi? | Kamera ko'rayotgan haqiqiy dunyoga | Bo'sh qog'ozga | Tushga
+? AR so'zi qaysi tildan? | Ingliz (Augmented Reality) | O'zbek | Fransuz
+? Darslikdagi rasmni telefon bilan "jonlantirish" — bu? | AR | Printer | Shifrlash
+? AR o'ynab yurganda nimaga e'tibor beramiz? | Atrofdagi xavfga | Hech narsaga | Faqat ekranga
+
+# 24
+**Virtual reallik (VR)** — maxsus ko'zoynak orqali butunlay kompyuterda yaratilgan dunyoga "kirish".
+**Qoidalar:** VR'da qisqa vaqt (10–15 daqiqa), xavfsiz bo'sh xonada, kattalar nazoratida o'ynang.
+? VR'da haqiqiy dunyo ko'rinadimi? | Yo'q, faqat virtual dunyo | Ha | Yarmi
+? VR qayerda foydali? | Ta'lim, tibbiyot, uchuvchilar mashqi | Faqat uyquda | Hech qayerda
+? VR'dan qancha vaqt foydalanish tavsiya qilinadi? | Qisqa vaqt | Kun bo'yi | Tun bo'yi
+? VR'da nega bo'sh xona kerak? | Narsalarga urilib ketmaslik uchun | Chiroyli bo'lishi uchun | Kerak emas
+? AR va VR farqi? | AR — haqiqiyga qo'shadi, VR — butunlay virtual | Farqi yo'q | VR telefonsiz kamerada
+? VR'da boshi aylansa nima qilamiz? | Ko'zoynakni yechamiz, dam olamiz | Davom etamiz | Tezlashtiramiz
+? VR ko'zoynagi nima ko'rsatadi? | Uch o'lchamli virtual dunyo | Gazeta | Soat
+? Uchuvchilar VR'da nima qiladi? | Samolyot boshqarishni mashq qiladi | Uxlaydi | O'ynaydi xolos
+
+# 26
+**Taqdimot (PowerPoint):** **slaydlar** ketma-ketligi. 1-slayd — mavzu va muallif; keyingilar — asosiy fikrlar va rasmlar; oxirgi — xulosa.
+**Qoida:** bir slaydda kam matn, katta harf, mos rasm.
+? Taqdimot nimalardan iborat? | Slaydlardan | Qo'shiqlardan | Jadval xolos
+? Oxirgi slaydda nima bo'ladi? | Xulosa yoki "Rahmat" | Sarlavha | Hech narsa
+? Slaydda qancha matn bo'lgani yaxshi? | Kam va qisqa | Juda ko'p | Umuman matnsiz har doim
+? Yangi slayd qo'shish qayerda? | "Yangi slayd" tugmasi | Chop etish | Saqlash
+? Taqdimotni ko'rsatish tugmasi? | F5 | F1 | Esc
+? Taqdimotdan chiqish tugmasi? | Esc | Enter | Space
+? Slaydga rasm qo'shish menyusi? | Qo'yish (Insert) | Dizayn | Fayl
+? Taqdimot qachon kerak? | Loyihani himoya qilishda | Faqat o'yinda | Hech qachon
+
+# 27
+**Kompyuter turlari:** **server** (saytlar va ma'lumotlarni saqlaydi), **stol kompyuteri**, **noutbuk**, **planshet**, **smartfon**, **superkompyuter** (ob-havo, ilm uchun juda tez hisoblaydi).
+**Word'da jadval:** Qo'yish (Insert) → Jadval → qator va ustunlar soni.
+? Ob-havoni hisoblaydigan juda kuchli kompyuter? | Superkompyuter | Planshet | Kalkulyator
+? Jadval nimalardan iborat? | Qator va ustunlardan | Faqat rasmlardan | Slaydlardan
+? Noutbukning afzalligi? | Ko'chma, batareyada ishlaydi | Juda katta | Ekransiz
+? Smartfon nimaga ega? | Sensorli ekran, kamera, internet | Faqat tugmalar | Faqat radio
+? Server nima qiladi? | Saytlar va ma'lumotlarni saqlaydi, uzatadi | O'yin o'ynaydi | Uxlaydi
+? Jadval katakchasi nima? | Qator va ustun kesishgan joy | Slayd | Fayl
+? Eng ko'p tarqalgan shaxsiy kompyuter turi? | Smartfon | Superkompyuter | Server
+? Planshet qanday boshqariladi? | Barmoq bilan sensorli ekranda | Faqat sichqoncha bilan | Ovoz bilan xolos
+
+# 28
+**Kiritish qurilmalari** (axborot kompyuterga kiradi): klaviatura, sichqoncha, mikrofon, kamera, skaner.
+**Chiqarish qurilmalari** (axborot kompyuterdan chiqadi): monitor, printer, karnay, quloqchin, proyektor.
+? Skaner qanday qurilma? | Kiritish | Chiqarish | Saqlash
+? Karnay qanday qurilma? | Chiqarish | Kiritish | Saqlash
+? Kamera qanday qurilma? | Kiritish | Chiqarish | Kabel
+? Proyektor qanday qurilma? | Chiqarish | Kiritish | Saqlash
+? Qog'ozdagi rasmni kompyuterga kiritish uchun nima kerak? | Skaner | Karnay | Monitor
+? Sensorli ekran qanday qurilma? | Ham kiritish, ham chiqarish | Faqat chiqarish | Faqat kiritish
+? Ovozni yozib olish uchun nima kerak? | Mikrofon | Printer | Monitor
+? Quloqchin qanday qurilma? | Chiqarish | Kiritish | Saqlash
+
+# 29
+**Dasturiy ta'minot** — kompyuterdagi dasturlar. **Operatsion tizim** (Windows, macOS, Linux, Android) — asosiy dastur. **Amaliy dasturlar**: Word, Paint, brauzer, o'yinlar.
+**Brauzer** — internet sahifalarini ochadigan dastur (Chrome, Edge, Firefox).
+? Telefon operatsion tizimi? | Android yoki iOS | Word | Paint
+? Brauzerga misol? | Chrome | Excel | Kalkulyator
+? Word qanday dastur? | Amaliy (matn) dastur | Operatsion tizim | Brauzer
+? Operatsion tizimsiz kompyuter ishlaydimi? | Yo'q, ishlay olmaydi | Ha | Tezroq ishlaydi
+? Dastur nima? | Kompyuter bajaradigan buyruqlar to'plami | Qurilma | Kabel
+? Dasturni kim yozadi? | Dasturchi | Printer | Monitor
+? Antivirus qanday dastur? | Himoya dasturi | O'yin | Brauzer
+? Yangi dastur o'rnatishni kim bilan qilamiz? | Kattalar ruxsati bilan | O'zimiz istagancha | Notanish sayt orqali
+
+# 30
+**Aqlli texnologiyalar** — ichida kompyuter va **sensorlar** bor qurilmalar: aqlli soat, aqlli dinamik, aqlli lampa, aqlli uy.
+**Sensor** — atrofni "sezadigan" qism: harorat, yorug'lik, harakat, ovoz.
+? Aqlli soat nima qila oladi? | Qadam, yurak urishi, vaqtni ko'rsatadi | Ovqat pishiradi | Uy quradi
+? Sensor nima? | Atrofni sezuvchi qism | Klaviatura tugmasi | Kabel
+? Harakatni sezib yonadigan chiroq — bu? | Aqlli chiroq | Oddiy sham | Printer
+? Aqlli dinamikka qanday buyruq beriladi? | Ovoz bilan | Qalam bilan | Qog'oz bilan
+? "Aqlli uy" nima? | Qurilmalari internet orqali boshqariladigan uy | Kitobli uy | Katta uy
+? Harorat sensori nimani o'lchaydi? | Issiqlik va sovuqlikni | Rangni | Ovozni
+? Avtomatik ochiladigan eshik nima bilan ishlaydi? | Harakat sensori bilan | Kalit bilan xolos | Qo'l bilan
+? Aqlli qurilmalarda ham parol kerakmi? | Ha, xavfsizlik uchun | Yo'q | Faqat soatda
+
+# 31
+**Robot** — sensorlar bilan atrofni sezadi, **dastur** bo'yicha ishlaydi va harakat qiladi.
+**Misollar:** robot-changyutgich, zavoddagi robot qo'llar, Marsdagi rover, yetkazib beruvchi robotlar.
+? Marsni o'rganayotgan robot nima deyiladi? | Rover (marsoxod) | Changyutgich | Printer
+? Robot qanday ishlaydi? | Dastur bo'yicha | O'z-o'zidan sehrli | Hech qanday
+? Zavodda robotlar nima qiladi? | Mashina yig'adi, payvandlaydi | Dars beradi | Uxlaydi
+? Robot to'siqni qanday sezadi? | Sensor orqali | Ko'zi bilan | Quloqlari bilan
+? Robotni kim dasturlaydi? | Dasturchi (muhandis) | Robotning o'zi | Hech kim
+? Robot-changyutgich to'siqqa urilsa nima qiladi? | Burilib boshqa yo'ldan ketadi | Portlaydi | To'xtab qoladi abadiy
+? Robotlar qanday ishlarda yordam beradi? | Og'ir va xavfli ishlarda | Faqat o'yinda | Hech qanday
+? "Robot" so'zi qaysi tildan kelgan? | Chex tilidan ("ish" ma'nosida) | O'zbek | Arab
+
+# 32
+**Onlayn ta'lim** — internet orqali o'qish: video darslar, onlayn testlar, elektron kitoblar, platformalar (masalan, ZIS ProStudent!).
+**Qoidalar:** dars jadvaliga amal qiling, tanaffus qiling, savollarni o'qituvchiga yozing.
+? Onlayn ta'lim uchun nima kerak? | Qurilma va internet | Faqat qalam | Faqat qog'oz
+? Onlayn darsda kamera va mikrofon nima uchun? | O'qituvchi bilan muloqot uchun | Bezak uchun | Kerak emas
+? Onlayn ta'limning afzalligi? | Istalgan joydan o'qish | Hech qanday | Faqat o'yin
+? Onlayn testni kim yechishi kerak? | O'quvchining o'zi | Ota-onasi | Do'sti
+? Elektron kitobni nima bilan o'qiymiz? | Kompyuter, planshet, telefon | Faqat qog'oz | Radio
+? Onlayn darsda o'zini qanday tutish kerak? | Diqqat bilan, odob bilan | Boshqa ish qilib | Uxlab
+? Video darsni to'xtatib takrorlash mumkinmi? | Ha | Yo'q | Faqat bir marta
+? Uzoq vaqt ekran oldida o'tirganda nima qilamiz? | Tanaffus qilamiz | Davom etamiz | Ko'zni yummaymiz

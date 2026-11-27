@@ -1,0 +1,325 @@
+# 1
+**Stil (uslub) afzalliklari:** butun hujjat bir xil ko'rinadi; formatni bir joyda o'zgartirib hammasiga qo'llash; avtomatik mundarija va navigatsiya.
+**O'z stilingiz:** matnni formatlang → Stillar → "Stil yaratish". "Oddiy" (Normal) — asosiy matn stili.
+? O'z stilingizni qanday yaratasiz? | Formatlangan matndan "Stil yaratish" | Imkoni yo'q | Faqat rasm bilan
+? Asosiy matn stili? | Oddiy (Normal) | Sarlavha 1 | Nom
+? Stillar to'plamini tez almashtirish qayerda? | Dizayn bo'limida | Fayl | Ko'rib chiqish
+? Navigatsiya paneli nimaga tayanadi? | Sarlavha stillariga | Rasmlarga | Jadvalga
+? Kichik bo'lim sarlavhasi? | Sarlavha 2 | Oddiy | Nom (Title)
+? Mundarijani yangilash qachon kerak? | Sarlavha yoki sahifalar o'zgarganda | Hech qachon | Har daqiqada
+? Stilni o'zgartirish (Modify) nima beradi? | Shu stildagi barcha matn yangilanadi | Faqat bitta so'z | Hech narsa
+? Uzun hujjatda stillarsiz ishlash? | Qiyin va tartibsiz | Oson | Farqi yo'q
+
+# 2
+**Qirqish (Crop) turlari:** oddiy, shaklga qirqish (doira, yulduz), nisbatda (1:1, 16:9). **Rasm parametrlari:** o'lchamni sm da aniq berish, proporsiyani qulflash, aylantirish.
+**Rasmni siqish** — hujjat hajmini kamaytiradi (Rasm formati → Rasmlarni siqish).
+? Rasmni doira shaklida qirqish? | "Shaklga qirqish" | Oddiy crop | Imkoni yo'q
+? Hujjatdagi rasmlar hajmini kamaytirish? | "Rasmlarni siqish" | Chop etish | Rangni o'zgartirish
+? Rasm o'lchamini aniq 5 sm qilish? | Format → O'lcham maydoniga 5 | Taxminan tortish | Imkoni yo'q
+? "Zich" (Tight) o'rash nima qiladi? | Matn rasm konturiga yaqin oqadi | Matn rasm ostida | Matn yo'qoladi
+? Rasm joyidan qimirlamasligi uchun? | "Joylashuvni qotirish" | O'chirish | Siqish
+? Qirqilgan qism butunlay o'chadimi (siqmaguncha)? | Yo'q, qaytarish mumkin | Ha | Ba'zan
+? Rasmga alternativ matn (alt) nima uchun? | Ko'zi ojizlar uchun tavsif | Bezak | Kerak emas
+? Rasmni matn bilan birga ko'chiriladigan qilish? | "Matnda" (inline) o'rash | Matn ortida | Matn oldida
+
+# 3
+**Jadval:** Qo'yish → Jadval (qator × ustun). **Maket** bo'limi: qator/ustun qo'shish, **birlashtirish**, **ajratish**, matn yo'nalishi, kenglikni tekislash.
+**Konstruktor:** tayyor uslublar, chegaralar, fon rangi.
+? Bitta katakni ikkiga bo'lish? | Kataklarni ajratish | Birlashtirish | O'chirish
+? Jadvalga yangi qator qo'shish (oxirgi katakda)? | Tab tugmasi | Enter | Esc
+? Ustunlar kengligini tenglashtirish? | "Ustunlarni tekislash" | Birlashtirish | Imkoni yo'q
+? Jadval uslublari qaysi bo'limda? | Jadval konstruktori | Fayl | Ko'rinish
+? Katakdagi matnni vertikal qilish? | Matn yo'nalishi | Shrift | Imkoni yo'q
+? Sarlavha qatori har sahifada takrorlanishi? | "Sarlavha qatorlarini takrorlash" | Nusxalash | Imkoni yo'q
+? Matnni jadvalga aylantirish mumkinmi? | Ha, "Matnni jadvalga" | Yo'q | Faqat Excel'da
+? Jadvalni butunlay o'chirish? | Maket → O'chirish → Jadval | Delete xolos | Imkoni yo'q
+
+# 4
+**Ro'yxat turlari:** belgili (•), raqamli (1, 2, 3), ko'p darajali (1.1, 1.2). **Tab** — darajani pasaytirish, **Shift+Tab** — ko'tarish.
+**Qachon qaysi biri:** tartib muhim — raqamli; tartib muhim emas — belgili.
+? Ro'yxatda darajani ko'tarish? | Shift+Tab | Tab | Enter
+? Xarid ro'yxati uchun qaysi ro'yxat? | Belgili | Raqamli | Ko'p darajali
+? Reja (1, 1.1, 1.2) qaysi ro'yxat? | Ko'p darajali | Belgili | Oddiy matn
+? Ro'yxatni tugatish? | Bo'sh bandda Enter | Esc | Ctrl+S
+? Belgi shaklini o'zgartirish (✓, ★)? | "Yangi belgi aniqlash" | Imkoni yo'q | Shrift
+? Raqamlashni 5 dan boshlash? | "Raqamlash qiymatini o'rnatish" | Qo'lda | Imkoni yo'q
+? Ko'rsatmalar (qadamlar) uchun ro'yxat? | Raqamli | Belgili | Hech qaysi
+? Ro'yxat bandlari qanday bo'lishi yaxshi? | Qisqa va bir xil grammatik shaklda | Uzun hikoya | Har xil
+
+# 5
+**Kolontitullar:** Header (yuqori) va Footer (pastki) — har sahifada takrorlanadi. Ichiga: hujjat nomi, muallif, sana, sahifa raqami ("1-bet / 5").
+**Birinchi sahifa boshqacha** — titulda kolontitul ko'rsatilmaydi.
+? Kolontitulni ochish? | Yuqori yoki pastki chetni ikki marta bosish | Ctrl+B | F5
+? "5 dan 2-bet" ko'rinishi nima? | Sahifa raqami + jami sahifalar | Sana | Parol
+? Titul sahifada raqam bo'lmasligi uchun? | "Birinchi sahifa boshqacha" | O'chirish | Imkoni yo'q
+? Juft va toq sahifalarda turli kolontitul? | "Juft va toq sahifalar boshqacha" | Imkoni yo'q | Ikki hujjat
+? Kolontitulga logotip qo'yish mumkinmi? | Ha | Yo'q | Faqat matn
+? Kolontitul inglizcha? | Header / Footer | Body | Title
+? Kolontituldan chiqish? | "Kolontitulni yopish" yoki asosiy matnni ikki bosish | Ctrl+Z | Esc har doim
+? Sanani avtomatik qo'yish? | Qo'yish → Sana va vaqt | Qo'lda xolos | Imkoni yo'q
+
+# 6
+**Ustunlar:** Maket → Ustunlar (2, 3, chap, o'ng). **Ustun uzilishi** — matnni keyingi ustunga majburan o'tkazish. **Bo'lim uzilishi** — hujjatning bir qismini ustunli, qolganini oddiy qilish.
+? Hujjatning faqat bir qismini ustunli qilish? | Bo'lim uzilishi (section break) | Ustun uzilishi | Imkoni yo'q
+? Ustunlar orasiga chiziq qo'yish? | Ustunlar → Boshqa ustunlar → "Ajratuvchi" | Imkoni yo'q | Shakl chizish
+? Gazeta, buklet uchun qulay? | Ustunli matn | Bitta keng qator | Jadval xolos
+? Ustun kengliklari har xil bo'lishi mumkinmi? | Ha | Yo'q | Faqat 2 ta
+? Ustun uzilishi qayerda? | Maket → Uzilishlar → Ustun | Qo'yish → Rasm | Fayl
+? 3 ta ustun A4 albomda qachon qulay? | Buklet (qatlamli varaqa) | Insho | Rasmiy xat
+? Ustunlarni bekor qilish? | Ustunlar → Bitta | O'chirish | Imkoni yo'q
+? Ustun ichidagi rasm? | Ustun kengligiga moslanadi | Sig'maydi | Yo'qoladi
+
+# 7
+**Sahifa formatlash:** maydonlar (yuqori 2 sm, pastki 2 sm, chap 3 sm, o'ng 1,5 sm — rasmiy talab), yo'nalish, o'lcham, fon rangi, suv belgisi (Watermark — "Namuna").
+**Print preview** — Ctrl+P, chop etishdan oldin sahifalarni ko'rish.
+? Hujjat foniga "NAMUNA" yozuvini qo'yish? | Suv belgisi (Watermark) | Kolontitul | Sarlavha
+? Rasmiy hujjatda chap maydon odatda? | 3 sm | 0,5 sm | 10 sm
+? Sahifa fon rangi qayerda? | Dizayn → Sahifa rangi | Fayl | Maket
+? Print preview ning foydasi? | Xatolarni chop etishdan oldin ko'rish | Tez chop etish | Kerak emas
+? Maydonlarni "Tor" qilsak? | Sahifaga ko'proq matn sig'adi | Kamroq | O'zgarmaydi
+? Sahifa o'lchamini A5 qilsak? | Yarim A4 o'lchamli varaq | Ikki baravar katta | O'zgarmaydi
+? Bir hujjatda ham tik, ham yotiq sahifa? | Bo'lim uzilishlari bilan | Imkoni yo'q | Ikki fayl
+? Chop etishda "Sahifaga 2 bet" sozlamasi? | Bir varaqqa 2 ta sahifa kichraytirib | 2 nusxa | Ikki tomonlama
+
+# 8
+**Xavfsizlik amaliyoti:** kuchli parol + parol menejeri, 2FA (ikki bosqichli), https va manzilni tekshirish, ochiq Wi-Fi'da maxfiy ma'lumot kiritmaslik, yangilanishlar, zaxira nusxa.
+**Ijtimoiy muhandislik** — odamni aldab ma'lumot olish ("Men bank xodimiman, kodni ayting").
+? Ijtimoiy muhandislik nima? | Odamni aldab ma'lumot olish | Muhandislik fani | Tarmoq turi
+? Ochiq Wi-Fi'da nima qilmaslik kerak? | Bank va parol kiritish | Yangilik o'qish | Ob-havo ko'rish
+? VPN nima qiladi? | Internet ulanishini shifrlaydi | Kompyuterni tezlashtiradi | Rasm chizadi
+? Brauzer manzil satridagi qulf belgisi? | Ulanish shifrlangan (https) | Sayt bloklangan | Reklama
+? Parolni brauzerda saqlash qachon xavfli? | Umumiy kompyuterda | Shaxsiy himoyalangan qurilmada | Hech qachon
+? Akkaunt buzilganini sezsangiz birinchi? | Parolni o'zgartirish va 2FA yoqish | Kutish | Hammaga e'lon qilish
+? Shubhali qo'ng'iroqda "kodni ayting" desa? | Aytmayman, qo'ng'iroqni tugataman | Aytaman | Yarmini aytaman
+? Cookies (kuki) nima? | Sayt brauzerda saqlaydigan kichik ma'lumot | Virus | Shirinlik reklamasi
+
+# 10
+**Loyiha xususiyati (texnik topshiriq):** maqsad, auditoriya ("kim uchun?"), talablar (nima qila olishi kerak), cheklovlar (vaqt, resurs), muvaffaqiyat mezonlari.
+? Texnik topshiriq nima? | Loyiha talablari hujjati | Tayyor natija | Parol
+? Muvaffaqiyat mezoni misoli? | "Taqdimot 5 daqiqadan oshmaydi" | "Yaxshi bo'lsin" | "Chiroyli"
+? Cheklovga misol? | 2 hafta muddat | Maqsad | Auditoriya
+? Talablarni kim bilan kelishiladi? | Buyurtmachi/o'qituvchi bilan | Hech kim | Faqat o'zim
+? Auditoriyani bilish nima beradi? | Mahsulotni mos qilish | Kerak emas | Vaqt yo'qotish
+? Loyiha bosqichlari tartibi? | Reja → bajarish → sinash → taqdim | Taqdim → reja | Tasodifan
+? Loyiha kundaligi nima uchun? | Bajarilgan ishlarni qayd etish | Bezak | Kerak emas
+? Topshiriqda noaniq talab bo'lsa? | Aniqlashtirish uchun so'raymiz | Taxmin qilamiz | E'tibor bermaymiz
+
+# 11
+**O'tish effektlari** guruhlari: oddiy (so'nish, surilish), hayajonli (aylanish, kub), dinamik. **Effekt parametrlari** — yo'nalish (chapdan, yuqoridan); **davomiylik** — tezlik.
+? O'tish yo'nalishini o'zgartirish? | "Effekt parametrlari" | Dizayn | Fayl
+? O'tish davomiyligi 2 soniya bo'lsa? | Sekinroq o'tadi | Tezroq | Ko'rinmaydi
+? Rasmiy taqdimot uchun qaysi o'tish? | So'nish (Fade) | Aylanuvchi kub | Portlash
+? O'tishni oldindan ko'rish? | "Ko'rib chiqish" tugmasi | F12 | Ctrl+S
+? Bitta slayddan o'tishni olib tashlash? | "Yo'q" (None) | O'chirish | Imkoni yo'q
+? O'tish qaysi slaydga qo'llanadi? | Shu slaydga kirishda | Undan oldingisiga | Hammasiga avtomatik
+? Juda ko'p turli o'tishlar? | Chalg'itadi | Professional | Majburiy
+? O'tish effektini ovoz bilan birga? | Mumkin | Mumkin emas | Faqat musiqa bilan
+
+# 12
+**Vaqt:** O'tishlar → "Keyingi slayd: 00:05" — avtomatik almashish. **Vaqtni mashq qilish (Rehearse Timings)** — har slayddagi vaqtni yozib oladi.
+**Audio:** Qo'yish → Audio → "Fonda ijro etish" (barcha slaydlarda, takrorlab).
+? Har slaydga qancha vaqt ketishini yozib olish? | "Vaqtni mashq qilish" | Chop etish | Imkoni yo'q
+? Musiqa slaydlar almashsa ham davom etishi? | "Fonda ijro etish" | Har slaydga qo'shish | Imkoni yo'q
+? Avtomatik taqdimot (ko'rgazma stendi) uchun? | Slaydlarga vaqt va sikl rejimi | Qo'lda | Imkoni yo'q
+? Ovoz yozib olish (diktor matni)? | Slayd shou → Yozib olish | Imkoni yo'q | Fayl → Chop
+? Audioni qirqish? | "Audioni qirqish" (Trim) | Imkoni yo'q | Boshqa dastur xolos
+? Audio belgisi ko'rsatishda yashirilishi? | "Ko'rsatishda yashirish" | O'chirish | Imkoni yo'q
+? Taqdimotni video qilib saqlash? | Fayl → Eksport → Video | Ctrl+S | Imkoni yo'q
+? Fon musiqasi balandligi? | Nutqqa xalaqit bermasligi kerak | Eng baland | Eshitilmasligi kerak
+
+# 13
+**Animatsiya guruhlari:** **kirish** (yashil), **ajratish/urg'u** (sariq), **chiqish** (qizil), **harakat yo'llari**. Bitta obyektga bir nechta animatsiya qo'shish — "Animatsiya qo'shish".
+? Kirish animatsiyalari belgisi rangi? | Yashil | Qizil | Sariq
+? Chiqish animatsiyalari belgisi rangi? | Qizil | Yashil | Ko'k
+? Bitta obyektga ikkinchi animatsiya? | "Animatsiya qo'shish" | Eskisi almashadi | Imkoni yo'q
+? Matnni harfma-harf chiqarish? | Effekt parametrlari → "Harflar bo'yicha" | Imkoni yo'q | Kerak emas
+? Ro'yxat bandlarini birin-ketin chiqarish? | "Xatboshilar bo'yicha" | Hammasi birdan | Imkoni yo'q
+? Harakat yo'lini o'zingiz chizish? | "Erkin yo'l" | Imkoni yo'q | Faqat chiziq
+? Animatsiya nusxasini boshqa obyektga? | Animatsiya nusxalagich (Animation Painter) | Ctrl+C | Imkoni yo'q
+? Animatsiya raqami slaydda nimani bildiradi? | Ijro tartibini | Slayd raqamini | Vaqtni
+
+# 14
+**Boshlanish turlari:** "Bosganda", "Oldingisi bilan birga", "Oldingisidan keyin". **Davomiylik** va **kechikish** (delay). **Trigger** — muayyan obyekt bosilganda animatsiya.
+? Muayyan tugma bosilganda animatsiya? | Trigger | Kechikish | O'tish
+? Animatsiyani 1 soniya kutib boshlash? | Kechikish = 1 s | Davomiylik = 1 s | Imkoni yo'q
+? Ikki animatsiya bir vaqtda? | "Oldingisi bilan birga" | "Bosganda" | "Oldingisidan keyin"
+? Animatsiya tartibini o'zgartirish? | Animatsiya panelida yuqori/pastga surish | Imkoni yo'q | Slaydni o'chirish
+? Animatsiya takrorlanishi (3 marta)? | Vaqt parametrlari → Takrorlash | Imkoni yo'q | Nusxalash
+? "Oldingisidan keyin" nima? | Oldingi tugagach avtomatik | Bosganda | Birga
+? Interaktiv viktorinada to'g'ri javob bosilganda belgi chiqishi? | Trigger | Oddiy kirish | O'tish
+? Animatsiya panelini ochish? | Animatsiya → Animatsiya paneli | Fayl | Ko'rinish → Chizg'ich
+
+# 16
+**Auditoriya va maqsad (jadval loyihasi):** kim ishlatadi (o'qituvchi, oila, sinf), nima uchun (hisob, kuzatish, rejalash), qanday natija kerak (jami, o'rtacha, diagramma).
+? Jadval loyihasining maqsadiga misol? | Oylik xarajatlarni kuzatish | Chiroyli ranglar | Ko'p varaqlar
+? Foydalanuvchi bilmagan Excel'ni ishlatadi. Nima qilamiz? | Ko'rsatma va izohlar qo'shamiz | Hech narsa | Murakkablashtiramiz
+? Oilaviy byudjetda qanday ustunlar? | Sana, toifa, summa | Ism, parol | Rasm
+? Sinf baholari jadvalidan kim foydalanadi? | O'qituvchi va o'quvchilar | Faqat direktor | Hech kim
+? Maqsad aniq bo'lmasa? | Jadval keraksiz murakkab bo'ladi | Yaxshi bo'ladi | Farqi yo'q
+? Kirish va chiqish ma'lumotlari nima? | Kiritiladigan va hisoblanadigan qiymatlar | Fayl nomlari | Parollar
+? Kichik bolalar uchun jadval? | Sodda, rangli, kam ustun | Ko'p formula | Rangsiz
+? Foydalanuvchi fikrini qachon so'raymiz? | Loyihalash va sinashda | Hech qachon | Faqat oxirida
+
+# 17
+**Jadval dizayni:** kiritish kataklari (rangli, masalan sariq), hisoblash kataklari (formula, himoyalangan), sarlavhalar, birliklar (so'm, kg), izohlar.
+**Himoya:** Ko'rib chiqish → Varaqni himoyalash — formulalar tasodifan o'chmasin.
+? Formulali kataklarni tasodifiy o'chirishdan saqlash? | Varaqni himoyalash | Rangini o'zgartirish | Yashirish
+? Kiritish kataklarini ajratish usuli? | Boshqa fon rangi | Kichik shrift | Yashirish
+? Birliklar (so'm, kg) qayerda ko'rsatiladi? | Sarlavhada yoki format orqali | Hech qayerda | Faylda
+? Katakka izoh (eslatma) qo'shish? | O'ng tugma → Izoh/Eslatma | Imkoni yo'q | Formula
+? Jadval eskizini qayerda chizish mumkin? | Qog'ozda yoki Excel'da qoralama | Hech qayerda | Faqat Paint'da
+? Himoyalangan varaqda kiritish kataklari ishlashi uchun? | Ular "Qulflanmagan" qilinadi | Imkoni yo'q | Varaq o'chiriladi
+? Varaq nomlari qanday bo'lsin? | Mazmunli (Yanvar, Hisobot) | Sheet1, Sheet2 | Bo'sh
+? Yaxshi dizaynli jadval? | Tushunarli, xatoga chidamli | Rangli xolos | Ko'p formula
+
+# 18
+**Funksiyalar:** SUM, AVERAGE, MAX, MIN, COUNT, ROUND (`=ROUND(A1;1)` — 1 xonagacha yaxlitlash), IF (`=IF(B2>=60;"O'tdi";"O'tmadi")`).
+**Sinov:** oddiy sonlar bilan qo'lda hisoblab solishtirish, chegaraviy qiymatlar (0, bo'sh, juda katta).
+? =IF(B2>=60;"O'tdi";"O'tmadi") — B2=60 bo'lsa? | O'tdi | O'tmadi | Xato
+? =ROUND(3,456;1) natijasi? | 3,5 | 3,4 | 3
+? =AVERAGE(2;4;6) natijasi? | 4 | 12 | 6
+? Formulani sinash usuli? | Qo'lda hisoblangan natija bilan solishtirish | Taxmin | Sinamaymiz
+? Chegaraviy qiymat misoli? | 0 yoki bo'sh katak | O'rtacha son | Har qanday
+? =COUNT(A1:A5) bo'sh kataklarni sanaydimi? | Yo'q, faqat sonlarni | Ha | Faqat matnni
+? =MIN(5;-2;8) natijasi? | −2 | 5 | 8
+? Bo'sh katak SUM da qanday hisoblanadi? | 0 sifatida | Xato | Matn
+
+# 19
+**Model** — real obyekt yoki jarayonning soddalashtirilgan nusxasi. **Kompyuter modeli** — formulalar bilan: kirish qiymati o'zgarsa, natija qanday o'zgarishini ko'rish ("Nima bo'ladi, agar...?").
+**Misol:** tejash modeli — har oy 50 000 so'm; 12 oydan keyin = 600 000.
+? Har oy 50 000 tejasak, 6 oyda? | 300 000 | 50 000 | 600 000
+? Model nima uchun kerak? | Kelajakni bashorat qilish va tajriba o'tkazish | Bezak | Kerak emas
+? Globus qanday model? | Yer modeli | Real Yer | Rasm xolos
+? Modelning kamchiligi? | Hamma narsani hisobga olmaydi | Doim aniq | Kamchiligi yo'q
+? Ob-havo bashorati qanday model? | Kompyuter modeli | Haqiqiy ob-havo | O'yin
+? "Nima bo'ladi, agar" tahlili Excel'da? | What-If tahlili | Filtr | Saralash
+? Kirish qiymati 2 baravar oshsa, chiziqli modelda natija? | 2 baravar oshadi | O'zgarmaydi | Kamayadi
+? Model natijasini nima bilan solishtirish kerak? | Haqiqiy ma'lumotlar bilan | Hech narsa | Boshqa model bilan xolos
+
+# 20
+**Ma'lumot to'plash formasi:** Google Forms / Microsoft Forms — savollar (bir tanlov, ko'p tanlov, qisqa javob, shkala). Javoblar avtomatik jadvalga (Google Sheets) tushadi.
+**Yaxshi savol:** aniq, bir ma'noli, javob variantlari to'liq.
+? Bir nechta javob tanlash savol turi? | Belgilash qutilari (checkbox) | Bir tanlov | Qisqa javob
+? 1 dan 5 gacha baholash savoli? | Shkala (chiziqli) | Matn | Fayl
+? Forma javoblari qayerga yig'iladi? | Jadvalga (Sheets) | Pochta savatiga | Yo'qoladi
+? Yomon savol misoli? | "Sizga maktab va oshxona yoqadimi?" (ikki savol birda) | "Yoshingiz?" | "Sinfingiz?"
+? Majburiy savol nima? | Javobsiz formani yuborib bo'lmaydi | Ixtiyoriy | O'chirilgan
+? Anonim so'rovnoma afzalligi? | Samimiyroq javoblar | Javoblar yo'q | Kerak emas
+? Formani tarqatish usuli? | Havola yoki QR-kod | Faqat qog'oz | Imkoni yo'q
+? So'rovnomada shaxsiy ma'lumot so'rash? | Faqat zarur bo'lsa, rozilik bilan | Doim | Hammasini
+
+# 21
+**Son formatlari:** umumiy, son (kasr xonalari), pul, foiz, sana, vaqt. **Format qiymatni o'zgartirmaydi** — faqat ko'rinishini.
+**Jadval formati:** chegaralar, to'ldirish, tekislash, matnni o'rash, kataklarni birlashtirish.
+? 0,5 ni foiz formatida? | 50% | 0,5% | 5%
+? Katakda matn bir necha qatorga o'tishi? | "Matnni o'rash" | Birlashtirish | Imkoni yo'q
+? 1234567 ni "1 234 567" ko'rinishida? | Son formati, ming ajratgichi | Matn | Foiz
+? Format nusxalash Excel'da? | Format nusxalagich (cho'tka) | Ctrl+Z | Imkoni yo'q
+? Qiymat 3,14159 — ko'rinishi 3,14. Hisobda qaysi ishlatiladi? | 3,14159 (asl qiymat) | 3,14 | 3
+? Sarlavhani bir nechta ustun ustida markazlash? | Birlashtirish va markazlash | Ajratish | Imkoni yo'q
+? Sana formatini "27-noyabr, 2026" qilish? | Uzun sana formati | Son | Foiz
+? Tayyor jadval uslubi qayerda? | "Jadval sifatida formatlash" | Fayl | Ko'rib chiqish
+
+# 22
+**Baholash mezonlari:** to'g'rilik (formulalar), qulaylik (tushunarli), ko'rinish (o'qilishi oson), xatoga chidamlilik (noto'g'ri kiritishda nima bo'ladi), maqsadga mosligi.
+**Ma'lumotni tekshirish (Data validation)** — faqat ruxsat etilgan qiymat kiritiladi (masalan 1–5).
+? Katakka faqat 1–5 kiritilishi uchun? | Ma'lumotni tekshirish (Data validation) | Format | Filtr
+? Baholashda foydalanuvchi fikri nima uchun? | Qulaylikni bilish | Kerak emas | Maqtash uchun
+? Xatoga chidamlilik nimani bildiradi? | Noto'g'ri kiritishda jadval buzilmaydi | Chiroyli | Tez
+? Mezonlar asosida baholash ro'yxati nima deyiladi? | Rubrika | Formula | Diagramma
+? Jadvalni yaxshilash takliflari qayerda? | Xulosa qismida | Hech qayerda | Faylda
+? Ma'lumotni tekshirish noto'g'ri qiymatda nima qiladi? | Ogohlantirish chiqaradi | O'chiradi kompyuterni | Hech narsa
+? O'z-o'zini baholash foydasi? | Kamchiliklarni ko'rish va o'sish | Kerak emas | Vaqt yo'qotish
+? Jadvalni boshqa sinfdoshga sinab ko'rishga berish? | Tashqi baholash | Plagiat | Taqiqlangan
+
+# 23
+**Diagramma tanlash:** solishtirish — ustunli; vaqt — chiziqli; ulush — doiraviy; ikki o'lchov bog'liqligi — nuqtali (scatter). **Sparkline** — katak ichidagi kichik grafik.
+? Bo'y va vazn bog'liqligi uchun qaysi diagramma? | Nuqtali (scatter) | Doiraviy | Ustunli
+? Katak ichidagi kichik grafik? | Sparkline | Legend | Filtr
+? Diagrammani alohida varaqqa ko'chirish? | "Diagrammani ko'chirish" → Yangi varaq | Imkoni yo'q | Nusxalab
+? Tavsiya etilgan diagrammalar funksiyasi nima qiladi? | Ma'lumotga mos turini taklif qiladi | O'chiradi | Rang beradi
+? Doiraviy diagrammada foizlarni ko'rsatish? | Ma'lumot yorliqlari → Foiz | Imkoni yo'q | Legend
+? Chiziqli diagrammada bir nechta chiziq? | Bir nechta qator ma'lumot | Imkoni yo'q | Faqat bitta
+? Diagramma sarlavhasi nimani ifodalashi kerak? | Nimani va qachon ko'rsatishini | Fayl nomini | Hech narsa
+? Noto'g'ri diagramma turi? | Xulosani chalg'itadi | Doim yaxshi | Farqi yo'q
+
+# 24
+**Shartli formatlash:** qiymatga qarab rang (< 60 — qizil), rang shkalalari, ma'lumot ustunchalari, belgilar to'plami. **Maqsadni qidirish (Goal Seek):** kerakli natija uchun kirish qiymatini topadi (Ma'lumotlar → "Nima bo'ladi, agar" tahlili).
+? Qiymat kattaligiga qarab katak ichida ustuncha? | Ma'lumot ustunchalari (Data bars) | Rang shkalasi | Filtr
+? Goal Seek nima qiladi? | Kerakli natija uchun kirish qiymatini topadi | Rang beradi | Saralaydi
+? "O'rtacha 85 bo'lishi uchun oxirgi test necha ball bo'lishi kerak?" — qaysi vosita? | Goal Seek | Filtr | Diagramma
+? Takrorlanuvchi qiymatlarni ajratish? | Shartli formatlash → Takroriy qiymatlar | Saralash | O'chirish
+? Rang shkalasi nima ko'rsatadi? | Qiymatlarni rang darajasi bilan | Faqat qizil | Hech narsa
+? Shartli formatlash qoidasini o'chirish? | Qoidalarni boshqarish → O'chirish | Faylni o'chirish | Imkoni yo'q
+? Belgilar to'plami misoli? | Yashil/sariq/qizil strelkalar | Shriftlar | Rasmlar
+? Shartli formatlash qiymat o'zgarsa? | Avtomatik yangilanadi | O'zgarmaydi | O'chadi
+
+# 27
+**MB loyihasi bosqichlari:** maqsad (nima saqlanadi, kim ishlatadi) → kerakli ma'lumotlar ro'yxati → maydonlar va turlar → kalit maydon → jadvallar orasidagi bog'lanish.
+**Ortiqchalik:** bir ma'lumotni ikki joyda saqlamaslik.
+? Ma'lumotni ikki joyda saqlash nima deyiladi? | Ortiqchalik (takrorlanish) | Zaxira | Kalit
+? Kitoblar va o'quvchilar jadvalini nima bog'laydi? | Umumiy ID maydon | Rang | Shrift
+? Kerakli maydonlarni qanday aniqlaymiz? | Bazadan qanday savollarga javob kerakligini o'ylab | Tasodifan | Ko'p qo'shib
+? "To'liq ism" o'rniga "Ism" va "Familiya" alohida maydon nima uchun? | Saralash va qidirish oson | Kerak emas | Chiroyli
+? Kalit maydon qiymati takrorlanishi mumkinmi? | Yo'q | Ha | Ba'zan
+? MB loyihasining birinchi qadami? | Maqsadni aniqlash | Jadval chizish | Ma'lumot kiritish
+? Maydon nomi qanday bo'lsin? | Qisqa va aniq (Tug_sana) | Uzun gap | Belgilar bilan
+? Yoshni saqlash o'rniga tug'ilgan sanani saqlash afzalligi? | Yosh har yil o'zgaradi, sana — yo'q | Farqi yo'q | Yosh yaxshiroq
+
+# 28
+**Ma'lumot turlari (Access):** qisqa matn, uzun matn, son, sana/vaqt, valyuta, hisoblagich, ha/yo'q, rasm (OLE/ilova), giperhavola.
+**Maydon xususiyatlari:** o'lcham, majburiy, standart qiymat, kiritish niqobi.
+? Avtomatik o'suvchi ID turi? | Hisoblagich (AutoNumber) | Matn | Sana
+? Narx uchun qulay tur? | Valyuta | Matn | Ha/Yo'q
+? Uzun tavsif matni uchun? | Uzun matn (Memo) | Qisqa matn 10 belgi | Son
+? Majburiy maydon nima? | Bo'sh qoldirib bo'lmaydi | Ixtiyoriy | Yashirin
+? Standart qiymat misoli? | Sana maydonida bugungi sana | Bo'sh | Parol
+? Kiritish niqobi (Input mask) nima uchun? | Ma'lumotni belgilangan shaklda kiritish (+998 __ ___ __ __) | Rang | Rasm
+? Pochta indeksi qaysi tur? | Matn (boshida 0 bo'lishi mumkin) | Son | Sana
+? Veb-sayt manzili uchun tur? | Giperhavola | Son | Valyuta
+
+# 29
+**Ochiladigan ro'yxat** (Excel: Ma'lumotlarni tekshirish → Ro'yxat; Access: Qidiruv maydoni) — qiymat tayyor ro'yxatdan tanlanadi, imlo xatosi bo'lmaydi.
+**Forma** — yozuvlarni birma-bir, qulay oynada kiritish va ko'rish.
+? Ochiladigan ro'yxat qanday xatoni kamaytiradi? | Imlo va noto'g'ri qiymat | Formula xatosi | Hech qanday
+? Excel'da ochiladigan ro'yxat qayerda? | Ma'lumotlar → Ma'lumotni tekshirish → Ro'yxat | Qo'yish | Fayl
+? Forma afzalligi? | Bir yozuvni qulay ko'rish va kiritish | Ko'p jadval | Kerak emas
+? Ro'yxat qiymatlari qayerdan olinishi mumkin? | Boshqa kataklar diapazonidan | Faqat qo'lda | Hech qayerdan
+? Formada tugmalar (Keyingi, Saqlash) nima uchun? | Navigatsiya va boshqarish | Bezak | Kerak emas
+? Sinf nomlari uchun ochiladigan ro'yxat misoli? | 7-A, 7-B, 7-V | Har qanday matn | Raqamlar xolos
+? Formadagi maydonlar tartibi qanday bo'lsin? | Mantiqiy (ism, familiya, sana...) | Tasodifiy | Teskari
+? Google Forms ham forma turimi? | Ha, onlayn forma | Yo'q | Faqat Excel
+
+# 30
+**Sinov:** to'g'ri, noto'g'ri va chegaraviy ma'lumotlar bilan kiritish; qidiruv va saralash natijalarini tekshirish.
+**Xavfsizlik:** parol, foydalanuvchi huquqlari (kim ko'radi, kim o'zgartiradi), zaxira nusxa, shaxsiy ma'lumotlarni himoya qilish qonunlari.
+? Foydalanuvchi huquqlari nimani belgilaydi? | Kim ko'rishi va o'zgartirishi mumkinligini | Rangni | Hajmni
+? Sinovda noto'g'ri ma'lumot kiritish nima uchun? | Baza uni rad etishini tekshirish | Bazani buzish | Kerak emas
+? Zaxira nusxa qancha tez-tez? | Muntazam (masalan har hafta) | Hech qachon | Yilda bir
+? O'zbekistonda shaxsiy ma'lumotlar haqida qonun bormi? | Ha, "Shaxsga doir ma'lumotlar to'g'risida" | Yo'q | Faqat chet elda
+? Ma'lumotlar sizib chiqsa nima bo'lishi mumkin? | Firibgarlik, shaxsiy hayotga zarar | Hech narsa | Foyda
+? Shifrlangan baza afzalligi? | O'g'irlansa ham o'qib bo'lmaydi | Tezroq | Chiroyli
+? Sinov natijalari qayerga yoziladi? | Sinov jadvali/hisobotiga | Hech qayerga | Bazaga o'ziga
+? Eng kichik huquq tamoyili? | Har kimga faqat kerakli huquq | Hammaga hamma huquq | Hech kimga huquq yo'q
+
+# 31
+**Mail Merge (ommaviy xat):** Word shablon + Excel/MB ro'yxati → har bir yozuv uchun shaxsiy xat, diplom yoki taklifnoma. Pochta jo'natmalari → Qabul qiluvchilarni tanlash → Maydonlarni qo'yish → Yakunlash.
+? Mail Merge bilan nima yaratish mumkin? | 30 ta shaxsiy taklifnoma | Bitta rasm | Diagramma
+? Shablonga qo'yiladigan o'zgaruvchan qism? | Birlashtirish maydoni («Ism») | Rasm | Kolontitul
+? Ro'yxat manbasi? | Excel jadvali yoki ma'lumotlar bazasi | Paint | Brauzer
+? Natijani oldindan ko'rish? | "Natijalarni ko'rish" | Chop etish | Imkoni yo'q
+? Yakunlashda nima tanlanadi? | Alohida hujjatlar, chop etish yoki email | Faqat o'chirish | Hech narsa
+? Ro'yxatda xato ism bo'lsa? | Xatda ham xato chiqadi | O'zi tuzaladi | Xat chiqmaydi
+? Mail Merge vaqtni qanday tejaydi? | Bitta shablondan ko'p hujjat | Vaqt ko'proq ketadi | Tejamaydi
+? Diplomlarda o'quvchi ismi va sinfi qanday chiqadi? | Birlashtirish maydonlari orqali | Qo'lda yozib | Imkoni yo'q
+
+# 32
+**Eksport/Import:** CSV (vergul bilan ajratilgan matn) — dasturlar orasida universal format. Access → Excel eksport; Excel'da **Svodka jadval (PivotTable)** — guruhlab sanash va yig'indi.
+? CSV qanday format? | Ustunlar vergul/nuqta-vergul bilan ajratilgan matn | Rasm | Video
+? Janr bo'yicha kitoblar sonini tez hisoblash? | Svodka jadval (PivotTable) | Qo'lda sanash | Diagramma xolos
+? CSV ni qaysi dastur ochadi? | Excel, Bloknot va boshqalar | Faqat Paint | Hech qaysi
+? Eksport nima? | Ma'lumotni boshqa dastur formatiga chiqarish | Import | O'chirish
+? Import nima? | Tashqi ma'lumotni dasturga kiritish | Chiqarish | Saqlash
+? CSV da formatlar (rang, shrift) saqlanadimi? | Yo'q, faqat ma'lumot | Ha | Faqat rang
+? PivotTable'da "Qiymatlar" maydoni nima qiladi? | Yig'indi/son hisoblaydi | Saralaydi | O'chiradi
+? Excel'dan Word'ga jadvalni bog'langan holda qo'yish? | Joylash → Bog'lash | Imkoni yo'q | Chop etib

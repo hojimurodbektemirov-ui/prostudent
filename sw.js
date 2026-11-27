@@ -1,6 +1,6 @@
 /* Oflayn rejim: sayt fayllari va darslar qurilmada saqlanadi, internet sust yoki yo'q bo'lsa ham ochiladi.
    Server so'rovlari (login, baholar, viktorina) keshlanmaydi — ular doim internetdan olinadi. */
-const VERSION = 'zis-v5-202611271000';
+const VERSION = 'zis-v6-202611272000';
 const SHELL = ['./', 'index.html', 'manifest.webmanifest', 'assets/img/icon-192.png'];
 self.addEventListener('install', ev => {
   ev.waitUntil(caches.open(VERSION).then(c => c.addAll(SHELL)).then(() => self.skipWaiting()));

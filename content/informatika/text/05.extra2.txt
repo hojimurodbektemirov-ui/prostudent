@@ -1,0 +1,374 @@
+# 35
+**Algoritm turlari:** **chiziqli** (ketma-ket), **tarmoqlanuvchi** (shartga qarab), **takrorlanuvchi** (sikl).
+**Misol:** "Agar bugun shanba bo'lsa, to'garakka bor" — tarmoqlanuvchi; "10 marta o'tirib-tur" — takrorlanuvchi.
+? "10 marta o'tirib-tur" qanday algoritm? | Takrorlanuvchi | Chiziqli | Tarmoqlanuvchi
+? "Agar yomg'ir yog'sa, soyabon ol" qanday algoritm? | Tarmoqlanuvchi | Chiziqli | Takrorlanuvchi
+? Algoritm albatta tugashi nima deyiladi? | Cheklilik | Aniqlik | Ommaviylik
+? Algoritmni boshqa ijrochi ham bajara olishi uchun u qanday bo'lsin? | Aniq va tushunarli | Uzun | Rasmli xolos
+? Navigatordagi yo'l — bu nima? | Algoritm | Rasm | Jadval
+? Algoritmni ifodalash usullari? | So'z bilan, blok-sxema, dastur | Faqat qo'shiq | Faqat rasm
+? Kompyuter dasturi nima? | Kompyuter tilida yozilgan algoritm | Monitor | Fayl turi
+? Kundalik algoritm misoli? | Choy damlash | Osmon rangi | Kitob nomi
+
+# 36
+**Ijrochi** buyruqlar tizimidagi buyruqlarnigina bajaradi. **Robot uchun:** "oldinga N", "o'ngga buril", "chapga buril".
+**Muhit** — ijrochi ishlaydigan joy (katakli maydon, labirint).
+? Ijrochi ishlaydigan joy nima deyiladi? | Muhit | Sahna xolos | Fayl
+? Robot "oldinga 3, o'ngga, oldinga 2" — jami necha katak yurdi? | 5 | 3 | 6
+? Robot bilmagan buyruq berilsa nima bo'ladi? | Bajarmaydi (xato) | O'zicha bajaradi | Tezlashadi
+? Ikkita "o'ngga buril" buyrug'i robotni qaysi tomonga qaratadi? | Teskari tomonga | O'ngga | Chapga
+? To'rtta "o'ngga buril" dan keyin? | Boshlang'ich yo'nalish | Teskari | O'ngga
+? Buyruqlar tizimi nima? | Ijrochi biladigan buyruqlar to'plami | Parollar ro'yxati | Fayl
+? Labirintda eng qisqa yo'lni topish nima uchun foydali? | Kam buyruq, tez bajariladi | Uzunroq bo'ladi | Kerak emas
+? Robotga buyruqni kim beradi? | Dasturchi | Muhit | Labirint
+
+# 37
+**Blok-sxema belgilari:** **oval** — boshlash/tugatish; **to'rtburchak** — harakat; **romb** — shart; **parallelogramm** — ma'lumot kiritish/chiqarish; **strelka** — yo'nalish.
+? Natijani chiqarish qaysi shaklda? | Parallelogramm | Romb | Oval
+? Rombdan nechta chiqish bor? | 2 ta (ha/yo'q) | 1 ta | 4 ta
+? "S = a + b" qaysi shaklga yoziladi? | To'rtburchak | Romb | Parallelogramm
+? "a ni kirit" qaysi shaklda? | Parallelogramm | Oval | To'rtburchak
+? "a > b ?" qaysi shaklda? | Romb | To'rtburchak | Oval
+? Strelka nimani ko'rsatadi? | Bajarilish tartibini | Rangni | Xatoni
+? Blok-sxemaning afzalligi? | Algoritm ko'rgazmali bo'ladi | Kodni yashiradi | Uzun bo'ladi
+? Sikl blok-sxemada qanday ko'rinadi? | Strelka orqaga qaytadi | Ikkita oval | Romb yo'q
+
+# 38
+**Aylantirish tartibi:** 1) qadamlarni yozing; 2) har qadam uchun mos shaklni tanlang; 3) strelkalar bilan ulang; 4) "ha"/"yo'q" yo'llarini belgilang; 5) bajarib tekshiring.
+**Misol:** "Ikki sonning kattasini top": kirit a, b → a > b? → ha: chiqar a; yo'q: chiqar b → tugatish.
+? a = 7, b = 3 bo'lsa "a > b?" ga javob? | Ha | Yo'q | Bilmaymiz
+? a = 2, b = 9 bo'lsa algoritm nimani chiqaradi? | 9 | 2 | 11
+? Romb chiqishlari qanday belgilanadi? | "Ha" va "Yo'q" | 1 va 1 | Belgilanmaydi
+? Blok-sxemani tekshirish usuli? | Turli qiymatlar bilan bajarib ko'rish | Bir marta qarash | Rangiga qarash
+? Bir blok-sxemada nechta "Boshlash" bo'ladi? | Bitta | Ikkita | Har qadamda
+? Blok-sxema chizish uchun qulay onlayn vosita? | draw.io | Kalkulyator | Musiqa pleyer
+? Strelkalar kesishmasligi nima uchun yaxshi? | Sxema tushunarli bo'ladi | Kerak emas | Chiroyli emas
+? Juft yoki toq ekanini aniqlash uchun qaysi shakl kerak? | Romb (shart) | Faqat oval | Faqat parallelogramm
+
+# 39
+**Guruhlash** — ma'lumotni umumiy belgisi bo'yicha ajratish (meva/sabzavot, sinflar bo'yicha). **Diagramma** — guruhlangan sonlarni rasmda ko'rsatish.
+**Diagramma turlari:** ustunli, chiziqli, doiraviy, piktogramma.
+? Chiziqli diagramma nimani yaxshi ko'rsatadi? | Vaqt bo'yicha o'zgarishni | Qismlar ulushini | Matnni
+? Meva va sabzavotlarni ajratish nima? | Guruhlash | Kodlash | Chop etish
+? Doiraviy diagramma nimani ko'rsatadi? | Butunning qismlarini | Vaqtni | Manzilni
+? Diagramma nomi nima uchun kerak? | Nimani ko'rsatishini tushuntirish uchun | Bezak | Kerak emas
+? Ustunli diagramma nimani solishtiradi? | Miqdorlarni | Ranglarni | Ovozlarni
+? Diagrammadagi legend (izoh) nima? | Ranglar nimani bildirishi | Sarlavha | Raqam
+? Guruhlashning foydasi? | Ma'lumot tartibli va tushunarli bo'ladi | Ma'lumot yo'qoladi | Hech qanday
+? Haftalik harorat o'zgarishi uchun qaysi diagramma? | Chiziqli | Doiraviy | Piktogramma
+
+# 40
+**Excel oynasi:** formula satri (fx), nom maydoni (katak manzili), ustun harflari, qator raqamlari, varaqlar (Sheet1, Sheet2), holat satri.
+**Kitob** — Excel fayli; **varaq** — undagi sahifa.
+? Formula satri qanday belgilanadi? | fx | ABC | 123
+? Excel fayli nima deyiladi? | Kitob (Workbook) | Varaq | Katak
+? Yangi varaq qo'shish? | Pastdagi "+" tugmasi | Ctrl+B | F5
+? Katakdagi formulani qayerda ko'ramiz? | Formula satrida | Holat satrida | Ko'rinmaydi
+? Varaq nomini o'zgartirish? | Nomini ikki marta bosish | F1 | Esc
+? Excel'da nechta ustun bo'lishi mumkin? | 16 384 ta | 10 ta | 26 ta
+? Ustun kengligini o'zgartirish? | Ustun sarlavhasi chegarasini sudrash | F12 | Imkoni yo'q
+? Holat satrida nima ko'rinadi? | Belgilangan sonlar yig'indisi va o'rtachasi | Parol | Fayl nomi
+
+# 41
+**Katak** — B3; **satr** — 3; **ustun** — B; **diapazon** — kataklar to'plami: `A1:C5` (A1 dan C5 gacha). Diapazondagi kataklar soni = ustunlar × qatorlar.
+? A1:C5 diapazonda nechta katak? | 15 | 8 | 5
+? B2:B6 da nechta katak? | 5 | 4 | 6
+? A1:A10 qanday diapazon? | Bitta ustundagi 10 ta katak | 10 ta ustun | Bitta katak
+? Diapazon qanday yoziladi? | Boshlang'ich va oxirgi katak ":" bilan | "+" bilan | "/" bilan
+? D ustunidan keyingi ustun? | E | C | F
+? Butun ustunni belgilash? | Ustun harfini bosish | Ctrl+S | Enter
+? Bir nechta qo'shni katakni belgilash? | Sichqoncha bilan sudrash | F5 | Esc
+? A1:B2 da nechta katak? | 4 | 2 | 3
+
+# 42
+**Jadval yaratish:** 1-qator — sarlavhalar; ma'lumotlarni kiritish; ustun kengligini moslash; chegaralar (ramka); sarlavhani qalin qilish; **Enter** — pastga, **Tab** — o'ngga.
+? Katakka yozib Tab bossak qayerga o'tamiz? | O'ngdagi katakka | Pastdagi katakka | Varaq oxiriga
+? Katakka yozib Enter bossak? | Pastdagi katakka | O'ngga | Yuqoriga
+? Jadvalga chegara chizish? | Chegaralar (Borders) tugmasi | Ctrl+Z | Bo'yash xolos
+? Matn katakka sig'masa? | Ustunni kengaytiramiz yoki matnni o'raymiz | O'chiramiz | Rangini o'zgartiramiz
+? Katak ichidagi yozuvni o'chirish? | Delete | Ctrl+B | F5
+? Sana kiritish formati? | 25.11.2026 | 25 noyabr yigirma | 2026/xx
+? Sarlavhalarni ajratib ko'rsatish? | Qalin va fon rangi bilan | Kichik shrift | Yashirish
+? Jadvalni saqlash formati? | .xlsx | .png | .mp3
+
+# 43
+**Piktogramma** — sonni takrorlanuvchi belgilar bilan ko'rsatish (1 ta olma belgisi = 10 kg).
+**Hisoblash:** belgilar soni × bitta belgi qiymati.
+? 1 belgi = 5 dona, 4 belgi = ? | 20 dona | 9 dona | 4 dona
+? 1 belgi = 10 kg, 25 kg ni qanday ko'rsatamiz? | 2,5 belgi (yarim belgi bilan) | 25 belgi | 1 belgi
+? Piktogramma kimlar uchun qulay? | Hammaga, ayniqsa yosh bolalarga | Faqat olimlarga | Hech kimga
+? Piktogrammada kalit (izoh) nima uchun kerak? | Bitta belgi qiymatini bildirish | Bezak | Kerak emas
+? 1 belgi = 100 kishi, 7 belgi = ? | 700 kishi | 107 kishi | 70 kishi
+? Piktogrammada belgilar qanday bo'lishi kerak? | Bir xil o'lchamda | Har xil o'lchamda | Rangsiz
+? 60 ta kitobni 1 belgi = 20 kitob bilan ko'rsatsak necha belgi? | 3 | 60 | 20
+? Piktogramma qaysi diagramma turiga o'xshaydi? | Ustunli | Doiraviy | Chiziqli emas, hech biriga
+
+# 44
+**Formula** "=" bilan boshlanadi. Amallar: + − * /. **Funksiyalar:** `=SUM(A1:A5)` — yig'indi, `=AVERAGE(...)` — o'rtacha, `=MAX(...)`, `=MIN(...)`.
+**Afzallik:** son o'zgarsa, natija avtomatik qayta hisoblanadi.
+? =AVERAGE(A1:A4) nima hisoblaydi? | O'rtacha qiymat | Yig'indi | Eng kattasini
+? =MAX(B1:B10) nima qaytaradi? | Eng katta qiymat | Eng kichik | Soni
+? Excel'da ko'paytirish belgisi? | * | x | ·
+? A1=4, A2=6 bo'lsa =A1+A2? | 10 | 46 | 2
+? A1=8, A2=2 bo'lsa =A1/A2? | 4 | 6 | 16
+? Formuladagi son o'zgarsa natija? | Avtomatik yangilanadi | O'zgarmaydi | Xato beradi
+? Avto-yig'indi tugmasi belgisi? | Σ | % | @
+? =MIN(3;9;1) natijasi? | 1 | 3 | 9
+
+# 45
+**Formulani nusxalash:** katakning pastki o'ng burchagidagi **to'ldirish markerini** pastga sudrash — formula har qatorga moslashadi (C2 → C3 → C4).
+**Misol:** E2 = `=B2+C2+D2`, pastga tortilsa E3 = `=B3+C3+D3`.
+? Formulani pastga sudrasak manzillar qanday o'zgaradi? | Qator raqami moslashadi | O'zgarmaydi | Ustun harfi o'chadi
+? To'ldirish markeri qayerda? | Katakning pastki o'ng burchagida | Yuqori chapda | Formula satrida
+? O'rtacha ballni hisoblash formulasi? | =AVERAGE(B2:D2) | =SUM(B2:D2)*2 | =MAX(B2:D2)
+? "#DIV/0!" xatosi nimani bildiradi? | Nolga bo'lish | Yig'indi | Hammasi to'g'ri
+? Eng yuqori ballni topish? | =MAX(...) | =MIN(...) | =COUNT(...)
+? Natijalarni ballar bo'yicha tartiblash? | Saralash (kamayish bo'yicha) | Filtr | O'chirish
+? 1, 2, 3 ... raqamlashni tez qilish? | 1 va 2 yozib, markerni tortish | Har birini qo'lda | Imkoni yo'q
+? Kasr sonlarni yaxlitlash ko'rinishi? | "Kasr xonalarini kamaytirish" tugmasi | O'chirish | Ctrl+Z
+
+# 46
+**Diagramma qo'shish:** ma'lumot diapazonini belgilang → Qo'yish → diagramma turi. Keyin **diagramma nomi**, **o'q nomlari**, **legend** qo'shiladi.
+? Diagramma o'qlari nima deyiladi? | Gorizontal (X) va vertikal (Y) | Chap va o'ng | Yuqori va past
+? Diagrammani boshqa joyga ko'chirish? | Sudrash yoki "Diagrammani ko'chirish" | Imkoni yo'q | Qayta chizish
+? Diagramma turini keyin o'zgartirsa bo'ladimi? | Ha | Yo'q | Faqat rangini
+? Diagramma uchun qaysi ma'lumot belgilanadi? | Sarlavhalar bilan sonlar | Faqat sarlavha | Bo'sh kataklar
+? Ma'lumot o'zgarsa diagramma? | Avtomatik yangilanadi | O'zgarmaydi | O'chadi
+? Diagramma nomini qanday o'zgartiramiz? | Nomni bosib yangidan yozish | Imkoni yo'q | Faylni qayta nomlash
+? Legend qayerda joylashishi mumkin? | O'ng, past, yuqori, chapda | Faqat o'ngda | Hech qayerda
+? O'q nomiga misol? | "Ball", "O'quvchilar" | "Rasm" | "Fayl"
+
+# 47
+**Ustunli** — miqdorlarni solishtirish (sinflar bo'yicha ball). **Doiraviy** — butunning ulushlari (sinfdagi sevimli fanlar %). **Chiziqli** — vaqt bo'yicha o'zgarish (oylik harorat).
+? Oylik o'quvchilar sonining o'zgarishi uchun? | Chiziqli | Doiraviy | Piktogramma
+? Doiraviy diagrammada qismlar yig'indisi? | 100% | 50% | Istalgancha
+? 5 ta sinf natijasini solishtirish? | Ustunli | Doiraviy | Matn
+? Doiraviy diagramma qachon noqulay? | Qismlar juda ko'p bo'lsa | Qismlar 3 ta bo'lsa | Hech qachon
+? Gorizontal ustunli diagramma nima deyiladi? | Chiziqli emas, "polosali" (bar) | Doiraviy | Nuqtali
+? Doiraviy diagrammada eng katta bo'lak nimani bildiradi? | Eng ko'p ulushni | Eng kamini | Hech narsani
+? Bir nechta qator ma'lumotni solishtirish? | Guruhlangan ustunli diagramma | Doiraviy | Bitta ustun
+? Har oy necha kitob o'qilganini ko'rsatish? | Ustunli yoki chiziqli | Doiraviy xolos | Hech qaysi
+
+# 48
+**Tahrirlash:** ustun rangini o'zgartirish (ustunni tanlab → To'ldirish), **ma'lumot yorliqlari** (ustun ustidagi son), diagramma uslubi, shrift o'lchami, fon.
+? Faqat bitta ustun rangini o'zgartirish uchun? | O'sha ustunni ikki marta bosib tanlash | Butun diagrammani o'chirish | Imkoni yo'q
+? Ma'lumot yorliqlari nima ko'rsatadi? | Har ustunning aniq qiymatini | Sarlavhani | Legendni
+? Diagramma uslublari qayerda? | Diagramma konstruktori bo'limida | Fayl | Ko'rinish
+? Diagrammaga fon rangi berish mumkinmi? | Ha | Yo'q | Faqat oq
+? Ranglar ma'nosi tushunarli bo'lishi uchun? | Legend qo'shiladi | Hammasi bir rang | Rangsiz
+? Diagrammani Word'ga o'tkazish? | Nusxalab joylash | Imkoni yo'q | Chop etib skanerlash
+? Yaxshi diagramma qanday bo'ladi? | Aniq nomli, tushunarli, ortiqcha bezaksiz | Juda ko'p effektli | Nomsiz
+? O'q shkalasini (masalan 0–100) o'zgartirsa bo'ladimi? | Ha, o'q formatida | Yo'q | Faqat 0–10
+
+# 49
+**Xulosa chiqarish:** eng katta/kichik qiymatlarni toping, solishtiring, o'zgarish tendensiyasini ko'ring, sababini o'ylang va qisqa xulosa yozing.
+**Statistika** — ma'lumotlarni yig'ish, tahlil qilish va xulosa chiqarish fani.
+? Diagrammada eng baland ustun nimani bildiradi? | Eng katta qiymatni | Eng kichikni | Hech narsani
+? Tendensiya nima? | Umumiy o'zgarish yo'nalishi (o'sish/pasayish) | Rang | Fayl
+? Xulosa qanday bo'lishi kerak? | Ma'lumotga asoslangan va qisqa | Taxminiy | Juda uzun
+? O'rtacha ball nimani ko'rsatadi? | Guruhning umumiy darajasini | Eng yaxshi o'quvchini | Eng yomonini
+? "Davomat 95%" nimani bildiradi? | Darslarning 95% ida qatnashgan | 95 ta dars | 95 o'quvchi
+? Sinf statistikasiga misol? | O'quvchilarning bo'y uzunligi | Ob-havo bashorati xolos | Parollar
+? Noto'g'ri ma'lumotdan chiqqan xulosa? | Noto'g'ri bo'ladi | To'g'ri bo'ladi | Farqi yo'q
+? Xulosa yozishda qaysi so'zlar foydali? | "Eng ko'p", "o'sdi", "kamaydi" | "Bilmayman" | "Hech narsa"
+
+# 51
+**Scratch oynasi:** bloklar bo'limlari (Harakat, Ko'rinish, Ovoz, Hodisalar, Boshqaruv, Sensorlar, Operatorlar, O'zgaruvchilar), skript maydoni, **sahna** (480×360), spritlar ro'yxati.
+**Stage (sahna)** ning o'z skriptlari va fonlari bo'ladi.
+? "Agar ... bo'lsa" bloki qaysi bo'limda? | Boshqaruv (Control) | Harakat | Ovoz
+? "Tegib turibdimi?" bloki qaysi bo'limda? | Sensorlar (Sensing) | Ko'rinish | Hodisalar
+? Qo'shish va taqqoslash bloklari qaysi bo'limda? | Operatorlar | Harakat | Ovoz
+? Sahna o'lchami qancha? | 480 × 360 | 100 × 100 | 1920 × 1080
+? Hodisalar bloklari qaysi rangda? | Sariq | Ko'k | Yashil
+? Sahnada ham skript yozsa bo'ladimi? | Ha | Yo'q | Faqat rasm
+? Yangi fon qo'shish joyi? | Sahna panelidagi "Fon tanlash" | Sprayt ro'yxati | Bloklar
+? Scratch loyihasi kengaytmasi? | .sb3 | .docx | .xlsx
+
+# 52
+**Koordinatalar:** x: −240 (chap) … 240 (o'ng); y: −180 (past) … 180 (yuqori). Bloklar: "x ni 10 ga o'zgartir", "x: 0 y: 0 ga bor", "1 soniyada x: y: ga sirpan".
+? Sahnaning o'ng cheti x qiymati? | 240 | 180 | 0
+? Sahnaning past cheti y qiymati? | −180 | 180 | −240
+? Spraytni chapga siljitish uchun x? | Kamayadi | Oshadi | O'zgarmaydi
+? "x: 0 y: 0 ga bor" spraytni qayerga qo'yadi? | Markazga | Chap burchakka | Yuqoriga
+? Silliq harakat uchun qaysi blok? | "... soniyada ... ga sirpan" | "bor" | "yashir"
+? y ni 10 ga o'zgartirsak sprayt? | Yuqoriga siljiydi | Pastga | Chapga
+? Sprayt (100; −50) da. U sahnaning qaysi qismida? | O'ng pastda | Chap yuqorida | Markazda
+? Koordinatalar qayerda ko'rinadi? | Sprayt ma'lumotlari panelida | Bloklar ichida | Ko'rinmaydi
+
+# 53
+**Labirint o'yini:** strelka tugmalari bilan boshqarish ("... tugmasi bosilganda"), devorga tekkanda orqaga qaytarish ("agar rangga tegsa → x ni −5 ga o'zgartir"), marraga yetganda "G'alaba!" deyish.
+? Devorga tegishni tekshirish bloki? | "... rangga tegyaptimi?" | "yashir" | "ovoz chal"
+? Strelka bosilganda harakat qaysi hodisa bilan? | "... tugmasi bosilganda" | "Bayroq bosilganda" xolos | "Sprayt bosilganda"
+? Devorga tekkanda nima qilish mantiqiy? | Orqaga qaytarish | Tezlashtirish | Hech narsa
+? Marraga yetganini qanday bilamiz? | Marra rangiga yoki spraytiga tegishini tekshirib | Taxmin qilib | Bilib bo'lmaydi
+? O'yin boshida robot qayerga qo'yiladi? | Start nuqtasiga ("bor" bloki bilan) | Tasodifiy joyga | Marraga
+? Shart doim tekshirilishi uchun? | "doim" (forever) ichiga qo'yiladi | Bir marta | Kerak emas
+? Robot juda katta bo'lsa yo'lakdan o'tolmaydi. Nima qilamiz? | O'lchamini kichraytiramiz | Devorlarni o'chiramiz | Hech narsa
+? Labirintni nima bilan chizamiz? | Fon muharririda | Klaviaturada | Excel'da
+
+# 54
+**Yo'nalish (direction):** 90° — o'ngga, −90° — chapga, 0° — yuqoriga, 180° — pastga. "... gradusga buril" bloklari. **Ko'pburchak:** burilish burchagi = 360° / tomonlar soni.
+? Sprayt yuqoriga qarashi uchun yo'nalish? | 0 | 90 | 180
+? Teng tomonli uchburchak uchun burilish burchagi? | 120° | 60° | 90°
+? Oltiburchak uchun burilish? | 60° | 90° | 45°
+? Pastga qarash yo'nalishi? | 180 | 0 | −90
+? "15 gradus o'ngga buril" ni 24 marta? | To'liq aylanadi (360°) | Yarim aylanadi | Hech narsa
+? Sprayt chapga yurganda teskari ag'darilmasligi uchun? | Aylanish uslubi "chap-o'ng" | O'chirish | Yashirish
+? 5 burchakli yulduz uchun burilish (ichki)? | 144° | 72° | 90°
+? Yo'nalishni "sichqoncha tomonga qara" bilan berish mumkinmi? | Ha | Yo'q | Faqat klaviatura bilan
+
+# 55
+**Repeat (takrorla N marta)** — aniq son marta; **forever (doim)** — to'xtatilguncha; **repeat until (... gacha takrorla)** — shart bajarilguncha.
+**Misol:** "10 marta takrorla: 10 qadam yur, 36° buril" — o'nburchak.
+? Shart bajarilguncha takrorlash bloki? | "... gacha takrorla" (repeat until) | "doim" | "1 marta"
+? "4 marta: 100 qadam, 90° buril" nima chizadi? | Kvadrat | Uchburchak | Doira
+? 36 marta 10° burilsa? | To'liq aylana (360°) | Yarim | Hech narsa
+? Animatsiya uchun "kostyumni almashtir" qaysi sikl ichida qulay? | doim | Sikl kerak emas | 1 marta
+? Sikl ichida sikl nima deyiladi? | Ichma-ich sikl | Shart | O'zgaruvchi
+? "3 marta takrorla [2 marta takrorla [salom de]]" — necha marta "salom"? | 6 | 5 | 3
+? Sikl dasturni qanday qiladi? | Qisqa va tushunarli | Uzun | Xatoli
+? Doira chizishga yaqin shakl uchun? | 360 marta 1 qadam, 1° burilish | 4 marta 90° | 3 marta 120°
+
+# 56
+**Shart:** "agar ... bo'lsa" (if) va "agar ... bo'lsa, aks holda" (if-else). Shartlar: tegish, tugma bosilgani, taqqoslash (>, <, =).
+? "Agar ... aks holda" blokida nechta yo'l bor? | 2 ta | 1 ta | 3 ta
+? Taqqoslash bloklari qaysi bo'limda? | Operatorlar | Harakat | Ovoz
+? "Agar ball > 10 bo'lsa" — ball 12 bo'lsa? | Shart bajariladi | Bajarilmaydi | Xato
+? "Agar ball > 10" — ball 10 bo'lsa? | Bajarilmaydi | Bajariladi | Xato
+? Ikki shartni birga tekshirish? | "va" (and) bloki | "yoki" xolos | Imkoni yo'q
+? "yoki" (or) bloki qachon rost? | Kamida bittasi rost bo'lsa | Ikkalasi ham rost bo'lsa xolos | Hech qachon
+? "emas" (not) bloki nima qiladi? | Shartni teskarisiga aylantiradi | Qo'shadi | Takrorlaydi
+? Shartni bir marta tekshirsak va u keyin o'zgarsa? | Sezilmaydi, shuning uchun "doim" ichida tekshiramiz | Avtomatik seziladi | Xato chiqadi
+
+# 57
+**O'zgaruvchi** — qiymat saqlovchi "quti" (Ball, Hayot, Vaqt). Bloklar: "Ballni 0 ga tenglashtir", "Ballni 1 ga o'zgartir", "Ball" (qiymati).
+**Ko'rinish:** o'zgaruvchi sahnada ko'rsatilishi yoki yashirilishi mumkin.
+? "Ballni 1 ga o'zgartir" nima qiladi? | Ballga 1 qo'shadi | Ballni 1 qiladi | Ayiradi
+? Hayot soni kamayishi uchun? | "Hayotni −1 ga o'zgartir" | "Hayotni 1 ga o'zgartir" | "Hayotni yashir"
+? O'zgaruvchi qayerda yaratiladi? | O'zgaruvchilar bo'limida "Yangi o'zgaruvchi" | Ovoz | Harakat
+? Ball = 5, "Ballni 3 ga o'zgartir" dan keyin? | 8 | 3 | 15
+? Ball = 5, "Ballni 3 ga tenglashtir" dan keyin? | 3 | 8 | 5
+? Hayot 0 bo'lganda nima qilinadi? | "O'yin tugadi" va to'xtatish | Davom etish | Ball qo'shish
+? O'zgaruvchi nomi qanday bo'lsin? | Ma'noli (Ball, Vaqt) | x123abc | Bo'sh
+? Taymer qaysi bo'limda? | Sensorlar | Harakat | Ko'rinish
+
+# 58
+**Tipik xatolar:** blok bayroq hodisasiga ulanmagan; "doim" ichida "kut" yo'qligi sababli juda tez; o'zgaruvchi boshida 0 ga tenglashtirilmagan; noto'g'ri sprayt tanlangan.
+**Usul:** bloklarni bittalab bosib ishlatib ko'ring, "de" bloki bilan qiymatlarni ko'rsating.
+? Dastur bayroq bosilganda ishlamasa, birinchi nima tekshiriladi? | Bloklar hodisaga ulanganmi | Kompyuter rangi | Ovoz
+? Har o'yinda ball oshib ketaversa sabab? | Boshida 0 ga tenglashtirilmagan | Sahna kichik | Sprayt yo'q
+? Animatsiya juda tez bo'lsa? | "kut" bloki qo'shiladi | Sikl o'chiriladi | Sahna o'zgartiriladi
+? Qiymatni tekshirish uchun qulay blok? | "... de" (say) | "yashir" | "ovoz"
+? Kod noto'g'ri spraytda yozilsa? | Boshqa qahramon harakatlanadi | Hammasi to'g'ri | Sahna o'chadi
+? Bitta blokni bosib ishlatsa nima bo'ladi? | Faqat o'sha blok bajariladi | Hammasi | Hech narsa
+? Xatoni topgach nima qilamiz? | Tuzatib, qayta sinaymiz | Loyihani o'chiramiz | Boshqasini boshlaymiz
+? Debuglashda sabr nima uchun muhim? | Xato bosqichma-bosqich topiladi | Kerak emas | Vaqt yo'qotadi
+
+# 59
+**Mini Game rejasi:** qahramon (o'yinchi), maqsad (yig'ish/qochish), boshqaruv (strelkalar), ball (o'zgaruvchi), qiyinlik (tezlik oshadi), tugash sharti (vaqt yoki hayot), "G'alaba"/"Mag'lubiyat" ekrani.
+? O'yin qiyinligini qanday oshiramiz? | Vaqt o'tishi bilan tezlikni oshirib | Ballni kamaytirib xolos | Hech qanday
+? Tasodifiy joyda paydo bo'lish uchun? | "tasodifiy son ... dan ... gacha" | "bor 0 0" | "yashir"
+? O'yinni sinovchilarga berish nima uchun? | Xatolar va qiyin joylarni topish | Kerak emas | Maqtash uchun
+? "Mag'lubiyat" sharti misoli? | Hayot = 0 | Ball = 100 | Bayroq bosildi
+? O'yin oxirida hamma narsani to'xtatish bloki? | "hammasini to'xtat" | "yashir" | "kut"
+? O'yinga musiqa qo'shish bo'limi? | Ovoz (Sound) | Harakat | Operatorlar
+? Yaxshi o'yin qanday? | Tushunarli qoidali, qiziqarli, adolatli | Juda qiyin, qoidasiz | Bir soniyada tugaydigan
+? Loyihani taqdim etishda nima aytiladi? | Maqsad, qoidalar, qanday yaratilgani | Faqat ism | Hech narsa
+
+# 60
+**Internet** — tarmoqlar tarmog'i. **Sayt** — bir mavzudagi web-sahifalar to'plami. **Web-sahifa** — brauzerda ochiladigan hujjat (HTML).
+**Qidiruv tizimlari:** Google, Yandex, Bing. Operatorlar: "aniq ibora", `-so'z` (chiqarib tashlash), `site:uz`.
+? `-reklama` qidiruvda nima qiladi? | "reklama" so'zli natijalarni chiqarib tashlaydi | Qo'shadi | Hech narsa
+? `site:edu.uz` nima qiladi? | Faqat shu domendan izlaydi | Saytni o'chiradi | Rasm izlaydi
+? Web-sahifa qaysi tilda yoziladi? | HTML | Excel | Paint
+? Bitta saytda nechta sahifa bo'lishi mumkin? | Ko'p | Faqat bitta | Hech qancha
+? Bosh sahifa nima? | Saytning asosiy (birinchi) sahifasi | Oxirgi sahifa | Reklama
+? Qidiruv tizimi qanday ishlaydi? | Saytlarni oldindan indekslab, mosini topadi | Tasodifan | Odamlar qo'lda javob yozadi
+? Qidiruv natijalarida "Reklama" belgisi nimani bildiradi? | Pullik e'lon | Eng to'g'ri javob | Xato
+? Internet qachon paydo bo'lgan (ARPANET)? | 1969-yilda | 2010-yilda | 1800-yilda
+
+# 61
+**URL tuzilishi:** `https://www.ziyonet.uz/uz/library` → **protokol** (https), **domen** (ziyonet.uz), **yo'l** (/uz/library).
+**Domen zonalari:** .uz (O'zbekiston), .com (tijorat), .org (tashkilot), .edu (ta'lim), .gov (davlat).
+? .org zonasi odatda kimniki? | Tashkilotlar | Davlat | Shaxsiy o'yinlar
+? URL'dagi "https" nima? | Protokol | Domen | Yo'l
+? Brauzer manzil satriga nima yoziladi? | URL | Parol | Fayl nomi
+? Mashhur brauzerlar? | Chrome, Firefox, Edge, Safari | Word, Excel | Paint, Scratch
+? Brauzerda yangi tab ochish? | Ctrl+T | Ctrl+N | Ctrl+B
+? Tabni yopish? | Ctrl+W | Ctrl+Q | Ctrl+Z
+? Sevimli saytni saqlash nima deyiladi? | Xatcho'p (bookmark) | Fayl | Parol
+? Yopilgan tabni qayta ochish? | Ctrl+Shift+T | Ctrl+T | F5
+
+# 62
+**Solishtirish usuli:** kamida 2–3 manba; muallif va sana bormi; rasmiy yoki ilmiy saytmi; reklama yoki fikr emasmi; manbalarni ro'yxatga yozing.
+? Ma'lumotning sanasi nima uchun muhim? | Eskirgan bo'lishi mumkin | Muhim emas | Chiroyli bo'lishi uchun
+? Muallifi noma'lum sayt qanchalik ishonchli? | Shubhali | Juda ishonchli | Eng yaxshisi
+? Manbalarni ro'yxatlash nima uchun? | Ma'lumot qayerdan olinganini ko'rsatish | Bezak | Kerak emas
+? Ikki manba bir-biriga zid bo'lsa? | Uchinchi ishonchli manbani tekshiramiz | Birinchisiga ishonamiz | Ikkalasini ham tashlaymiz
+? Fakt va fikr farqi? | Fakt tekshirsa bo'ladi, fikr — shaxsiy qarash | Farqi yo'q | Fikr doim to'g'ri
+? Wikipedia'dan foydalanganda? | Pastdagi manbalarni ham tekshiramiz | Ko'r-ko'rona ishonamiz | Umuman ishlatmaymiz
+? "100% kafolat, mo''jiza!" kabi sarlavhalar? | Shubhali, ehtiyot bo'lish kerak | Ishonchli | Ilmiy
+? Topilgan ma'lumotni o'z so'zlaringiz bilan yozish nima deyiladi? | Qayta ifodalash (parafraz) | Ko'chirish | Plagiat
+
+# 63
+**Email manzili:** `ism@domen` — masalan `ali.valiyev@gmail.com`. **Xat maydonlari:** Kimga (To), Nusxa (CC), Mavzu (Subject), Matn.
+**Xat tuzilishi:** salomlashish, asosiy fikr, xayrlashuv va imzo.
+? Email manzilida @ dan keyingi qism? | Pochta xizmati domeni | Ism | Parol
+? Xat nusxasini boshqa odamga ham yuborish maydoni? | CC (Nusxa) | Mavzu | Matn
+? Xat oxirida nima bo'ladi? | Xayrlashuv va imzo | Parol | Hech narsa
+? To'g'ri email manzili? | aziza@mail.uz | aziza.mail.uz | aziza@
+? Rasmiy xatda qanday murojaat? | "Hurmatli ..." | "Hey!" | Murojaatsiz
+? Xat yuborilmagan holda qayerda saqlanadi? | Qoralamalar (Drafts) | Kiruvchi | Savat
+? Kelgan xatlar papkasi? | Kiruvchi (Inbox) | Yuborilgan | Spam
+? Email yaratish uchun nima kerak? | Pochta xizmatida ro'yxatdan o'tish | Printer | Skaner
+
+# 64
+**Biriktirish:** qog'oz qisqichi (📎) belgisi → fayl tanlash. **Javob (Reply)** — yuboruvchiga; **Hammaga javob (Reply all)**; **Uzatish (Forward)** — boshqa odamga yuborish.
+**Hajm cheklovi:** ko'pincha 25 MB gacha; katta fayl — bulut havolasi bilan.
+? Javob tugmasi inglizcha? | Reply | Forward | Delete
+? Guruhdagi hammaga javob berish? | Reply all | Reply | Forward
+? 100 MB videoni yuborish usuli? | Bulutga yuklab havolani yuborish | Biriktirish | Imkoni yo'q
+? Biriktirilgan faylni ochishdan oldin? | Yuboruvchi tanishligini tekshiramiz | Darhol ochamiz | Hammaga yuboramiz
+? Uzatilgan xat mavzusida qanday belgi paydo bo'ladi? | Fwd: | Re: | Spam:
+? Javob xat mavzusida qanday belgi? | Re: | Fwd: | CC:
+? Xatni o'chirsak qayerga tushadi? | Savat (Trash) | Kiruvchi | Qoralama
+? Xatni keyinroq topish uchun nima qilamiz? | Papka yoki yorliq bilan tartiblaymiz | O'chiramiz | Chop etamiz
+
+# 65
+**Kuchli parol:** 12+ belgi, katta-kichik harf, raqam, belgi; har saytga alohida; parol menejeri. **Ikki bosqichli tasdiqlash** (SMS/ilova kodi).
+**Spam** — keraksiz ommaviy xatlar. **Phishing** — bank yoki xizmat nomidan soxta xat/sayt.
+? Parol menejeri nima? | Parollarni xavfsiz saqlovchi dastur | Parolni hammaga yuboruvchi | O'yin
+? Ikki bosqichli tasdiqlashda ikkinchi bosqich? | Telefonga kelgan kod | Ikkinchi parol bir xil | Ism
+? Phishing xatining belgisi? | Shoshiltirish, g'alati manzil, xatolar | Tanish do'st ovozi | Rasmiy dars
+? Spam xatni nima qilamiz? | "Spam" deb belgilaymiz va ochmaymiz | Javob yozamiz | Hammaga yuboramiz
+? Shaxsiy ma'lumotga nima kirmaydi? | Sevimli kitob janri | Pasport raqami | Uy manzili
+? Bitta parolni hamma saytda ishlatsak? | Biri buzilsa, hammasi xavf ostida | Xavfsizroq | Farqi yo'q
+? Bank hech qachon nimani so'ramaydi? | SMS kod va parolni | Ismingizni | Hech narsani
+? Kompyuterni himoyalash uchun? | Yangilanishlar va antivirus | Monitorni yopish | Klaviaturani tozalash
+
+# 66
+**Plakat qoidalari:** 5–7 ta qisqa qoida, belgilar (🔒, ⚠️), katta sarlavha, kontrast ranglar, muallif. Word, PowerPoint yoki Canva'da tayyorlash, **PDF/PNG** formatda saqlash.
+? Plakat qoidalari qanday yoziladi? | Qisqa, buyruq shaklida | Uzun hikoya | Savol shaklida
+? Plakatni sinfdoshlarga yuborish formati? | PDF yoki PNG | DOCX xolos | MP3
+? Qoidalarni ajratib ko'rsatish usuli? | Belgi (ikonka) va raqamlash | Bir xil matn | Yashirish
+? Plakatga qaysi qoida mos? | "Parolingni hech kimga aytma" | "Kun bo'yi o'yna" | "Reklamani bos"
+? Plakat uchun qulay bepul onlayn vosita? | Canva | Kalkulyator | Bloknot
+? Plakatda manbaga havola nima uchun? | Qo'shimcha ma'lumot uchun | Bezak | Kerak emas
+? Plakatni chop etish uchun qaysi o'lcham? | A4 yoki A3 | A10 | Pochta markasi
+? Jamoaviy plakatda kimning ismi yoziladi? | Barcha mualliflarning | Faqat birining | Hech kimning
+
+# 67
+**HTML** — web-sahifa tuzilishi: `<h1>Sarlavha</h1>`, `<p>Matn</p>`. **Python** — dasturlash tili: `print("Salom!")`.
+**ZIS ProStudent'da sinab ko'ring:** Dasturlash bo'limi (HTML) va Kod maydoni → Python maydoni.
+```python
+print("Salom, dunyo!")
+print(2 + 3)
+```
+? HTML'da sarlavha tegi? | <h1> | <p> | <img>
+? HTML'da xatboshi tegi? | <p> | <h1> | <a>
+? Python'da `print(2 + 3)` nimani chiqaradi? | 5 | 2 + 3 | 23
+? Python'da matn qanday yoziladi? | Qo'shtirnoq ichida | Qavssiz | Yulduzcha ichida
+? HTML teglari qanday yoziladi? | Burchakli qavslarda < > | Qo'shtirnoqda | Kvadrat qavsda
+? Python'da `print("2" + "3")` nima chiqaradi? | 23 | 5 | Xato
+? Web-sahifani qaysi dastur ko'rsatadi? | Brauzer | Excel | Paint
+? Yopuvchi teg qanday? | </p> | <p> | <<p>

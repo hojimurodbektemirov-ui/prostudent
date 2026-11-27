@@ -1,0 +1,344 @@
+# 1
+**Algoritm xususiyatlari:** **aniqlik** (har qadam tushunarli), **diskretlik** (alohida qadamlar), **natijaviylik** (natija beradi), **chekli** (albatta tugaydi), **ommaviylik** (shunga o'xshash masalalarga ham mos).
+**Bilasizmi?** Muhammad al-Xorazmiy IX asrda yashagan, uning kitoblari Yevropada 300 yildan ortiq darslik bo'lgan.
+? Al-Xorazmiy qaysi asrda yashagan? | IX asrda | XX asrda | I asrda
+? Har bir qadam tushunarli bo'lishi — qaysi xususiyat? | Aniqlik | Cheklilik | Ommaviylik
+? Algoritm natija berishi — qaysi xususiyat? | Natijaviylik | Diskretlik | Aniqlik
+? Algoritmning alohida qadamlarga bo'linishi? | Diskretlik | Natijaviylik | Ommaviylik
+? Bitta algoritm o'xshash masalalarga ham ishlashi? | Ommaviylik | Aniqlik | Cheklilik
+? Qaysi biri algoritm emas? | "Yaxshi bo'l" degan maslahat | Ovqat retsepti | Yo'l ko'rsatmasi
+? Algoritm qanday tilda yozilishi mumkin? | Oddiy til, blok-sxema yoki dastur tilida | Faqat rasmda | Faqat ingliz tilida
+? Algoritmni kim bajaradi? | Ijrochi | Muallif xolos | Hech kim
+
+# 2
+**Dekompozitsiya** — katta masalani kichik, oson qismlarga bo'lish.
+**Misol:** "Tug'ilgan kun tashkil qilish" → mehmonlar ro'yxati, taklifnoma, tort, bezak, o'yinlar. Har birini alohida hal qilamiz.
+? "Xona yig'ishtirish"ni qismlarga bo'ling. Qaysi biri qism? | O'yinchoqlarni joyiga qo'yish | Uxlash | Televizor ko'rish
+? Dekompozitsiyadan keyin nima qilamiz? | Har bir qismni hal qilamiz | Masalani tashlaymiz | Hammasini birdan qilamiz
+? Kichik qismlarni hal qilish osonmi? | Ha, osonroq | Yo'q, qiyinroq | Farqi yo'q
+? Jamoada ishlashda dekompozitsiya qanday yordam beradi? | Vazifalarni bo'lishish mumkin | Xalaqit beradi | Hech qanday
+? Ilon o'yinini yaratish qismlari? | Ilon harakati, ovqat, hisob | Faqat rang | Faqat ovoz
+? Dasturchilar katta dasturni qanday yozadi? | Kichik qismlarga bo'lib | Bir qatorda | Qismlarsiz
+? "Maktabga tayyorlanish" qismlari? | Kiyinish, nonushta, sumka yig'ish | Uxlash | O'yin
+? Qismlarga ajratgandan keyin ularni nima qilamiz? | Tartib bilan birlashtiramiz | Unutamiz | O'chiramiz
+
+# 3
+**Algoritmni bajarish** — qadamlarni ketma-ket, aniq bajarish. Ijrochi buyruqni "o'ylamaydi", aytilganini qiladi.
+**Trassirovka** — algoritmni qadam-baqadam qog'ozda bajarib, natijani tekshirish.
+? Ijrochi buyruqni qanday bajaradi? | Aynan aytilgandek | O'zicha o'zgartirib | Bajarmaydi
+? Trassirovka nima? | Algoritmni qadam-baqadam tekshirish | Rasm chizish | O'yin
+? Robot 3 qadam oldinga, 1 qadam orqaga yursa, boshidan qancha uzoqda? | 2 qadam | 4 qadam | 3 qadam
+? Algoritmni qachon ishonchli deymiz? | Bir necha marta to'g'ri natija bersa | Hech qachon | Uzun bo'lsa
+? Qadam tashlab ketilsa nima bo'ladi? | Natija o'zgaradi yoki xato bo'ladi | Hech narsa | Tezlashadi
+? Kompyuter algoritmni qanday bajaradi? | Juda tez va aniq | Sekin va xato bilan | Bajara olmaydi
+? 5 dan boshlab har qadamda 2 qo'shilsa, 3 qadamdan keyin? | 11 | 10 | 8
+? Algoritm natijasini kim tekshiradi? | Muallif va sinovchi | Hech kim | Faqat kompyuter
+
+# 4
+**Sikl (takrorlash)** — bir xil buyruqlarni bir necha marta bajarish. Scratch'da: **"10 marta takrorla"**, **"doim takrorla"**.
+**Misol:** kvadrat chizish: "4 marta takrorla: 50 qadam yur, 90° buril".
+? Kvadrat chizish uchun necha marta takrorlanadi? | 4 marta | 3 marta | 10 marta
+? "Doim takrorla" bloki qachon to'xtaydi? | Dastur to'xtatilganda | 1 martadan keyin | Hech qachon boshlanmaydi
+? Sikl nima uchun kerak? | Bir xil buyruqni ko'p yozmaslik uchun | Dasturni uzaytirish uchun | Kerak emas
+? Uchburchak chizish uchun necha marta takrorlanadi? | 3 marta | 4 marta | 6 marta
+? "3 marta takrorla: 2 qadam" jami necha qadam? | 6 | 5 | 3
+? Hayotdan sikl misoli? | Har kuni tish yuvish | Bir marta tug'ilish | Bitta sakrash
+? Scratch'da sikl bloklari qaysi bo'limda? | Boshqaruv (Control) | Ko'rinish | Ovoz
+? Takrorlash sonini 10 dan 20 ga o'zgartirsak? | Harakat 2 baravar ko'payadi | Kamayadi | O'zgarmaydi
+
+# 5
+**Debugging (xatoni tuzatish):** 1) natijani kutilgan bilan solishtiring; 2) qadam-baqadam tekshiring; 3) xato qadamni toping; 4) tuzating va qayta sinang.
+**Bilasizmi?** "Bug" (qo'ng'iz) so'zi 1947-yilda kompyuter ichiga kirib qolgan haqiqiy kuyadan kelib chiqqan!
+? "Bug" so'zi asli nimani bildiradi? | Qo'ng'iz (hasharot) | Tugma | Rang
+? Xatoni topgandan keyin nima qilamiz? | Tuzatib, qayta sinaymiz | Dasturni o'chiramiz | Yashiramiz
+? Robot devorga urilsa, xato qayerda bo'lishi mumkin? | Qadamlar soni yoki burilishda | Robot rangida | Monitor
+? Debugging qanday ataladi o'zbekchada? | Xatolarni tuzatish | Dastur yozish | Chizish
+? Xato topishning oson yo'li? | Qadam-baqadam bajarib ko'rish | Taxmin qilish | Kutib turish
+? Dasturchilar xato qiladimi? | Ha, hamma xato qiladi va tuzatadi | Hech qachon | Faqat yangi boshlovchilar
+? Algoritm tuzatilgandan keyin nima qilinadi? | Yana sinab ko'riladi | Tashlanadi | Darhol sotiladi
+? Do'stingiz kodida xato topdingiz. Nima qilasiz? | Hurmat bilan ko'rsataman | Masxara qilaman | Indamayman
+
+# 6
+**Scratch** — rangli **bloklar**dan dastur tuziladigan muhit. MIT universitetida bolalar uchun yaratilgan.
+**Oyna qismlari:** bloklar bo'limlari (chapda), **skript maydoni** (o'rtada), **sahna** (o'ngda), spritlar ro'yxati (pastda). **Yashil bayroq** — ishga tushirish, **qizil to'xtash belgisi** — to'xtatish.
+? Scratch'da dasturni to'xtatish tugmasi? | Qizil to'xtash belgisi | Yashil bayroq | Enter
+? Scratch'ni kim yaratgan? | MIT universiteti | Microsoft Word | Paint
+? Bloklar qayerga sudraladi? | Skript maydoniga | Sahnaga | Kalkulyatorga
+? Natija qayerda ko'rinadi? | Sahnada | Bloklar ro'yxatida | Ko'rinmaydi
+? Scratch'da bloklar nimaga o'xshaydi? | Konstruktor bo'laklariga | Tugmalarga | Fayllarga
+? "Harakat" bloklari qaysi rangda? | Ko'k | Qizil | Qora
+? Scratch'ni qayerda ishlatish mumkin? | scratch.mit.edu saytida yoki dasturda | Faqat telefonda | Faqat qog'ozda
+? Scratch loyihasini saqlash mumkinmi? | Ha | Yo'q | Faqat rasm qilib
+
+# 7
+**Sprite** — sahnadagi qahramon (mushuk, to'p, odam). **Kostyum** — spritning ko'rinishi; kostyumlarni almashtirib, "harakat" (animatsiya) qilinadi. **Sahna foni** — orqa fon.
+**Koordinatalar:** x — chap-o'ng, y — past-yuqori. Markaz (0; 0).
+? Spritning ko'rinishi nima deyiladi? | Kostyum | Sahna | Skript
+? Kostyumlarni almashtirish nima beradi? | Animatsiya (harakat) | Ovoz | Hech narsa
+? Sahna markazining koordinatasi? | (0; 0) | (100; 100) | (10; 5)
+? x koordinata nimani bildiradi? | Chap-o'ng holatni | Past-yuqorini | Rangni
+? Yangi sprite qayerdan qo'shiladi? | Sprite tanlash tugmasi | Bayroq | Sahna nomi
+? "10 qadam yur" bloki spritni qayerga siljitadi? | U qaragan tomonga | Doim yuqoriga | Hech qayerga
+? Spritni yashirish uchun qaysi blok? | "yashir" | "ko'rin" | "yur"
+? Sahna fonini o'zgartirish mumkinmi? | Ha | Yo'q | Faqat qora
+
+# 9
+**Multfilm yaratish bosqichlari:** 1) qahramonlar va fon tanlash; 2) suhbat ("2 soniya ... de" bloki); 3) navbatni kutish ("... soniya kut"); 4) harakat va kostyum almashinuvi; 5) yashil bayroq bilan sinash.
+? Qahramonni gapirtiruvchi blok qaysi bo'limda? | Ko'rinish (Looks) | Harakat | Ovoz
+? Ikki qahramon navbat bilan gapirishi uchun nima kerak? | "kut" bloki | "yashir" bloki | "doim" bloki
+? Multfilmda fonni almashtirish nima beradi? | Sahna (joy) o'zgaradi | Ovoz o'chadi | Hech narsa
+? Qahramon ovoz chiqarishi uchun qaysi bo'lim? | Ovoz (Sound) | Harakat | Operatorlar
+? Multfilmni qanday boshlaymiz? | Yashil bayroq bilan | Qizil belgi bilan | Enter
+? "Yashil bayroq bosilganda" bloki qayerda? | Hodisalar (Events) | Ko'rinish | Ovoz
+? Multfilm syujeti nima? | Voqealar ketma-ketligi | Rang | Fon
+? Loyihani boshqalarga qanday ko'rsatish mumkin? | Ulashish (Share) yoki taqdimotda | Hech qanday | O'chirib
+
+# 10
+**Ma'lumot yig'ish usullari:** so'rovnoma, kuzatish, o'lchash, intervyu.
+**Misol:** sinfdagi sevimli mevalarni bilish uchun so'rovnoma o'tkazamiz va natijani jadvalga yozamiz.
+? Kuzatish misoli? | Har kuni haroratni yozib borish | Kitob o'qish | Uxlash
+? Intervyu nima? | Savol-javob suhbati | Rasm | Jadval
+? Bo'yni o'lchash qanday yig'ish usuli? | O'lchash | So'rovnoma | Intervyu
+? So'rovnoma natijasini qayerga yozamiz? | Jadvalga | Havoga | Hech qayerga
+? Google Forms nima uchun? | Onlayn so'rovnoma uchun | Rasm chizish uchun | O'yin uchun
+? Sinfda nechta o'quvchi ko'k rangni yoqtirishini qanday bilamiz? | So'rab sanaymiz | Taxmin qilamiz | Bilib bo'lmaydi
+? Yig'ilgan ma'lumotni qanday ko'rsatsa tushunarli? | Diagramma bilan | Hech qanday | Yashirib
+? Ma'lumot yig'ishda nima muhim? | Aniqlik va halollik | Tezlik xolos | O'ylab topish
+
+# 11
+**Ma'lumotlar bazasi** — tartiblangan ma'lumotlar to'plami. Kutubxona katalogi, maktab jurnali, telefon kontaktlari, onlayn do'kon mahsulotlari.
+**Yozuv** — bitta obyekt haqida ma'lumot (bitta o'quvchi). **Maydon** — ma'lumot turi (ism, yosh, sinf).
+? Maktab jurnali nima? | Ma'lumotlar bazasi | O'yin | Rasm
+? Bazadagi bitta o'quvchi haqidagi qator nima? | Yozuv | Maydon | Fayl
+? "Ism", "Yosh" — bular nima? | Maydonlar | Yozuvlar | Kodlar
+? Ma'lumotlar bazasidan qanday foydalanamiz? | Izlaymiz, saralaymiz, tahlil qilamiz | Faqat chizamiz | Foydalanmaymiz
+? Onlayn do'konda mahsulotlar qayerda saqlanadi? | Ma'lumotlar bazasida | Qog'ozda | Hech qayerda
+? Kutubxona bazasidan nima topiladi? | Kerakli kitob | Ovqat | O'yinchoq
+? Bazadagi ma'lumot noto'g'ri bo'lsa nima bo'ladi? | Xato natijalar chiqadi | Hech narsa | Yaxshiroq
+? Shaxsiy ma'lumotlar bazasini kim ko'rishi mumkin? | Faqat ruxsat berilganlar | Hamma | Internetdagi hamma
+
+# 12
+**Excel jadvali:** ustunlar — **harflar** (A, B, C), qatorlar — **raqamlar** (1, 2, 3). **Katak** — ustun va qator kesishmasi: B3.
+**Formula** "=" bilan boshlanadi: `=A1+A2`.
+? Excel'da formula nimadan boshlanadi? | = belgisi | + belgisi | Harf
+? C2 katak qaysi ustunda? | C ustunida | 2-ustunda | A ustunida
+? Qatorlar nima bilan belgilanadi? | Raqamlar bilan | Harflar bilan | Ranglar bilan
+? `=A1+A2` nima qiladi? | A1 va A2 ni qo'shadi | Ayiradi | O'chiradi
+? Jadval sarlavhasi odatda qaysi qatorda? | 1-qatorda | Oxirgi qatorda | Hech qayerda
+? Excel qanday dastur? | Elektron jadval | Matn muharriri | Brauzer
+? Faol katak qanday belgilanadi? | Ramka bilan | Rang yo'qoladi | Ko'rinmaydi
+? Excel faylining kengaytmasi? | .xlsx | .docx | .png
+
+# 13
+**Ma'lumot turlari:** **son** (25, 3,5), **matn** ("Ali"), **sana** (01.09.2026), **vaqt**, **mantiqiy** (ha/yo'q).
+Excel'da matn chapga, son o'ngga tekislanadi — shunga qarab turini bilsa bo'ladi.
+? "01.09.2026" qanday tur? | Sana | Matn | Rasm
+? "Ha" yoki "Yo'q" qanday tur? | Mantiqiy | Son | Sana
+? Excel matnni katakning qaysi tomoniga joylaydi? | Chapga | O'ngga | Markazga
+? Qaysi turdagi ma'lumotni qo'shsa bo'ladi? | Son | Matn | Rasm
+? "15:30" qanday tur? | Vaqt | Son | Matn
+? Telefon raqami odatda qanday saqlanadi? | Matn sifatida | Sana sifatida | Mantiqiy
+? 3,5 qanday son? | Kasr son | Butun son | Matn
+? Nega tur muhim? | Kompyuter to'g'ri hisoblashi uchun | Chiroyli bo'lishi uchun | Muhim emas
+
+# 14
+**Ma'lumotlardan foydalanish:** **saralash** (A→Z, kichikdan kattaga), **filtrlash** (faqat kerakli qatorlarni ko'rsatish), **diagramma** (ko'rgazmali).
+**Misol:** "Faqat 5-sinf o'quvchilarini ko'rsat" — filtr.
+? Filtr nima qiladi? | Kerakli qatorlarni ko'rsatadi | Hammasini o'chiradi | Rang beradi
+? Sonlarni kichikdan kattaga tartiblash? | O'sish bo'yicha saralash | Kamayish bo'yicha | Filtr
+? Diagramma nima uchun? | Ma'lumotni ko'rgazmali ko'rsatish uchun | O'chirish uchun | Yashirish uchun
+? Doiraviy diagramma nimani ko'rsatadi? | Qismlarning ulushini | Vaqtni | Ovozni
+? Excel'da diagramma qayerdan qo'shiladi? | Qo'yish (Insert) bo'limidan | Fayl | Ko'rinish
+? Eng yuqori ballni tez topish usuli? | Kamayish bo'yicha saralash | Qo'lda izlash | Taxmin
+? Ism bo'yicha alifbo tartibi? | A dan Z ga saralash | Filtr | Formula
+? Ustunli diagramma qachon qulay? | Miqdorlarni solishtirishda | Matn yozishda | Rasm chizishda
+
+# 16
+**Sinf bazasi loyihasi:** 1-qator — sarlavhalar (Ism, Tug'ilgan oy, Sevimli fan, To'garak); keyingi qatorlar — o'quvchilar. Keyin saralash, filtr va diagramma.
+**Maxfiylik:** telefon, manzil, parol kabi shaxsiy ma'lumotlar kiritilmaydi.
+? Loyihada qaysi ma'lumot kiritilmaydi? | Uy manzili va telefon | Sevimli fan | To'garak nomi
+? Bazani to'ldirgandan keyin nima qilamiz? | Tahlil: saralash, filtr, diagramma | O'chiramiz | Chop etmaymiz
+? "Qaysi fan eng sevimli?" — qanday diagramma mos? | Ustunli yoki doiraviy | Diagramma kerak emas | Faqat matn
+? Har bir o'quvchi uchun nechta qator? | Bitta | Uchta | Har bir harf uchun bitta
+? Bazadagi ma'lumotni kim to'ldiradi? | Sinf o'quvchilari (rozilik bilan) | Begonalar | Hech kim
+? Loyiha natijasini qanday ko'rsatamiz? | Jadval va diagramma bilan | Faqat og'zaki | Yashirib
+? Sarlavha qatorini ajratib ko'rsatish usuli? | Qalin shrift va rang | O'chirish | Yashirish
+? Jamoada bazani qayerda birga to'ldirish mumkin? | Onlayn jadvalda (Google Sheets) | Faqat qog'ozda | Hech qayerda
+
+# 17
+**Tizimli dasturlar** — kompyuterni boshqaradi: operatsion tizim, drayverlar, antivirus.
+**Amaliy dasturlar** — foydalanuvchi ishlari uchun: Word, Excel, PowerPoint, Paint, brauzer, o'yinlar.
+? Drayver nima? | Qurilmani boshqaruvchi tizim dasturi | O'yin | Rasm
+? Excel qanday dastur? | Amaliy | Tizimli | Operatsion tizim
+? Antivirus qaysi guruhga kiradi? | Tizimli (xizmat) dastur | O'yin | Amaliy matn
+? Operatsion tizimga misol? | Windows | Paint | Chrome
+? PowerPoint nima uchun? | Taqdimot uchun | Hisob uchun | Rasm tahriri uchun
+? Brauzer qanday dastur? | Amaliy | Tizimli | Drayver
+? Kompyuter yoqilganda birinchi qaysi dastur yuklanadi? | Operatsion tizim | Word | O'yin
+? Linux nima? | Operatsion tizim | O'yin | Printer
+
+# 18
+**Ish stoli elementlari:** belgilar (yorliqlar), **Pusk** tugmasi, **vazifalar paneli** (pastki chiziq), **savat** (o'chirilgan fayllar), soat va til.
+**Oyna:** sarlavha satri, yopish (X), kattalashtirish (□), yig'ish (_).
+? Oynani yig'ish (kichraytirish) tugmasi? | _ | X | □
+? Oynani butun ekranga yoyish tugmasi? | □ | _ | X
+? Savatdan faylni qaytarish mumkinmi? | Ha, tiklash mumkin | Yo'q | Faqat rasm
+? Yorliq nima? | Dasturni tez ochish belgisi | Fayl ichidagi matn | Klaviatura
+? Hozirgi vaqt qayerda ko'rinadi? | Vazifalar panelining o'ng burchagida | Pusk ichida | Savatda
+? Ochiq dasturlar qayerda ko'rinadi? | Vazifalar panelida | Savatda | Ko'rinmaydi
+? Fon rasmini o'zgartirish mumkinmi? | Ha, sozlamalarda | Yo'q | Faqat qora
+? Sarlavha satrida nima yoziladi? | Dastur yoki fayl nomi | Soat | Ob-havo
+
+# 19
+**Fayl tizimi:** disk (C:) → papkalar → ichki papkalar → fayllar. Yo'l: `C:\Hujjatlar\Maktab\insho.docx`.
+**Kengaytmalar:** `.docx` (Word), `.xlsx` (Excel), `.pptx` (PowerPoint), `.png/.jpg` (rasm), `.mp3` (musiqa), `.mp4` (video).
+? `.mp3` qanday fayl? | Musiqa | Rasm | Matn
+? `.pptx` qaysi dastur fayli? | PowerPoint | Word | Excel
+? Yangi papka yaratish uchun? | O'ng tugma → Yaratish → Papka | Enter | Ctrl+Z
+? Faylni qayta nomlash tugmasi? | F2 | F5 | Esc
+? `.mp4` qanday fayl? | Video | Musiqa | Jadval
+? Papka ichida yana papka bo'lishi mumkinmi? | Ha | Yo'q | Faqat bitta
+? Faylni nusxalash tugmalari? | Ctrl+C | Ctrl+S | Ctrl+P
+? Nusxani joylash tugmalari? | Ctrl+V | Ctrl+X | Ctrl+A
+
+# 20
+**Matn bilan ishlash:** belgilash (sichqoncha bilan sudrash yoki **Ctrl+A** — hammasi), nusxalash **Ctrl+C**, qirqish **Ctrl+X**, joylash **Ctrl+V**, bekor qilish **Ctrl+Z**.
+**Imlo tekshiruvi:** qizil to'lqinli chiziq — imlo xatosi bo'lishi mumkin.
+? Hammasini belgilash tugmalari? | Ctrl+A | Ctrl+B | Ctrl+N
+? Matnni qirqib olish? | Ctrl+X | Ctrl+C | Ctrl+V
+? Qirqish va nusxalash farqi? | Qirqishda asl joydan o'chadi | Farqi yo'q | Nusxalashda o'chadi
+? Bitta so'zni tez belgilash? | So'z ustida ikki marta bosish | Uch marta Enter | Shift
+? Kursorni matn boshiga olib borish tugmasi? | Home | End | Delete
+? O'ngdagi belgini o'chirish tugmasi? | Delete | Backspace | Enter
+? Matnni izlash tugmalari? | Ctrl+F | Ctrl+S | Ctrl+Z
+? Hujjatga yangi bet qo'shish? | Ctrl+Enter | Shift | Esc
+
+# 21
+**Formatlash:** shrift (nomi, o'lchami, rangi), qalin/qiya/tagiga chizilgan, **tekislash** (chap, markaz, o'ng, eni bo'yicha), qatorlar oralig'i, ro'yxatlar.
+**Qoida:** avval matnni **belgilang**, keyin formatlang.
+? Eni bo'yicha tekislash nima qiladi? | Matnni ikki chetga tekislaydi | Markazga | Faqat chapga
+? Shrift o'lchami nima bilan o'lchanadi? | Punktlarda (pt) | Metrda | Kilogrammda
+? Asosiy matn uchun qulay o'lcham? | 12–14 pt | 72 pt | 2 pt
+? Qalin qilish tugmalari? | Ctrl+B | Ctrl+I | Ctrl+U
+? Belgilangan ro'yxat nima? | Nuqtali ro'yxat | Raqamli ro'yxat | Jadval
+? Formatlashdan oldin nima qilinadi? | Matn belgilanadi | Hujjat yopiladi | Saqlanmaydi
+? Matn rangini o'zgartirish tugmasi qanday ko'rinishda? | "A" harfi ostida rangli chiziq | Qaychi | Disk
+? Format nusxalash ("cho'tka") nima qiladi? | Bir matn formatini boshqasiga o'tkazadi | Rasm chizadi | O'chiradi
+
+# 22
+**PowerPoint:** yangi slayd (**Ctrl+M**), slayd maketi (sarlavha + matn), **Dizayn** — tayyor mavzular, **F5** — boshidan ko'rsatish, **Shift+F5** — joriy slayddan.
+? Yangi slayd qo'shish tugmalari? | Ctrl+M | Ctrl+N | Ctrl+S
+? Taqdimotni joriy slayddan boshlash? | Shift+F5 | F1 | Esc
+? Tayyor dizayn mavzulari qaysi bo'limda? | Dizayn (Design) | Fayl | Ko'rinish
+? Slayd maketi nima? | Slayddagi joylar tartibi | Animatsiya | Ovoz
+? Slaydlar qayerda ko'rinadi? | Chap tomondagi ro'yxatda | Pastda emas | Ko'rinmaydi
+? Slaydni o'chirish uchun? | Tanlab, Delete bosish | Ctrl+B | Enter
+? Taqdimot faylini saqlash? | Ctrl+S | Ctrl+P | F5
+? Yaxshi slayd qoidasi? | Kam matn, katta harf, rasm | Ko'p mayda matn | Rangsiz
+
+# 23
+**Rasmlar va animatsiya:** rasm — **Qo'yish → Rasmlar**; animatsiya — obyektni tanlab, **Animatsiya** bo'limidan effekt (paydo bo'lish, uchib kirish).
+**Qoida:** animatsiyani ko'paytirib yubormang — diqqatni chalg'itadi.
+? Animatsiyani qaysi obyektga qo'shish mumkin? | Matn, rasm, shaklga | Faqat slayd raqamiga | Hech biriga
+? Ko'p animatsiya nima qiladi? | Diqqatni chalg'itadi | Yaxshilaydi doim | Hech narsa
+? Animatsiya qachon boshlanishini sozlash mumkinmi? | Ha (bosganda, avtomatik) | Yo'q | Faqat bir xil
+? Rasm o'lchamini qanday o'zgartiramiz? | Burchakdagi nuqtalarni sudrab | Klaviatura bilan | O'zgartirib bo'lmaydi
+? "Paydo bo'lish" nima? | Animatsiya effekti | O'tish effekti | Shrift
+? Animatsiyani ko'rib chiqish tugmasi? | Ko'rib chiqish (Preview) | Saqlash | Chop etish
+? Rasm o'rniga yana nima qo'shsa bo'ladi? | Video, ovoz, diagramma | Hech narsa | Faqat matn
+? Animatsiya tartibini o'zgartirsa bo'ladimi? | Ha | Yo'q | Faqat birinchisini
+
+# 24
+**O'tish (transition)** — bir slayddan ikkinchisiga o'tish effekti: so'nish, surilish, aylanish. **O'tishlar** bo'limida tanlanadi, **"Hammasiga qo'llash"** bilan barcha slaydlarga beriladi.
+**Avtomatik o'tish** — "keyin: 00:05" kabi vaqt bilan.
+? O'tish effekti qaysi bo'limda? | O'tishlar (Transitions) | Animatsiya | Dizayn
+? Slayd 5 soniyadan keyin o'zi almashishi uchun? | Avtomatik o'tish vaqti qo'yiladi | Ctrl+S | Mumkin emas
+? Animatsiya va o'tish farqi? | Animatsiya — obyektga, o'tish — slaydga | Farqi yo'q | O'tish — matnga
+? Barcha slaydlarga bir xil o'tish? | "Hammasiga qo'llash" | Har birini o'chirish | Mumkin emas
+? O'tish tezligini o'zgartirsa bo'ladimi? | Ha, davomiylik bilan | Yo'q | Faqat sekin
+? O'tishga ovoz qo'shsa bo'ladimi? | Ha | Yo'q | Faqat musiqa fayli bilan
+? O'tishni olib tashlash uchun? | "Yo'q" (None) tanlanadi | Slayd o'chiriladi | Mumkin emas
+? Qaysi o'tish rasmiy taqdimotga mos? | Sokin, oddiy (so'nish) | Juda ko'p aylanish | Har slaydda boshqacha
+
+# 26
+**Multimedia** — matn, rasm, ovoz, video va animatsiyaning birgalikdagi ko'rinishi.
+**Video qo'shish:** Qo'yish → Video. **Ovoz:** Qo'yish → Audio. Taqdimot oxirida — xulosa va manbalar.
+? Video slaydga qanday qo'shiladi? | Qo'yish → Video | Fayl → Chop etish | Mumkin emas
+? Multimediaga nima kiradi? | Matn, rasm, ovoz, video | Faqat matn | Faqat qog'oz
+? Taqdimot oxirida manbalar nima uchun? | Ma'lumot qayerdan olinganini ko'rsatish | Bezak | Kerak emas
+? Taqdimotda ovoz balandligi qanday bo'lishi kerak? | Mo'tadil | Juda baland | Eshitilmaydigan
+? Himoyada nima muhim? | Aniq va ishonch bilan gapirish | Slaydni o'qib berish xolos | Jim turish
+? Taqdimot uchun maqbul vaqt? | Belgilangan vaqtda (masalan 3–5 daqiqa) | 1 soat | 10 soniya
+? Jamoaviy loyihada kim gapiradi? | Har bir a'zo o'z qismini | Faqat bittasi | Hech kim
+? Begona videoni ishlatganda nima qilamiz? | Manbasini ko'rsatamiz | Yashiramiz | O'zimizniki deymiz
+
+# 27
+**Internet** — dunyo kompyuter tarmoqlari tarmog'i. **WWW (World Wide Web)** — internetdagi saytlar to'plami. **Sayt** — sahifalar to'plami, **manzil (URL)**: `https://ziyonet.uz`.
+**Brauzer** saytlarni ochadi; **havola** bir sahifadan boshqasiga o'tkazadi.
+? URL nima? | Sayt manzili | Parol | Fayl nomi
+? Saytni ochish uchun qaysi dastur? | Brauzer | Excel | Paint
+? WWW ni kim yaratgan? | Tim Berners-Li | Al-Xorazmiy | Bill Geyts
+? "https" dagi "s" nimani bildiradi? | Xavfsiz (himoyalangan) ulanish | Sekin | Sport
+? Havola odatda qanday ko'rinadi? | Ko'k, tagiga chizilgan matn | Qora qalin | Ko'rinmaydi
+? Oldingi sahifaga qaytish tugmasi? | Orqaga (←) | F5 | Ctrl+P
+? Sahifani yangilash tugmasi? | F5 | F1 | Esc
+? .uz domeni qaysi davlatniki? | O'zbekiston | AQSh | Ukraina
+
+# 28
+**Samarali izlash:** aniq kalit so'zlar, qo'shtirnoq ichida aniq ibora ("Amir Temur tavalludi"), rasmlar bo'limi, bir nechta manbani solishtirish.
+**Ishonchli manba:** rasmiy saytlar (.gov.uz, .edu), ensiklopediyalar, olimlar.
+? Aniq iborani izlash uchun nima qo'llanadi? | Qo'shtirnoq " " | Qavs | Yulduzcha
+? Ishonchli manba qaysi? | Rasmiy ta'lim sayti | Noma'lum reklama | Taxminiy forum
+? Ma'lumotni tekshirish usuli? | Bir necha manbani solishtirish | Birinchisiga ishonish | Hech qachon tekshirmaslik
+? Rasm izlash uchun qaysi bo'lim? | Rasmlar (Images) | Xaritalar | Yangiliklar
+? .gov.uz qanday sayt? | Davlat sayti | O'yin sayti | Reklama
+? Topilgan matnni o'zimizniki qilib berish mumkinmi? | Yo'q, bu ko'chirmachilik | Ha | Faqat bir qismini
+? Ensiklopediya nima? | Bilimlar to'plami kitobi yoki sayti | O'yin | Messenjer
+? Qidiruv natijasidagi birinchi havola doim eng to'g'rimi? | Yo'q, reklama ham bo'lishi mumkin | Ha | Faqat kechqurun
+
+# 29
+**Onlayn muloqot:** elektron pochta, messenjerlar (Telegram), video qo'ng'iroqlar, forumlar.
+**Netiket qoidalari:** salomlashing, hurmat bilan yozing, KATTA harf (baqirish) ishlatmang, spam yubormang, begona rasmini ruxsatsiz tarqatmang.
+? Elektron pochta manzilida qanday belgi bo'ladi? | @ | # | %
+? Spam nima? | Keraksiz ommaviy xabarlar | Do'stona xat | Dars
+? Video qo'ng'iroq dasturiga misol? | Zoom yoki Telegram | Excel | Paint
+? Xatga javob berishda odob? | Salomlashish va minnatdorchilik | Javobsiz qoldirish | Qo'pol yozish
+? Guruh chatida tunda xabar yozish odobmi? | Yo'q, odamlarni bezovta qiladi | Ha | Farqi yo'q
+? Smayliklar nima uchun? | Hissiyotni ko'rsatish uchun | Parol uchun | Kod uchun
+? Xat mavzusi (Subject) qanday bo'lsin? | Qisqa va aniq | Bo'sh | Juda uzun
+? Notanish odamdan kelgan ilovani ochamizmi? | Yo'q, kattalarga ko'rsatamiz | Ha | Darhol do'stlarga yuboramiz
+
+# 30
+**Xavflar:** **fishing** (soxta sayt orqali parolni o'g'irlash), viruslar, aldovchi "yutuq" xabarlari, notanish odamlar.
+**Himoya:** manzilni tekshiring (https va to'g'ri nom), parolni hech kimga bermang, antivirus, shubhali fayllarni ochmang.
+? Fishing nima? | Soxta sayt orqali ma'lumot o'g'irlash | Baliq ovi o'yini | Rasm
+? Soxta saytni qanday sezish mumkin? | Manzil g'alati, xatolar bor | Rangi chiroyli | Hech qanday
+? Bank kartangiz raqamini so'rashsa? | Bermayman, ota-onamga aytaman | Beraman | Yarmini aytaman
+? Virusdan himoya dasturi? | Antivirus | Paint | Kalkulyator
+? Dasturlar yangilanishi nima uchun kerak? | Xavfsizlik teshiklari yopiladi | Kerak emas | Faqat rang uchun
+? Jamoat Wi-Fi'da nimadan ehtiyot bo'lamiz? | Parol va to'lov kiritishdan | Sayt o'qishdan | Hech narsadan
+? Kimdir "Hisobingiz bloklanadi, kodni yuboring" desa? | Bu aldov, kodni bermayman | Kodni yuboraman | Do'stlarga aytaman
+? Xavfsiz sayt manzili qanday boshlanadi? | https:// | ftp:// | hech qanday
+
+# 31
+**Sun'iy intellekt (SI)** — inson kabi "o'rganadigan" kompyuter dasturlari. Ko'p misollar (ma'lumotlar) asosida o'rganadi.
+**Misollar:** ovozli yordamchilar, tarjimon, rasmdagi narsani taniy oladigan kamera, chat-botlar, avtomatik haydovchi mashinalar.
+? SI nimadan o'rganadi? | Ko'p misollar (ma'lumotlar)dan | Hech narsadan | Faqat ovqatdan
+? Onlayn tarjimon ham SI ishlatadimi? | Ha | Yo'q | Faqat qog'ozda
+? Chat-bot nima? | Matn orqali suhbatlashuvchi dastur | Robot-changyutgich | Printer
+? Telefon yuzingizni tanishi nima? | SI orqali yuzni aniqlash | Sehr | Tasodif
+? SI odamga o'xshab his qiladimi? | Yo'q, u dastur | Ha | Faqat kechasi
+? SI qayerda yordam beradi? | Tibbiyot, transport, ta'lim | Hech qayerda | Faqat o'yinda
+? "Intellekt" so'zi nimani bildiradi? | Aql, fikrlash qobiliyati | Kuch | Rang
+? SI ni kim yaratadi? | Dasturchilar va olimlar | O'zi paydo bo'ladi | Hayvonlar
+
+# 32
+**SI dan to'g'ri foydalanish:** u **xato qilishi** mumkin — javobni tekshiring; shaxsiy ma'lumot yozmang; uy vazifasini butunlay SI ga qildirmang — o'zingiz o'rganing; SI ishlatganingizni ochiq ayting.
+? SI yordamida yozgan ishni o'zimniki deyish to'g'rimi? | Yo'q, SI ishlatganimni aytaman | Ha | Hech kim bilmaydi
+? SI javobini qanday tekshiramiz? | Darslik va ishonchli manbalar bilan | Tekshirmaymiz | Do'stdan so'rab xolos
+? SI ga parolni yozish mumkinmi? | Yo'q | Ha | Faqat qisqa parolni
+? SI qanday ishda foydali? | Tushunmagan mavzuni tushuntirib berishda | Testni yechib berishda | Aldashda
+? SI xato qilishi mumkinmi? | Ha | Yo'q, hech qachon | Faqat matematikada
+? Uy vazifasini SI butunlay bajarsa nima bo'ladi? | Biz o'rganmaymiz | Biz aqlli bo'lamiz | Hech narsa
+? SI yaratgan rasmni qanday belgilash halol? | "SI yordamida yaratilgan" deb | Hech narsa demasdan | O'z ismimiz bilan
+? SI dan foydalanish yoshiga e'tibor beramizmi? | Ha, qoidalarga amal qilamiz | Yo'q | Faqat kattalar uchun emas

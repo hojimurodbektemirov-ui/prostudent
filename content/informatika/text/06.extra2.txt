@@ -1,0 +1,396 @@
+# 35
+**Sikl turlari:** **parametrli** (necha marta ekani ma'lum: "5 marta"), **shartli** — shart **oldin** tekshiriladi ("toki ... ekan") yoki **keyin** ("... bo'lguncha").
+**Hayotiy misol:** "Ro'yxatdagi har bir o'quvchiga daftar ber" — har bir element uchun sikl.
+? "Toki choynak qaynamagan ekan, kut" — qanday sikl? | Shartli | Parametrli | Sikl emas
+? "Har bir o'quvchiga daftar ber" — sikl nechta marta? | O'quvchilar soni marta | 1 marta | Cheksiz
+? Siklning har bir takrorlanishi nima deyiladi? | Iteratsiya (qadam) | Algoritm | Shart
+? Cheksiz sikl qachon xavfli? | Dastur to'xtamay qotib qoladi | Hech qachon | Doim foydali
+? Sikl tanasi nima? | Takrorlanadigan buyruqlar | Shart | Natija
+? Shart oldin tekshirilsa va boshidan yolg'on bo'lsa, sikl necha marta? | 0 marta | 1 marta | Cheksiz
+? Parametrli siklda nima ma'lum? | Takrorlash soni | Shart | Hech narsa
+? Qaysi biri sikl emas? | Bir marta eshikni ochish | Har kuni tish yuvish | Har darsda davomat
+
+# 36
+**Kundalik sikllar:** har kuni maktabga borish, har darsda davomat, yugurishda doira aylanish, sport mashqi "10 marta".
+**Sikl yozish:** nima takrorlanadi? necha marta yoki qachongacha? siklgacha va siklsdan keyin nima?
+? "Har yili yangi o'quv yili boshlanadi" qanday jarayon? | Takrorlanuvchi | Bir martalik | Tarmoqlanuvchi
+? 4 ta doira yugurish uchun sikl necha marta? | 4 | 1 | 8
+? "Toki uy vazifasi tugamagan ekan, ishla" — to'xtash sharti? | Uy vazifasi tugadi | Kech bo'ldi | Hech qachon
+? 3 marta "2 ta o'tirib-tur" — jami nechta? | 6 | 5 | 3
+? Siklda nima o'zgarib borishi kerak (shartli siklda)? | Shartga ta'sir qiluvchi qiymat | Hech narsa | Sikl nomi
+? Kir yuvish mashinasining aylanishi qanday jarayon? | Sikl | Bir martalik | Shart
+? Takrorlash soni o'zgaruvchi bo'lishi mumkinmi? | Ha, masalan foydalanuvchi kiritadi | Yo'q | Faqat 10
+? Siklni algoritmda qanday belgilaymiz? | "Takrorla ... marta" yoki "toki ..." | Faqat oval | Hech qanday
+
+# 37
+**Sikl blok-sxemasi:** hisoblagich boshlanishi (i = 1) → shart romb (i ≤ N?) → ha: sikl tanasi → i = i + 1 → shartga qaytish; yo'q: sikldan chiqish.
+**Hisoblagich** — siklni sanovchi o'zgaruvchi.
+? Hisoblagich odatda qanday boshlanadi? | i = 1 (yoki 0) | i = 100 | Boshlanmaydi
+? i = i + 1 bo'lmasa nima bo'ladi? | Cheksiz sikl | Sikl tezlashadi | Hech narsa
+? Shart yolg'on bo'lsa qaysi yo'l? | Sikldan chiqish | Takrorlash | Boshlash
+? i = 1 dan i ≤ 5 gacha sikl necha marta? | 5 | 4 | 6
+? i = 0 dan i < 5 gacha sikl necha marta? | 5 | 4 | 6
+? Siklda strelka qaysi shaklga qaytadi? | Shart rombiga | Ovalga | Parallelogrammga
+? i = i + 2 bo'lsa, i = 1 dan i ≤ 9 gacha nechta qadam? | 5 (1, 3, 5, 7, 9) | 9 | 4
+? Sikldan keyingi buyruq qachon bajariladi? | Sikl tugagach | Sikl ichida | Hech qachon
+
+# 38
+**Mashq:** "3 marta Salom", "5 marta yulduzcha", "10 gacha sanash". Hisoblagich va shartni to'g'ri tanlash muhim.
+**Xatolar:** "≤" o'rniga "<" yozish — bitta kam takrorlanadi ("bittaga adashish" xatosi).
+? 1 dan 10 gacha sanashda i < 10 yozilsa nima bo'ladi? | 10 chiqmay qoladi | 11 gacha sanaydi | To'g'ri ishlaydi
+? "Bittaga adashish" xatosi inglizcha? | Off-by-one | Bug zero | Loop error
+? 5 marta yulduzcha: i = 1, shart i ≤ 5. Nechta yulduzcha? | 5 | 4 | 6
+? 10 dan 1 gacha teskari sanash: i qanday o'zgaradi? | i = i − 1 | i = i + 1 | O'zgarmaydi
+? 2, 4, 6, 8, 10 chiqarish uchun qadam? | 2 | 1 | 3
+? 3 marta takrorlanadigan siklda tana 2 buyruqdan iborat. Jami bajarilgan buyruqlar? | 6 | 3 | 5
+? Sikl natijasini qanday tekshiramiz? | Jadvalda qadam-baqadam yozib | Taxmin qilib | Tekshirmaymiz
+? 1 dan 5 gacha sonlar yig'indisi? | 15 | 10 | 5
+
+# 39
+**Scratch sikllari:** **"N marta takrorla"**, **"doim takrorla"** (forever), **"... bo'lguncha takrorla"** (repeat until). Sikl ichida "kut" bloki animatsiyani sekinlashtiradi.
+? "repeat until" qachon to'xtaydi? | Shart rost bo'lganda | Hech qachon | 10 martadan keyin
+? Animatsiya juda tez bo'lsa sikl ichiga? | "0.2 soniya kut" | "yashir" | "to'xta"
+? "doim" blokidan keyin boshqa blok ulash mumkinmi? | Yo'q, pastki chiqishi yo'q | Ha | Faqat ovoz
+? "Sichqoncha bosilguncha takrorla" — qaysi blok? | repeat until | forever | repeat 10
+? Doim aylanib turuvchi shamol tegirmoni uchun? | forever + "15° buril" | repeat 1 | if
+? "10 marta takrorla" ichida "5 qadam" — jami qadam? | 50 | 15 | 10
+? Ikki siklni ketma-ket qo'ysa? | Avval birinchisi, keyin ikkinchisi | Birga | Faqat ikkinchisi
+? Forever siklini qanday to'xtatamiz? | Qizil to'xtash tugmasi yoki "to'xtat" bloki | O'zi to'xtaydi | Imkoni yo'q
+
+# 40
+**Animatsiya:** "doim: keyingi kostyum, 10 qadam yur, chetga tegsa qayt, 0.1 soniya kut". **Aylanish uslubi** "chap-o'ng" — qahramon teskari ag'darilmaydi.
+? "Chetga tegsa qayt" bloki nima qiladi? | Sahna chetidan qaytaradi | O'chiradi | Kattalashtiradi
+? Qahramon yurganda boshi pastga qarab qolsa? | Aylanish uslubini "chap-o'ng" qilamiz | Kostyumni o'chiramiz | Sahnani aylantiramiz
+? Yurish animatsiyasi uchun nechta kostyum kerak? | Kamida 2 ta | 1 ta | 0
+? Sprayt o'lchamini o'zgartirish bloki qaysi bo'limda? | Ko'rinish (Looks) | Harakat | Ovoz
+? Fon almashtirish bloki? | "fonni ... ga almashtir" | "kostyum" | "yur"
+? Animatsiyada "kut" bloki nima beradi? | Harakatni ko'zga ko'rinadigan qiladi | Tezlashtiradi | O'chiradi
+? Qahramonni kattalashib-kichrayadigan qilish? | Sikl ichida o'lchamni o'zgartirish | Bir marta | Imkoni yo'q
+? Animatsiyani bayroq bosilganda boshlash? | "Bayroq bosilganda" hodisasi | "Sprayt bosilganda" xolos | Kerak emas
+
+# 41
+**Pen (qalam) kengaytmasi:** pastdagi "Kengaytma qo'shish" → Pen. Bloklar: **qalamni tushir**, **qalamni ko'tar**, **qalam rangi**, **qalam qalinligi**, **hammasini o'chir**.
+? Chizmasdan yurish uchun? | "Qalamni ko'tar" | "Qalamni tushir" | "O'chir"
+? Sahnadagi barcha chizmalarni o'chirish? | "Hammasini o'chir" | "yashir" | "to'xtat"
+? Chiziq qalinligini o'zgartirish? | "Qalam qalinligini ... qil" | "o'lcham" | "rang"
+? Pen bloklari qanday rangda? | Yashil | Ko'k | Sariq
+? Dastur boshida "hammasini o'chir" nima uchun? | Eski chizma qolmasligi uchun | Tezlik uchun | Kerak emas
+? Qalam rangini asta o'zgartirish? | "Qalam rangini 10 ga o'zgartir" | "Kostyum" | Imkoni yo'q
+? Sprayt yurganda chiziq qoldirishi uchun avval? | Qalamni tushirish | Ko'tarish | Yashirish
+? Pen kengaytmasi qayerdan qo'shiladi? | Pastdagi "Kengaytma" tugmasi | Fayl | Sahna
+
+# 42
+**Ko'pburchak qoidasi:** N burchakli muntazam shakl uchun **N marta** takrorla: "a qadam yur, 360/N gradus buril".
+**Misol:** kvadrat — 4 × 90°; uchburchak — 3 × 120°; oltiburchak — 6 × 60°.
+? Sakkizburchak uchun burilish? | 45° | 60° | 90°
+? Beshburchak uchun burilish? | 72° | 60° | 108°
+? Doiraga yaqin shakl uchun? | 36 × 10° (yoki 360 × 1°) | 4 × 90° | 3 × 120°
+? Burilishlar yig'indisi muntazam ko'pburchakda? | 360° | 180° | 90°
+? 10 burchakli shakl uchun takrorlash soni? | 10 | 36 | 5
+? Kvadrat tomoni 100 bo'lsa, perimetri? | 400 qadam | 100 | 200
+? Shakl kattaroq bo'lishi uchun nima o'zgaradi? | Qadam soni (tomon uzunligi) | Burchak | Takrorlash soni
+? Uchburchakni 90° bilan chizsak nima bo'ladi? | Shakl yopilmaydi | To'g'ri uchburchak | Kvadrat
+
+# 43
+**Uycha:** kvadrat (devor) → yuqori chapdan uchburchak (tom) → qalamni ko'tarib derazaga o'tish → kichik kvadrat (deraza). Har qism uchun koordinatalar ("x: y: ga bor").
+? Bir qismdan ikkinchisiga chiziq qoldirmay o'tish? | Qalamni ko'tarib "bor" bilan o'tish | Qalamni tushirib | Imkoni yo'q
+? Tomni chizish uchun? | Uchburchak (3 × 120°) | Doira | Chiziq xolos
+? Robot ko'zlari uchun qaysi shakl? | Kichik kvadrat yoki doira | Uchburchak katta | Faqat chiziq
+? Har qismni turli rangda chizish? | Qalam rangini almashtirib | Bitta rang | Imkoni yo'q
+? Rasm boshlanish nuqtasini aniq qo'yish? | "x: y: ga bor" | "yur" | "buril"
+? Chizish oxirida spraytni yashirish? | "yashir" | "o'chir" | "to'xtat"
+? Chizish tez ko'rinishi uchun? | Sikl ichida "kut" yo'q | Ko'p "kut" | Sekinlashtirish
+? Murakkab rasmni qanday tuzamiz? | Qismlarga bo'lib (dekompozitsiya) | Bir qatorda | Tasodifan
+
+# 44
+**Ichma-ich sikl** — sikl ichida sikl. **Naqsh:** "12 marta takrorla [kvadrat chiz; 30° buril]" — kvadratlar gul hosil qiladi.
+**Jami bajarilish** = tashqi × ichki.
+? Tashqi 12, ichki 4 marta bo'lsa ichki tana necha marta? | 48 | 16 | 12
+? Kvadratni 36 marta 10° burib chizsak? | Doiraviy naqsh | Bitta kvadrat | Chiziq
+? 8 ta shakl doira bo'ylab joylashishi uchun burilish? | 45° | 30° | 90°
+? Ichma-ich siklda qaysi sikl tez tugaydi? | Ichki sikl | Tashqi | Bir vaqtda
+? Naqsh rangi har safar o'zgarishi uchun? | Tashqi sikl ichida rang o'zgartirish | Ichki siklda o'chirish | Imkoni yo'q
+? 6 ta uchburchakdan yulduzsimon naqsh uchun burilish? | 60° | 120° | 45°
+? Ichma-ich sikl inglizcha? | Nested loop | Single loop | If loop
+? 3 × 3 katak chizish uchun qaysi tuzilma qulay? | Ichma-ich sikl | Bitta buyruq | Shart
+
+# 45
+**Geometrik gul:** "36 marta takrorla [aylana chiz; 10° buril; rangni 5 ga o'zgartir]". Aylana — "36 marta [5 qadam, 10° buril]". Kamalak — qalam rangini har safar o'zgartirish.
+? Gul uchun aylanalar soni 36, burilish? | 10° | 36° | 90°
+? Kamalak effekti uchun nima o'zgaradi? | Qalam rangi har qadamda | Qadam soni | Sahna
+? Naqshni kattalashtirish uchun? | Qadam uzunligini oshirish | Burilishni oshirish | Rangni o'zgartirish
+? Gul yaproqlari soni nimaga bog'liq? | Tashqi sikl takrorlanishiga | Rangga | Fonga
+? Chizishni tezlashtirish (Scratch'da)? | "Turbo rejim" (Shift + bayroq) | Sekin rejim | Imkoni yo'q
+? Gul markazini sahna markazida qilish? | Boshida "x:0 y:0 ga bor" | Oxirida | Kerak emas
+? 18 ta yaproq uchun burilish? | 20° | 18° | 36°
+? Yakuniy rasmni saqlash usuli? | Ekran surati (skrinshot) | Ctrl+P | Saqlab bo'lmaydi
+
+# 46
+**Trassirovka jadvali:** har qadamda o'zgaruvchilar qiymatini yozish. Bu xatoni topishning eng ishonchli usuli.
+**Misol:** x = 2; "3 marta x ni x × 2 qil" → 4, 8, 16.
+? x=1; "3 marta x ni 2 ga o'zgartir" → x? | 7 | 6 | 3
+? x=10; "2 marta x ni −3 ga o'zgartir" → x? | 4 | 7 | 16
+? x=2; "3 marta x ni x*2 qil" → x? | 16 | 8 | 6
+? s=0; "4 marta s ni 5 ga o'zgartir" → s? | 20 | 5 | 9
+? Trassirovka nima uchun? | Natijani oldindan bilish va xatoni topish | Bezak | Tezlik
+? x=0; "5 marta: x ni 1 ga o'zgartir; agar x=3 bo'lsa 'Uch' de" — necha marta "Uch"? | 1 | 5 | 0
+? Kodni o'qishda qaysi tartibda? | Yuqoridan pastga, sikllarni takrorlab | Pastdan yuqoriga | Tasodifan
+? a=3, b=5; "a ni b ga tenglashtir" dan keyin a? | 5 | 3 | 8
+
+# 47
+**Protsedura (o'z bloking)** — bir necha buyruqni bitta nom ostida birlashtirish: "Mening bloklarim → Blok yaratish". Keyin uni bir qator bilan chaqirish mumkin.
+**Foyda:** takrorlanmaydi, dastur qisqa va tushunarli bo'ladi.
+? Protsedura nima? | Nomlangan buyruqlar to'plami | O'zgaruvchi | Sahna
+? Protsedura qaysi bo'limda yaratiladi? | Mening bloklarim (My Blocks) | Harakat | Ovoz
+? Protseduraning qiymat qabul qiluvchi qismi? | Parametr (kiritish) | Kostyum | Fon
+? Protseduraning boshqa tillardagi nomi? | Funksiya | Tsikl | Fayl
+? "kvadrat chiz" protsedurasini 5 marta chaqirsak? | 5 ta kvadrat | 1 ta | 20 ta
+? Protsedura ichini o'zgartirsak? | Hamma chaqiruvlarga ta'sir qiladi | Faqat birinchisiga | Hech narsa
+? Protsedura nomi qanday bo'lsin? | Nima qilishini bildiradigan | x1 | Bo'sh
+? Protsedura dasturni qanday qiladi? | Qisqa va tushunarli | Uzun | Xatoli
+
+# 48
+**Parametrli protsedura:** "kvadrat chiz (tomon)": 4 marta [tomon qadam yur; 90° buril]. Chaqirish: "kvadrat chiz (50)", "kvadrat chiz (100)".
+? "kvadrat chiz (30)" da 30 nima? | Parametr qiymati (tomon) | Burchak | Takrorlash soni
+? Bir protsedura bilan har xil o'lchamdagi kvadratlar? | Parametr orqali | Imkoni yo'q | Har biriga alohida protsedura
+? "ko'pburchak (N, tomon)" da burilish formulasi? | 360 / N | N / 360 | 90
+? Protseduraga nechta parametr berish mumkin? | Bir nechta | Faqat bitta | Hech qancha
+? Parametrga son o'rniga matn bersa? | Mos bo'lsa ishlaydi (masalan ism) | Hech qachon | Doim xato
+? "uy chiz (o'lcham)" protsedurasi ichida nima bo'lishi mumkin? | Kvadrat va uchburchak chizish | Faqat ovoz | Hech narsa
+? Protsedurani boshqa protsedura ichida chaqirsa bo'ladimi? | Ha | Yo'q | Faqat bir marta
+? "kvadrat chiz (0)" nima chizadi? | Hech narsa (nuqta) | Katta kvadrat | Xato
+
+# 49
+**Dekompozitsiya** — katta vazifani kichik, mustaqil qismlarga bo'lish. Har qism alohida protsedura bo'lishi mumkin.
+**Misol:** "O'yin": fon chizish, qahramon boshqaruvi, dushmanlar, ball, o'yin tugashi.
+? "Shahar manzarasi" chizish qismlari? | Uylar, daraxtlar, yo'l, quyosh | Faqat ranglar | Bitta chiziq
+? Har bir qismni nima qilish qulay? | Alohida protsedura | Bir qatorga yozish | O'chirish
+? Dekompozitsiyadan keyin? | Qismlarni birlashtirish va sinash | Tashlab ketish | Kutish
+? Jamoada dekompozitsiyaning foydasi? | Har kim o'z qismini bajaradi | Hamma bir ishni qiladi | Foydasi yo'q
+? Taqdimot tayyorlashni qismlarga bo'lish? | Mavzu, matn, rasmlar, dizayn, nutq | Faqat dizayn | Bo'linmaydi
+? Kichik qismni sinash osonmi? | Ha | Yo'q | Farqi yo'q
+? Dekompozitsiyaning teskarisi? | Birlashtirish (kompozitsiya) | Kodlash | O'chirish
+? Hisoblash fikrlashning (computational thinking) asosiy qismlaridan biri? | Dekompozitsiya | Ranglash | Chop etish
+
+# 51
+**Python** — sodda va kuchli dasturlash tili. `print()` — chiqarish; **o'zgaruvchi** — nom = qiymat: `ism = "Ali"`, `yosh = 12`.
+**Qoidalar:** o'zgaruvchi nomi harf bilan boshlanadi, bo'sh joysiz (`mening_ismim`), katta-kichik harf farqlanadi.
+```python
+ism = "Aziza"
+yosh = 12
+print(ism, "—", yosh, "yoshda")
+print("Kelasi yil:", yosh + 1)
+```
+? `yosh = 12; print(yosh + 1)` natijasi? | 13 | 121 | yosh + 1
+? Qaysi o'zgaruvchi nomi to'g'ri? | mening_ismim | mening ismim | 2ism
+? `print("A", "B")` natijasi? | A B | AB | "A" "B"
+? Python'da izoh qaysi belgi bilan? | # | // | --
+? `x = 5; x = x * 2; print(x)`? | 10 | 5 | 25
+? `Ism` va `ism` bir xil o'zgaruvchimi? | Yo'q | Ha | Ba'zan
+? `print(10 / 4)` natijasi? | 2.5 | 2 | 2,5 (vergul bilan)
+? `print(10 // 4)` natijasi? | 2 | 2.5 | 3
+
+# 52
+**input()** — foydalanuvchidan matn oladi. Son kerak bo'lsa: `int(input())` (butun) yoki `float(input())` (kasr).
+```python
+ism = input("Ismingiz: ")
+yosh = int(input("Yoshingiz: "))
+print("Salom,", ism + "!", "10 yildan keyin", yosh + 10, "yoshda bo'lasiz")
+```
+? `input()` qanday turdagi qiymat qaytaradi? | Matn (str) | Son | Mantiqiy
+? Kiritilgan sonni hisoblash uchun? | int() ga o'rash | str() | print()
+? `a = input()` → 5 kiritildi; `print(a + a)`? | 55 | 10 | Xato
+? `a = int(input())` → 5; `print(a + a)`? | 10 | 55 | Xato
+? Kasr son kiritish uchun? | float(input()) | int(input()) | str(input())
+? `int("abc")` nima beradi? | Xato (ValueError) | 0 | abc
+? `input("Ism: ")` dagi "Ism: " nima? | Taklif (so'rov) matni | Javob | O'zgaruvchi
+? `str(25)` nima qiladi? | Sonni matnga aylantiradi | Matnni songa | O'chiradi
+
+# 53
+**Shart:** `if shart:` — bajariladi; `else:` — aks holda; `elif` — boshqa shart. Ichidagi qatorlar **4 bo'sh joy** bilan.
+**Taqqoslash:** `==`, `!=`, `>`, `<`, `>=`, `<=`.
+```python
+ball = int(input("Ball: "))
+if ball >= 86:
+    print("A'lo")
+elif ball >= 71:
+    print("Yaxshi")
+else:
+    print("Harakat qiling")
+```
+? "Teng emas" Python'da? | != | <> | =!
+? `=` va `==` farqi? | = qiymat beradi, == taqqoslaydi | Farqi yo'q | == qiymat beradi
+? ball = 75 bo'lsa yuqoridagi dastur nima chiqaradi? | Yaxshi | A'lo | Harakat qiling
+? if ichidagi qator qancha bo'sh joy bilan? | 4 ta | 0 ta | 1 ta
+? `elif` nima? | "aks holda agar" — qo'shimcha shart | Sikl | Funksiya
+? `if 5 > 3: print("Ha")` natijasi? | Ha | Hech narsa | Xato
+? Ikki shart birga: | and | & | va
+? `if x > 0 or x < -10:` qachon rost? | Kamida bittasi rost bo'lsa | Ikkalasi rost bo'lsa | Hech qachon
+
+# 54
+**Qoldiq operatori `%`:** `7 % 2 = 1`, `10 % 5 = 0`. Juft son: `n % 2 == 0`. Butun bo'lish: `//`.
+```python
+n = int(input("Son: "))
+if n % 2 == 0:
+    print(n, "— juft")
+else:
+    print(n, "— toq")
+```
+? 10 % 3 natijasi? | 1 | 3 | 0
+? 15 % 5 natijasi? | 0 | 3 | 5
+? Son 3 ga bo'linishini tekshirish? | n % 3 == 0 | n / 3 == 0 | n // 3 == 1
+? 17 // 5 natijasi? | 3 | 2 | 3.4
+? Sonning oxirgi raqami? | n % 10 | n // 10 | n * 10
+? n = 8 bo'lsa dastur nima chiqaradi? | 8 — juft | 8 — toq | Xato
+? Musbat yoki manfiyligini tekshirish sharti? | n > 0 | n % 2 | n == 0 xolos
+? 0 juftmi? | Ha (0 % 2 == 0) | Yo'q | Na juft, na toq
+
+# 55
+**URL:** `https://maktab.uz/darslar/info.html` → protokol, **domen** (maktab.uz), yo'l (/darslar/), sahifa (info.html).
+**Web-sahifa** — bitta hujjat; **web-sayt** — sahifalar to'plami, bitta domenda; **web-server** — saytni saqlovchi kompyuter.
+? Saytni saqlovchi kompyuter? | Web-server | Brauzer | Router
+? URL'dagi "/darslar/" nima? | Yo'l (papka) | Domen | Protokol
+? `.html` nima? | Web-sahifa fayli kengaytmasi | Rasm | Arxiv
+? Domen nomi nima uchun kerak? | IP-manzilni eslash oson bo'lishi uchun | Bezak | Kerak emas
+? DNS nima qiladi? | Domen nomini IP-manzilga aylantiradi | Sayt chizadi | Virusni o'chiradi
+? Subdomen misoli? | edu.maktab.uz | maktab.uz | https
+? HTTP va HTTPS farqi? | HTTPS shifrlangan | Farqi yo'q | HTTP tezroq xavfsiz
+? Bitta saytda nechta web-sahifa? | Bir nechta yoki ko'p | Faqat bitta | Hech qancha
+
+# 56
+**Ishonchlilik mezonlari (CRAAP):** dolzarblik (sana), aloqadorlik, muallif obro'si, aniqlik (dalillar), maqsad (reklama yoki ma'lumot).
+? Manba sanasi nima uchun muhim? | Ma'lumot eskirgan bo'lishi mumkin | Muhim emas | Bezak
+? Reklama saytining maqsadi? | Mahsulot sotish | Xolis ma'lumot | Ta'lim
+? Dalil (manba havolasi) bor maqola? | Ishonchliroq | Kam ishonchli | Farqi yo'q
+? Muallif mutaxassis ekanini qanday bilamiz? | "Muallif haqida" bo'limidan | Rasmidan | Bilmaymiz
+? .edu domeni qanday? | Ta'lim muassasasi | Do'kon | O'yin
+? Bir xil ma'lumot ko'p saytda takrorlansa doim to'g'rimi? | Yo'q, bir-biridan ko'chirilgan bo'lishi mumkin | Ha | Albatta
+? Soxta yangilik belgisi? | Hayajonli sarlavha, manba yo'q | Rasmiy sayt | Sana bor
+? Ilmiy maqola qayerdan izlanadi? | Google Scholar | Ijtimoiy tarmoq | Reklama
+
+# 57
+**Tekshirish jadvali:** Manba nomi | URL | Muallif | Sana | Asosiy fakt | Ishonchlilik (1–5). Faktlar mos kelsa — ishonchli; farq qilsa — uchinchi rasmiy manba.
+? Manbalarni nima uchun jadvalga yozamiz? | Solishtirish va manba ko'rsatish uchun | Bezak | Kerak emas
+? 3 ta manbadan 2 tasi bir xil, 1 tasi boshqa desa? | Rasmiy manba bilan tekshiramiz | Ko'pchilikka ishonamiz doim | Hammasini tashlaymiz
+? Ishonchlilikni baholash shkalasi misoli? | 1 dan 5 gacha | Ranglar | Harflar
+? Ma'lumotni ko'chirganda nima qilinadi? | Manba ko'rsatiladi | Yashiriladi | O'zgartirilmaydi va o'zimizniki deyiladi
+? Asosiy faktni qanday yozamiz? | Qisqa, o'z so'zimiz bilan | To'liq ko'chirib | Yozmaymiz
+? Wikipedia'dagi faktni qanday tekshiramiz? | Maqola ostidagi manbalar orqali | Tekshirmaymiz | Ijtimoiy tarmoqdan
+? URL'ni nima uchun saqlaymiz? | Qaytadan topish uchun | Bezak | Kerak emas
+? Xulosa qismida nima yoziladi? | Qaysi manba eng ishonchli va nima uchun | Faqat ism | Hech narsa
+
+# 58
+**HTML tuzilishi:**
+```html
+<!DOCTYPE html>
+<html>
+  <head><title>Mening sahifam</title></head>
+  <body>
+    <h1>Salom!</h1>
+    <p>Men 6-sinf o'quvchisiman.</p>
+  </body>
+</html>
+```
+`<head>` — xizmat ma'lumotlari (sarlavha tab nomi), `<body>` — ko'rinadigan qism.
+? Brauzer tabidagi nom qaysi tegda? | <title> | <h1> | <p>
+? HTML faylning kengaytmasi? | .html | .docx | .txt
+? `<h1>` dan `<h6>` gacha nima? | Sarlavha darajalari | Rasmlar | Ro'yxatlar
+? Qator uzilishi tegi? | <br> | <p> | <hr>
+? HTML faylni qanday ko'ramiz? | Brauzerda ochib | Excel'da | Paint'da
+? `<head>` ichidagi narsa sahifada ko'rinadimi? | Asosan yo'q (xizmat ma'lumoti) | Ha, katta qilib | Faqat rasm
+? Teglar qanday juft bo'ladi? | Ochuvchi va yopuvchi | Faqat ochuvchi | Faqat yopuvchi
+? HTML qisqartmasi? | HyperText Markup Language | High Tech Modern Language | Home Tool Markup
+
+# 59
+**Rasmiy xat:** "Hurmatli Dilnoza Karimovna," + asosiy matn (qisqa, aniq) + "Hurmat bilan, Ali Valiyev, 6-A sinf". **Norasmiy:** do'stona, emoji mumkin.
+**Mavzu satri** aniq bo'lsin: "6-A, Ali Valiyev — uy vazifasi (Excel)".
+? Rasmiy xatda qaysi murojaat? | "Hurmatli ..." | "Salom, do'stim!" | "Hey"
+? Rasmiy xatda emoji ishlatish? | Ishlatilmaydi | Ko'p ishlatiladi | Majburiy
+? Yaxshi mavzu satri? | "6-A, Valiyev — Excel topshirig'i" | "Salom" | Bo'sh
+? Xatni kim imzolaydi? | Yuboruvchi | Oluvchi | Hech kim
+? Rasmiy xat uzunligi? | Qisqa va aniq | Juda uzun | Bir so'z
+? Norasmiy xat kimga? | Do'st, sinfdosh | Direktor | Rasmiy tashkilot
+? "Hurmat bilan" qayerda yoziladi? | Xat oxirida | Boshida | Mavzuda
+? Xatda imlo xatosi bo'lsa? | Beparvo taassurot qoldiradi | Farqi yo'q | Yaxshi
+
+# 60
+**Tekshiruv ro'yxati yuborishdan oldin:** manzil to'g'rimi; mavzu bormi; murojaat va imzo; ilova biriktirildimi; imlo tekshirildimi.
+? Xatda "ilovada" deb yozilsa-yu, fayl biriktirilmasa? | Oluvchi faylni olmaydi | Fayl o'zi qo'shiladi | Farqi yo'q
+? O'qituvchiga xatni qachon yuborgan ma'qul? | Ish vaqtida | Yarim tunda | Bayramda
+? Javob kelmasa necha kundan keyin eslatish odobli? | 1–2 kundan keyin | 5 daqiqada | Hech qachon
+? Xat manzilini qayerga yozamiz? | "Kimga" maydoniga | Mavzuga | Matnga
+? Bir nechta o'qituvchiga yuborish? | Manzillarni vergul bilan yoki CC orqali | Imkoni yo'q | Faqat bittaga
+? Xatni yuborishni bekor qilish (Gmail'da qisqa vaqt)? | "Bekor qilish" (Undo) | Imkoni yo'q | O'chirish
+? Xatga javobni qanday boshlaymiz? | Rahmat va murojaat bilan | Darhol savol | Haqorat
+? Rasmiy xatdagi asosiy qism nima haqida? | Bitta aniq masala | Hamma narsa | Hech narsa
+
+# 61
+**ZIP arxiv:** bir nechta faylni bitta faylga siqadi (o'ng tugma → Yuborish → Siqilgan ZIP papka). Hajm kamayadi, yuborish oson.
+**Xavfsizlik:** `.exe`, `.scr`, ikki kengaytmali fayllar ("hisob.pdf.exe") — xavfli; notanish ilovani ochmang, antivirus bilan tekshiring.
+? ZIP arxivning afzalligi? | Ko'p fayl bitta va kichikroq | Fayllar o'chadi | Rasm sifati oshadi
+? "rasm.jpg.exe" qanday fayl? | Xavfli dastur (niqoblangan) | Rasm | Matn
+? Arxivni ochish? | O'ng tugma → Hammasini chiqarish | Ctrl+Z | Imkoni yo'q
+? Parolli ZIP nima uchun? | Maxfiy fayllarni himoyalash | Bezak | Tezlik
+? Ilovada makros so'ralsa (Word)? | Ehtiyot bo'lish, yoqmaslik | Darhol yoqish | Hammaga yuborish
+? Antivirus ilovani qachon tekshiradi? | Yuklab olinganda yoki ochishdan oldin | Hech qachon | Faqat kechqurun
+? Pochta 25 MB dan katta faylni qabul qilmasa? | Bulut havolasi yuboriladi | Fayl kesiladi | Imkoni yo'q
+? `.7z` va `.rar` nima? | Arxiv formatlari | Rasm | Video
+
+# 62
+**Pochta papkalari:** Kiruvchi (Inbox), Yuborilgan (Sent), Qoralamalar (Drafts), Spam, Savat (Trash), Arxiv. **Yulduzcha/bayroq** — muhim xat.
+**Tartib:** yorliqlar (labels), filtrlar — xatlar avtomatik papkalarga tushadi.
+? Yuborilgan xatlar qayerda? | Sent (Yuborilgan) | Inbox | Drafts
+? Muhim xatni belgilash? | Yulduzcha yoki bayroq | O'chirish | Spam
+? Spam'ga noto'g'ri tushgan xat? | "Spam emas" deb qaytarish | O'chirish | E'tibor bermaslik
+? Xatlarni avtomatik saralash? | Filtrlar va yorliqlar | Qo'lda xolos | Imkoni yo'q
+? Savatdagi xatlar qancha saqlanadi? | Odatda 30 kun | Abadiy | 1 daqiqa
+? Arxivlangan xat o'chadimi? | Yo'q, Kiruvchidan yashiriladi | Ha | Spamga tushadi
+? O'qilmagan xatlar qanday ko'rinadi? | Qalin yozuvda | Kulrang | Ko'rinmaydi
+? Xatni qidirish? | Qidiruv satriga yuboruvchi yoki so'z | Imkoni yo'q | Faqat sana bo'yicha
+
+# 63
+**Taqdimot tuzilishi:** titul (mavzu, muallif) → reja → asosiy qism (har slaydda bitta g'oya) → xulosa → savollar/manbalar.
+**Maket (layout):** "Sarlavha va kontent", "Ikki kontent", "Faqat sarlavha".
+? Titul slaydda nima bo'ladi? | Mavzu va muallif | Xulosa | Manbalar
+? Reja slaydi nima uchun? | Tinglovchiga yo'nalish berish | Bezak | Kerak emas
+? "Ikki kontent" maketi qachon qulay? | Ikki narsani solishtirishda | Titulda | Hech qachon
+? Xulosa slaydida? | Asosiy fikrlar qisqacha | Yangi mavzu | Bo'sh
+? 6×6 qoidasi? | Slaydda 6 qatordan, qatorda 6 so'zdan ko'p emas | 6 ta rasm | 6 ta slayd
+? Manbalar slaydi qayerda? | Oxirida | Boshida | O'rtada
+? Har slaydda nechta asosiy g'oya? | Bitta | O'nta | Hech qancha
+? Slayd maketini o'zgartirish qayerda? | Bosh sahifa → Maket | Fayl | Ko'rib chiqish
+
+# 64
+**Vizual ierarxiya** — ko'z avval eng muhimini ko'rishi: katta sarlavha → asosiy rasm → qisqa matn. Yordam beradi: o'lcham, rang, kontrast, joylashuv.
+**Ovoz:** Qo'yish → Audio; avtomatik yoki bosganda ijro.
+? Eng muhim element qanday bo'lishi kerak? | Eng katta va ko'zga tashlanadigan | Eng kichik | Burchakda yashiringan
+? Slaydga musiqa qo'shish? | Qo'yish → Audio | Dizayn | O'tishlar
+? Matn rasm ustida o'qilishi uchun? | Matn ostiga yarim shaffof fon | Rasmni o'chirish | Kichik shrift
+? Bir slayddagi ranglar soni? | Cheklangan (2–3) | Iloji boricha ko'p | Bitta kulrang
+? Ovoz avtomatik ijro bo'lishi uchun? | Ijro sozlamasida "Avtomatik" | Imkoni yo'q | Ctrl+P
+? Matnni ro'yxat qilib berishning foydasi? | O'qish oson | Uzun bo'ladi | Kerak emas
+? Rasm sifati past bo'lsa? | Kattaroq aniqlikdagi rasm topiladi | Cho'ziladi | Hech narsa
+? Vizual ierarxiya nimaga yordam beradi? | Ma'lumotni tez tushunishga | Fayl hajmiga | Ovozga
+
+# 65
+**O'tish (transition)** — slaydlar orasida; **animatsiya** — obyektlarda: kirish, ajratish (urg'u), chiqish, harakat yo'li. **Animatsiya paneli** — tartib va vaqtni sozlash.
+? Obyekt slayddan chiqib ketishi qaysi guruh? | Chiqish (Exit) | Kirish | Urg'u
+? Obyektga urg'u berish (lipillash)? | Ajratish (Emphasis) | Chiqish | O'tish
+? Obyekt belgilangan yo'l bo'ylab harakati? | Harakat yo'li (Motion path) | Kirish | O'tish
+? Animatsiyalar tartibini ko'rish? | Animatsiya paneli | Fayl | Dizayn
+? "Oldingisi bilan birga" nima? | Animatsiya bir vaqtda boshlanadi | Bosganda | Hech qachon
+? Animatsiya davomiyligi nimani belgilaydi? | Effekt tezligini | Rangni | O'lchamni
+? Rasmiy taqdimotda qanday animatsiya? | Kam va sokin | Ko'p va shovqinli | Hamma effekt
+? Slaydga o'tish ovozini qo'shish mumkinmi? | Ha | Yo'q | Faqat birinchi slaydga
+
+# 66
+**Giperhavola:** matn yoki rasmni tanlab → Qo'yish → Havola → "Ushbu hujjatdagi joy" (slayd) yoki web-manzil. **Harakat tugmalari:** Qo'yish → Shakllar → oxirgi guruh (Keyingi, Oldingi, Bosh).
+**Interaktiv viktorina:** savol slaydi → javob tugmalari → "To'g'ri"/"Xato" slaydlariga havola.
+? Slayddagi matnni boshqa slaydga bog'lash? | Giperhavola → "Ushbu hujjatdagi joy" | Animatsiya | O'tish
+? Harakat tugmasi "Bosh" nima qiladi? | Birinchi slaydga o'tkazadi | Oxirgisiga | Yopadi
+? Interaktiv taqdimotda tinglovchi nima qiladi? | O'zi tugmalarni bosib tanlaydi | Faqat tomosha | Hech narsa
+? Havolani olib tashlash? | O'ng tugma → Havolani olib tashlash | Delete hamma slayd | Imkoni yo'q
+? Web-saytga havola? | Manzilni (URL) kiritish | Imkoni yo'q | Rasm qo'yish
+? Havola ko'rsatish rejimida ishlaydimi? | Ha | Yo'q | Faqat tahrirda
+? Interaktiv viktorinada "Xato" slaydidan qaytish? | Savol slaydiga havola | Taqdimotni yopish | Imkoni yo'q
+? Harakat tugmalari qayerda? | Qo'yish → Shakllar ro'yxati oxirida | Fayl | Ko'rinish

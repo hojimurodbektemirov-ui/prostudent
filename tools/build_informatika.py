@@ -15,6 +15,9 @@ Matn formati (NN.txt):
   > Esda tuting bloki
   ```html ... ```          <- kod bloki
   ? Savol | to'g'ri javob | xato | xato     <- birinchi variant doim to'g'ri, platformada aralashtiriladi
+  ? Savol | to'g'ri | xato || izoh          <- " || " dan keyin: javobdan keyin ko'rsatiladigan izoh
+Qo'shimcha matn (NN.extra.txt): xuddi shu format. Har dars bo'limi asosiy matn oxiriga qo'shiladi,
+savollari ham qo'shiladi. Takrorlash va nazorat darslari oldingi darslar savollari bilan 10 tagacha to'ldiriladi.
 
 Ishga tushirish:  python3 tools/build_informatika.py
 """
@@ -56,8 +59,11 @@ def read_text(path):
         if cur is None:
             continue
         if line.startswith('? '):
-            parts = [p.strip() for p in line[2:].split(' | ')]
-            out[cur]['quiz'].append(parts)
+            body, _, why = line[2:].partition(' || ')
+            parts = [p.strip() for p in body.strip().rstrip('|').split(' | ') if p.strip()]
+            if len(parts) < 3:
+                print('  ! %s: savolda variant kam: %s' % (os.path.basename(path), parts[:1]))
+            out[cur]['quiz'].append((parts, why.strip()))
         else:
             out[cur]['md'].append(line)
     for k in out:
@@ -66,10 +72,28 @@ def read_text(path):
 
 
 def shuffle(q, seed):
-    """Birinchi variant to'g'ri; deterministik aralashtiramiz."""
-    opts = q[1:]
+    """Birinchi variant to'g'ri; deterministik aralashtiramiz. q = (qismlar, izoh)"""
+    parts, why = q
+    opts = parts[1:]
     order = sorted(range(len(opts)), key=lambda i: hashlib.md5((seed + str(i)).encode()).hexdigest())
-    return [q[0], [opts[i] for i in order], order.index(0)]
+    out = [parts[0], [opts[i] for i in order], order.index(0)]
+    if why:
+        out.append(why)
+    return out
+
+
+REVIEW = re.compile(r'nazorat ishi|takrorlash dars|yakuniy|umumlashtir|mustahkamla|^takrorlash$', re.I)
+MIN_Q = 10
+
+
+def merge(a, b):
+    for k, v in b.items():
+        if k in a:
+            a[k]['md'] = (a[k]['md'] + '\n' + v['md']).strip()
+            a[k]['quiz'] += v['quiz']
+        else:
+            a[k] = v
+    return a
 
 
 def main():
@@ -79,6 +103,8 @@ def main():
         title, hours, lessons = read_plan(plan)
         tpath = os.path.join(ROOT, 'text', '%02d.txt' % n)
         text = read_text(tpath) if os.path.exists(tpath) else {}
+        for xpath in sorted(glob.glob(os.path.join(ROOT, 'text', '%02d.extra*.txt' % n))):
+            text = merge(text, read_text(xpath))
         for l in lessons:
             t = text.get(l['n'])
             if not t:
@@ -87,6 +113,17 @@ def main():
                 continue
             l['md'] = t['md']
             l['quiz'] = [shuffle(q, '%d-%d-%d' % (n, l['n'], i)) for i, q in enumerate(t['quiz'])]
+        # takrorlash/nazorat darslari: oldingi darslar savollari bilan to'ldiriladi
+        for i, l in enumerate(lessons):
+            if len(l['quiz']) >= MIN_Q or not REVIEW.search(l['t']):
+                continue
+            seen = {q[0] for q in l['quiz']}
+            prev = [q for p in reversed(lessons[max(0, i - 8):i]) for q in p['quiz'] if q[0] not in seen]
+            prev.sort(key=lambda q: hashlib.md5(('%d-%d' % (n, l['n']) + q[0]).encode()).hexdigest())
+            l['quiz'] += prev[:MIN_Q - len(l['quiz'])]
+        few = [l['n'] for l in lessons if len(l['quiz']) < MIN_Q]
+        if few:
+            print('  - %d-sinf: %d ta darsda %d tadan kam savol: %s' % (n, len(few), MIN_Q, few[:12]))
         extra = sorted(set(text) - {l['n'] for l in lessons})
         if extra:
             print('  ! %d-sinf: rejada yo\'q darslar matni: %s' % (n, extra)); ok = False
