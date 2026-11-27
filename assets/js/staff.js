@@ -68,15 +68,18 @@
       '<div class="acts"><button class="btn pri" id="tsv">Saqlash</button><button class="btn" id="tscan"' + (S.tg_token_set ? '' : ' disabled') + '>Guruhlarni topish</button>' + (S.tg_token_set ? '<button class="btn" id="toff">Botni uzish</button>' : '') + '</div><p class="msg" id="tmsg" role="status"></p>' +
       (S.tg_token_set && !S.pg_net ? '<p class="bad-t">Supabase\'da pg_net kengaytmasi yoqilmagan: Database → Extensions → pg_net → Enable.</p>' : '') +
       ((S.tg_errors || []).length ? '<details class="imp"><summary>Oxirgi xatolar</summary>' + S.tg_errors.map(x => '<p class="muted">' + fmt(x.at) + ': ' + e(x.error) + '</p>').join('') + '</details>' : '') +
-      '<div id="chats"></div></div>' +
+      '<div id="chats"></div>' +
+      '<h3 class="sub3">Chat ID ni qo\'lda biriktirish</h3><p class="muted">Botingiz boshqa ish ham qilayotgan bo\'lsa (masalan, o\'z buyruqlari bor bo\'lsa), "Guruhlarni topish" o\'rniga shu usuldan foydalaning. Ochiq kanal uchun <code>@kanal_nomi</code>, guruh uchun <code>-100...</code> raqami. ID ni bilish: guruhga vaqtincha <a href="https://t.me/RawDataBot" target="_blank" rel="noopener">@RawDataBot</a> ni qo\'shing, u ID ni yozadi, keyin uni chiqarib yuboring.</p>' +
+      '<div class="chat-row"><label class="vh" for="mg">Guruh</label><select class="inp sm" id="mg">' + groups.map(g => '<option value="' + e(g.id) + '">' + e(g.name) + (g.tg_chat ? ' · ' + e(g.tg_chat) : '') + '</option>').join('') + '</select><label class="vh" for="mc">Chat ID</label><input class="inp sm" id="mc" placeholder="-1001234567890 yoki @kanal" autocomplete="off"><button class="btn sm" id="mcs">Biriktirish</button><button class="btn sm" id="mct">Sinov xabari</button></div><p class="msg" id="mcm" role="status"></p></div>' +
       '<div><div class="panel"><h2>Zaxira nusxa</h2><p class="muted">Barcha sinflar, o\'quvchilar, baholar, davomat va viktorinalar bitta faylga saqlanadi. Har hafta yuklab oling va xavfsiz joyda (kompyuter yoki Google Drive) saqlang. Faylda parol xeshlari bor: uni boshqalarga bermang.</p>' +
       '<div class="acts"><button class="btn pri" id="bk">Zaxira nusxani yuklab olish</button></div><p class="msg" id="bm" role="status"></p></div>' +
       '<div class="panel danger"><h2>Zaxiradan tiklash</h2><p class="muted">Hozirgi barcha ma\'lumotlar zaxiradagisi bilan almashtiriladi. Faqat biror narsa o\'chib ketganda ishlating.</p>' +
       '<label class="btn"><input type="file" id="rf" accept=".json,application/json" hidden>Faylni tanlash</label> <span id="rfn" class="muted"></span><div class="acts"><button class="btn" id="rs" disabled>Tiklash</button></div><p class="msg" id="rm" role="status"></p></div></div>' +
       '</div></section>';
     $('#tsv').onclick = async () => {
-      const d = { site_url: $('#su').value.trim() }; if ($('#tk').value.trim()) d.tg_token = $('#tk').value.trim();
-      try { await api().saveSettings(d); msg($('#tmsg'), 'Saqlandi', true); setTimeout(() => settings(app, D), 600); } catch (x) { msg($('#tmsg'), x.message); }
+      const su = $('#su').value.trim(), d = {}, suOk = !su || /^https:\/\//i.test(su);
+      if (suOk) d.site_url = su; if ($('#tk').value.trim()) d.tg_token = $('#tk').value.trim();
+      try { await api().saveSettings(d); msg($('#tmsg'), suOk ? 'Saqlandi' : 'Token saqlandi. Sayt manzili https:// bilan boshlanmagani uchun saqlanmadi.', suOk); setTimeout(() => settings(app, D), suOk ? 600 : 2500); } catch (x) { msg($('#tmsg'), x.message); }
     };
     if ($('#toff')) KM.ui.confirmBtn($('#toff'), 'Bot uzilsinmi? Yana bosing', async () => { try { await api().saveSettings({ tg_token: '' }); settings(app, D); } catch (x) { msg($('#tmsg'), x.message); } });
     $('#tscan').onclick = async () => {
@@ -90,9 +93,17 @@
         $('#chats').innerHTML = ch.map(c => '<div class="chat-row"><div><b>' + e(c.title) + '</b><small class="muted"> · ID ' + e(c.id) + '</small></div><label class="vh" for="cg' + e(c.id) + '">Guruh</label><select class="inp sm" id="cg' + e(c.id) + '"><option value="">— sinfni tanlang —</option>' +
           groups.map(g => '<option value="' + e(g.id) + '"' + (g.tg_chat === c.id ? ' selected' : '') + '>' + e(g.name) + '</option>').join('') + '</select><button class="btn sm" data-chat="' + e(c.id) + '">Biriktirish</button></div>').join('');
         $$('[data-chat]').forEach(x => x.onclick = async () => { const g = groups.find(g => g.id === $('#cg' + CSS.escape(x.dataset.chat)).value); if (!g) return; try { await groupSave(g, { tg_chat: x.dataset.chat }); g.tg_chat = x.dataset.chat; x.textContent = '✓ Biriktirildi'; } catch (er) { msg($('#tmsg'), er.message); } });
-      } catch (x) { msg($('#tmsg'), x.message); }
+      } catch (x) { msg($('#tmsg'), /Conflict|webhook/i.test(x.message) ? 'Botingiz hozir boshqa joyda ishlayapti (webhook), shuning uchun guruhlarni avtomatik topib bo\'lmaydi. Pastdagi "Chat ID ni qo\'lda biriktirish" dan foydalaning.' : x.message); }
       b.disabled = false;
     };
+    const mg = () => groups.find(g => g.id === $('#mg').value);
+    const syncMc = () => { const g = mg(); $('#mc').value = g && g.tg_chat ? g.tg_chat : ''; };
+    if ($('#mg')) { $('#mg').onchange = syncMc; syncMc();
+      $('#mcs').onclick = async () => { const g = mg(), v = $('#mc').value.trim(); if (v && !/^(-?\d{5,20}|@[A-Za-z0-9_]{5,32})$/.test(v)) return msg($('#mcm'), 'Chat ID raqam (-100...) yoki @kanal_nomi bo\'lishi kerak');
+        try { await groupSave(g, { tg_chat: v }); g.tg_chat = v || null; msg($('#mcm'), v ? g.name + ' → ' + v + ' biriktirildi' : g.name + ' dan Telegram uzildi', true); } catch (x) { msg($('#mcm'), x.message); } };
+      $('#mct').onclick = async () => { const g = mg(); if (!g.tg_chat) return msg($('#mcm'), 'Avval chat ID ni biriktiring');
+        try { const r = await api().announce(g.id, 'Sinov xabari: ZIS ProStudent bu guruhga ulandi ✅'); msg($('#mcm'), r.sent ? 'Yuborildi. Telegram guruhini tekshiring (bir necha soniyada keladi).' : 'Yuborilmadi: "Oxirgi xatolar" ni ko\'ring', r.sent); } catch (x) { msg($('#mcm'), x.message); } };
+    }
     $('#bk').onclick = async () => {
       try { const d = await api().backup(); KM.ui.download('zis-prostudent-zaxira-' + today() + '.json', JSON.stringify(d), 'application/json'); msg($('#bm'), 'Yuklab olindi: ' + (d.users || []).length + ' ta foydalanuvchi, ' + (d.classes || []).length + ' ta guruh.', true); }
       catch (x) { msg($('#bm'), x.message); }
