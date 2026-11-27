@@ -98,7 +98,7 @@
   function loginView(setup) {
     $('#top').hidden = true;
     const demo = KM.api.mode === 'demo';
-    app.innerHTML = '<section class="login grid-bg"><div class="login-in"><div class="login-t"><a class="logo light big" href="#kirish"><img class="logo-em" src="assets/img/zis-emblem.png?v=1" alt="" width="128" height="160"><span>' + e(KM.config.schoolName || 'ZIS ProStudent') + '<small><span class="lf">Zafar International School · </span>IT Department</small></span></a>' +
+    app.innerHTML = '<section class="login grid-bg"><div class="login-in"><div class="login-t"><a class="logo light big" href="#kirish"><img class="logo-em" src="assets/img/zis-it-green.svg?v=1" alt="" width="120" height="120"><span>' + e(KM.config.schoolName || 'ZIS ProStudent') + '<small><span class="lf">Zafar International School · </span>IT Department</small></span></a>' +
       '<p class="pill-tag"><i></i>Informatika · Dasturlash · Viktorina</p><h1>O\'rgan. <span class="hl">Yarat.</span> G\'olib bo\'l.</h1><p class="lead">Nazariya, amaliyot va o\'yin bitta platformada. Login va parolni o\'qituvchingiz beradi.</p></div>' +
       '<div class="term"><div class="term-bar"><i></i><i></i><i></i><span>prostudent: ~/' + (setup ? 'sozlash' : 'kirish') + '</span></div><form class="term-b" id="lf" novalidate>' +
       (setup ? '<p class="cmd"><b>$</b> prostudent --birinchi-sozlash</p><p class="cmt"># Admin (o\'qituvchi) hisobini yarating</p>' +

@@ -1047,8 +1047,28 @@ body.public #top{display:none}
 .logo .logo-em{height:46px;width:auto;flex:0 0 auto}
 .logo small{margin-top:4px}
 .logo.big{gap:18px;font-size:30px}.logo.big .logo-em{height:88px}.logo.big small{font-size:13px;margin-top:6px}
-.flogo{margin:0}.flogo img{display:block;height:46px;width:auto}
+.flogo{margin:0}
 .dev-em{background:#123a32}.dev-em img{height:26px;width:auto}
 @media(max-width:760px){.logo .logo-em{height:40px}.logo.big .logo-em{height:56px}.logo.big{font-size:20px}.flogo img{height:38px}}
 .dev:hover .dev-it{transform:rotate(360deg)}
 .dev-it{background:none;width:42px;height:42px}.dev-it img{display:block;width:42px;height:42px}
+/* v10: qora-zumrad uslub (K2) va ZIS IT Department belgisi */
+:root{--ink9:#050a08;--em:#34d399;--em2:#10b981}
+.grid-bg{background-color:var(--ink9);background-image:radial-gradient(ellipse 55% 60% at 85% 0%,rgba(16,185,129,.42),transparent 70%),radial-gradient(ellipse 45% 50% at 0% 100%,rgba(59,130,246,.16),transparent 70%),linear-gradient(rgba(52,211,153,.085) 1px,transparent 1px),linear-gradient(90deg,rgba(52,211,153,.085) 1px,transparent 1px);background-size:auto,auto,56px 56px,56px 56px}
+.grid-bg .hl,.login .hl{background:linear-gradient(90deg,#34d399,#a3e635);-webkit-background-clip:text;background-clip:text;color:transparent}
+.grid-bg .pill-tag{border-color:rgba(52,211,153,.35);background:rgba(16,185,129,.1);color:#6ee7b7}.grid-bg .pill-tag i{background:#34d399;box-shadow:0 0 0 4px rgba(16,185,129,.1)}
+.grid-bg .lead{color:#c3c8dc}.grid-bg .logo small,.top .logo small{color:#8fbfaa}
+.grid-bg .term{background:rgba(255,255,255,.04);border-color:rgba(52,211,153,.18);box-shadow:0 30px 80px rgba(0,0,0,.55);backdrop-filter:blur(14px)}
+.grid-bg .term-bar span,.login form label,.login .term-b .cmd{color:#a3aac4}
+.login form input{background:rgba(255,255,255,.05);border-color:rgba(52,211,153,.2)}.login form input:focus{border-color:#34d399;box-shadow:0 0 0 3px rgba(52,211,153,.22)}
+.grid-bg .btn.pri{background:linear-gradient(90deg,#059669,#34d399);border:0;color:#03140e;box-shadow:0 10px 30px rgba(16,185,129,.3)}
+.grid-bg .btn.pri:hover{background:linear-gradient(90deg,#047857,#10b981)}
+.login .demo-acc code{color:#6ee7b7}.login .demo-acc:hover{border-color:#34d399}
+.top{background:var(--ink9);border-bottom-color:rgba(52,211,153,.14)}
+.top nav a.on{background:rgba(52,211,153,.14);color:#d1fae5}.top nav a:hover{background:rgba(52,211,153,.08)}
+.foot{border-top-color:rgba(52,211,153,.14)}
+.dev{background:linear-gradient(#07120e,#07120e) padding-box,linear-gradient(120deg,#10b981,#34d399,#a3e635,#10b981) border-box}
+.dev-t small{color:#8fbfaa}
+.logo .logo-em{height:46px;width:46px}.logo.big .logo-em{height:84px;width:84px}
+@media(max-width:760px){.logo .logo-em{height:40px;width:40px}.logo.big .logo-em{height:64px;width:64px}}
+.dev .caret,.grid-bg .caret,.splash .caret{background:var(--em)}
