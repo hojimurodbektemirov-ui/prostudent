@@ -720,7 +720,7 @@ body.present .ex{font-size:20px}
 .cls-n{overflow-wrap:break-word;word-break:normal;hyphens:manual;min-width:0}
 .cls-top>.cls-n{flex:1 1 auto}
 .cls.togarak .cls-n{font-size:clamp(19px,1.9vw,26px);line-height:1.15}
-@media(max-width:1500px){.logo small,.sync,.chip.st{display:none}.top nav a{padding:8px 10px;font-size:15px}.top{gap:12px}}
+@media(max-width:1500px){.top .logo small .lf,.sync,.chip.st{display:none}.top nav a{padding:8px 10px;font-size:15px}.top{gap:12px}}
 .theory li.sub-li{margin-left:22px;list-style:circle}
 
 /* ===== v4: Viktorina (jonli o'yin) ===== */
@@ -1043,3 +1043,11 @@ body.public #top{display:none}
 /* Menyu bir qatorda qolsin: joy yetmasa menyu o'zi suriladi, XP va ism pastga tushmaydi */
 @media(min-width:761px){.top{flex-wrap:nowrap}.top nav{min-width:0;flex:1 1 0}.top .logo,.top .chips{flex:none}}
 @media(min-width:761px) and (max-width:1360px){.top nav{gap:2px}.top nav a{padding:8px 9px;font-size:14px}.top{gap:10px}}
+/* v9: ZIS logosi (C varianti) va "ZIS IT Department" */
+.logo .logo-em{height:46px;width:auto;flex:0 0 auto}
+.logo small{margin-top:4px}
+.logo.big{gap:18px;font-size:30px}.logo.big .logo-em{height:88px}.logo.big small{font-size:13px;margin-top:6px}
+.flogo{margin:0}.flogo img{display:block;height:46px;width:auto}
+.dev{cursor:default}.dev-em{background:#123a32}.dev-em img{height:26px;width:auto}
+@media(max-width:760px){.logo .logo-em{height:40px}.logo.big .logo-em{height:56px}.logo.big{font-size:20px}.flogo img{height:38px}}
+.dev:hover,.dev:hover .dev-i{transform:none}
