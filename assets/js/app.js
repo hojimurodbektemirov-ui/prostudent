@@ -2,9 +2,9 @@
 (function () {
   const st = KM.store, S = () => st.s, e = KM.esc, app = document.getElementById('app');
   const $ = (s, r) => (r || document).querySelector(s), $$ = (s, r) => [...(r || document).querySelectorAll(s)];
-  const G = () => KM.grades, T = () => KM.tracks, GA = () => KM.grades.concat(KM.tracks);
+  const G = () => KM.grades, T = () => KM.tracks.filter(t => !t.sec), GA = () => KM.grades.concat(KM.tracks);
   /* Sinf yoki kurs: nomi va sahifasi */
-  const gName = g => g.kurs ? g.t : g.n + '-sinf', gHref = g => (g.kurs ? '#kurs-' : '#sinf-') + g.n;
+  const gName = g => g.kurs ? g.t : g.n + '-sinf', gHref = g => g.sec ? '#' + g.sec : (g.kurs ? '#kurs-' : '#sinf-') + g.n;
   let cleanup = [];
   KM.session = null;
   KM.onLeave = f => cleanup.push(f);
@@ -15,8 +15,8 @@
   const gradeProg = g => { const n = g.lessons.length, d = lessonsOf(g).filter(x => isDone(x.id)).length; return { n, d, p: n ? d / n : 0 }; };
   const gradeDone = n => { const g = G().find(g => g.n === n); return !!g && gradeProg(g).d === g.lessons.length; };
   const unlocked = (g, i) => g.free || !S().lock || i === 1 || isDone(g.n + '-' + (i - 1));
-  const total = () => GA().reduce((a, g) => a + g.lessons.length, 0);
-  const doneCount = () => Object.keys(S().done).filter(id => KM.lesson(id)).length;
+  const total = () => G().concat(T()).reduce((a, g) => a + g.lessons.length, 0);
+  const doneCount = () => Object.keys(S().done).filter(id => { const L = KM.lesson(id); return L && !L.g.sec; }).length;
   const me = () => KM.session && KM.session.user;
   const isAdmin = () => !!me() && (me().role === 'admin' || me().role === 'teacher');
   KM.isStaff = () => isAdmin(); KM.isOwner = () => !!me() && me().role === 'admin';
@@ -29,7 +29,7 @@
   const codeStart = () => { const gs = groups().filter(g => (g.courses || []).includes('dasturlash')); return gs.length ? Math.min(...gs.map(g => g.grade)) : 1; };
   function nextLesson() {
     const L0 = S().last && KM.lesson(S().last);
-    if (L0 && L0.g.kurs) { const x = lessonsOf(L0.g).find(x => !isDone(x.id)); if (x) return x; }
+    if (L0 && L0.g.kurs && !L0.g.sec) { const x = lessonsOf(L0.g).find(x => !isDone(x.id)); if (x) return x; }
     const lg = L0 && !L0.g.kurs ? L0.g.n : codeStart();
     const order = [...G().filter(g => g.n >= lg), ...G().filter(g => g.n < lg)];
     for (const g of order) for (const x of lessonsOf(g)) if (!isDone(x.id)) return x;
@@ -37,6 +37,7 @@
   }
   function nextHref(L) {
     if (L.i < L.g.lessons.length) return '#dars-' + L.g.n + '-' + (L.i + 1);
+    if (L.g.sec) return '#' + L.g.sec;
     if (L.g.kurs) { const ti = T().indexOf(L.g); return T()[ti + 1] ? '#kurs-' + T()[ti + 1].n : '#dasturlash'; }
     const gi = G().indexOf(L.g);
     if (G()[gi + 1]) return '#sinf-' + G()[gi + 1].n;
@@ -81,8 +82,8 @@
     const top = $('#top'), u = me();
     top.hidden = !u; if (!u) return;
     const nav = KM.isStaff()
-      ? [['admin', 'Admin panel'], ['informatika', 'Informatika'], ['dasturlash', 'Dasturlash'], ['admin-topshiriqlar', 'Topshiriqlar'], ['viktorina', 'Viktorina'], ['materiallar', 'Materiallar']]
-      : [['bosh', 'Bosh sahifa'], hasCourse('informatika') && ['informatika', 'Informatika'], hasCourse('dasturlash') && ['dasturlash', 'Dasturlash'], ['topshiriqlar', 'Topshiriqlar'], ['viktorina', 'Viktorina'], ['materiallar', 'Materiallar']].filter(Boolean);
+      ? [['admin', 'Admin panel'], ['informatika', 'Informatika'], ['dasturlash', 'Dasturlash'], ['ai', 'AI'], ['admin-topshiriqlar', 'Topshiriqlar'], ['viktorina', 'Viktorina'], ['materiallar', 'Materiallar']]
+      : [['bosh', 'Bosh sahifa'], hasCourse('informatika') && ['informatika', 'Informatika'], hasCourse('dasturlash') && ['dasturlash', 'Dasturlash'], KM.tracks.some(t => t.sec === 'ai') && ['ai', 'AI'], ['topshiriqlar', 'Topshiriqlar'], ['viktorina', 'Viktorina'], ['materiallar', 'Materiallar']].filter(Boolean);
     $('#nav').innerHTML = nav.map(n => '<a href="#' + n[0] + '" data-r="' + n[0] + '">' + n[1] + '</a>').join('');
     $('#xp').hidden = $('#streak').hidden = KM.isStaff();
     $('#xp').textContent = TXP() + ' XP';
@@ -190,11 +191,11 @@
   /* ---------- Sinf sahifasi ---------- */
   function grade(n) {
     const g = GA().find(g => g.n === n); if (!g) return notFound();
-    const L = g.kurs ? T() : G(), p = gradeProg(g), gi = L.indexOf(g), pg = L[gi - 1], ng = L[gi + 1];
-    app.innerHTML = '<section class="ghead grid-bg st-' + g.stage + '"><div class="wrap ghead-in"><div><a class="back" href="#dasturlash">← Dasturlash</a><h1>' + (g.kurs ? e(g.t) + ' kursi' : g.n + '-sinf: ' + e(g.t)) + '</h1><p class="lead">' + e(g.d) + '</p></div><div class="gring">' + ring(p.p, 88) + '<span><b>' + p.d + ' / ' + p.n + '</b>dars tugatildi</span></div></div></section>' +
-      '<section class="band"><div class="wrap narrow"><ol class="path">' + lessonsOf(g).map(x => {
+    const L = g.sec ? [] : g.kurs ? T() : G(), p = gradeProg(g), gi = L.indexOf(g), pg = L[gi - 1], ng = L[gi + 1];
+    app.innerHTML = '<section class="ghead grid-bg st-' + g.stage + (g.sec ? ' sec-' + g.sec : '') + '"><div class="wrap ghead-in"><div>' + (g.sec ? '<p class="pill-tag"><i></i>' + e(g.tag || '') + '</p>' : '<a class="back" href="#dasturlash">← Dasturlash</a>') + '<h1>' + (g.sec ? e(g.t) : g.kurs ? e(g.t) + ' kursi' : g.n + '-sinf: ' + e(g.t)) + '</h1><p class="lead">' + e(g.d) + '</p></div><div class="gring">' + ring(p.p, 88) + '<span><b>' + p.d + ' / ' + p.n + '</b>dars tugatildi</span></div></div></section>' +
+      (g.intro ? g.intro() : '') + '<section class="band"><div class="wrap narrow">' + (g.sec ? '<h2 class="sub0">Darslar</h2>' : '') + '<ol class="path">' + lessonsOf(g).map(x => {
         const d = isDone(x.id), u = unlocked(g, x.i), q = S().quiz[x.id];
-        const meta = x.l.min + ' daqiqa · ' + (x.l.prac.type === 'robot' ? "Robot o'yini" : x.l.demo ? 'Loyiha' : 'Kod yozish') + (q != null ? ' · Test: ' + q + '/' + x.l.quiz.length : '') + (d && S().done[x.id].stars ? ' · ' + '★'.repeat(S().done[x.id].stars) : '');
+        const meta = x.l.min + ' daqiqa · ' + (x.l.prac.type === 'robot' ? "Robot o'yini" : x.l.prac.type === 'lab' ? 'Interaktiv mashq' : x.l.demo ? 'Loyiha' : 'Kod yozish') + (q != null ? ' · Test: ' + q + '/' + x.l.quiz.length : '') + (d && S().done[x.id].stars ? ' · ' + '★'.repeat(S().done[x.id].stars) : '');
         return '<li class="ls ' + (d ? 'done' : u ? 'open' : 'lock') + '"><span class="ls-dot">' + (d ? '✓' : u ? x.i : ICON.lock) + '</span><div class="ls-b"><h3>' + e(x.l.t) + '</h3><p>' + meta + '</p></div>' + (u ? '<a class="btn' + (d ? '' : ' pri') + '" href="#dars-' + x.id + '">' + (d ? 'Takrorlash' : 'Boshlash') + '</a>' : '<span class="ls-lk">Avvalgi darsni tugating</span>') + '</li>';
       }).join('') + '</ol>' +
       (p.d === p.n && !isAdmin() ? '<div class="cert-cta"><div><h3>Tabriklaymiz! ' + e(g.kurs ? g.t : g.n + '-sinf') + ' kursi tugadi.</h3><p>Sertifikatni chop etish yoki PDF qilib saqlash mumkin.</p></div><a class="btn pri" href="#sertifikat-' + g.n + '">Sertifikatni ochish</a></div>' : '') +
@@ -251,12 +252,24 @@
     });
     cleanup.push(() => r.stop());
   }
+  /* Interaktiv mashq (AI bo'limi): mashq o'zi tekshiradi va bajarilganda done() ni chaqiradi */
+  function labPrac(v, L) {
+    const { l, id } = L;
+    v.innerHTML = '<div class="band"><div class="wrap narrow"><div class="rtask"><h2>Mashq</h2><p>' + l.prac.task + '</p></div><div class="lab" id="lab"></div><div id="donebox" class="donebox"></div></div></div>';
+    const r = l.prac.lab($('#lab', v), () => {
+      const first = !isDone(id), xp = first ? 20 : 0;
+      if (first) { S().done[id] = { at: Date.now() }; st.addXP(xp); }
+      win($('#donebox', v), L, xp); chips(); markSteps(id);
+    }, { e, mix: a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; } });
+    if (r && r.stop) cleanup.push(r.stop);
+  }
   function win(box, L, xp) {
-    box.innerHTML = '<div class="win" role="status"><div><b>Dars tugadi!</b>' + (xp ? '<span class="xpb">+' + xp + ' XP</span>' : '') + '</div><a class="btn pri" href="' + nextHref(L) + '">Keyingi dars →</a></div>';
+    box.innerHTML = '<div class="win" role="status"><div><b>Dars tugadi!</b>' + (xp ? '<span class="xpb">+' + xp + ' XP</span>' : '') + '</div><a class="btn pri" href="' + nextHref(L) + '">' + (L.i < L.g.lessons.length ? 'Keyingi dars →' : 'Bo\'limga qaytish') + '</a></div>';
   }
   function practice(v, L) {
     const { l, id } = L, p = l.prac;
     if (p.type === 'robot') return robotPrac(v, L);
+    if (p.type === 'lab') return labPrac(v, L);
     document.body.classList.add('full');
     const code = Object.assign({ html: p.html || '', css: p.css || '', js: p.js || '' }, S().code[id] || {});
     const tabs = p.tabs || ['html', 'css', 'js']; let tab = p.open || tabs[0];
@@ -524,7 +537,7 @@
     const p = gradeProg(g), cn = g.kurs ? '«' + g.t + '» kursi' : g.n + '-sinf dasturlash kursi «' + g.t + '»';
     if (p.d < p.n) { app.innerHTML = '<section class="band"><div class="wrap narrow empty"><h1>Sertifikat hali tayyor emas</h1><p>' + e(gName(g)) + ': hamma darslarni tugating, hozir ' + p.d + ' / ' + p.n + '.</p><a class="btn pri" href="' + gHref(g) + '">Darslarga qaytish</a></div></section>'; return; }
     const last = Math.max(...lessonsOf(g).map(x => S().done[x.id].at || 0)), d = new Date(last || Date.now());
-    app.innerHTML = '<section class="band"><div class="wrap"><div class="cert st-' + g.stage + '"><div class="cert-in"><p class="cert-k">' + e(KM.config.schoolName || 'ZIS ProStudent') + ' · Dasturlash to\'garagi</p><h1>Sertifikat</h1><p>Ushbu sertifikat</p><p class="cert-n">' + e(me().full_name) + '</p><p>ga <b>' + e(cn) + '</b> ni muvaffaqiyatli tamomlagani uchun beriladi.</p><div class="cert-f"><div><b>' + g.lessons.length + ' dars</b><span>nazariya, test, amaliyot</span></div><div><b>' + d.toLocaleDateString('uz-UZ') + '</b><span>sana</span></div><div><b class="sig"></b><span>To\'garak rahbari</span></div></div><div class="cert-v" id="cv"></div></div></div>' +
+    app.innerHTML = '<section class="band"><div class="wrap"><div class="cert st-' + g.stage + '"><div class="cert-in"><p class="cert-k">' + e(KM.config.schoolName || 'ZIS ProStudent') + ' · ' + (g.sec ? e(g.t) : 'Dasturlash to\'garagi') + '</p><h1>Sertifikat</h1><p>Ushbu sertifikat</p><p class="cert-n">' + e(me().full_name) + '</p><p>ga <b>' + e(cn) + '</b> ni muvaffaqiyatli tamomlagani uchun beriladi.</p><div class="cert-f"><div><b>' + g.lessons.length + ' dars</b><span>nazariya, test, amaliyot</span></div><div><b>' + d.toLocaleDateString('uz-UZ') + '</b><span>sana</span></div><div><b class="sig"></b><span>To\'garak rahbari</span></div></div><div class="cert-v" id="cv"></div></div></div>' +
       '<div class="acts noprint"><button class="btn pri" id="pr">Chop etish yoki PDF</button><a class="btn" href="' + gHref(g) + '">Orqaga</a></div></div></section>';
     $('#pr').onclick = () => { try { window.print(); } catch (err) {} };
     if (!isAdmin()) KM.api.certIssue('kod-' + n, cn, g.lessons.length).then(c => {
@@ -554,7 +567,8 @@
     else if (p[0] === 'dasturlash') { nav = 'dasturlash'; codingHome(); }
     else if (p[0] === 'sinf') { nav = 'dasturlash'; grade(+p[1]); }
     else if (p[0] === 'kurs') { nav = 'dasturlash'; grade(p[1]); }
-    else if (p[0] === 'dars') { nav = 'dasturlash'; lesson(p[1] + '-' + p[2], p[3] || ''); }
+    else if (p[0] === 'ai') { nav = 'ai'; grade('ai'); }
+    else if (p[0] === 'dars') { const L = KM.lesson(p[1] + '-' + p[2]); nav = L && L.g.sec ? L.g.sec : 'dasturlash'; lesson(p[1] + '-' + p[2], p[3] || ''); }
     else if (p[0] === 'informatika') { nav = 'informatika'; infIndex(); }
     else if (p[0] === 'inf') { nav = 'informatika'; infGradePage(+p[1]); }
     else if (p[0] === 'infdars') { nav = 'informatika'; infLessonPage(p[1] + '-' + p[2]); }
