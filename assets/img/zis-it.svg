@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <title>ZIS IT Department</title>
+  <defs>
+    <linearGradient id="zisItBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1b2f6b"/>
+      <stop offset="1" stop-color="#0a1a3f"/>
+    </linearGradient>
+  </defs>
+  <path d="M60 6 106 32V88L60 114 14 88V32Z" fill="url(#zisItBg)" stroke="#2f6bff" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M44 44 28 60l16 16M76 44l16 16-16 16" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M66 38 54 82" stroke="#2fb84a" stroke-width="8" stroke-linecap="round"/>
+</svg>

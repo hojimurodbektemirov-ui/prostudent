@@ -1051,3 +1051,4 @@ body.public #top{display:none}
 .dev{cursor:default}.dev-em{background:#123a32}.dev-em img{height:26px;width:auto}
 @media(max-width:760px){.logo .logo-em{height:40px}.logo.big .logo-em{height:56px}.logo.big{font-size:20px}.flogo img{height:38px}}
 .dev:hover,.dev:hover .dev-i{transform:none}
+.dev-it{background:none;width:42px;height:42px}.dev-it img{display:block;width:42px;height:42px}
